@@ -1,0 +1,702 @@
+   700→       {label:'كتاب ادارة الاعمال ', url:'https://drive.google.com/open?id=1VzeqAKuSnZPExsBq-y-ZGD1eSyPCS0Fn&usp=drivesdk'}],
+   701→ models:[
+   702→        {label:'��تعديل_نموذج_بشير_اداره_اعمال_3_وعد_�_1', url:'https://drive.google.com/open?id=1z2Kmtln0tfzOFr0zq0LTUMf1PQPxEFks&usp=drivesdk'},
+   703→        {label:'تجميع مقالي مبادئ اداره الاعمال', url:'https://drive.google.com/open?id=1wgpKAMrmOZqUxPSWFjrjxDQHOtDROHgq&usp=drivesdk'},
+   704→        {label:'مقالي_ادارة_الأعمال[1]', url:'https://drive.google.com/open?id=1tbb77cHqgz9fY3eVVahFfcS5_iJTMqdt&usp=drivesdk'}],
+   705→ summaries:[
+   706→           {label:'مقالي_ادارة_الأعمال[1]', url:'https://drive.google.com/open?id=1_4gR-jmB27syW-2DnmVYCfIIhEjunYpb&usp=drivesdk'}],
+   707→ Telegram:[
+   708→          {label:'قناة مبادئ ادارة الاعمال 2023', url:'https://t.me/+yR1JvqJy_9AxZmRk'},],
+   709→ news:[
+   710→       {label:'📘 مادة: مبادئ إدارة الأعمال'},
+   711→{label:'📎 نوع المادة: نظرية بالكامل'},
+   712→{label:'🧠 نمط الاختبار النهائي:'},
+   713→{label:'3 أسئلة مقالية → تحل 2 فقط (عليها 30 درجة)'},
+   714→{label:'الـ70 درجة المتبقية موزعة بين:'},
+   715→{label:'اختيار من متعدد'},
+   716→{label:'صح وخطأ'},
+   717→{label:'اختيار وحيد'},
+   718→{label:'📚 مصادر المذاكرة:'},
+   719→{label:'الملخص أو الكتاب: لفهم الأساسيات.'},
+   720→{label:'النماذج: مهمة جدًا لأن كثير من الأسئلة تتكرر منها.'},
+   721→{label:'محاضرات الدكتورة: لتثبيت المعلومات وفهم طريقة الطرح.'},
+   722→{label:'🟠 المحذوف من الكتاب: الكتاب كاملاً عدا علاقة الإدارة بالعلوم الأخرى من ص 43-46، الموازنات من ص 145-148، تجميع الأعمال (الأنشطة) المتشابهة في وحدات إدارية من ص 171-180 المطلوب فقط نبذة عن أنواع التقسيمات دون التطرق إلى مزايا وعيوب تلك التقسيمات.'},
+   723→{label:'✅ تنويه: الاختبار يحتاج فهم وحفظ جيد + لذلك يُفضل الجمع بين الملخص أو الكتاب والنماذج.'}]},
+   724→   
+   725→
+   726→ {id:'eco_micro', title:'مبادئ الاقتصاد الجزئي(3 ساعات)', 
+   727→videos:[
+   728→        {label:'قناة صادق', url:'https://www.youtube.com/playlist?list=PL8436LuIZoAqWmdpm94zjmiZvj1n0X4e3'},
+   729→        {label:'شرح الملخص', url:'https://www.youtube.com/playlist?list=PLzLmjaQB3jxYMwmTHTwGmBeXf0o_H-9kr'},
+   730→ {label:'المحاضرة 1 (2023)', url:'https://youtu.be/ObGlMMxgKpE'},
+   731→{label:'المحاضرة 2 (2023)', url:'https://youtu.be/9PnJEiZMZRQ'},
+   732→{label:'المحاضرة 3 (2023)', url:'https://youtu.be/Ip2rDvpI5C4'},
+   733→{label:'المحاضرة 4 (2023)', url:'https://youtu.be/wVEDX6yMyAY'}]
+   734→, books:[
+   735→        {label:'كتاب مبادئ الاقتصاد الجزئي ', url:'https://drive.google.com/open?id=1oaV2BmNBMRTX0aaf9nOfMvOIRU78M7NH&usp=drivesdk'}]
+   736→, models:[
+   737→        {label:'رسم إقتصاد جزئي (سمية مرزوق) 🕊', url:'https://drive.google.com/open?id=1BXqLT6B96kaxy3IUTgP3yaxCAT5paLCh&usp=drivesdk'},
+   738→        {label:'معدل مسائل اقتصاد جزئي ليلى', url:'https://drive.google.com/open?id=1FtRsf1TtZGCxM7qgXsvkEDqCM1WpGjru&usp=drivesdk'},
+   739→        {label:'نماذج محلولة إقتصاد جزئي', url:'https://drive.google.com/open?id=1eLttWBFS2v-rNURTa1hNb_lGSMMkYZdU&usp=drivesdk'},
+   740→        {label:'معدل_الاقتصاد_الجزئي_نُهى_دحان', url:'https://drive.google.com/open?id=1dpUTZB4DyYcQUt3VJKbuKrLMHnqzrR9q&usp=drivesdk'}]
+   741→, summaries:[
+   742→            {label:'ملف_مدمج_لملخص_الاقتصاد_الجزئي_pdf_1', url:'https://drive.google.com/open?id=19AEmBAy_QvTxP5gaHCSfLrPdMELCvz9j&usp=drivesdk'}]
+   743→, Telegram:[
+   744→            {label:'قناة ريم', url:'https://t.me/reem_53494'},
+   745→            {label:'قناة ولد انعم', url:'https://t.me/binanam2003'},
+   746→            {label:'هذي القناة فيها تجميعات الجديدة', url:'https://t.me/aiqtisad2025'},
+   747→            {label:'قناة ندى خاصة بالبنات – الرابط يُرسل بعد التواصل مع المشرفات', url:null},]
+   748→, news:[
+   749→       {label:'🟠 نوع المادة:'},
+   750→{label:'مقالية.'},
+   751→{label:'🟠 نمط الاختبار النهائي:'},
+   752→{label:'الاختبار يتكوّن من قسمين، ومجموع الدرجات 100 درجة:'},
+   753→{label:'أولًا: الأسئلة المقالية (70 درجة)'},
+   754→{label:'تتكون من 4 أسئلة (نظري وحسابي).'},
+   755→{label:'الأسئلة الحسابية: سؤالان، كل سؤال عليه 23 درجة (المجموع 46 درجة).'},
+   756→{label:'الأسئلة النظرية: سؤالان، كل سؤال عليه 12 درجة (المجموع 24 درجة).'},
+   757→{label:'ثانيًا: الأسئلة الموضوعية (30 درجة)'},
+   758→{label:'10 درجات صح وخطأ.'},
+   759→{label:'10 درجات اختيار وحيد.'},
+   760→{label:'10 درجات اختيار متعدد.'},
+   761→{label:'🟠 طريقة المذاكرة:'},
+   762→{label:'بالعكس، أول ما تبدأ فيها تزين لك، بس لازم ترتيب:'},
+   763→{label:'1️⃣ ابدأ بملخص المادة وافهمه جيدًا.'},
+   764→{label:'2️⃣ بعدها نموذج نهى مع شرح ندى خاص بالبنات .'},
+   765→{label:'3️⃣ ثم شرح صادق مع ملف الرسم.'},
+   766→{label:'4️⃣ بعد ذلك الجزء الحسابي مع أي شرح يناسبك.'},
+   767→{label:'5️⃣ وأخيرًا الـ3 أوراق.'},
+   768→{label:'بهذه الطريقة، ما راح تأخذ معك المادة أكثر من أسبوع — عن تجربة.'},
+   769→{label:'🟠 المحذوف من الكتاب:'},
+   770→{label:'الكتاب كامل مقرر علينا بدون أي حذف.'}]},
+   771→
+   772→    {id:'eco_macro', title:'مبادئ الاقتصاد الكلي(3 ساعات)', 
+   773→videos:[
+   774→        {label:'المحاضرة 1⃣', url:'https://youtu.be/mTpKbTrb8Q0'},
+   775→        {label:'المحاضرة 2⃣', url:'https://youtu.be/MBEdm3-l5zg'},
+   776→        {label:'المحاضرة 3⃣', url:'https://youtu.be/Z87RjhCBRp0'},
+   777→        {label:'المحاضرة 4⃣', url:'https://youtu.be/NAJ4i8svQC8'},
+   778→{label:'المحاضرة 1 (2023)', url:'https://youtu.be/TZCgs7ol_Ek'},
+   779→{label:'المحاضرة 2 (2023)', url:'https://youtu.be/1QZRFWghaho'},
+   780→{label:'المحاضرة 3 (2023)', url:'https://youtu.be/vklFlid5F2s'}]
+   781→, books:[
+   782→        {label:'كتاب مبادئ الاقتصاد الكلي ', url:'https://drive.google.com/open?id=1Z7zWxlXGrIxwd3jVh66ZUPZjY8WgFRsn&usp=drivesdk'} ]
+   783→, models:[
+   784→         {label:'��قوانين_مع_مسائل_اقتصاد_كلي_شامل_230524_140901� ', url:'https://drive.google.com/open?id=1mF9hCAFwug6TmoW1D0wjZuiwnIAfN98Y&usp=drivesdk'},
+   785→         {label:'نموذج النظري الاقتصاد الكليpdf0 ', url:'https://drive.google.com/open?id=1qGtcrCLvVlWJv2wkc9qo6JrSkeSS322p&usp=drivesdk'},
+   786→         {label:'نموذج النظري الاقتصاد الكلي ^Nاختبر نفسك', url:'https://drive.google.com/open?id=1Hwu-NBroWyyUu5ikNH0aUcoRywhxu0QC&usp=drivesdk'},
+   787→            {label:'اختبار تفاعلي لمادة الاقتصاد الكلي', url:'https://macro-quiz.netlify.app/'}]
+   788→, summaries:[
+   789→         {label:'حسابي الاقتصاد الكلي1.', url:'https://drive.google.com/open?id=1A8IKVxdtbjst9fHsiZRu_mx-aNk3tmAL&usp=drivesdk'},
+   790→         {label:'مقالي كلي ', url:'https://drive.google.com/open?id=1oLIOJBAlOVPJC83y4Y5-3Y6m5zzUXYK8&usp=drivesdk'},
+   791→         {label:'📊 ملخص مبادئ الاقتصاد الكلي', url:'https://summary-of-macroeconomic-principles1.netlify.app/'}]
+   792→, Telegram:[
+   793→            {label:'شرح الاقتصاد الكلي 🤍.', url:'https://t.me/rymy2023'},
+   794→            {label:'اقتصاد كلي', url:'https://t.me/+ueUPiEBnDA5iZDM0'}]
+   795→, news:[
+   796→        {label:'🟠 نوع المادة:'},
+   797→{label:'مقالية.'},
+   798→{label:'🟠 نمط الاختبار النهائي:'},
+   799→{label:'الاختبار يتكوّن من قسمين، ومجموع الدرجات 100 درجة:'},
+   800→{label:'أولًا: الأسئلة المقالية (70 درجة)'},
+   801→{label:'تتكون من 4 أسئلة (نظري وحسابي).'},
+   802→{label:'الأسئلة الحسابية: سؤالان، كل سؤال عليه 23 درجة (المجموع 46 درجة).'},
+   803→{label:'الأسئلة النظرية: سؤالان، كل سؤال عليه 12 درجة (المجموع 24 درجة).'},
+   804→{label:'ثانيًا: الأسئلة الموضوعية (30 درجة)'},
+   805→{label:'10 درجات صح وخطأ.'},
+   806→{label:'10 درجات اختيار وحيد.'},
+   807→{label:'10 درجات اختيار متعدد.'},
+   808→{label:'🟠 طريقة المذاكرة:'},
+   809→{label:'1. ابدأ بمشاهدة محاضرات الدكتور الأربعة فقط، فهي تشرح القوانين وطريقة الحل وتختصر الكثير من محتوى الكتاب.'},
+   810→{label:'2. بعد ذلك، انتقل إلى النماذج للممارسة والتطبيق العملي.'},
+   811→{label:'3. إذا رغبت في تثبيت فهمك أكثر، يمكنك الاطلاع على قنوات التليجرام بعد الانتهاء من المحاضرات، فهي تعتبر مراجعة ممتازة.'},
+   812→{label:'⚠️ ملاحظة: لا تبدأ بقنوات التليجرام قبل مشاهدة المحاضرات، حتى لا يحدث خلط أو تشويش في المعلومات.'},
+   813→{label:'🟠 المحذوف من الكتاب:'},
+   814→{label:'الكتاب كامل مقرر علينا بدون أي حذف.'}]},
+   815→
+   816→    {id:'law', title:'القانون التجاري(3 ساعات)',
+   817→ videos:[
+   818→         {label:'قائمة المحاضرات 1⃣', url:'https://youtube.com/playlist?list=PLzLmjaQB3jxZYXtIB4AEjlVINQiot9J14&si=YJqxEGEF6ali4MIO'},
+   819→         {label:'قائمة المحاضرات 2⃣', url:'https://www.youtube.com/watch?v=ofZaOxXqong&list=PLoURjA1UEuTwoLFDEjjc08NHbv7Q5DghC'},
+   820→{label:'المحاضرة 1 (2023)', url:'https://youtu.be/StXq75eYk_0'},
+   821→{label:'المحاضرة 2 (2023)', url:'https://youtu.be/Zl71UYkDHM8'},
+   822→{label:'المحاضرة 3 (2023)', url:'https://youtu.be/dXpXoXBkSLs'},
+   823→{label:'المحاضرة 4 (2023)', url:'https://youtu.be/h9IF0m71R4Y'},
+   824→{label:'المحاضرة 5 (2023)', url:'https://youtu.be/ySNHyD_GIMo'}
+   825→        ]
+   826→, books:[
+   827→         {label:'كتاب القانون التجاري ', url:'https://drive.google.com/open?id=1540gJvM1WrcIx7Nt_bJ5aVZf7bueYbp&usp=drivesdk'}]
+   828→, models:[
+   829→         {label:'اختبرنفسك_قانون تجاري_محمد الحاشدي 2025 ', url:'https://drive.google.com/open?id=1Ie3R341Ysk5KUQmRJTQNnmDI98ZJsdjB&usp=drivesdk'},
+   830→         {label:'شامل_قانون تجاري_محمدالحاشدي 2025', url:'https://drive.google.com/open?id=1uqmAwdYqJdXyBQ13xCsrwAAHf0jrlBek&usp=drivesdk'}]
+   831→, summaries:[
+   832→             {label:'ملخص القانون التجاري ', url:'https://drive.google.com/open?id=1QH8QcH9elvlTLDnNKFhhA3SpZSfKkiBN&usp=drivesdk'},
+   833→             {label:'AI - مقالي قانون تجاري_محمدالحاشدي ', url:'https://drive.google.com/open?id=1lrHxes_qvYnZzeCTnHSBYdRh3lLfXkIs&usp=drivesdk'}]
+   834→, Telegram:[
+   835→           {label:'تجميعات قانون تجاري.', url:'https://t.me/+LuHJkIJV5CJiNTRk'}]
+   836→, news:[
+   837→        {label:'مادة: القانون التجاري'},
+   838→{label:'🔸 نوع المادة:'},
+   839→{label:'نظرية بالكامل.'},
+   840→{label:'📝 نظام الاختبار:'},
+   841→{label:'•       الأسئلة المقالية:'},
+   842→{label:'3 أسئلة → تحل 2 فقط (تحذف واحد)'},
+   843→{label:'→ الدرجة: 30 درجة'},
+   844→{label:'•       الأسئلة الموضوعية (اختيارات):'},
+   845→{label:'تشمل:'},
+   846→{label:'✔️ صح وخطأ'},
+   847→{label:'✔️ اختيار من متعدد'},
+   848→{label:'✔️ أسئلة وحيدة الإجابة'},
+   849→{label:'→ الدرجة: 70 درجة'},
+   850→{label:'نصيحة في مذاكرة المادة :'},
+   851→{label:'المادة تحتاج وقت لان معلوماتها كثيره وتحتاج تركيز 👍'},
+   852→{label:'📝 طريقة المذاكرة المقترحة:'},
+   853→{label:'1.      ابدأ بالكتاب كامل:  من أكذب مايقال 😂 الكتاب متشعب ودسم 👇🏻'},
+   854→{label:'2.      انتقل للنماذج (المقالي ):'},
+   855→{label:'اولاً : اقرأه قراءه كاملا بفهم  ( في حال لم تقرأ الكتاب ) بحيث يكون عندك فكرة شامله على الماده وهذي الخطوه تفيد كثير في سرعه الحفظ بعدين ثانيا : ابدأ بمذاكرة المقالي حفظاً وفهماً ، كل من بطريقتة'},
+   856→{label:'معلومة دكتور الماده ما يهمه كتابة الاجابه نصا من الكتاب ، ممكن تكون بالفهم ولكن تكون صحيحه وبطريقه نموذجيه'},
+   857→{label:'3.      انتقل للنظري:'},
+   858→{label:'بتلاحظوا أنها جدا سهله بسبب ان المعلومات مكرره بسبب دراسة المقالي  ، وممكن تبدأو بالمتعدد ثم الصح والخطأ ثم الوحيد ( من الاصعب إلى الأسهل )'},
+   859→{label:'⏳ كم تحتاج؟'},
+   860→{label:'المادة تحتاج أسبوعين مذاكرة عشان تعطيها حقها وتكون مريحة لك.'},
+   861→{label:'✅ معلومة مهمة:'},
+   862→{label:'إذا ذاكرت بفهم وتنظيم، بتستمتع بالمادة'}]},
+   863→
+   864→    {id:'marketing', title:'مبادئ التسويق(3 ساعات)',
+   865→ videos:[
+   866→{label:'المحاضرة 1 (2023)', url:'https://youtu.be/MpMXsW1z5MM'},
+   867→{label:'المحاضرة 2 (2023)', url:'https://youtu.be/Z3HV6s8ajCI'},
+   868→{label:'المحاضرة 3 (2023)', url:'https://youtu.be/itoSMTcD5S8'},
+   869→{label:'المحاضرة 4 (2023)', url:'https://youtu.be/WPRMuUkA0To'}],
+   870→ books:[
+   871→        {label:'مبادئ التسويق ', url:'https://drive.google.com/open?id=1_X3tp78xpHcLuf5jY7VfSqbYic2t876C&usp=drivesdk'}],
+   872→ models:[
+   873→        {label:'مبادئ التسويق _ تسلسلي _ نسخة 3 (2) ', url:'https://drive.google.com/open?id=19n8lQSRralhdKwtNMwlazItPEkjQEokw&usp=drivesdk'},
+   874→        {label:'�الخطا في ملف مبادئ التسويق 1', url:'https://drive.google.com/open?id=1lzLFcVBALcUrPQ6P_8FEjoYDJstv83Vm&usp=drivesdk'},
+   875→        {label:'تجميع_مقالي_مبادئ_تسويق_2024_جيهان_وسماح', url:'https://drive.google.com/open?id=1MFZ8WfLfToXrx1vIRWKUnWGtalxINZG_&usp=drivesdk'}],
+   876→ summaries:[
+   877→         {label:'ملخص 1مبادئ التسويق ', url:'https://drive.google.com/open?id=10cW3jqTwCrXUditH69v0ZScETiI72c1O&usp=drivesdk'}],
+   878→ Telegram:[
+   879→          {label:'كل مايخص مادة مبادئ التسويق', url:'https://t.me/+aZalQFpnDl03ZDI0'}],
+   880→ news:[
+   881→       {label:'🟠 نوع المادة:'},
+   882→{label:'مقالية + نظرية.'},
+   883→{label:'🟠 نظام الاختبار مع تفصيل الدرجات:'},
+   884→{label:'70 درجة نظري (خيار وحيد، صح وخطأ، متعدد)'},
+   885→{label:'30 درجة مقالي (سؤالين كل سؤال 15 درجة).'},
+   886→{label:'🟠 طريقة المذاكرة المقترحة:'},
+   887→{label:'ذاكر من الكتاب أولاً، ثم راجع النماذج لأن الاختبار يأتي مثلها تقريباً، وقد يتغير سؤال أو سؤالين فقط.'},
+   888→{label:'الأسئلة المقالية تأتي من الكتاب.'},
+   889→{label:'الأسئلة الموضوعية تأتي من النماذج.'},
+   890→{label:'لذلك ذاكر الكتاب كاملاً للمقالي، وراجع النماذج جيداً للموضوعي.'},
+   891→{label:'🟠 كم تحتاج المادة للمذاكرة:'},
+   892→{label:'أسبوع كامل.'},
+   893→{label:'🟠 المحذوف في المادة:'},
+   894→{label:'لا يوجد.'}]},
+   895→
+   896→    {id:'stat', title:'إحصاء تطبيقي(3 ساعات)', 
+   897→videos:[
+   898→       {label:'قائمة المحاضرات 1⃣  صادق جزيلان', url:'https://www.youtube.com/playlist?list=PL8436LuIZoAro9rStaSYX6EdrqLPVJ4D8'},
+   899→         {label:'قائمة المحاضرات 2⃣ محاضرات الجامعة', url:'https://youtube.com/playlist?list=PLzLmjaQB3jxaG154iJ0rg7qvhGSQW55da'},
+   900→{label:'المحاضرة 1 (2023)', url:'https://youtu.be/AqSnvlLhcIY'},
+   901→{label:'المحاضرة 2 (2023)', url:'https://youtu.be/RBzkjeYahpU'},
+   902→{label:'المحاضرة 3 (2023)', url:'https://youtu.be/A8wLdCbM6Pc'},
+   903→{label:'المحاضرة 4 (2023)', url:'https://youtu.be/PSxywQiBQVo'},
+   904→{label:'المحاضرة 5 (2023)', url:'https://youtu.be/Ue5Qu_MzV3o'},
+   905→{label:'المحاضرة 6 (2023)', url:'https://youtu.be/guWxENE3Fc0'}],
+   906→ books:[
+   907→       {label:'الإحصاء التطبيقي (معدل) ', url:'https://drive.google.com/open?id=14QzfkfzXFVAyPg4cNWdkcvBOER8KOlI5&usp=drivesdk'}],
+   908→ models:[
+   909→         {label:'نموذج حلول نُهى دحان _معدل_2024 ', url:'https://drive.google.com/open?id=1O7dNQJP_zdKKxpK_dQhUzYsZZl67u8NW&usp=drivesdk'},
+   910→           {label:'اختبار الإحصاء التفاعلي نماذج.', url:'https://interactive-statistics-quiz.netlify.app/'}],
+   911→ summaries:[
+   912→            {label:'قولنين الإحصاء ', url:'https://drive.google.com/open?id=1mUH6B93Mmw_7DseQzyot6GSegiF_Bi3B&usp=drivesdk'},
+   913→            {label:'ملخص الاحصاء ( كامل )_240114_144937 ', url:'https://drive.google.com/open?id=1V6UjKNemsiB9BhMhyD96RIX9yB7qKuPe&usp=drivesdk'}],
+   914→ Telegram:[
+   915→           {label:'شرح تأسيسي لمادة الإحصاء / القسم الحسابي قناة أميرة.', url:'https://t.me/+taasg_HN8q5hZGE0'},
+   916→           {label:'▪️قناة التليجرام الأساسي للمادة :', url:'https://t.me/llkp09'},
+   917→           {label:'▪️قناه ريم ومايسة/ فهد.', url:'https://t.me/reem_53494'},
+   918→           {label:'▪️قناة ولد أنعم.', url:'https://t.me/binanam2003'}],
+   919→ news:[
+   920→       {label:'📘 كيفية صياغة طريقة المذاكرة'},
+   921→{label:'🟠 نوع المادة:'},
+   922→{label:'مادة حسابية ونظرية، تعتمد على النماذج والملخصات أكثر من الكتاب.'},
+   923→{label:'🟠 نظام الاختبار مع تفصيل الدرجات:'},
+   924→{label:'الاختبار مكوّن من قسمين:'},
+   925→{label:'● الأسئلة المقالية (الحسابي):'},
+   926→{label:'عدد الأسئلة: 5، يُحذف سؤال واحد وتحل 4 أسئلة.'},
+   927→{label:'درجة كل سؤال: 17 درجة.'},
+   928→{label:'المجموع الكلي: 68 درجة.'},
+   929→{label:'● الأسئلة النظرية (الموضوعية):'},
+   930→{label:'صح وخطأ: 16 درجة'},
+   931→{label:'اختيار وحيد: 10 درجات'},
+   932→{label:'اختيار متعدد: 6 درجات'},
+   933→{label:'المجموع الكلي: 32 درجة'},
+   934→{label:'الإجمالي العام: 100 درجة'},
+   935→{label:'🟠 طريقة المذاكرة المقترحة:'},
+   936→{label:'1. ترك الكتاب جانبًا، لأنه يحتوي على تفاصيل كثيرة قد تسبب تشويش.'},
+   937→{label:'الاعتماد يكون على النماذج والملخص فقط.'},
+   938→{label:'2. البدء بالنموذج الشامل، ويُقسم إلى قسمين: الحسابي أولًا، ثم النظري.'},
+   939→{label:'3. المذاكرة العملية: حل القسم الحسابي باستخدام أحد قنوات الشرح، مع التركيز على الفهم وتكرار الحل لتثبيت المعلومات.'},
+   940→{label:'4. الجانب النظري: يُنصح باستخدام قناة ندى على التليجرام للبنات، وقناة صادق على اليوتيوب للعيال.'},
+   941→{label:'📚 مصادر المذاكرة:'},
+   942→{label:'قنوات التليجرام: أميرة، ولد أنعم، ريم، ندى (خاصة للبنات).'},
+   943→{label:'قناة يوتيوب: صادق.'},
+   944→{label:'ينصح باستخدام قناة الأخت أميرة لأسلوبها الممتاز في الشرح.'},
+   945→{label:'🟠 مدة المذاكرة المقترحة:'},
+   946→{label:'يومين إلى ثلاثة أيام، في حال الالتزام بالنموذج والشروحات.'},
+   947→{label:'🟠 المحذوف في المادة:'},
+   948→{label:'الكتاب كامل غير مطلوب، والتركيز فقط على النماذج والملخص.'},
+   949→{label:'🟠 اسم دكتور المادة إن وجد:'},
+   950→{label:'(يُترك لتعبئته لاحقًا إن وُجد).'},
+   951→{label:'🟠 هل المادة تفتح لمادة أخرى:'},
+   952→{label:'لا، المادة مستقلة ولا تفتح لمادة أخرى.'},
+   953→{label:'📌 الخلاصة النهائية:'},
+   954→{label:'الاعتماد الأساسي على النماذج.'},
+   955→{label:'الملخص للمراجعة السريعة.'},
+   956→{label:'التكرار والمراجعة أهم من الحفظ.'},
+   957→{label:'المادة سهلة جدًا مع النماذج والشروحات، والاختبار بنفس طريقتها.'},
+   958→{label:'لا يُنصح بإضاعة الوقت على الكتاب، فهو ضخم وغير ضروري.'}]},
+   959→
+   960→    {id:'fin_man', title:'الإدارة المالية(3 ساعات)'
+   961→, videos:[
+   962→          {label:'قائمة المحاضرات 1⃣', url:'https://drive.google.com/drive/folders/1TlksTBaPWPq-9MrAcn7_46u0kT_7-psM?usp=drivesdk'},
+   963→         {label:'قائمة المحاضرات 2⃣', url:'https://youtube.com/playlist?list=PLoURjA1UEuTy4p0a979bqKpo3s2QG05uY'},
+   964→{label:'المحاضرة 1 (2023)', url:'https://youtu.be/Dy5oyq5Dntc'},
+   965→{label:'المحاضرة 2 (2023)', url:'https://youtu.be/1gFz0TUM6MY'},
+   966→{label:'المحاضرة 3 (2023)', url:'https://youtu.be/PAqExQu1R-E'}]
+   967→, books:[
+   968→         {label:'كتاب الإدارة المالية ', url:'https://drive.google.com/open?id=1bZDTAVt1O-WZJe8tNQYAJUCIY-ZXGkag&usp=drivesdk'}]
+   969→, models:[
+   970→        {label:'اختبر نفسك_اداره ماليه_نظري', url:'https://drive.google.com/open?id=1FhsE2xVROQU8bLnP8WYGUgdg0H5MQP5g&usp=drivesdk'},
+   971→        {label:'حسابي (إدارة ماليه)', url:'https://drive.google.com/open?id=1o5jTExPhiR405bu5zErGImftKe8_ahhO&usp=drivesdk'},
+   972→        {label:'تجميع_أسئلة_مادة_الإدارة_المالية_النظري_آخر_تعديل ', url:'https://drive.google.com/open?id=1nqGauxY0TqvX8xD9BvDHa5N1fr3OMnd8&usp=drivesdk'},
+   973→        {label:'قوانين_الإدارة_المالية_للنموذج_الشامل_سمية_الوجيه ', url:'https://drive.google.com/open?id=1PY5gHDU_I6Gs3iqJa6KMlW80KeGQTqqe&usp=drivesdk'}]
+   974→, summaries:[]
+   975→, Telegram:[
+   976→           {label:'شرح مسائل الادارة المالية.', url:'https://t.me/+QLI85Gvkfa41MTk8'},
+   977→           {label:'النماذج تليجرام👈', url:'https://t.me/+NpV8lzrtaWYzMWE0'},
+   978→           {label:'نماذج تليجرام كمان.', url:'https://t.me/+NfwzZHdrrHI5ZDM8'},
+   979→           {label:'قناة الشرح حق ريم.', url:'https://t.me/re2001em'}]
+   980→, news:[
+   981→       {label:'🟠 ملاحظات عامة عن المادة:'},
+   982→{label:'المادة تُعد من أسهل المواد الحسابية.'},
+   983→{label:'تحتوي على عدد كبير من القوانين، لكنها سهلة ومفهومة ومتكررة.'},
+   984→{label:'الاختبار حتى الآن كان موضوعيًا فقط، بدون أسئلة مقالية، لكن من المحتمل أن يتحول إلى مقالي في الفترات القادمة.'},
+   985→{label:'🟠 محتويات المادة:'},
+   986→{label:'كتاب دراسي'},
+   987→{label:'ملف نماذج نظري'},
+   988→{label:'ملف نماذج حسابي'},
+   989→{label:'ملف قوانين'},
+   990→{label:'شروحات متوفرة على التليجرام، وروابطها موجودة في وصف القروب'},
+   991→{label:'ريم: شرحت المادة حسب ترتيب الوحدات وقدمت شرحًا لأفكار المسائل الحسابية'},
+   992→{label:'ولد أنعم: شرح النماذج الحسابية بالكامل وبالتفصيل'},
+   993→{label:'🟠 آلية الدراسة:'},
+   994→{label:'قراءة الكتاب لفهم محتوى المادة وتسهيل التعامل مع النماذج.'},
+   995→{label:'دراسة نماذج حليمة للحسابي (101 صفحة)، مع كتابة القوانين وتلخيصها يدويًا لتثبيت المعلومة.'},
+   996→{label:'الجزء الحسابي أخذ النصيب الأكبر من الوقت والجهد، نظرًا لأن درجته في الاختبار تبلغ 60 درجة.'},
+   997→{label:'دراسة النماذج النظرية بشكل فهم وليس حفظ، مع مراجعة الكتاب لتصحيح المعلومات في أسئلة الصح والخطأ.'},
+   998→{label:'🟠 مدة الدراسة المقترحة:'},
+   999→{label:'من 10 أيام إلى أسبوعين'},
+  1000→{label:'بمعدل 3 ساعات يوميًا'},
+  1001→{label:'المدة قابلة للزيادة أو النقصان حسب قدرة الطالب واستيعابه'},
+  1002→{label:'🟠 ملاحظات حول الاختبار:'},
+  1003→{label:'بعض الأسئلة جاءت من خارج النماذج، لكن الفهم العميق للمادة يُمكّن الطالب من الإجابة عليها بشكل صحيح.'},
+  1004→{label:'سيتم إضافة الأسئلة الجديدة إلى الملف من قبل حلوم، مما يسهل المراجعة لاحقًا.'},
+  1005→{label:'🟠 ختامًا:'},
+  1006→{label:'تمنيات بالتوفيق للجميع.'}]},
+  1007→
+  1008→    {id:'purch', title:'إدارة المشتريات والمخازن(3 ساعات)',
+  1009→ videos:[
+  1010→         {label:'شرح الاستاذ صادق نموذج النظري والحسابي قائمة المحاضرات 1⃣', url:'https://youtube.com/playlist?list=PL8436LuIZoArx3JFWLL0LX84NEgvPucTo'},
+  1011→         {label:'محاضرات مقرر إدارة مشتريات ومخازن قائمة المحاضرات 2⃣', url:'https://youtube.com/playlist?list=PLoURjA1UEuTw-Mgy3XEJuh7cQYrL3o3QJ'},
+  1012→{label:'المحاضرة 1 (2023)', url:'https://youtu.be/hcUjFi_YmbE'},
+  1013→{label:'المحاضرة 2 (2023)', url:'https://youtu.be/i7xtbSm0R9E'},
+  1014→{label:'المحاضرة 3 (2023)', url:'https://youtu.be/7eDgPZR_HT0'}],
+  1015→ books:[
+  1016→        {label:'كتاب إدارة المشتريات والمخازن ', url:'https://drive.google.com/open?id=1618ieY84AqfxzXLPfwwYL4xUpcdzb4Jg&usp=drivesdk'}],
+  1017→ models:[
+  1018→        {label:'تعديل_نموذج_إدارة_المشتريات_والمخازن_2024_20253 (1)', url:'https://drive.google.com/open?id=1pLjiBwh-D1Do8MCViEtZAxsmoUx3MvDg&usp=drive_fs'},
+  1019→            {label:'��مقالي مشتريات ومخازن (khawlah) � ', url:'https://drive.google.com/open?id=1X9bQSpQFzknUoOPF6RRVA_fqViucybJw&usp=drive_fs'}],
+  1020→ summaries:[
+  1021→            {label:'مشتريات ومخازن حسابي وحيد سميرة ', url:'https://drive.google.com/open?id=1NIXh4g1_ArDYLHY_zYI4WE1fHS6_i2L2&usp=drivesdk'},
+  1022→            {label:'حسابي_متعدد_سميرة_مشتريات_ومخازن_1 ', url:'https://drive.google.com/open?id=1pgJnypMNGNjFbl2Q27d_9qAUbtmOkGdn&usp=drivesdk'},
+  1023→            {label:'قوانين_مشتريات_ومخازن(معدل) ', url:'https://drive.google.com/open?id=18UzGYbYnNYdXmB5bLFbkXWOdkP4OgONb&usp=drivesdk'}],
+  1024→
+  1025→ Telegram:[
+  1026→           {label:'إدارة المشتريات والمخازن(شرح حسابي +نماذج معدله شامله).', url:'https://t.me/+CfYrK3ppmAIwMzBk'},
+  1027→           {label:'تجميع نماذج المشتريات', url:'https://t.me/+kzSUv203XxllZGM0'},
+  1028→           {label:'شرح حسابي مشتريات ومخازن.', url:'https://t.me/+qmDYWUjdDE81ODlk'}],
+  1029→ news:[
+  1030→      {label:'🟠 وصف عام للمادة:'},
+  1031→{label:'المادة سهلة بشكل عام، لكنها تحتاج إلى فهم وتركيز.'},
+  1032→{label:'تتكوّن من ثلاثة أقسام:'},
+  1033→{label:'- نظري موضوعي'},
+  1034→{label:'- حسابي'},
+  1035→{label:'- مقالي'},
+  1036→{label:'🟠 تفاصيل كل قسم:'},
+  1037→{label:'● النظري الموضوعي: سهل، ومذاكرته تعتمد على النماذج.'},
+  1038→{label:'● الحسابي: سهل جدًا، ويأتي بصيغة خيار وحيد ومتعدد، ويوجد له ملفان منفصلان (للخيار الوحيد والمتعدد)، بالإضافة إلى عدة قنوات تشرح هذا القسم.'},
+  1039→{label:'● المقالي: يحتاج إلى تركيز وفهم، ويجب مذاكرة الكتاب لأنه المصدر الأساسي للأسئلة.'},
+  1040→{label:'🟠 ترتيب المذاكرة المقترح:'},
+  1041→{label:'- يمكن البدء بالمقالي لأنه يأخذ وقتًا أطول، ثم الانتقال إلى الموضوعي والحسابي.'},
+  1042→{label:'- أو البدء بالحسابي والموضوعي ثم العودة للمقالي، لكن يُفضل البدء بالمقالي لفهمه جيدًا قبل الانتقال لباقي الأقسام.'},
+  1043→{label:'🟠 ملاحظات إضافية:'},
+  1044→{label:'المادة ليست صعبة ولا ثقيلة، لكنها تتطلب فهم وتنظيم وقت.'},
+  1045→{label:'مذاكرة الكتاب ضرورية لأن المصحح يعتمد على إجابات كاملة ونموذجية في الأسئلة المقالية.'},
+  1046→{label:'🟠 طريقة توزيع درجات الاختبار:'},
+  1047→{label:'■ النظري الموضوعي: عليه 70 درجة، موزعة على:'},
+  1048→{label:'- صح وخطأ'},
+  1049→{label:'- خيار وحيد'},
+  1050→{label:'- خيار متعدد'},
+  1051→{label:'- حسابي بصيغة خيار وحيد ومتعدد'},
+  1052→{label:'■ المقالي: عليه 30 درجة، يتكوّن من 3 أسئلة، يُحذف سؤال وتُحل سؤالان فقط.'}]},
+  1053→
+  1054→    {id:'math_admin', title:'الرياضيات في العلوم الإدارية(3 ساعات)', 
+  1055→videos:[
+  1056→       {label:'قائمة المحاضرات ', url:'https://youtube.com/playlist?list=PLoURjA1UEuTxDAPsywE0a3Et4qpfDgQ5V'},
+  1057→{label:'المحاضرة 1 (2023)', url:'https://youtu.be/VNb9Jy2BxM4'},
+  1058→{label:'المحاضرة 2 (2023)', url:'https://youtu.be/ciohO1JbBAM'},
+  1059→{label:'المحاضرة 3 (2023)', url:'https://youtu.be/9ERFT7ngHww'},
+  1060→{label:'المحاضرة 4 (2023)', url:'https://youtu.be/oOXdMwYZwAc'},
+  1061→{label:'المحاضرة 5 (2023)', url:'https://youtu.be/2cf1cvAbhYM'}],
+  1062→ books:[
+  1063→       {label:'كتاب الرياضيات في العلوم الإدارية ', url:'https://drive.google.com/open?id=164U55vSxQfVGDuM3vVARS9Rz5xf2o7I0&usp=drivesdk'}],
+  1064→ models:[
+  1065→         {label:'رياضيات(صح& خطأ)Halom', url:'https://drive.google.com/open?id=1qKbPJd2JQl83VOWj43CW0MDBWQiGNVhO&usp=drivesdk'},
+  1066→         {label:'نماذج', url:'https://drive.google.com/drive/folders/1v49-xbNpuH6tFbGkN1pgxbqwaSckz4ZM?usp=drivesdk'},
+  1067→         {label:'رياضيات (الملف الشامل) •وحيد• ', url:'https://drive.google.com/open?id=1KDyAdP_ykWyZn79UloA32TknPGYg-Nan&usp=drivesdk'},
+  1068→         {label:'اختبار تجريبي تفاعلي', url:'https://mathiq2025.netlify.app/'},
+  1069→         {label:'📚 تطبيق الرياضيات التفاعلي ', url:'https://math-quiz2025.netlify.app/'}],
+  1070→ summaries:[
+  1071→           {label:'ملخصات', url:'https://drive.google.com/drive/folders/1up3a54rxIMEGm7d4QpFW1T70--DcbmKV?usp=drivesdk'}],
+  1072→ Telegram:[
+  1073→           {label:'1⃣قناة روعة (نماذج مع الشرح).', url:'https://t.me/+XGm7hs6CblIzNWJk'},
+  1074→           {label:'2⃣ قناة ريم (فقط شرح خاص بالبنات)', url:'https://t.me/+iC_oH79fVxY0YWVk'},
+  1075→           {label:'3️⃣شرح منال (شرحت النماذج كاملة في دورة في التلجرام تواصلوا معها لكي تضيفكم في الدورة) (دورة مدفوعة) اضغط للتواصل.', url:'https://wa.me/967779297849'}
+  1076→],
+  1077→ news:[
+  1078→      {label:'معلومات عن مادة الرياضيات 🧮'},
+  1079→{label:'السلام عليكم ورحمة الله وبركاته'},
+  1080→{label:'مادة الرياضيات اختبارها وحيد يعني مو مقالي إلى الأن هذا أولا 😁'},
+  1081→{label:'ثانيا: الماده سهولتها نسبيه بين شخص وشخص يعني الي باقي متذكر رياضيات الثانويه رح تكون سهله عليه'},
+  1082→{label:'الماده كثييييفه وتحتاج جهد و وقت ، مو صعبه لكن تحتاج ممارسه ومراجعه اكثر من مره واغلب الوحدات تنحل بالاله الحاسبه'},
+  1083→{label:'الحلو فيها ان نماذجها كللللها صارت مجمعه في ملفين فقط ملف حسابي( ملف الشامل تبع حلوم - وحيد ) وملف نظري ( برضو تبع حلوم ) ….. اسأل الله ان يعطيها خيري الدنيا والاخره 🤍'},
+  1084→{label:'**الملف الحسابي معتمد في إجاباته على طريقه المقالي مو بالاله الحاسبه للطلاب الي حابين يذاكرو الماده كمقالي 🙃'},
+  1085→{label:'الاختبار عباره عن صح و خطأ و وحيد فقط بدون متعدد والدرجات تختلف في الوحيد في مسائل عليها ٧ درجات وعددها ١٠ مسائل ( الي عليها خطوات كثيره ) وفي مسائل عليها ٣ درجات فقط وعددها ٥ مسائل. ( خطواتها بسيطه وسهله ) اما علامة الصح والخطأ ٥ اسئله السؤال عليه ٣ درجات'},
+  1086→{label:'قنوات الشروحات :'},
+  1087→{label:'- قناة اليوتيوب لشرح الدكتور جددددا رائعه ويفهم كل تفصيله في الكتاب  رابط القناة موجود في وصف القروب'},
+  1088→{label:'- ⁠ قناة روعه ( عامه ) فيها شرح للحل بالآله الحاسبه'},
+  1089→{label:'- ⁠قناة ريم ( خاصه بالبنات ) ايضاً فيها شرح لجميع الوحدات بالآله الحاسبه'},
+  1090→{label:'- ⁠قناة خربشات رياضيات ( خاصه بالبنات) فيها شروحات بالاله وشروحات لبعض اسئله نماذج ملف حلوم كمقالي'},
+  1091→{label:'- قناة منال طالب ، فيها شروحات كامله عن النماذج على قناة التليجرام ( دوره مدفوعه) تقدرون تتواصلون معاها'},
+  1092→{label:'- ⁠قناة ولد أنعم وعباد ( عامه ) فيها شروحات ايضاً للجميع الوحدات بالآله الحاسبه'},
+  1093→{label:'في رابط كمان للنماذج مجمعه ملفات قديمه و حديثه'},
+  1094→{label:'كل روابط القنوات موجوده في وصف قروب الواتس أب'},
+  1095→{label:'التوفيق للجميع ✨'}]},
+  1096→
+  1097→    {id:'ethics', title:'أخلاقيات منظمات الأعمال(3 ساعات)',
+  1098→ videos:[
+  1099→        {label:'قائمة المحاضرات ', url:'https://youtu.be/_qVWQdMxjfo'},
+  1100→{label:'المحاضرة 1 (2025)', url:'https://youtu.be/jP8BueX7U9A'},
+  1101→{label:'المحاضرة 2 (2025)', url:'https://youtu.be/3uL5fpyKEBA'},
+  1102→{label:'المحاضرة 3 (2025)', url:'https://youtu.be/G7hGJgyZciE'},
+  1103→{label:'المحاضرة 4 (2025)', url:'https://youtu.be/Pa-jMZdfcJM'},
+  1104→{label:'المحاضرة 5 (2025)', url:'https://youtu.be/LUVbgXVvINQ'}],
+  1105→ books:[
+  1106→        {label:'كتاب أخلاقيات منظمات الأعمال ', url:'https://drive.google.com/open?id=1nBZvVCd9u4NIHgQsVieiRQNbML8zh_eG&usp=drivesdk'}],
+  1107→ models:[
+  1108→        {label:'بعض أسئلة المقالي جات للطلاب في الاختبار ', url:'https://drive.google.com/open?id=1R8jhNjPdnn90z7koDn_2H_z8yGJy9I58&usp=drivesdk'},
+  1109→        {label:'نموذج النظري اخلاقيات منظمات الاعمال  ', url:'https://drive.google.com/open?id=1GI5Qny8JkYh0ZOe-aLt3SQ7vuRvveWnK&usp=drivesdk'}],
+  1110→ summaries:[
+  1111→           {label:'اخلاقيات_منظمات_الاعمال_ملف_المقالي معدل', url:'https://drive.google.com/open?id=1LIGSG-kdpqLMZPhcPHOxsBtWpXcDzBWa&usp=drivesdk'},
+  1112→           {label:'مقالي1 ', url:'https://drive.google.com/open?id=1rgffUkp379LTHiyT9B208k7UBnWpWxk7&usp=drivesdk'}],
+  1113→ Telegram:[
+  1114→          {label:'اخلاقيات منظمات الاعمال.', url:'https://t.me/+YDzZ-giRL_g1MmU0'}],
+  1115→ news:[
+  1116→       {label:'📘 مادة: أخلاقيات منظمات الأعمال'},
+  1117→{label:'🔸 نوع المادة: نظرية بالكامل'},
+  1118→{label:'📝 نظام الاختبار:'},
+  1119→{label:'- الأسئلة المقالية:'},
+  1120→{label:'3 أسئلة → يُحل 2 فقط، وتحذف واحد'},
+  1121→{label:'الدرجة: 30 درجة'},
+  1122→{label:'- الأسئلة الموضوعية:'},
+  1123→{label:'تشمل:'},
+  1124→{label:'✔️ اختيار من متعدد'},
+  1125→{label:'✔️ اختيار وحيد'},
+  1126→{label:'✔️ صح وخطأ'},
+  1127→{label:'الدرجة: 70 درجة'},
+  1128→{label:'📚 ملاحظات مهمة للمذاكرة:'},
+  1129→{label:'- تم تجميع ملف شامل للنظري والمقالي في آخر الفترات، مما ساعد الطلاب كثيرًا.'},
+  1130→{label:'- يُفضل مراجعة الكتاب أو الملخص لفهم المادة وتثبيت المعلومات، وللاحتياط إذا جاء سؤال من خارج الملف.'},
+  1131→{label:'✅ نصيحة:'},
+  1132→{label:'المادة ممتعة ومفهومة، لكنها تحتاج اجتهاد ووقت كافٍ لضمان درجات عالية.'}]},
+  1133→
+  1134→    {id:'moneybank', title:'اقتصاديات النقود والبنوك(3 ساعات)',
+  1135→ videos:[
+  1136→         {label:'قائمة المحاضرات ', url:'https://youtube.com/playlist?list=PLzLmjaQB3jxb-MX2ErlgwxJtTIiOGxIfg'},
+  1137→{label:'المحاضرة 1 (2023)', url:'https://youtu.be/io4paIoVzng'},
+  1138→{label:'المحاضرة 2 (2023)', url:'https://youtu.be/kGWmnyj7yEo'},
+  1139→{label:'المحاضرة 3 (2023)', url:'https://youtu.be/og6CBbbOwk0'},
+  1140→{label:'المحاضرة 4 (2023)', url:'https://youtu.be/a7J2qQGTqRI'}],
+  1141→ books:[
+  1142→       {label:'كتاب �اقتصاديات_النقود_والبنوك_023741 ', url:'https://drive.google.com/open?id=1C7QUdX0d9PhUpPGVyc9OcR71vif3W9Oy&usp=drivesdk'}],
+  1143→ models:[
+  1144→        {label:'النقود والبنوك_شامل ابجدي', url:'https://drive.google.com/open?id=1_SX369Jc8vbY2Zrzz2Puws43EleA20iy&usp=drivesdk'}],
+  1145→ summaries:[
+  1146→           {label:'تجميع_النقود_والبنوك_الوحده_الثالثه_تجميعات_ا_دلال', url:'https://drive.google.com/open?id=1x-HCpk8HJXWqq1gXz3LGY4KyIXR3m0YL&usp=drivesdk'},
+  1147→          {label:'تجميع_النقود_والبنوك_الوحده_الخامسة_تجميعات_ا_دلال', url:'https://drive.google.com/open?id=1HpPj2dB792u5TZDcbGbOHpskYrlC5Cey&usp=drivesdk'},
+  1148→          {label:'تجميع_النقود_والبنوك_الوحده_الرابعه_تجميعات_ا_دلال ', url:'https://drive.google.com/open?id=1gDtse1FLLYvhPL3yf_wXc3IYr-YGeMxA&usp=drivesdk'},
+  1149→          {label:'قوانين نقود وبنوك_محمد الحاشدي ', url:'https://drive.google.com/open?id=1x9infDgeDSMu55Aqev8CVbK2BdRJpl1s&usp=drivesdk'},
+  1150→          {label:'��نقود_وبنوكك_الوحده_1_تجميع_دلال� ', url:'https://drive.google.com/open?id=1f2NUx9LwuabJZzn3NOavGZocBbsgtwWW&usp=drivesdk'}],
+  1151→ Telegram:[
+  1152→          {label:'شرح نقود وبنوك ♥️هنا كل ما يخص المادة.', url:'https://t.me/manybankm'},
+  1153→          {label:'تجميعات نماذج أقتصاديات نقود وبنوك.', url:'https://t.me/+NPqC8m5qm4E0YWJk'}],
+  1154→ news:[
+  1155→      {label:'📘 مادة: اقتصاديات النقود والبنوك'},
+  1156→{label:'🔹 نوع المادة:'},
+  1157→{label:'حسابية نظرية.'},
+  1158→{label:'📝 نظام الاختبار:'},
+  1159→{label:'- الأسئلة المقالية:'},
+  1160→{label:'عددها 3 أسئلة، يُحذف واحد وتُحل اثنين فقط.'},
+  1161→{label:'كل سؤال عليه 30 درجة → المجموع 60 درجة.'},
+  1162→{label:'كل سؤال مقسم إلى جزئين:'},
+  1163→{label:'1. جزء حسابي (15 درجة)'},
+  1164→{label:'2. جزء مقالي (ناقش) (15 درجة)'},
+  1165→{label:'- الأسئلة الموضوعية (اختيارات):'},
+  1166→{label:'تشمل اختيار من متعدد، صح وخطأ، وغيره.'},
+  1167→{label:'مخصصة لـ 40 درجة.'},
+  1168→{label:'📚 طريقة المذاكرة:'},
+  1169→{label:'لا تحتاج إلى الكتاب، فقط:'},
+  1170→{label:'- مراجعة النماذج، تكفي وتوفي.'},
+  1171→{label:'- قناة التليجرام تحتوي على شرح كامل + مسائل إضافية.'},
+  1172→{label:'- المادة مفهومة وسهلة بالممارسة.'},
+  1173→{label:'⏳ مدة المذاكرة المقترحة:'},
+  1174→{label:'- أسبوع واحد في حال التركيز الكامل.'},
+  1175→{label:'- أسبوعين إذا كان الوقت موزع بين مواد أخرى.'},
+  1176→{label:'🚨 تنبيه مهم:'},
+  1177→{label:'لا تؤجل مذاكرة قسم "ناقش" إلى وقت الاختبارات، على الأقل ذاكره بدون تعمق.'},
+  1178→{label:'📝 نصيحة أثناء الاختبار:'},
+  1179→{label:'🚨 قبل حذف أي سؤال من الأسئلة المقالية:'},
+  1180→{label:'- اكتب كل الأسئلة أولًا في المسودة.'},
+  1181→{label:'- جرّب حلها وتأكد أنك تعرف تحل اثنين منهم بنسبة 100٪.'},
+  1182→{label:'- بعد التأكد، احذف الثالث.'},
+  1183→{label:'لأن أحيانًا يتم التسرع في الحذف، ثم يتضح أن السؤال المختار أصعب أو غير واضح.'},
+  1184→{label:'🎯 نصيحة في جزء "ناقش":'},
+  1185→{label:'- اربط الإجابة بالمطلوب.'},
+  1186→{label:'- افهم السؤال جيدًا.'},
+  1187→{label:'- اكتب كل المعلومات التي تعرفها، لأن المصحح يقيم بناءً على الفهم وليس الحفظ فقط.'}]},
+  1188→
+  1189→    {id:'self_skill', title:'مهارات التعلم الذاتي(2 ساعة)',
+  1190→ videos:[
+  1191→        {label:'قائمة المحاضرات ', url:'https://youtube.com/playlist?list=PLEaqWF60mCKYGF8DcXB_vf9isjgu7HnAf'}],
+  1192→ books:[
+  1193→        {label:'كتاب مهارات التعلم الذاتي', url:'https://drive.google.com/open?id=1Ko7WRDSYEVFbzGDoJ3O19rmMp9MEQ55b&usp=drivesdk'}],
+  1194→ models:[
+  1195→         {label:'اختبر نفسك التعلم الذاتي 2025 BMuraisi ', url:'https://drive.google.com/open?id=1WQuEyTXyI9iJWsJ64WDgsH-X85ohhpUj&usp=drivesdk'},
+  1196→         {label:'نسخة 3 التعلم الذاتي تسلسلي 2025 BMuraisi ', url:'https://drive.google.com/open?id=1nrT_xg4wjnSPCljNzohfrlWZ8Qtj7wEo&usp=drivesdk'}],
+  1197→ summaries:[
+  1198→            {label:'مقالي التعلم الذاتي 2025 BMuraisi  ', url:'https://drive.google.com/open?id=10uqHlJG0MwCw2swYrnQ_vBidpdopXbzS&usp=drivesdk'}],
+  1199→ Telegram:[
+  1200→          {label:'التعلم الذاتي 😊.', url:'https://t.me/+zObB0mAwfSc0NjE1'}],
+  1201→ news:[
+  1202→      {label:'📘 مادة: التعلم الذاتي'},
+  1203→{label:'🟠 نوع المادة:'},
+  1204→{label:'نظرية بالكامل.'},
+  1205→{label:'📝 نظام الاختبار:'},
+  1206→{label:'- الأسئلة المقالية:'},
+  1207→{label:'3 أسئلة → تحذف 1 وتُحل 2 فقط'},
+  1208→{label:'✔️ الدرجة: 30 درجة'},
+  1209→{label:'- الأسئلة الموضوعية (اختيارات):'},
+  1210→{label:'✔️ اختيار وحيد'},
+  1211→{label:'✔️ اختيار من متعدد'},
+  1212→{label:'✔️ صح وخطأ'},
+  1213→{label:'→ الدرجة: 70 درجة'},
+  1214→{label:'🎯 نصيحة في المذاكرة:'},
+  1215→{label:'المادة سهلة ومفهومة وممتعة جدًا، لكنها تحتاج إلى ترتيب:'},
+  1216→{label:'1. قراءة مركّزة للكتاب لفهم الأساسيات.'},
+  1217→{label:'2. مراجعة ملفات النماذج (النظرية والمقالية) للتدريب والتثبيت.'},
+  1218→{label:'3. فهم طريقة الأسئلة وصيغتها.'},
+  1219→{label:'✅ المادة سلسة وممتعة، المهم مذاكرتها بتركيز وإعطاؤها وقتها.'}]},
+  1220→
+  1221→    {id:'eng_terms', title:'مصطلحات ومراسلات باللغة الإنجليزية (3 ساعات)',
+  1222→ videos:[
+  1223→         {label:'قائمة المحاضرات ', url:'https://youtube.com/playlist?list=PLzLmjaQB3jxYcVQ0YqAmiVfGq-JBkwfin'},
+  1224→{label:'المحاضرة 1 (2023)', url:'https://youtu.be/sFjOpFlq82A'},
+  1225→{label:'المحاضرة 2 (2023)', url:'https://youtu.be/KgoIiSx2lsY'},
+  1226→{label:'المحاضرة 3 (2023)', url:'https://youtu.be/p7MVrpW_yvg'},
+  1227→{label:'المحاضرة 4 (2023)', url:'https://youtu.be/H88tjpn9clg'}],
+  1228→ books:[
+  1229→        {label:'كتاب مصطلحات ومراسلات باللغة الإنجليزية', url:'https://drive.google.com/open?id=1Y4HMcRVgNYX2OPoEJ1vYZpooTuYIg_Of&usp=drive_fs=drivesdk'}],
+  1230→ models:[
+  1231→         {label:'202586 تجريبي مصطلحات ', url:'https://drive.google.com/open?id=1oAnJBoOXceh5-py-HjrVix9tf-nrOYpI&usp=drive_fs=drivesdk'},
+  1232→         {label:'اختبر نفسك مصطلحات ومراسلات انجليزي# وجدان حنش', url:'https://drive.google.com/open?id=1evN9Sz2HhA93pJRNAzUTZIZ5mszBP5pz&usp=drive_fs=drivesdk'},
+  1233→         {label:'الاساله المتكرره ماده مصطلحات', url:'https://drive.google.com/open?id=1GPPh6eihGHPIy5CDz5VLrgn-D0eIgiCZ&usp=drive_fs=drivesdk'},
+  1234→         {label:'�مصطلحات_ومراسلات_باللغة_الانجليزية_ابجدي_نسخة_3', url:'https://drive.google.com/open?id=1xbBOfx8SVigzX_Y2bmYIcXuEOlm_RlyD&usp=drive_fs=drivesdk'}],
+  1235→ summaries:[
+  1236→            {label:'اهم الكلمات والدروس مصطلحات ومراسلات', url:'https://drive.google.com/open?id=1shA2a1KvWy5BiapD0lAWwKxiBCeLJG9h&usp=drive_fs=drivesdk'},
+  1237→            {label:'���مقالي مصطلحات ومراسلات انجليزي- وجدان حنش_125152', url:'https://drive.google.com/open?id=1zoqCd_-b-QnxMNqGb_oHYzdzoCsGiQ3l&usp=drive_fs=drivesdk'},
+  1238→            {label:'مقالي مصطلحات ومراسلات', url:'https://drive.google.com/open?id=1DP29Y6bRUphRRMkSf3GNvya0odyoBjEN&usp=drive_fs=drivesdk'}], 
+  1239→Telegram:[
+  1240→         {label:'مصطلحات ومراسلات باللغه الانجليزيه.', url:'https://t.me/+Yi0eqye1gPM0MWE8'}],
+  1241→ news:[
+  1242→      {label:'📘 مادة: مصطلحات ومراسلات باللغة الإنجليزية'},
+  1243→{label:'🔹 نوع المادة:'},
+  1244→{label:'نظرية بالكامل.'},
+  1245→{label:'📝 نظام الاختبار:'},
+  1246→{label:'- الأسئلة المقالية:'},
+  1247→{label:'عددها 3 أسئلة، يُحذف واحد وتُحل اثنين فقط.'},
+  1248→{label:'الدرجة: 20 درجة (10 درجات لكل سؤال).'},
+  1249→{label:'- الأسئلة الموضوعية:'},
+  1250→{label:'موزعة على:'},
+  1251→{label:'✔️ اختيار وحيد'},
+  1252→{label:'✔️ اختيار من متعدد'},
+  1253→{label:'✔️ صح وخطأ'},
+  1254→{label:'الدرجة: 80 درجة'},
+  1255→{label:'📚 ملاحظات مهمة:'},
+  1256→{label:'- الأسئلة الموضوعية مأخوذة من الملف النظري حتى الآن، ولم يخرج عنها حسب إفادة الطلاب.'},
+  1257→{label:'- الأسئلة المقالية تعتمد بنسبة 95٪ على الملف المقالي، وقد يظهر سؤال بسيط من خارج الملف أحيانًا.'},
+  1258→{label:'🎯 طريقة المذاكرة المقترحة:'},
+  1259→{label:'- يوجد كتاب PDF محدد عليه أسئلة النماذج بالألوان:'},
+  1260→{label:'الأصفر: صح وخطأ'},
+  1261→{label:'الأخضر: خيار وحيد'},
+  1262→{label:'الأزرق: اختيار متعدد'},
+  1263→{label:'يساعد في التركيز على النقاط المهمة ويسهّل مراجعة النماذج النظرية.'},
+  1264→{label:'- مراجعة النماذج النظرية بعد المرور عليها في الكتاب.'},
+  1265→{label:'- مراجعة الأسئلة المقالية، فهي قليلة وإجاباتها مختصرة ويمكن صياغتها بلغة بسيطة ومصطلحات مفهومة.'},
+  1266→{label:'- يُفضل قراءة الكتاب لفهم محتوى المادة، وفي حال كانت اللغة عائقًا، يمكن الرجوع للنسخة المترجمة للعربية.'},
+  1267→{label:'💡 تنويه:'},
+  1268→{label:'- المادة ذات محتوى بسيط وواقعي، وتتناول طريقة كتابة الرسائل.'},
+  1269→{label:'- بعض الطلاب يفضلون التركيز على النظري فقط، لكن يُنصح بمذاكرة المقالي لضمان درجات إضافية، خاصة أن إجاباته قصيرة وبسيطة.'}]},
+  1270→
+  1271→   {id:'org_behavior', title:'السلوك التنظيمي(3 ساعات)',
+  1272→videos:[
+  1273→  {label:'المحاضرة 1 (2024)', url:'https://youtu.be/Ul320hFqG4k'},
+  1274→{label:'المحاضرة 2 (2024)', url:'https://youtu.be/sP0nFVqlUQU'},
+  1275→{label:'المحاضرة 3 (2024)', url:'https://youtu.be/L5haHlxNtZM'},
+  1276→{label:'المحاضرة 4 (2024)', url:'https://youtu.be/qQQNqkZ38Rg'}
+  1277→],
+  1278→books:[
+  1279→  {label:'كتاب السلوك التنظيمي', url:'https://drive.google.com/open?id=1ctVoUvw6miOQbQNEHISNR8OL52KTYiOL&usp=drivesdk'}
+  1280→],
+  1281→models:[
+  1282→  {label:'تجريبي السلوك التنظيمي - بنت عدن', url:'https://drive.google.com/open?id=1GW_bAr3z-EiQyviCKlJNikcAyiLXqwZo&usp=drivesdk'},
+  1283→  {label:'السلوك التنظيمي تكاليف', url:'https://drive.google.com/open?id=1n0biiQTYj-WZuL-InjRlovt73NTooAQU&usp=drivesdk'},
+  1284→  {label:'تعديل ص ١ - مقالي سلوك تنظيمي شامل - صادق جزيلان', url:'https://drive.google.com/open?id=1kNdELqbUDUmxiT7gSTIhZ7RmR9n4U2k1&usp=drivesdk'}
+  1285→],
+  1286→summaries:[],
+  1287→Telegram:[
+  1288→  {label:'السلوك التنظيمي.', url:'https://t.me/sudbdohdi'}
+  1289→],
+  1290→ news:[
+  1291→       {label:'📘 مادة: السلوك التنظيمي'},
+  1292→{label:'🔹 نوع المادة:'},
+  1293→{label:'نظرية.'},
+  1294→{label:'📝 نظام الاختبار:'},
+  1295→{label:'- الأسئلة المقالية:'},
+  1296→{label:'3 أسئلة → يُحذف سؤال وتُحل اثنين فقط.'},
+  1297→{label:'الدرجة: 30 درجة (كل سؤال 15 درجة تقريبًا).'},
+  1298→{label:'- الأسئلة الموضوعية (الاختيارات):'},
+  1299→{label:'تشمل:'},
+  1300→{label:'✔️ اختيار من متعدد'},
+  1301→{label:'✔️ صح وخطأ'},
+  1302→{label:'✔️ اختيار وحيد'},
+  1303→{label:'الدرجة: 70 درجة'},
+  1304→{label:'📚 محتوى المادة باختصار:'},
+  1305→{label:'- الوحدة الأولى: تتحدث عن السلوك التنظيمي والإنساني، المفاهيم، والمستويات الثلاثة:'},
+  1306→{label:'● مستوى الفرد'},
+  1307→{label:'● مستوى الجماعة'},
+  1308→{label:'● مستوى المنظمة'},
+  1309→{label:'- الوحدة الثانية: تتناول سلوك الفرد (المفاهيم، الأنواع، التعاريف...).'},
+  1310→{label:'- الوحدة الثالثة: تتناول سلوك الجماعة.'},
+  1311→{label:'- الوحدة الرابعة: تتحدث عن المنظمة كمستوى تنظيمي.'},
+  1312→{label:'💡 ملاحظة:'},
+  1313→{label:'الوحدات 2 و3 و4 عبارة عن شرح تفصيلي للمستويات الثلاثة المذكورة في نهاية الوحدة الأولى.'},
+  1314→{label:'🎯 نصائح مهمة للمذاكرة:'},
+  1315→{label:'- المادة سهلة وفهْمية، لكنها تحتاج تركيز وربط بين المواضيع.'},
+  1316→{label:'- في الأسئلة المقالية:'},
+  1317→{label:'✔️ خذ رقم السؤال'},
+  1318→{label:'✔️ ارجع للكتاب وافهم الإجابة'},
+  1319→{label:'✔️ لا تعتمد على الملخصات القصيرة فقط'},
+  1320→{label:'- برنامج ChatGPT كان مفيد جدًا في:'},
+  1321→{label:'تلخيص إجابات الكتاب.'},
+  1322→{label:'توضيح أو توسيع إجابات ملف المقالي القصيرة.'},
+  1323→{label:'اختصار صفحات من الكتاب عند تصويرها.'}]},
+  1324→
+  1325→   {id:'grad_research', title:'بحث التخرج(3 ساعات)',
+  1326→videos:[
+  1327→  {label:'شروحات بحث التخرج.', url:'https://youtube.com/playlist?list=PLzLmjaQB3jxYAtNxXRUgdvIHAboCSVxt_'}
+  1328→],
+  1329→books:[
+  1330→  {label:'* الرجوع إلى قنوات التلجرام.'}
+  1331→],
+  1332→models:[
+  1333→  {label:'* الرجوع إلى قنوات التلجرام.'}
+  1334→],
+  1335→summaries:[
+  1336→  {label:'* الرجوع إلى قنوات التلجرام.'}
+  1337→],
+  1338→Telegram:[
+  1339→  {label:'خطط وبحوث طلاب د. أمين الصديقي.', url:'https://t.me/+TdlKKJ9ME-A2M2Y0'},
+  1340→  {label:'بحوث التخرج.', url:'https://t.me/+DxFdrULsRFc1NmQ0'},
+  1341→  {label:'خطوات بحث التخرج.', url:'https://t.me/+GSulobtXSvozMzI0'},
+  1342→  {label:'النظرية المحاسبية.', url:'https://t.me/+D-lHBRWLsSY5YTVk'}
+  1343→],
+  1344→ news:[
+  1345→      {label:'إرشادات وتفاصيل حول مادة بحث التخرج 🎓'},
+  1346→{label:'مادة بحث التخرج هي مادة تخصصية مدتها ثلاث ساعات معتمدة (3 ساعات)، وتُفتح للتسجيل بعد اجتياز مادة طرق البحث العلمي.'},
+  1347→{label:'ملاحظات أساسية حول المادة:'},
+  1348→{label:' * لا يوجد لهذه المادة اختبارات تكليفية أو اختبار نهائي تقليدي.'},
+  1349→{label:' * تعتمد المادة على إعداد مشروع بحثي متكامل. 📝'},
+  1350→{label:'خطوات التسجيل واختيار العنوان'},
+  1351→{label:' * اختيار العنوان: يتم اختيار عنوان البحث من قائمة عناوين كبيرة ومتاحة عبر البوابة الإلكترونية، وذلك بعد تسجيل المادة ودفع الرسوم. يُنصح باختيار العنوان الأنسب لقدراتك واهتماماتك.'},
+  1352→{label:' * الدراسات العلمية: يجب أن يكون العنوان قابلاً لإجراء دراسات علمية كثيرة.'},
+  1353→{label:'   * يتم استخراج هذه الدراسات من محركات البحث الأكاديمي مثل "الباحث العلمي" (Google Scholar) أو أي موقع مخصص للدارسات العلمية يتاح لكم.'},
+  1354→{label:'   * نصيحة: ابحث عن دراسات حديثة تدعم موضوع البحث. 📚'},
+  1355→{label:' * التواصل مع المشرف: بعد تسجيل العنوان، سيظهر اسم المشرف على البحث في البوابة الإلكترونية. يجب التواصل معه فوراً. 📞'},
+  1356→{label:' * قبول العنوان والبدء بالخطة: عند التواصل مع المشرف، يجب التأكد من أنه قد تم قبول العنوان بشكل رسمي في البوابة، لكي تبدأ في إجراءات عمل خطة البحث.'},
+  1357→{label:' * نصيحة هامة: يُنصح بشدة باختيار عنوان تكون لديك فيه القدرة على التطبيق الميداني وجمع البيانات (مثل توزيع استبيانات) في مؤسسة أو شركة أو مدرسة، لضمان الحصول على بيانات حقيقية. 🏢'},
+  1358→{label:'مصادر وإجراءات البحث'},
+  1359→{label:' * قناة المساعدة: للاطلاع على كل ما يخص البحث والخطوات المتبعة وأساليب التحليل الإحصائي، يمكن زيارة الرابط التالي: https://t.me/+GSulobtXSvozMzI0'},
+  1360→{label:'المناقشة النهائية'},
+  1361→{label:'بعد الانتهاء من إعداد خطة البحث وإنجاز البحث كاملاً، تتم مناقشته مع المشرف. تتضمن أبرز الأسئلة المتوقعة في المناقشة ما يلي:'},
+  1362→{label:'أسئلة المناقشة 🗣️'},
+  1363→{label:' * التعريف الأساسي: الاسم، الرقم الأكاديمي، والمواد التي تم اختيارها في الفصل الأخير.'},
+  1364→{label:' * البحث والعنوان:'},
+  1365→{label:'   * ما هو عنوان بحثك؟ ولماذا اخترت هذا العنوان؟'},
+  1366→{label:'   * تحدث عن بحثك واشرحه، أو لخصه في خمس دقائق. ⏱️'},
+  1367→{label:' * المنهجية والأهداف:'},
+  1368→{label:'   * ما هي مشكلة البحث؟'},
+  1369→{label:'   * ما هي أهداف البحث؟'},
+  1370→{label:'   * ما هو منهج الدراسة الذي اعتمدت عليه؟ ولماذا اخترت هذه المنهجية (مثال: المنهج الوصفي التحليلي)؟'},
+  1371→{label:' * الإجراءات والمراحل:'},
+  1372→{label:'   * صف المراحل التي قطعتها في إنجاز البحث.'},
+  1373→{label:'   * اذكر الجهد المبذول في البحث.'},
+  1374→{label:'   * ما هي الصعوبات التي واجهتك أثناء البحث؟'},
+  1375→{label:' * النتائج والتوصيات:'},
+  1376→{label:'   * ما هي أهم النتائج وأهم التوصيات التي توصلت إليها؟'},
+  1377→{label:'   * ماذا تقصد بـ "ملخص النتائج والتوصيات"؟ وما هي أهم نتيجة في البحث؟'},
+  1378→{label:' * المراجع والدراسات السابقة:'},
+  1379→{label:'   * كم عدد الدراسات السابقة التي اعتمدت عليها؟'},
+  1380→{label:'   * ما هو الاختلاف بين بحثك والدراسات السابقة؟'},
+  1381→{label:'   * اذكر أهمية البحث.'},
+  1382→{label:'   * ما هي أهم المصادر والمراجع التي اعتمدت عليها؟ وأكثر مرجع أخذت منه.'},
+  1383→{label:'   * كيف قمت بكتابة وتوثيق المراجع والمصادر؟'}]}
+  1384→
+  1385→  ], major: [
+  1386→ {id:'man_acc', title:'محاسبة إدارية(3 ساعات)',
+  1387→videos:[
+  1388→  {label:'المحاضرة 1 (2023)', url:'https://youtu.be/yKEL7EkqPq8'},
+  1389→{label:'المحاضرة 2 (2023)', url:'https://youtu.be/WHsyAzjLAzE'},
+  1390→{label:'المحاضرة 3 (2023)', url:'https://youtu.be/WUGRWEcgnWc'},
+  1391→{label:'المحاضرة 4 (2023)', url:'https://youtu.be/7rumoDx0Ec0'},
+  1392→{label:'المحاضرة 5 (2023)', url:'https://youtu.be/n1GOPlf83XM'},
+  1393→{label:'المحاضرة 6 (2023)', url:'https://youtu.be/2vz2epSUSdk'}
+  1394→],
+  1395→books:[
+  1396→  {label:'كتاب المحاسبة الإدارية', url:'https://drive.google.com/open?id=1m6bAsSQHrlYpgiud-GXUpDxBpcTW1HnR&usp=drivesdk'}
+  1397→],
+  1398→models:[
+  1399→  {label:'مقالي معدل محاسبة إدارية (دلال + مايسة)', url:'https://drive.google.com/open?id=1kBmU54ItXDx2LXOjdjDD8gfHK2DPq2C_&usp=drivesdk'},
+
+[showing lines 700-1399 of 3934; use offset=1400 with limit to continue reading]
