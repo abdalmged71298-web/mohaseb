@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Loader2, FileText, BookOpen, Sparkles, Trash2 } from 'lucide-react';
+import { Send, Bot, User, Loader2, FileText, BookOpen, Sparkles, Trash2, RotateCw } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -36,6 +36,8 @@ export function ChatPanel({ compact = false }: { compact?: boolean }) {
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'connected' | 'error'>('idle');
+  const [lastQuestion, setLastQuestion] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null);
   const setSelectedCategory = usePlatformStore((s) => s.setSelectedCategory);
   const setSelectedSubject = usePlatformStore((s) => s.setSelectedSubject);
@@ -57,6 +59,7 @@ export function ChatPanel({ compact = false }: { compact?: boolean }) {
       .map((m) => ({ role: m.role, content: m.content }));
     setMessages((m) => [...m, userMsg]);
     setInput('');
+    setLastQuestion(msg);
     setLoading(true);
     try {
       // Client-side timeout: abort after 60s so the UI never hangs forever.
@@ -70,6 +73,11 @@ export function ChatPanel({ compact = false }: { compact?: boolean }) {
       });
       clearTimeout(timeoutId);
       const data = await res.json().catch(() => ({ reply: '' }));
+      if (data.reply) {
+        setStatus('connected');
+      } else {
+        setStatus('error');
+      }
       setMessages((m) => [
         ...m,
         {
@@ -81,6 +89,7 @@ export function ChatPanel({ compact = false }: { compact?: boolean }) {
         },
       ]);
     } catch (err: unknown) {
+      setStatus('error');
       const aborted = err instanceof DOMException && err.name === 'AbortError';
       setMessages((m) => [
         ...m,
@@ -189,8 +198,36 @@ export function ChatPanel({ compact = false }: { compact?: boolean }) {
         </div>
       )}
 
+      {/* Connection status + retry on error */}
+      <div className="flex items-center justify-between gap-2 pt-2 border-t border-border">
+        <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
+          <span
+            className={`size-2 rounded-full ${
+              status === 'connected'
+                ? 'bg-emerald-500'
+                : status === 'error'
+                  ? 'bg-rose-500'
+                  : 'bg-muted-foreground/40'
+            }`}
+          />
+          {status === 'connected'
+            ? 'متصل بالخدمة'
+            : status === 'error'
+              ? 'تعذّر الاتصال'
+              : 'جاهز للأسئلة'}
+        </div>
+        {status === 'error' && lastQuestion && !loading && (
+          <button
+            onClick={() => send(lastQuestion)}
+            className="text-[11px] text-primary hover:underline flex items-center gap-1"
+          >
+            <RotateCw className="size-3" /> إعادة المحاولة
+          </button>
+        )}
+      </div>
+
       {/* Input */}
-      <div className="flex items-center gap-2 pt-2 border-t border-border">
+      <div className="flex items-center gap-2 pt-1">
         <Input
           value={input}
           onChange={(e) => setInput(e.target.value)}

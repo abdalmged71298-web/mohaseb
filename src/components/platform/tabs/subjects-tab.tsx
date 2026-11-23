@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect, useRef } from 'react';
 import { ArrowRight, GraduationCap, Megaphone, BookOpen, Star } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -188,6 +188,15 @@ function SubjectDetail({
 }) {
   const [sub, setSub] = useState<FileType>('videos');
   const items = (subject[sub] || []) as { label: string; url: string }[];
+  const detailRef = useRef<HTMLDivElement>(null);
+
+  // Smooth-scroll the detail panel into view when a subject is selected,
+  // so on mobile (where detail is below the list) the user sees its content.
+  useEffect(() => {
+    if (detailRef.current) {
+      detailRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [subject.id]);
 
   const counts: Record<FileType, number> = {
     videos: subject.videos?.length || 0,
@@ -199,6 +208,7 @@ function SubjectDetail({
   };
 
   return (
+    <div ref={detailRef} className="scroll-mt-28">
     <Card className="p-4 sm:p-5">
       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
         <div className="min-w-0">
@@ -255,6 +265,7 @@ function SubjectDetail({
         </div>
       )}
     </Card>
+    </div>
   );
 }
 
