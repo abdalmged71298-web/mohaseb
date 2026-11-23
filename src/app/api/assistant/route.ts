@@ -139,12 +139,16 @@ export async function POST(req: NextRequest) {
     );
 
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Gemini API Error:', response.status, errorText);
       throw new Error(`Gemini API Error: ${response.status}`);
     }
 
     const data = await response.json();
+    const firstCandidate = Array.isArray(data?.candidates) ? data.candidates.at(0) : null;
+    const firstPart = Array.isArray(firstCandidate?.content?.parts) ? firstCandidate.content.parts.at(0) : null;
     const reply =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() ||
+      firstPart?.text?.trim() ||
       'عذراً، لم أتمكن من توليد إجابة. حاول إعادة صياغة سؤالك.';
 
     return NextResponse.json({
