@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { chatComplete, type ChatMessage } from '@/lib/ai-provider';
 import {
   allSubjects,
   allFiles,
@@ -8,7 +7,6 @@ import {
   founderInfo,
 } from '@/lib/platform-data';
 
-// Simple keyword extraction (Arabic-aware basic normalization)
 function normalize(s: string): string {
   return s
     .toLowerCase()
@@ -38,7 +36,7 @@ function retrieve(message: string) {
     .slice(0, 3);
 
   const scoredFiles = allFiles
-    .filter((f) => f.url) // only real links, skip news-only text entries
+    .filter((f) => f.url)
     .map((f) => {
       const t = normalize(f.label + ' ' + f.subjectTitle);
       let score = 0;
@@ -85,6 +83,25 @@ const SYSTEM_PROMPT = `أنت "المساعد الأكاديمي" لمنصة "${
 
 export async function POST(req: NextRequest) {
   try {
+    const apiKey = (process.env.AI_API_KEY || process.env.GROQ_API_KEY || '').trim();
+    const rawBaseUrl = (process.env.AI_API_BASE_URL || 'https://groq.com')
+      .trim()
+      .replace(/\/+$/, '');
+    const endpoint = rawBaseUrl.endsWith('/chat/completions')
+      ? rawBaseUrl
+      : `${rawBaseUrl}/chat/completions`;
+    const model = (process.env.AI_MODEL || 'llama-3.3-70b-versatile').trim();
+
+    if (!apiKey) {
+      return NextResponse.json(
+        {
+          error: 'AI_API_KEY missing',
+          reply: 'عذراً، مفتاح AI_API_KEY غير موجود في إعدادات Vercel.',
+        },
+        { status: 500 }
+      );
+    }
+
     const body = await req.json();
     const message: string = (body?.message ?? '').toString().slice(0, 2000);
     const history: { role: 'user' | 'assistant'; content: string }[] = Array.isArray(body?.history)
@@ -95,7 +112,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'الرسالة فارغة' }, { status: 400 });
     }
 
-    // RAG: retrieve relevant platform data
     const { subjects, files } = retrieve(message);
     let context = '';
     if (subjects.length > 0 || files.length > 0) {
@@ -109,34 +125,53 @@ export async function POST(req: NextRequest) {
       context = '\n\n--- سياق من بيانات المنصة ---\n' + parts.join('\n\n') + '\n--- نهاية السياق ---\n';
     }
 
-    const messages: ChatMessage[] = [
-      { role: 'system', content: SYSTEM_PROMPT + context },
-      ...history,
-      { role: 'user', content: message },
-    ];
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model,
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT + context },
+          ...history.map((m) => ({
+            role: m.role === 'assistant' ? 'assistant' : 'user',
+            content: m.content,
+          })),
+          { role: 'user', content: message },
+        ],
+        temperature: 0.5,
+      }),
+    });
 
-    // chatComplete handles provider selection (env-configured or bundled SDK),
-    // timeout, and retry automatically.
-    let reply = '';
-    try {
-      const result = await chatComplete(messages, 3);
-      reply = result.content;
-    } catch (err) {
-      console.error('Assistant API exhausted retries:', err);
+    const data = await response.json();
+
+    if (!response.ok) {
+      const apiMsg = data?.error?.message || `HTTP ${response.status}`;
       return NextResponse.json(
         {
-          error: 'تعذرت استجابة النموذج بعد عدة محاولات.',
-          reply:
-            'عذراً، تعذر الاتصال بخدمة الذكاء الاصطناعي حالياً بعد عدة محاولات. يرجى المحاولة مرة أخرى بعد لحظات.',
+          error: apiMsg,
+          reply: `خطأ من الخادم: ${apiMsg}`,
         },
-        { status: 503 }
+        { status: 500 }
       );
     }
+
+    const firstChoice = Array.isArray(data?.choices) ? data.choices.at(0) : null;
+    const reply =
+      firstChoice?.message?.content?.trim() ||
+      'عذراً، لم أتمكن من توليد إجابة. حاول إعادة صياغة سؤالك.';
 
     return NextResponse.json({
       reply,
       sources: {
-        subjects: subjects.map((s) => ({ id: s.id, title: s.title, category: s.category, categoryLabel: s.categoryLabel })),
+        subjects: subjects.map((s) => ({
+          id: s.id,
+          title: s.title,
+          category: s.category,
+          categoryLabel: s.categoryLabel,
+        })),
         files: files.map((f) => ({
           label: f.label,
           url: f.url,
@@ -148,12 +183,12 @@ export async function POST(req: NextRequest) {
         })),
       },
     });
-  } catch (err) {
+  } catch (err: any) {
     console.error('Assistant API error:', err);
     return NextResponse.json(
       {
-        error: 'تعذر الاتصال بخدمة المساعد الذكي حالياً. حاول مرة أخرى لاحقاً.',
-        reply: 'عذراً، تعذر الاتصال بخدمة الذكاء الاصطناعي حالياً. يرجى المحاولة مرة أخرى بعد لحظات.',
+        error: err?.message || 'Unknown error',
+        reply: `خطأ تقني: ${err?.message || 'تعذر الاتصال بالخادم'}`,
       },
       { status: 500 }
     );
