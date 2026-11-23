@@ -1,23 +1,4 @@
-// Provider-agnostic AI chat client.
-//
-// This module abstracts the LLM call so the assistant route (and the rest of
-// the app) never depends on a single vendor. When the project is moved to
-// another host, you only set environment variables — no UI or route code
-// needs to change.
-//
-// Priority of providers:
-//   1. Standard OpenAI-compatible REST API via env vars:
-//        AI_API_BASE_URL, AI_API_KEY, AI_MODEL
-//      Works with: OpenAI, Groq, OpenRouter, Together, DeepSeek, Google Gemini
-//      (OpenAI-compatible mode), Ollama (local), and any OpenAI-compatible endpoint.
-//   2. z-ai-web-dev-sdk (bundled in this dev environment) as a fallback when no
-//      env config is present. This keeps the assistant working in the current
-//      sandbox without any setup.
-//
-// No API keys are ever exposed to the client — this module runs server-side only.
-
-import ZAI from 'z-ai-web-dev-sdk';
-
+// Server-only OpenAI-compatible chat client. Provider credentials never enter client bundles.
 export interface ChatMessage {
   role: 'system' | 'user' | 'assistant';
   content: string;
@@ -28,118 +9,119 @@ export interface ChatResult {
   provider: string;
 }
 
-const TIMEOUT_MS = 45000;
-
-function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
-  return Promise.race([
-    promise,
-    new Promise<T>((_, reject) => setTimeout(() => reject(new Error('timeout')), ms)),
-  ]);
+export class AIProviderError extends Error {
+  constructor(
+    message: string,
+    public readonly status?: number,
+    public readonly retryable = false,
+  ) {
+    super(message);
+    this.name = 'AIProviderError';
+  }
 }
 
-/**
- * Resolve the active provider configuration from environment variables.
- * Returns null when no env config is set (caller falls back to bundled SDK).
- */
-function getEnvProvider(): { baseUrl: string; apiKey: string; model: string } | null {
+const TIMEOUT_MS = 25000;
+
+function getEnvProvider(): { baseUrl: string; apiKey: string; model: string } {
   const baseUrl = process.env.AI_API_BASE_URL?.trim();
   const apiKey = process.env.AI_API_KEY?.trim();
   const model = process.env.AI_MODEL?.trim();
-  if (baseUrl && apiKey && model) {
-    return { baseUrl, apiKey, model };
+  const missing = [
+    !baseUrl && 'AI_API_BASE_URL',
+    !apiKey && 'AI_API_KEY',
+    !model && 'AI_MODEL',
+  ].filter(Boolean);
+  if (missing.length) {
+    throw new AIProviderError(`Missing server configuration: ${missing.join(', ')}`);
   }
-  return null;
+
+  let parsedUrl: URL;
+  try {
+    parsedUrl = new URL(baseUrl!);
+  } catch {
+    throw new AIProviderError('AI_API_BASE_URL is not a valid URL');
+  }
+  if (parsedUrl.protocol !== 'https:' && parsedUrl.hostname !== 'localhost') {
+    throw new AIProviderError('AI_API_BASE_URL must use HTTPS');
+  }
+  return { baseUrl: baseUrl!.replace(/\/+$/, ''), apiKey: apiKey!, model: model! };
 }
 
-/**
- * Call an OpenAI-compatible /chat/completions endpoint directly via fetch.
- * This is the portable path used when env vars are configured.
- */
+function providerError(status: number): AIProviderError {
+  const retryable = status === 429 || status >= 500;
+  const reason = status === 400 ? 'invalid request or model configuration'
+    : status === 401 ? 'provider rejected the API credentials'
+      : status === 403 ? 'provider denied access to this model or account'
+        : status === 404 ? 'chat completion endpoint or model was not found'
+          : status === 429 ? 'provider rate limit or quota was reached'
+            : status >= 500 ? 'provider service error'
+              : 'provider rejected the request';
+  return new AIProviderError(`AI provider returned HTTP ${status}: ${reason}`, status, retryable);
+}
+
 async function callOpenAICompatible(
   cfg: { baseUrl: string; apiKey: string; model: string },
-  messages: ChatMessage[]
-): Promise<string> {
-  const url = `${cfg.baseUrl.replace(/\/+$/, '')}/chat/completions`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${cfg.apiKey}`,
-    },
-    body: JSON.stringify({
-      model: cfg.model,
-      messages,
-      // Standard OpenAI-compatible flag; harmless if the provider ignores it.
-      stream: false,
-    }),
-  });
-
-  if (!res.ok) {
-    const text = await res.text().catch(() => '');
-    throw new Error(`HTTP ${res.status}: ${text.slice(0, 200)}`);
-  }
-
-  const data = await res.json();
-  const content: string | undefined =
-    data?.choices?.[0]?.message?.content ??
-    data?.choices?.[0]?.delta?.content ??
-    (typeof data?.output === 'string' ? data.output : undefined);
-  if (!content) throw new Error('empty response from provider');
-  return content.trim();
-}
-
-/**
- * Fallback: use the bundled z-ai-web-dev-sdk (works in this dev environment
- * without any env config). Returns a chat completion.
- */
-async function callBundledSDK(messages: ChatMessage[]): Promise<string> {
-  const zai = await ZAI.create();
-  // The bundled SDK expects the system prompt as the first "assistant" message.
-  const mapped = messages.map((m) => ({
-    role: m.role === 'system' ? ('assistant' as const) : m.role,
-    content: m.content,
-  }));
-  const completion = await zai.chat.completions.create({
-    messages: mapped,
-    thinking: { type: 'disabled' },
-  });
-  const content = completion?.choices?.[0]?.message?.content?.trim();
-  if (!content) throw new Error('empty response from bundled SDK');
-  return content;
-}
-
-/**
- * Public entry point: send messages to whichever provider is configured and
- * return the assistant's reply. Retries up to `maxAttempts` times on failure.
- */
-export async function chatComplete(
   messages: ChatMessage[],
-  maxAttempts = 3
-): Promise<ChatResult> {
-  const envProvider = getEnvProvider();
-  const providerName = envProvider ? `openai-compatible (${envProvider.model})` : 'bundled-sdk';
+): Promise<string> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  try {
+    const res = await fetch(`${cfg.baseUrl}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${cfg.apiKey}`,
+      },
+      body: JSON.stringify({ model: cfg.model, messages, stream: false }),
+      signal: controller.signal,
+      cache: 'no-store',
+    });
+    if (!res.ok) throw providerError(res.status);
 
-  let lastErr: unknown = null;
+    let data: unknown;
+    try {
+      data = await res.json();
+    } catch {
+      throw new AIProviderError('AI provider returned invalid JSON');
+    }
+    const content = (data as { choices?: { message?: { content?: unknown } }[] })
+      ?.choices?.[0]?.message?.content;
+    if (typeof content !== 'string' || !content.trim()) {
+      throw new AIProviderError('AI provider returned an empty or unsupported response');
+    }
+    return content.trim();
+  } catch (error) {
+    if (error instanceof AIProviderError) throw error;
+    if (controller.signal.aborted) throw new AIProviderError('AI provider request timed out', 504, true);
+    // Avoid including fetch exception details, which can contain sensitive URL data.
+    throw new AIProviderError('Could not connect to AI provider', undefined, true);
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+export async function chatComplete(messages: ChatMessage[], maxAttempts = 2): Promise<ChatResult> {
+  const cfg = getEnvProvider();
+  let lastError: AIProviderError | undefined;
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
-      const content = envProvider
-        ? await withTimeout(callOpenAICompatible(envProvider, messages), TIMEOUT_MS)
-        : await withTimeout(callBundledSDK(messages), TIMEOUT_MS);
-      return { content, provider: providerName };
-    } catch (err) {
-      lastErr = err;
-      if (attempt < maxAttempts) {
-        await new Promise((r) => setTimeout(r, 600 * attempt));
-      }
+      const content = await callOpenAICompatible(cfg, messages);
+      return { content, provider: `openai-compatible (${cfg.model})` };
+    } catch (error) {
+      lastError = error instanceof AIProviderError
+        ? error
+        : new AIProviderError('Unexpected AI provider error');
+      if (!lastError.retryable || attempt === maxAttempts) throw lastError;
+      await new Promise((resolve) => setTimeout(resolve, 500 * attempt));
     }
   }
-  throw lastErr instanceof Error ? lastErr : new Error('all attempts failed');
+  throw lastError ?? new AIProviderError('AI request failed');
 }
 
-/**
- * Whether an external (portable) provider is configured via env vars.
- * Useful for surfacing a status note without exposing any secrets.
- */
 export function isExternalProviderConfigured(): boolean {
-  return getEnvProvider() !== null;
+  return Boolean(
+    process.env.AI_API_BASE_URL?.trim() &&
+    process.env.AI_API_KEY?.trim() &&
+    process.env.AI_MODEL?.trim(),
+  );
 }

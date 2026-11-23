@@ -65,15 +65,19 @@ export function ChatPanel({ compact = false }: { compact?: boolean }) {
       // Client-side timeout: abort after 60s so the UI never hangs forever.
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 60000);
-      const res = await fetch('/api/assistant', {
+      let res: Response;
+      try {
+        res = await fetch('/api/assistant', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: msg, history }),
         signal: controller.signal,
-      });
-      clearTimeout(timeoutId);
+        });
+      } finally {
+        clearTimeout(timeoutId);
+      }
       const data = await res.json().catch(() => ({ reply: '' }));
-      if (data.reply) {
+      if (res.ok && data.reply) {
         setStatus('connected');
       } else {
         setStatus('error');

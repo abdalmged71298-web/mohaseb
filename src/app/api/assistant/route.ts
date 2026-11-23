@@ -115,11 +115,10 @@ export async function POST(req: NextRequest) {
       { role: 'user', content: message },
     ];
 
-    // chatComplete handles provider selection (env-configured or bundled SDK),
-    // timeout, and retry automatically.
+    // chatComplete calls the configured provider with a bounded timeout and retries.
     let reply = '';
     try {
-      const result = await chatComplete(messages, 3);
+      const result = await chatComplete(messages, 2);
       reply = result.content;
     } catch (err) {
       console.error('Assistant API exhausted retries:', err);
