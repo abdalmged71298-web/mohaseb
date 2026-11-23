@@ -27,20 +27,28 @@ export function FloatingTimeBar() {
       className="fixed bottom-0 inset-x-0 z-30 pointer-events-none"
       aria-live="polite"
     >
-      <div className="mx-auto max-w-md px-3 pb-2">
-        <div className="pointer-events-auto flex items-center justify-center gap-2 rounded-full bg-card/95 backdrop-blur border border-border shadow-md px-3 py-1.5 text-xs sm:text-sm">
+      <div className="mx-auto max-w-2xl px-3 pb-2">
+        <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-card/95 backdrop-blur border border-border shadow-md px-4 py-1.5 text-xs sm:text-sm">
           <Clock className="size-3.5 sm:size-4 text-primary shrink-0" />
-          <span className="text-muted-foreground shrink-0 hidden sm:inline">الوقت المتبقي للاختبارات:</span>
-          <span className="text-muted-foreground shrink-0 sm:hidden">الاختبارات:</span>
+          <span className="text-muted-foreground shrink-0 hidden sm:inline">
+            الوقت المتبقي لـ {examInfo.label}:
+          </span>
+          <span className="text-muted-foreground shrink-0 sm:hidden">
+            {examInfo.label}:
+          </span>
           {cd.done ? (
             <span className="font-semibold text-emerald-600">انتهت فترة الاختبارات</span>
           ) : (
-            <span className="font-mono font-semibold text-foreground tabular-nums" dir="ltr">
-              {cd.months > 0 && `${cd.months}ش `}
-              {cd.days > 0 && `${cd.days}ي `}
-              {String(cd.hours).padStart(2, '0')}:
-              {String(cd.minutes).padStart(2, '0')}:
-              {String(cd.seconds).padStart(2, '0')}
+            <span className="font-semibold text-foreground tabular-nums flex items-center gap-1.5">
+              <span>{cd.months} شهر</span>
+              <span className="text-muted-foreground">•</span>
+              <span>{cd.days} يوم</span>
+              <span className="text-muted-foreground">•</span>
+              <span>{String(cd.hours).padStart(2, '0')} ساعة</span>
+              <span className="text-muted-foreground">•</span>
+              <span>{String(cd.minutes).padStart(2, '0')} دقيقة</span>
+              <span className="text-muted-foreground">•</span>
+              <span className="text-primary font-mono">{String(cd.seconds).padStart(2, '0')} ثانية</span>
             </span>
           )}
         </div>
