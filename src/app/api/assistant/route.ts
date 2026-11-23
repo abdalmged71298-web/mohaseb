@@ -144,7 +144,7 @@ export async function POST(req: NextRequest) {
 
     const data = await response.json();
     const reply =
-      data?.candidates?.?.content?.parts?.?.text?.trim() ||
+      data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() ||
       'عذراً، لم أتمكن من توليد إجابة. حاول إعادة صياغة سؤالك.';
 
     return NextResponse.json({
