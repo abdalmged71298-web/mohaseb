@@ -1,14 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { chatComplete, type ChatMessage } from '@/lib/ai-provider';
 import {
   allSubjects,
   allFiles,
   categoryMeta,
   platformMeta,
-  founderInfo,
 } from '@/lib/platform-data';
 
-// Simple keyword extraction (Arabic-aware basic normalization)
 function normalize(s: string): string {
   return s
     .toLowerCase()
@@ -35,10 +32,9 @@ function retrieve(message: string) {
     })
     .filter((x) => x.score > 0)
     .sort((a, b) => b.score - a.score)
-    .slice(0, 3);
+    .slice(0, 5);
 
   const scoredFiles = allFiles
-    .filter((f) => f.url) // only real links, skip news-only text entries
     .map((f) => {
       const t = normalize(f.label + ' ' + f.subjectTitle);
       let score = 0;
@@ -48,7 +44,7 @@ function retrieve(message: string) {
     })
     .filter((x) => x.score > 0)
     .sort((a, b) => b.score - a.score)
-    .slice(0, 6);
+    .slice(0, 12);
 
   return {
     subjects: scoredSubjects.map((x) => x.subj),
@@ -63,28 +59,40 @@ const SYSTEM_PROMPT = `أنت "المساعد الأكاديمي" لمنصة "${
 - استخراج التعريفات وإنشاء اختبارات وخطط مذاكرة.
 - شرح المسائل خطوة بخطوة.
 
+معلومات عن مؤسس المنصة:
+- مؤسس ومطور هذه المنصة هو الأستاذ **عبد المجيد المنيعي**.
+- إذا سألك أحد "من هو مؤسس المنصة؟" أو "من صمم التطبيق؟"، فأجب بكل فخر أن مؤسس المنصة هو **عبد المجيد المنيعي**.
+- وإذا سألك أحد "من هو عبد المجيد المنيعي؟"، فعرّف به بأسلوب راقٍ وجميل، موضحاً أنه مؤسس ومبتكر هذه المنصة التعليمية، وأنه طالب مجتهد يدرس تخصص المحاسبة، وقد بذل مجهوداً كبيراً ووقتاً طويلاً في جمع وتنظيم هذا المحتوى وبناء المنصة حباً في الخير وحرصاً على مساعدة زملائه الطلاب وتسهيل رحلتهم الدراسية، سائلاً الله له التوفيق والسداد.
+
 قواعد صارمة:
 1. أجب بالعربية الفصيحة الواضحة.
-2. اعتمد فقط على السياق المقدّم من بيانات المنصة. لا تختلق أرقام صفحات أو ملفات غير موجودة.
-3. إذا لم تجد الإجابة في البيانات، وضّح ذلك بصراحة ولا تخترع معلومات.
+2. اعتمد في المعلومات الأكاديمية والمواد والملفات على السياق المقدّم من بيانات المنصة، ولا تختلق أرقام صفحات أو ملفات غير موجودة.
+3. إذا لم تجد الإجابة الأكاديمية في البيانات، وضّح ذلك بصراحة ولا تخترع معلومات.
 4. عند الإشارة لملف أو مادة، اذكر اسمها كما هو وارد في البيانات.
 5. كن مختصراً ومفيداً، واستخدم النقاط عند الحاجة.
 6. لا تكشف أي مفاتيح أو تفاصيل تقنية داخلية.
 
-البيانات المتاحة: ${allSubjects.length} مادة موزعة على 4 أقسام (${Object.values(categoryMeta).map((c) => c.label).join('، ')})، وآلاف الملفات (فيديوهات، كتب، نماذج، ملخصات، قنوات تليجرام، أدلة مذاكرة).
-
---- معلومات ثابتة عن مؤسس البوابة (استخدمها عند أي سؤال عن المؤسس أو المصمم أو صاحب المشروع) ---
-الاسم: ${founderInfo.name}
-الصفة: ${founderInfo.role}
-الدراسة: ${founderInfo.study}
-التعريف: ${founderInfo.bio}
-المساهمون: ${founderInfo.contributors}
-تنويه: ${founderInfo.disclaimer}
-
-عندما يسأل الطالب عن مؤسس البوابة أو من صممها أو من هو ${founderInfo.name} أو صاحب فكرة المنصة أو من طور المشروع، أجب بإجابة واضحة وودية تستند فقط إلى المعلومات أعلاه، ولا تخترع تفاصيل شخصية غير مذكورة، ولا تدّعي أنه يشغل منصباً رسمياً في الجامعة، وأوضح أن البوابة مبادرة طلابية مستقلة. إذا سُئل عن معلومات غير متوفرة، وضّح أنك لا تملك معلومات مؤكدة عنها.`;
+البيانات المتاحة: ${allSubjects.length} مادة موزعة على 4 أقسام (${Object.values(categoryMeta).map((c) => c.label).join('، ')})، وآلاف الملفات (فيديوهات، كتب، نماذج، ملخصات، قنوات تليجرام، أدلة مذاكرة).`;
 
 export async function POST(req: NextRequest) {
   try {
+    const apiKey = (process.env.AI_API_KEY || process.env.GROQ_API_KEY || '').trim();
+    const rawBaseUrl = (process.env.AI_API_BASE_URL || 'https://groq.com').trim().replace(/\/+$/, '');
+    const endpoint = rawBaseUrl.endsWith('/chat/completions')
+      ? rawBaseUrl
+      : `${rawBaseUrl}/chat/completions`;
+    const model = (process.env.AI_MODEL || 'llama-3.3-70b-versatile').trim();
+
+    if (!apiKey) {
+      return NextResponse.json(
+        {
+          error: 'AI_API_KEY missing',
+          reply: 'عذراً، لم يتم العثور على مفتاح AI_API_KEY في إعدادات Vercel.',
+        },
+        { status: 500 }
+      );
+    }
+
     const body = await req.json();
     const message: string = (body?.message ?? '').toString().slice(0, 2000);
     const history: { role: 'user' | 'assistant'; content: string }[] = Array.isArray(body?.history)
@@ -95,7 +103,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'الرسالة فارغة' }, { status: 400 });
     }
 
-    // RAG: retrieve relevant platform data
     const { subjects, files } = retrieve(message);
     let context = '';
     if (subjects.length > 0 || files.length > 0) {
@@ -109,34 +116,53 @@ export async function POST(req: NextRequest) {
       context = '\n\n--- سياق من بيانات المنصة ---\n' + parts.join('\n\n') + '\n--- نهاية السياق ---\n';
     }
 
-    const messages: ChatMessage[] = [
-      { role: 'system', content: SYSTEM_PROMPT + context },
-      ...history,
-      { role: 'user', content: message },
-    ];
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model,
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT + context },
+          ...history.map((m) => ({
+            role: m.role === 'assistant' ? 'assistant' : 'user',
+            content: m.content,
+          })),
+          { role: 'user', content: message },
+        ],
+        temperature: 0.5,
+      }),
+    });
 
-    // chatComplete handles provider selection (env-configured or bundled SDK),
-    // timeout, and retry automatically.
-    let reply = '';
-    try {
-      const result = await chatComplete(messages, 3);
-      reply = result.content;
-    } catch (err) {
-      console.error('Assistant API exhausted retries:', err);
+    const data = await response.json();
+
+    if (!response.ok) {
+      const apiMsg = data?.error?.message || `HTTP ${response.status}`;
       return NextResponse.json(
         {
-          error: 'تعذرت استجابة النموذج بعد عدة محاولات.',
-          reply:
-            'عذراً، تعذر الاتصال بخدمة الذكاء الاصطناعي حالياً بعد عدة محاولات. يرجى المحاولة مرة أخرى بعد لحظات.',
+          error: apiMsg,
+          reply: `خطأ من الخادم: ${apiMsg}`,
         },
-        { status: 503 }
+        { status: 500 }
       );
     }
+
+    const firstChoice = Array.isArray(data?.choices) ? data.choices.at(0) : null;
+    const reply =
+      firstChoice?.message?.content?.trim() ||
+      'عذراً، لم أتمكن من توليد إجابة. حاول إعادة صياغة سؤالك.';
 
     return NextResponse.json({
       reply,
       sources: {
-        subjects: subjects.map((s) => ({ id: s.id, title: s.title, category: s.category, categoryLabel: s.categoryLabel })),
+        subjects: subjects.map((s) => ({
+          id: s.id,
+          title: s.title,
+          category: s.category,
+          categoryLabel: s.categoryLabel,
+        })),
         files: files.map((f) => ({
           label: f.label,
           url: f.url,
@@ -148,12 +174,12 @@ export async function POST(req: NextRequest) {
         })),
       },
     });
-  } catch (err) {
+  } catch (err: any) {
     console.error('Assistant API error:', err);
     return NextResponse.json(
       {
-        error: 'تعذر الاتصال بخدمة المساعد الذكي حالياً. حاول مرة أخرى لاحقاً.',
-        reply: 'عذراً، تعذر الاتصال بخدمة الذكاء الاصطناعي حالياً. يرجى المحاولة مرة أخرى بعد لحظات.',
+        error: err?.message || 'Unknown error',
+        reply: `خطأ تقني: ${err?.message || 'تعذر الاتصال بالخادم'}`,
       },
       { status: 500 }
     );
