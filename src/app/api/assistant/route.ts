@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import ZAI from 'z-ai-web-dev-sdk';
 import {
   allSubjects,
   allFiles,
@@ -7,7 +6,6 @@ import {
   platformMeta,
 } from '@/lib/platform-data';
 
-// Simple keyword extraction (Arabic-aware basic normalization)
 function normalize(s: string): string {
   return s
     .toLowerCase()
@@ -61,10 +59,15 @@ const SYSTEM_PROMPT = `أنت "المساعد الأكاديمي" لمنصة "${
 - استخراج التعريفات وإنشاء اختبارات وخطط مذاكرة.
 - شرح المسائل خطوة بخطوة.
 
+معلومات عن مؤسس المنصة:
+- مؤسس ومطور هذه المنصة هو الأستاذ **عبد المجيد المنيعي**.
+- إذا سألك أحد "من هو مؤسس المنصة؟" أو "من صمم التطبيق؟"، فأجب بكل فخر أن مؤسس المنصة هو **عبد المجيد المنيعي**.
+- وإذا سألك أحد "من هو عبد المجيد المنيعي؟"، فعرّف به بأسلوب راقٍ وجميل، موضحاً أنه مؤسس ومبتكر هذه المنصة التعليمية، وأنه طالب مجتهد يدرس تخصص المحاسبة، وقد بذل مجهوداً كبيراً ووقتاً طويلاً في جمع وتنظيم هذا المحتوى وبناء المنصة حباً في الخير وحرصاً على مساعدة زملائه الطلاب وتسهيل رحلتهم الدراسية، سائلاً الله له التوفيق والسداد.
+
 قواعد صارمة:
 1. أجب بالعربية الفصيحة الواضحة.
-2. اعتمد فقط على السياق المقدّم من بيانات المنصة. لا تختلق أرقام صفحات أو ملفات غير موجودة.
-3. إذا لم تجد الإجابة في البيانات، وضّح ذلك بصراحة ولا تخترع معلومات.
+2. اعتمد في المعلومات الأكاديمية والمواد والملفات على السياق المقدّم من بيانات المنصة، ولا تختلق أرقام صفحات أو ملفات غير موجودة.
+3. إذا لم تجد الإجابة الأكاديمية في البيانات، وضّح ذلك بصراحة ولا تخترع معلومات.
 4. عند الإشارة لملف أو مادة، اذكر اسمها كما هو وارد في البيانات.
 5. كن مختصراً ومفيداً، واستخدم النقاط عند الحاجة.
 6. لا تكشف أي مفاتيح أو تفاصيل تقنية داخلية.
@@ -73,6 +76,17 @@ const SYSTEM_PROMPT = `أنت "المساعد الأكاديمي" لمنصة "${
 
 export async function POST(req: NextRequest) {
   try {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        {
+          error: 'مفتاح GEMINI_API_KEY غير مضاف في إعدادات Vercel',
+          reply: 'عذراً، لم يتم إعداد مفتاح الذكاء الاصطناعي في الخادم بعد.',
+        },
+        { status: 500 }
+      );
+    }
+
     const body = await req.json();
     const message: string = (body?.message ?? '').toString().slice(0, 2000);
     const history: { role: 'user' | 'assistant'; content: string }[] = Array.isArray(body?.history)
@@ -83,7 +97,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'الرسالة فارغة' }, { status: 400 });
     }
 
-    // RAG: retrieve relevant platform data
     const { subjects, files } = retrieve(message);
     let context = '';
     if (subjects.length > 0 || files.length > 0) {
@@ -97,24 +110,52 @@ export async function POST(req: NextRequest) {
       context = '\n\n--- سياق من بيانات المنصة ---\n' + parts.join('\n\n') + '\n--- نهاية السياق ---\n';
     }
 
-    const zai = await ZAI.create();
-    const completion = await zai.chat.completions.create({
-      messages: [
-        { role: 'assistant', content: SYSTEM_PROMPT + context },
-        ...history,
-        { role: 'user', content: message },
-      ],
-      thinking: { type: 'disabled' },
-    });
+    const contents = [
+      ...history.map((m) => ({
+        role: m.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: m.content }],
+      })),
+      {
+        role: 'user',
+        parts: [{ text: message }],
+      },
+    ];
 
+    const response = await fetch(
+      `https://googleapis.com{apiKey}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          systemInstruction: {
+            parts: [{ text: SYSTEM_PROMPT + context }],
+          },
+          contents,
+          generationConfig: {
+            temperature: 0.5,
+          },
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Gemini API Error: ${response.status}`);
+    }
+
+    const data = await response.json();
     const reply =
-      completion.choices[0]?.message?.content?.trim() ||
+      data?.candidates?.?.content?.parts?.?.text?.trim() ||
       'عذراً، لم أتمكن من توليد إجابة. حاول إعادة صياغة سؤالك.';
 
     return NextResponse.json({
       reply,
       sources: {
-        subjects: subjects.map((s) => ({ id: s.id, title: s.title, category: s.category, categoryLabel: s.categoryLabel })),
+        subjects: subjects.map((s) => ({
+          id: s.id,
+          title: s.title,
+          category: s.category,
+          categoryLabel: s.categoryLabel,
+        })),
         files: files.map((f) => ({
           label: f.label,
           url: f.url,
