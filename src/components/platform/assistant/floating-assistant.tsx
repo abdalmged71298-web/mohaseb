@@ -21,7 +21,7 @@ export function FloatingAssistant() {
       {/* Floating button */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-5 right-5 z-50 group"
+        className="fixed bottom-16 right-4 z-50 group"
         aria-label="المساعد الذكي"
       >
         <span className="absolute inset-0 rounded-full header-gradient opacity-60 blur-lg animate-pulse" />

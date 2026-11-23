@@ -59,26 +59,36 @@ export function ChatPanel({ compact = false }: { compact?: boolean }) {
     setInput('');
     setLoading(true);
     try {
+      // Client-side timeout: abort after 60s so the UI never hangs forever.
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 60000);
       const res = await fetch('/api/assistant', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: msg, history }),
+        signal: controller.signal,
       });
-      const data = await res.json();
+      clearTimeout(timeoutId);
+      const data = await res.json().catch(() => ({ reply: '' }));
       setMessages((m) => [
         ...m,
         {
           role: 'assistant',
-          content: data.reply || 'عذراً، حدث خطأ.',
+          content:
+            data.reply ||
+            'عذراً، لم أستلم رداً صالحاً من الخدمة. حاول مرة أخرى.',
           sources: data.sources,
         },
       ]);
-    } catch {
+    } catch (err: unknown) {
+      const aborted = err instanceof DOMException && err.name === 'AbortError';
       setMessages((m) => [
         ...m,
         {
           role: 'assistant',
-          content: 'تعذر الاتصال بالمساعد. تحقق من اتصالك وحاول مرة أخرى.',
+          content: aborted
+            ? 'استغرقت الاستجابة وقتاً طويلاً. حاول إعادة الإرسال.'
+            : 'تعذر الاتصال بالمساعد. تحقق من اتصالك وحاول مرة أخرى.',
         },
       ]);
     } finally {

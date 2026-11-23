@@ -1,49 +1,27 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { BookOpen, Files, Megaphone, Wrench, Bot, NotebookPen, Clock, ArrowLeft } from 'lucide-react';
+import { useState } from 'react';
+import { BookOpen, Files, Megaphone, Wrench, Bot, NotebookPen, ArrowLeft, Heart, User } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
   platformMeta,
   welcomeSpeech,
+  welcomeText,
+  founderInfo,
+  founderMessage,
   stats,
-  examInfo,
   categoryMeta,
   welcomeMessages,
   type Category,
 } from '@/lib/platform-data';
 import { usePlatformStore } from '@/lib/store';
 
-function useCountdown(target: string) {
-  const [now, setNow] = useState(() => Date.now());
-  useEffect(() => {
-    const t = setInterval(() => setNow(Date.now()), 1000);
-    return () => clearInterval(t);
-  }, []);
-  const targetMs = new Date(target).getTime();
-  const diff = Math.max(0, targetMs - now);
-  const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
-  const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-  return { months, days, hours, minutes, seconds, done: diff === 0 };
-}
-
-const fmtAr = (n: number, singular: string, dual: string, few: string, many: string) => {
-  if (n === 1) return `1 ${singular}`;
-  if (n === 2) return `2 ${dual}`;
-  if (n >= 3 && n <= 10) return `${n} ${few}`;
-  return `${n} ${many}`;
-};
-
 export function HomeTab() {
   const setActiveTab = usePlatformStore((s) => s.setActiveTab);
   const setSelectedCategory = usePlatformStore((s) => s.setSelectedCategory);
   const setSelectedSubject = usePlatformStore((s) => s.setSelectedSubject);
-  const cd = useCountdown(examInfo.date);
   const [welcomeIdx, setWelcomeIdx] = useState(0);
 
   const cats: Category[] = ['college', 'major', 'univ', 'Optional'];
@@ -85,37 +63,44 @@ export function HomeTab() {
         </div>
       </Card>
 
-      {/* Exam countdown */}
-      <Card className="border-accent/40 bg-accent/5">
-        <div className="p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
-            <Clock className="size-6 text-accent-foreground" />
+      {/* Welcome & founder introduction */}
+      <Card className="p-5 sm:p-6 border-primary/20">
+        <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
+          <span>🌟</span> {welcomeText.heading}
+        </h3>
+        <div className="space-y-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+          <p>{welcomeText.intro}</p>
+          <p>{welcomeText.body}</p>
+          <p>{welcomeText.closing}</p>
+          <p className="text-xs text-amber-700 dark:text-amber-400 bg-amber-500/10 rounded-lg p-3 border border-amber-500/20">
+            {welcomeText.disclaimer}
+          </p>
+        </div>
+      </Card>
+
+      {/* Founder note */}
+      <Card className="p-5 sm:p-6 border-primary/30 bg-primary/5">
+        <div className="flex items-start gap-3 mb-3">
+          <div className="w-12 h-12 rounded-xl header-gradient text-primary-foreground flex items-center justify-center shrink-0">
+            <User className="size-6" />
           </div>
-          <div className="flex-1 text-center sm:text-right">
-            <p className="font-semibold text-sm sm:text-base">
-              {cd.done ? 'انتهت فترة الاختبارات' : 'الوقت المتبقي للاختبارات النهائية'}
-            </p>
-            {!cd.done && (
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mt-2">
-                <Badge className="bg-primary text-primary-foreground">
-                  {fmtAr(cd.months, 'شهر', 'شهران', 'أشهر', 'شهر')}
-                </Badge>
-                <Badge className="bg-primary text-primary-foreground">
-                  {fmtAr(cd.days, 'يوم', 'يومان', 'أيام', 'يوم')}
-                </Badge>
-                <Badge variant="outline" className="font-mono">
-                  {String(cd.hours).padStart(2, '0')}:
-                  {String(cd.minutes).padStart(2, '0')}:
-                  {String(cd.seconds).padStart(2, '0')}
-                </Badge>
-              </div>
-            )}
+          <div className="min-w-0">
+            <h3 className="font-bold text-base">تنويه من المصمم ومؤسس البوابة</h3>
+            <p className="text-xs text-muted-foreground mt-0.5">{founderInfo.role}</p>
           </div>
-          <a href={examInfo.countdownLink} target="_blank" rel="noopener noreferrer">
-            <Button variant="outline" size="sm">
-              العد التنازلي الكامل
-            </Button>
-          </a>
+        </div>
+        <div className="msg-prose text-sm sm:text-base leading-relaxed text-foreground/90 whitespace-pre-line">
+          {founderMessage}
+        </div>
+        <div className="mt-4 pt-3 border-t border-primary/15 flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <Badge className="bg-primary text-primary-foreground">{founderInfo.name}</Badge>
+            <span className="text-xs text-muted-foreground">{founderInfo.study}</span>
+          </div>
+          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+            <Heart className="size-3.5 text-rose-500" />
+            <span>بمساهمة: {founderInfo.contributors}</span>
+          </div>
         </div>
       </Card>
 
@@ -212,7 +197,7 @@ export function HomeTab() {
         </div>
         <div
           className="msg-prose text-sm sm:text-base leading-relaxed text-foreground/90 max-h-[420px] overflow-y-auto scroll-thin pl-1"
-          dangerouslySetInnerHTML={{ __html: welcomeMessages[welcomeIdx]?.contentHtml ?? '' }}
+          dangerouslySetInnerHTML={{ __html: welcomeMessages[welcomeIdx]?.content ?? '' }}
         />
       </Card>
     </div>

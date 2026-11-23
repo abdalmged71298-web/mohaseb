@@ -7,6 +7,7 @@ export type TabId =
   | 'home'
   | 'subjects'
   | 'library'
+  | 'favorites'
   | 'announcements'
   | 'tools'
   | 'notes'
@@ -82,9 +83,12 @@ interface PlatformState {
 
   // favorites & recent
   favorites: string[]; // file urls
+  favoriteSubjects: string[]; // subject ids
   recents: { url: string; label: string; subjectTitle: string; type: string; ts: number }[];
   toggleFavorite: (url: string) => void;
   isFavorite: (url: string) => boolean;
+  toggleFavoriteSubject: (id: string) => void;
+  isFavoriteSubject: (id: string) => boolean;
   addRecent: (r: { url: string; label: string; subjectTitle: string; type: string }) => void;
 
   // notes
@@ -137,6 +141,7 @@ export const usePlatformStore = create<PlatformState>()(
       setSelectedSubject: (id) => set({ selectedSubjectId: id }),
 
       favorites: [],
+      favoriteSubjects: [],
       recents: [],
       toggleFavorite: (url) =>
         set((s) => ({
@@ -145,6 +150,13 @@ export const usePlatformStore = create<PlatformState>()(
             : [...s.favorites, url],
         })),
       isFavorite: (url) => get().favorites.includes(url),
+      toggleFavoriteSubject: (id) =>
+        set((s) => ({
+          favoriteSubjects: s.favoriteSubjects.includes(id)
+            ? s.favoriteSubjects.filter((f) => f !== id)
+            : [...s.favoriteSubjects, id],
+        })),
+      isFavoriteSubject: (id) => get().favoriteSubjects.includes(id),
       addRecent: (r) =>
         set((s) => ({
           recents: [
@@ -201,6 +213,7 @@ export const usePlatformStore = create<PlatformState>()(
       storage: createJSONStorage(() => localStorage),
       partialize: (s) => ({
         favorites: s.favorites,
+        favoriteSubjects: s.favoriteSubjects,
         recents: s.recents,
         notes: s.notes,
         todos: s.todos,

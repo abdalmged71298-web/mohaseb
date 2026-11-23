@@ -1,11 +1,10 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { ArrowRight, GraduationCap, Megaphone, BookOpen } from 'lucide-react';
+import { ArrowRight, GraduationCap, Megaphone, BookOpen, Star } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import {
   platformData,
   categoryMeta,
@@ -42,6 +41,8 @@ export function SubjectsTab() {
   const selectedSubjectId = usePlatformStore((s) => s.selectedSubjectId);
   const setSelectedCategory = usePlatformStore((s) => s.setSelectedCategory);
   const setSelectedSubject = usePlatformStore((s) => s.setSelectedSubject);
+  const toggleFavSubject = usePlatformStore((s) => s.toggleFavoriteSubject);
+  const isFavSubject = usePlatformStore((s) => s.isFavoriteSubject);
 
   const subjects =
     selectedCategory !== 'graduate' && selectedCategory !== 'Advertisement'
@@ -87,17 +88,17 @@ export function SubjectsTab() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-4">
-        {/* Subject list */}
-        <Card className="p-3 lg:sticky lg:top-32 self-start max-h-[70vh] overflow-hidden flex flex-col">
-          <p className="text-xs font-semibold text-muted-foreground px-1 pb-2">
+        {/* Subject list — scrolls independently, page stays put */}
+        <Card className="p-3 lg:sticky lg:top-32 self-start flex flex-col max-h-[78vh]">
+          <p className="text-xs font-semibold text-muted-foreground px-1 pb-2 shrink-0">
             {selectedCategory === 'graduate'
               ? 'الخريجون'
               : selectedCategory === 'Advertisement'
                 ? 'إعلانات'
                 : 'قائمة المواد'}
           </p>
-          <ScrollArea className="flex-1 max-h-[60vh]">
-            <div className="space-y-1 pr-1">
+          <div className="flex-1 overflow-y-auto overscroll-contain scroll-thin min-h-0 max-h-[68vh] pr-1">
+            <div className="space-y-1">
               {selectedCategory === 'graduate' &&
                 graduateNames.map((name) => (
                   <button
@@ -118,21 +119,33 @@ export function SubjectsTab() {
                   اضغط على أي إعلان في الجهة المقابلة لفتحه.
                 </div>
               )}
-              {subjects.map((s) => (
-                <button
-                  key={s.id}
-                  onClick={() => setSelectedSubject(s.id)}
-                  className={`w-full text-right px-3 py-2.5 rounded-lg text-sm transition-colors ${
-                    selectedSubjectId === s.id
-                      ? 'bg-primary text-primary-foreground'
-                      : 'hover:bg-muted'
-                  }`}
-                >
-                  <span className="block leading-snug">{s.title}</span>
-                </button>
-              ))}
+              {subjects.map((s) => {
+                const isFav = isFavSubject(s.id);
+                return (
+                  <div
+                    key={s.id}
+                    className={`group flex items-center gap-1 rounded-lg transition-colors ${
+                      selectedSubjectId === s.id ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
+                    }`}
+                  >
+                    <button
+                      onClick={() => setSelectedSubject(s.id)}
+                      className="flex-1 min-w-0 text-right px-3 py-2.5 text-sm"
+                    >
+                      <span className="block leading-snug">{s.title}</span>
+                    </button>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); toggleFavSubject(s.id); }}
+                      className={`shrink-0 px-2 py-2.5 ${isFav ? 'text-amber-400' : 'text-muted-foreground/40 opacity-0 group-hover:opacity-100'} hover:text-amber-400 transition-opacity`}
+                      aria-label={isFav ? 'إزالة من المفضلة' : 'إضافة للمفضلة'}
+                    >
+                      <Star className={`size-4 ${isFav ? 'fill-current' : ''}`} />
+                    </button>
+                  </div>
+                );
+              })}
             </div>
-          </ScrollArea>
+          </div>
         </Card>
 
         {/* Detail panel */}

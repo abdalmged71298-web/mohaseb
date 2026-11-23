@@ -17,6 +17,89 @@ const COLORS = ['#fef3c7', '#dbeafe', '#dcfce7', '#fce7f3', '#ede9fe', '#fee2e2'
 
 const subjectsList = ['عام', ...allSubjects.map((s) => s.title).slice(0, 40)];
 
+// Module-level editor component — must NOT be defined inside NotesTab,
+// otherwise it is recreated on every render and inputs lose focus / keyboard freezes.
+interface EditorNote {
+  title: string;
+  content: string;
+  category: string;
+  color: string;
+  pinned: boolean;
+  id?: string;
+}
+
+function NoteEditor({
+  note,
+  setNote,
+  onSave,
+  onCancel,
+}: {
+  note: EditorNote;
+  setNote: (n: EditorNote) => void;
+  onSave: () => void;
+  onCancel: () => void;
+}) {
+  return (
+    <Card className="p-4" style={{ backgroundColor: note.color }}>
+      <div className="flex items-center justify-between mb-3">
+        <Badge variant="secondary">محرر الملاحظة</Badge>
+        <Button variant="ghost" size="icon" className="size-8" onClick={onCancel}>
+          <X className="size-4" />
+        </Button>
+      </div>
+      <Input
+        value={note.title}
+        onChange={(e) => setNote({ ...note, title: e.target.value })}
+        placeholder="عنوان الملاحظة"
+        className="mb-2 font-semibold"
+      />
+      <Textarea
+        value={note.content}
+        onChange={(e) => setNote({ ...note, content: e.target.value })}
+        placeholder="اكتب ملاحظتك هنا... (يدعم أسطر متعددة)"
+        rows={8}
+        className="mb-2 resize-y"
+      />
+      <div className="grid grid-cols-2 gap-2 mb-2">
+        <Select value={note.category} onValueChange={(v) => setNote({ ...note, category: v })}>
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {subjectsList.map((s) => (
+              <SelectItem key={s} value={s}>
+                {s.slice(0, 35)}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <div className="flex items-center gap-1.5 flex-wrap">
+          {COLORS.map((c) => (
+            <button
+              key={c}
+              onClick={() => setNote({ ...note, color: c })}
+              className={`w-6 h-6 rounded-full border-2 ${note.color === c ? 'border-primary' : 'border-transparent'}`}
+              style={{ backgroundColor: c }}
+              aria-label="لون"
+            />
+          ))}
+        </div>
+      </div>
+      <label className="flex items-center gap-2 text-sm mb-3 cursor-pointer">
+        <input
+          type="checkbox"
+          checked={note.pinned}
+          onChange={(e) => setNote({ ...note, pinned: e.target.checked })}
+        />
+        <span>تثبيت الملاحظة</span>
+      </label>
+      <Button onClick={onSave} className="w-full">
+        حفظ
+      </Button>
+    </Card>
+  );
+}
+
 export function NotesTab() {
   const notes = usePlatformStore((s) => s.notes);
   const addNote = usePlatformStore((s) => s.addNote);
@@ -113,59 +196,6 @@ export function NotesTab() {
     }
   };
 
-  const Editor = ({ note, setNote, onSave, onCancel }: {
-    note: Omit<Note, 'id' | 'createdAt' | 'updatedAt'> & { id?: string };
-    setNote: (n: any) => void;
-    onSave: () => void;
-    onCancel: () => void;
-  }) => (
-    <Card className="p-4" style={{ backgroundColor: note.color }}>
-      <div className="flex items-center justify-between mb-3">
-        <Badge variant="secondary">محرر الملاحظة</Badge>
-        <Button variant="ghost" size="icon" className="size-8" onClick={onCancel}><X className="size-4" /></Button>
-      </div>
-      <Input
-        value={note.title}
-        onChange={(e) => setNote({ ...note, title: e.target.value })}
-        placeholder="عنوان الملاحظة"
-        className="mb-2 font-semibold"
-      />
-      <Textarea
-        value={note.content}
-        onChange={(e) => setNote({ ...note, content: e.target.value })}
-        placeholder="اكتب ملاحظتك هنا... (يدعم أسطر متعددة)"
-        rows={8}
-        className="mb-2 resize-y"
-      />
-      <div className="grid grid-cols-2 gap-2 mb-2">
-        <Select value={note.category} onValueChange={(v) => setNote({ ...note, category: v })}>
-          <SelectTrigger><SelectValue /></SelectTrigger>
-          <SelectContent>
-            {subjectsList.map((s) => (
-              <SelectItem key={s} value={s}>{s.slice(0, 35)}</SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        <div className="flex items-center gap-1.5 flex-wrap">
-          {COLORS.map((c) => (
-            <button
-              key={c}
-              onClick={() => setNote({ ...note, color: c })}
-              className={`w-6 h-6 rounded-full border-2 ${note.color === c ? 'border-primary' : 'border-transparent'}`}
-              style={{ backgroundColor: c }}
-              aria-label="لون"
-            />
-          ))}
-        </div>
-      </div>
-      <label className="flex items-center gap-2 text-sm mb-3 cursor-pointer">
-        <input type="checkbox" checked={note.pinned} onChange={(e) => setNote({ ...note, pinned: e.target.checked })} />
-        <span>تثبيت الملاحظة</span>
-      </label>
-      <Button onClick={onSave} className="w-full">حفظ</Button>
-    </Card>
-  );
-
   return (
     <div className="space-y-4">
       <div className="flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
@@ -184,7 +214,7 @@ export function NotesTab() {
       </div>
 
       {creating && (
-        <Editor
+        <NoteEditor
           note={draft}
           setNote={setDraft}
           onSave={save}
@@ -193,7 +223,7 @@ export function NotesTab() {
       )}
 
       {editing && (
-        <Editor
+        <NoteEditor
           note={editing}
           setNote={setEditing}
           onSave={saveEdit}

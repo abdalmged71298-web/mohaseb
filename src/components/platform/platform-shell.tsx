@@ -16,6 +16,7 @@ import { allSubjects, searchFiles, platformMeta } from '@/lib/platform-data';
 import { HomeTab } from './tabs/home-tab';
 import { SubjectsTab } from './tabs/subjects-tab';
 import { LibraryTab } from './tabs/library-tab';
+import { FavoritesTab } from './tabs/favorites-tab';
 import { AnnouncementsTab } from './tabs/announcements-tab';
 import { ToolsTab } from './tabs/tools-tab';
 import { NotesTab } from './tabs/notes-tab';
@@ -23,11 +24,13 @@ import { AssistantTab } from './tabs/assistant-tab';
 import { FeedbackTab } from './tabs/feedback-tab';
 import { AboutTab } from './tabs/about-tab';
 import { FloatingAssistant } from './assistant/floating-assistant';
+import { FloatingTimeBar } from './floating-time-bar';
 
 const TABS: { id: TabId; label: string; icon: string }[] = [
   { id: 'home', label: 'الرئيسية', icon: 'home' },
   { id: 'subjects', label: 'التخصصات والمواد', icon: 'book' },
   { id: 'library', label: 'المكتبة التعليمية', icon: 'library' },
+  { id: 'favorites', label: 'موادي المفضلة', icon: 'star' },
   { id: 'announcements', label: 'الإعلانات', icon: 'megaphone' },
   { id: 'tools', label: 'التطبيقات والأدوات', icon: 'wrench' },
   { id: 'notes', label: 'ملاحظاتي', icon: 'note' },
@@ -41,6 +44,7 @@ function TabIcon({ name }: { name: string }) {
     home: '🏠',
     book: '📚',
     library: '🗂️',
+    star: '⭐',
     megaphone: '📢',
     wrench: '🛠️',
     note: '📝',
@@ -66,6 +70,8 @@ export function PlatformShell() {
         return <SubjectsTab />;
       case 'library':
         return <LibraryTab />;
+      case 'favorites':
+        return <FavoritesTab />;
       case 'announcements':
         return <AnnouncementsTab />;
       case 'tools':
@@ -205,7 +211,7 @@ export function PlatformShell() {
 
       {/* Sticky footer */}
       <footer className="mt-auto border-t border-border bg-card">
-        <div className="container mx-auto px-3 sm:px-4 py-5 max-w-7xl">
+        <div className="container mx-auto px-3 sm:px-4 py-5 pb-16 max-w-7xl">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-right">
             <div className="text-xs sm:text-sm text-muted-foreground">
               <p className="font-semibold text-foreground">
@@ -248,6 +254,9 @@ export function PlatformShell() {
 
       {/* Floating AI assistant */}
       <FloatingAssistant />
+
+      {/* Floating exam countdown bar */}
+      <FloatingTimeBar />
     </div>
   );
 }
