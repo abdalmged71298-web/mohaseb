@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Search, Moon, Sun, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -20,7 +20,6 @@ import { FavoritesTab } from './tabs/favorites-tab';
 import { AnnouncementsTab } from './tabs/announcements-tab';
 import { ToolsTab } from './tabs/tools-tab';
 import { NotesTab } from './tabs/notes-tab';
-import { CommunityTab } from '@/components/community/community-tab';
 import { AssistantTab } from './tabs/assistant-tab';
 import { FeedbackTab } from './tabs/feedback-tab';
 import { AboutTab } from './tabs/about-tab';
@@ -35,7 +34,6 @@ const TABS: { id: TabId; label: string; icon: string }[] = [
   { id: 'announcements', label: 'الإعلانات', icon: 'megaphone' },
   { id: 'tools', label: 'التطبيقات والأدوات', icon: 'wrench' },
   { id: 'notes', label: 'ملاحظاتي', icon: 'note' },
-  { id: 'community', label: 'منتدى الطالب', icon: 'users' },
   { id: 'assistant', label: 'المساعد الذكي', icon: 'bot' },
   { id: 'feedback', label: 'شاركنا رأيك', icon: 'message' },
   { id: 'about', label: 'حول المنصة', icon: 'info' },
@@ -50,7 +48,6 @@ function TabIcon({ name }: { name: string }) {
     megaphone: '📢',
     wrench: '🛠️',
     note: '📝',
-    users: '👥',
     bot: '🤖',
     message: '💬',
     info: 'ℹ️',
@@ -64,6 +61,27 @@ export function PlatformShell() {
   const { theme, setTheme } = useTheme();
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const libraryNavRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!mobileNavOpen || activeTab !== 'library') return;
+
+    const closeOnOutsidePointer = (event: PointerEvent) => {
+      if (!libraryNavRef.current?.contains(event.target as Node)) {
+        setMobileNavOpen(false);
+      }
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileNavOpen(false);
+    };
+
+    document.addEventListener('pointerdown', closeOnOutsidePointer);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.removeEventListener('pointerdown', closeOnOutsidePointer);
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [activeTab, mobileNavOpen]);
 
   const renderTab = () => {
     switch (activeTab) {
@@ -81,8 +99,6 @@ export function PlatformShell() {
         return <ToolsTab />;
       case 'notes':
         return <NotesTab />;
-      case 'community':
-        return <CommunityTab />;
       case 'assistant':
         return <AssistantTab />;
       case 'feedback':
@@ -142,15 +158,29 @@ export function PlatformShell() {
                   <Moon className="size-5" />
                 )}
               </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setMobileNavOpen(true)}
-                className="text-primary-foreground hover:bg-white/15 md:hidden"
-                aria-label="القائمة"
-              >
-                <Menu className="size-5" />
-              </Button>
+              {activeTab === 'library' ? (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setMobileNavOpen((open) => !open)}
+                  className="text-primary-foreground hover:bg-white/15 md:hidden"
+                  aria-label="أقسام المكتبة"
+                  aria-expanded={mobileNavOpen}
+                  aria-controls="library-mobile-nav"
+                >
+                  <Menu className="size-5" />
+                </Button>
+              ) : (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setMobileNavOpen(true)}
+                  className="text-primary-foreground hover:bg-white/15 md:hidden"
+                  aria-label="القائمة"
+                >
+                  <Menu className="size-5" />
+                </Button>
+              )}
             </div>
           </div>
 
@@ -174,8 +204,40 @@ export function PlatformShell() {
         </div>
       </header>
 
+      {activeTab === 'library' && mobileNavOpen && (
+        <nav
+          id="library-mobile-nav"
+          ref={libraryNavRef}
+          aria-label="أقسام المنصة"
+          className="fixed left-2 top-16 z-[60] w-80 max-w-[calc(100vw-1rem)] max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain rounded-lg border bg-popover p-1 text-popover-foreground shadow-lg"
+        >
+          <div className="px-3 py-2 text-lg font-semibold">أقسام المنصة</div>
+          {TABS.map((t) => (
+            <button
+              key={t.id}
+              type="button"
+              onClick={() => {
+                setActiveTab(t.id);
+                setMobileNavOpen(false);
+              }}
+              className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-right text-sm font-medium ${
+                activeTab === t.id
+                  ? 'bg-primary text-primary-foreground'
+                  : 'hover:bg-muted'
+              }`}
+            >
+              <TabIcon name={t.icon} />
+              <span>{t.label}</span>
+            </button>
+          ))}
+        </nav>
+      )}
+
       {/* Mobile nav drawer */}
-      <Dialog open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
+      <Dialog
+        open={mobileNavOpen && activeTab !== 'library'}
+        onOpenChange={setMobileNavOpen}
+      >
         <DialogContent className="max-w-xs">
           <DialogHeader>
             <DialogTitle>أقسام المنصة</DialogTitle>
