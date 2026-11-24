@@ -122,7 +122,7 @@ function GroupDetail({ id, memberId, memberName, onBack }: { id: string; memberI
 
   useEffect(() => {
     load();
-    pollingRef.current = setInterval(load, 5000);
+    pollingRef.current = setInterval(load, 1500);
     const s = getSocket();
     if (s) { s.connect(); s.emit('join-group-room', id); s.on('group-message', (msg: any) => setMessages((m) => [...m, msg])); }
     return () => { if (pollingRef.current) clearInterval(pollingRef.current); const s2 = getSocket(); if (s2) { s2.off('group-message'); s2.emit('leave-group-room', id); } };

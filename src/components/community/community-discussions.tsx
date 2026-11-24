@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Plus, ArrowRight, Heart, MessageSquare, Eye, Trash2, Pin, Send } from 'lucide-react';
 import { allSubjects } from '@/lib/platform-data';
 import { toast } from 'sonner';
-import { useRealtimeEvents, RT_EVENTS } from './use-member';
+import { useRealtimeEvents, RT_EVENTS, useVisiblePolling } from './use-member';
 
 const CATS = ['عام', ...allSubjects.map((s) => s.title).slice(0, 30)];
 
@@ -33,6 +33,10 @@ export function CommunityDiscussions({ memberId }: { memberId: string }) {
   }, [feed, category]);
 
   useEffect(() => { load(); }, [load]);
+
+  // Background polling: refresh posts every 5s while the tab is visible
+  // (fast fallback on hosts without WebSocket, e.g. Vercel serverless).
+  useVisiblePolling(load, 5000, [load]);
 
   // Real-time: new post → prepend (dedup by id); like → update count; comment → bump count
   useRealtimeEvents({

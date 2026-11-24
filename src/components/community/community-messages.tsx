@@ -58,7 +58,7 @@ export function CommunityMessages({ memberId, memberName }: { memberId: string; 
     if (!active) return;
     loadMessages();
     // Poll every 4s as a fallback for real-time
-    pollingRef.current = setInterval(loadMessages, 4000);
+    pollingRef.current = setInterval(loadMessages, 1500);
     return () => { if (pollingRef.current) clearInterval(pollingRef.current); };
   }, [active, loadMessages]);
 

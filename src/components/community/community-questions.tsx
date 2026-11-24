@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Plus, ArrowRight, CheckCircle2, HelpCircle, Trash2, Send, Heart } from 'lucide-react';
 import { allSubjects } from '@/lib/platform-data';
 import { toast } from 'sonner';
-import { useRealtimeEvents, RT_EVENTS } from './use-member';
+import { useRealtimeEvents, RT_EVENTS, useVisiblePolling } from './use-member';
 
 const SUBJECTS = ['عام', ...allSubjects.map((s) => s.title).slice(0, 30)];
 const STATUS_LABEL: Record<string, string> = { open: 'بانتظار الإجابة', answered: 'تمت الإجابة', solved: 'تم الحل' };
@@ -38,6 +38,9 @@ export function CommunityQuestions({ memberId }: { memberId: string }) {
   }, [status, subject, mine]);
 
   useEffect(() => { load(); }, [load]);
+
+  // Background polling: refresh questions every 5s while the tab is visible.
+  useVisiblePolling(load, 5000, [load]);
 
   // Real-time: new question → prepend (dedup); status update → patch
   useRealtimeEvents({

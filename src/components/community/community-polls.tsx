@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Plus, BarChart3, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
-import { useRealtimeEvents, RT_EVENTS } from './use-member';
+import { useRealtimeEvents, RT_EVENTS, useVisiblePolling } from './use-member';
 
 export function CommunityPolls({ memberId }: { memberId: string }) {
   const [polls, setPolls] = useState<any[]>([]);
@@ -26,6 +26,9 @@ export function CommunityPolls({ memberId }: { memberId: string }) {
   }, [category]);
 
   useEffect(() => { load(); }, [load]);
+
+  // Background polling: refresh polls every 5s while the tab is visible.
+  useVisiblePolling(load, 5000, [load]);
 
   // Real-time: new poll → prepend (dedup); vote → update counts live
   useRealtimeEvents({

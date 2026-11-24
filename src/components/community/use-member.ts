@@ -70,6 +70,9 @@ export function useMember() {
 let socket: Socket | null = null;
 export function getSocket(): Socket | null {
   if (typeof window === 'undefined') return null;
+  // On external hosts (e.g. vercel.app) the internal WS service doesn't exist,
+  // so skip connection attempts entirely and rely on fast API polling.
+  if (!isLocalEnvironment()) return null;
   if (!socket) {
     try {
       socket = io('/?XTransformPort=3003', { transports: ['websocket', 'polling'], reconnection: true, reconnectionAttempts: 5 });
@@ -78,6 +81,46 @@ export function getSocket(): Socket | null {
     }
   }
   return socket;
+}
+
+/**
+ * Whether the app is running on a local/dev environment (where the internal
+ * WebSocket service on port 3003 exists). On external hosts (e.g. vercel.app)
+ * we skip WebSocket entirely and rely on fast API polling instead, to avoid
+ * wasted browser resources on failed connection attempts.
+ */
+export function isLocalEnvironment(): boolean {
+  if (typeof window === 'undefined') return false;
+  const h = window.location.hostname;
+  return h === 'localhost' || h === '127.0.0.1' || h === '0.0.0.0' || /^192\.168\./.test(h) || /^10\./.test(h) || /^21\./.test(h);
+}
+
+/**
+ * Polling hook that only runs while the page is visible (not hidden/tab in
+ * background). Used for fast background refresh of forum sections on hosts
+ * without WebSocket (e.g. Vercel serverless).
+ */
+export function useVisiblePolling(callback: () => void, intervalMs: number, deps: any[] = []) {
+  useEffect(() => {
+    let timer: ReturnType<typeof setInterval> | null = null;
+    const start = () => {
+      if (timer) return;
+      timer = setInterval(callback, intervalMs);
+    };
+    const stop = () => {
+      if (timer) { clearInterval(timer); timer = null; }
+    };
+    const onVis = () => {
+      if (document.visibilityState === 'visible') { callback(); start(); }
+      else stop();
+    };
+    if (document.visibilityState === 'visible') start();
+    document.addEventListener('visibilitychange', onVis);
+    return () => {
+      stop();
+      document.removeEventListener('visibilitychange', onVis);
+    };
+  }, deps);
 }
 
 /** Hook that returns online member ids (presence) from the realtime service. */

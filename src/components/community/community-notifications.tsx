@@ -5,7 +5,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Bell, Check } from 'lucide-react';
-import { useRealtimeEvents, RT_EVENTS } from './use-member';
+import { useRealtimeEvents, RT_EVENTS, useVisiblePolling } from './use-member';
 
 type Sub = 'home' | 'discussions' | 'questions' | 'messages' | 'groups' | 'polls' | 'notifications' | 'profile' | 'search';
 
@@ -23,6 +23,9 @@ export function CommunityNotifications({ onNavigate }: { onNavigate: (s: Sub) =>
   };
 
   useEffect(() => { load(); }, []);
+
+  // Background polling: refresh notifications every 5s while the tab is visible.
+  useVisiblePolling(load, 5000, []);
 
   // Real-time: new notification → prepend (dedup); read → mark read live
   useRealtimeEvents({

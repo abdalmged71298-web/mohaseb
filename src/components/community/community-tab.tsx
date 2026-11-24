@@ -38,7 +38,7 @@ export function CommunityTab() {
   const [searchQ, setSearchQ] = useState('');
   const [showSearch, setShowSearch] = useState(false);
 
-  // Poll unread notifications (fallback) + real-time updates
+  // Poll unread notifications (fast fallback) + real-time updates
   useEffect(() => {
     if (!joined) return;
     const poll = async () => {
@@ -49,7 +49,7 @@ export function CommunityTab() {
       } catch {}
     };
     poll();
-    const t = setInterval(poll, 15000);
+    const t = setInterval(poll, 5000);
     return () => clearInterval(t);
   }, [joined]);
 
