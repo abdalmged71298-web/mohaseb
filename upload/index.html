@@ -1,0 +1,3934 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="google-site-verification" content="G4OJUy9Lv3Sdn3sUTuO7K3cb0w3RiPNdV_xZku-JyB8" />
+  <title>بوابة دليل الطالب قسم المحاسبة</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    :root {
+      --main: #7b2cbf;
+      --bg: #ffffff;
+      --card: #e6f0ff;
+      --muted: #4b4b9f;
+      --accent: #cdb4db;
+      --hover: #cce4ff;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: #1a1a4f;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+      background: var(--main);
+      color: white;
+      padding: 15px;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      color: white;
+      font-size: 20px;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    nav {
+      background: #34495e;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    nav a:hover, nav a.active {
+      background: #f39c12;
+      color: white;
+    }
+
+    .main-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .main-tabs button {
+      background: var(--main);
+      color: white;
+      border: none;
+      padding: 9px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .main-tabs button.inactive {
+      background: #cfe2ff;
+      color: var(--main);
+    }
+
+    .container {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .left {
+      width: 320px;
+      min-height: 300px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      max-width: 700px;
+    }
+
+    .card h2 {
+      color: var(--main);
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #34495e;
+    }
+
+    .card strong {
+      color: #e74c3c;
+    }
+
+    .section-title {
+      font-size: 16px;
+      margin: 0 0 10px 0;
+      color: var(--main);
+    }
+
+    .subject-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 72vh;
+      overflow: auto;
+    }
+
+    .subject-list li {
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 6px;
+    }
+
+    .subject-list li:hover {
+      background: var(--hover);
+    }
+
+    .subject-list li.active {
+      background: var(--main);
+      color: white;
+    }
+
+    .right {
+      flex: 1;
+      min-height: 300px;
+    }
+
+    .subject-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .subject-header h2 {
+      margin: 0;
+      color: var(--main);
+      font-size: 18px;
+    }
+
+    .back-link {
+      background: #e9ecef;
+      border: none;
+      padding: 8px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .sub-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .sub-tabs button {
+      background: #f1f1f1;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .sub-tabs button.active {
+      background: var(--main);
+      color: white;
+    }
+
+    .tab-area {
+      margin-top: 12px;
+      background: var(--card);
+      padding: 12px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      min-height: 220px;
+    }
+
+    .tab-area ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tab-area li {
+      margin: 8px 0;
+    }
+
+    .link {
+      display: inline-block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: #f8f9ff;
+      color: var(--main);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .notice {
+      background: #f8f9fa;
+      padding: 18px;
+      margin-bottom: 18px;
+      border: 2px solid var(--main);
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .notice h2 {
+      color: var(--main);
+      margin: 0 0 6px;
+    }
+
+    .notice p {
+      margin: 6px 0;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #dcdcdc;
+      border-radius: 6px;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      background: var(--accent);
+      color: #1a1a4f;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+   hr.sep {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 12px 0;
+}
+
+section {
+  padding: 20px;
+  text-align: center;
+}
+    @media(max-width:900px) {
+      .container {
+        flex-direction: column;
+      }
+      .left {
+        width: 100%;
+      }
+    }
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رسائل الزملاء</title>
+<style>
+  body {
+    font-family: "Tahoma", sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .tabs-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  .tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    background: #fafafa;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .tab-buttons button {
+    flex: 1 1 33%;
+    padding: 12px 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.25s ease;
+  }
+
+  .tab-buttons button:hover {
+    background: #f0f0f0;
+  }
+
+  .tab-buttons button.active {
+    background: #000;
+    color: #fff;
+  }
+
+  .tab-content {
+    display: none;
+    padding: 25px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #222;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(8px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  @media (max-width: 600px) {
+    .tab-buttons button {
+      flex: 1 1 50%;
+      font-size: 14px;
+    }
+  }
+ #hg-widget {
+    position: fixed;
+    bottom: 14px;
+    right: 14px;
+    z-index: 99999;
+    font-family: Tahoma, Arial, sans-serif;
+    direction: rtl;
+    box-sizing: border-box;
+  }
+
+  /* زر الأيقونة */
+  #hg-btn {
+    width: 44px;
+    height: 44px;
+    padding: 6px;
+    border: none;
+    background: transparent; /* بدون خلفية */
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+  }
+  #hg-btn:focus { outline: 2px solid rgba(13,110,253,0.2); outline-offset: 2px; }
+
+  /* SVG الأيقونة */
+  #hg-btn svg { width:24px; height:24px; display:block; }
+  #hg-btn svg path { fill: #000; }
+
+  /* النافذة المنبثقة */
+  #hg-popup {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    right: 0;
+    min-width: 220px;
+    max-width: 300px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    padding: 10px;
+    color: #111;
+    font-size: 13px;
+    text-align: right;
+    transform-origin: bottom right;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px) scale(.985);
+    transition: opacity .16s ease, transform .16s ease, visibility .16s;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+  }
+
+  /* مثلث صغير */
+  #hg-popup::after {
+    content: "";
+    position: absolute;
+    right: 18px;
+    bottom: -8px;
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    background: #fff;
+    border-left:1px solid #e3e3e3;
+    border-top:1px solid #e3e3e3;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+
+  /* عند الفتح */
+  #hg-widget.open #hg-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  .hg-desc { margin: 0 0 8px 0; color:#222; }
+  .hg-actions { display:flex; gap:8px; justify-content:flex-end; align-items:center; margin-top:6px; }
+
+  .hg-open {
+    padding: 7px 10px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .hg-close {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #666;
+    padding: 2px 6px;
+    border-radius:6px;
+  }
+  .hg-close:hover { background:#f5f5f5; color:#000; }
+
+  /* للشاشات الصغيرة والأفقية */
+  @media (max-height: 420px) and (orientation: landscape) {
+    #hg-popup {
+      bottom: auto;
+      top: 0;
+      right: 60px; /* يسار الأيقونة */
+      min-width: 250px;
+      max-width: 320px;
+    }
+    #hg-popup::after {
+      right: -7px;
+      bottom: 12px;
+      transform: rotate(135deg);
+    }
+  }
+ 
+/* نتائج البحث */
+#globalSearchResults .res-item{ padding:10px; border-bottom:1px solid rgba(0,0,0,0.04); cursor:pointer; display:flex; justify-content:space-between; align-items:center;}
+#globalSearchResults .res-item:hover{ background:linear-gradient(90deg, rgba(123,44,191,0.03), rgba(160,138,213,0.02)); }
+#globalSearchResults .res-title{ font-weight:700; color:#111 }
+#globalSearchResults .res-meta{ font-size:12px; color:var(--muted) }
+#globalSearchResults .nores{ padding:12px; color:var(--muted) }
+
+  </style>
+</head>
+<body>
+
+
+
+ <section style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px; background-color: #f9f9f9; border-bottom: 1px solid #ddd;">
+<img src="https://i.imgur.com/UwPMIAg.png" alt="شعار الجامعة" style="width:100px; height:auto;">
+
+  <h1 style="font-size: 16px; margin: 0;">بوابة دليل الطالب قسم المحاسبة</h1>
+</section>
+
+<div style="text-align:center; font-size:13px; margin-top:8px; color:#666;">
+  <a href="privacy.html" style="margin:0 8px; color:#666; text-decoration:none;">سياسة الخصوصية</a>
+  |
+  <a href="contact.html" style="margin:0 8px; color:#666; text-decoration:none;">اتصل بنا</a>
+</div>
+ 
+</body>
+
+<header style="background-color: #d0e6ff; padding: 15px; text-align: center;">
+  <h1 style="
+    margin: 0;
+    font-size: 22px;
+    color: #000000;
+    text-shadow: 1px 1px 3px #7b2cbf;
+  ">
+    ملفات قسم المحاسبة - كلية إدارة الأعمال
+  </h1>
+  <nav style="margin-top: 10px;">
+    <a href="#ads" style="
+      color: #7b2cbf;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: #f3eaff;
+    ">
+      📢 إعلانات اضغط هنا
+    </a>
+  </nav>
+</header>
+
+
+
+  
+<!-- شريط بحث عام للموقع -->
+<div id="globalSearchWrap" style="margin-right:12px; min-width:260px;">
+  <input id="globalSearchInput" placeholder="ابحث عن اسم المادة... (اكتب ثم اضغط Enter)" 
+         style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(0,0,0,0.08); font-weight:600;">
+  <div id="globalSearchResults" style="display:none; position:absolute; right:18px; background:var(--card); box-shadow:0 8px 24px rgba(0,0,0,0.12); border-radius:8px; margin-top:8px; z-index:2000; max-height:320px; overflow:auto; width:320px;"></div>
+</div>
+ 
+<!-- تبويبات رئيسية: متطلبات -->
+  <div class="main-tabs">
+    <button id="tab-college" onclick="selectMain('college')">📚 متطلبات كلية (52 ساعة)</button>
+    <button id="tab-major" onclick="selectMain('major')" class="inactive">📘 متطلبات تخصص (52 ساعة)</button>
+    <button id="tab-univ" onclick="selectMain('univ')" class="inactive">🏛 متطلبات جامعية (25 ساعة)</button>
+    <button id="tab-optional" onclick="selectMain('Optional')" class="inactive">🎯 متطلبات اختيارية 6 ساعة</button>
+    <button id="tab-graduate" onclick="selectMain('graduate')" class="inactive">🎓 رسالة خريج</button>
+    <button id="tab-ads" onclick="selectMain('Advertisement')" class="inactive">📢 إعلانات الجامعة</button>
+
+    <!-- التبويب الجديد -->
+    <button id="tab-choose" class="inactive" onclick="window.location.href='index (3).html'">
+        📑 اختيار المواد
+    </button>
+</div>
+
+  <div class="container">
+    <!-- اليسار: قائمة المواد -->
+    <div class="left">
+      <div class="card">
+        <p class="section-title">قائمة المواد</p>
+        <ul id="subjects" class="subject-list"></ul>
+      </div>
+    </div>
+
+    <!-- اليمين: تفاصيل المادة -->
+    <div class="right">
+      <div id="subjectCard" class="card" style="display:none">
+        <div class="subject-header">
+          <h2 id="subjectTitle">عنوان المادة</h2>
+          <div><button class="back-link" onclick="showSubjects()">رجوع للقائمة</button></div>
+        </div>
+        <div class="sub-tabs" id="subTabs"></div>
+        <div class="tab-area" id="tabArea"><p class="hint">اختر تبويبًا لعرض الملفات أو الفيديوهات</p></div>
+      </div>
+
+      <div id="emptyCard" class="card">
+        <h3 class="section-title">إرشادات سريعة</h3>
+        <p class="hint">اضغط على أحد الأقسام أعلى (متطلبات كلية / تخصص / جامعية / اختيارية / رسالة خريج / اعلانات الجامعة) ثم اختر مادة من الجهة اليسرى او اسم الخريج.</p>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* === DATA: عدّل هنا لإضافة روابط أو إعلانات === */
+const data = {
+  college: [
+    { id:'acc1', title:'مبادئ المحاسبة 1 (4 ساعات)',
+      videos:[
+        {label:'شرح الأستاذ صادق – المقرر كامل (نظري + حسابي)', url:'https://www.youtube.com/playlist?list=PL8436LuIZoAotV2UNxTVS6XRaidclcpCS'},
+        {label:'د. نبيل – المحاضرة 1', url:'https://youtu.be/Ys40yYupa1U'},
+        {label:'د. نبيل – المحاضرة 2', url:'https://youtu.be/u6kqTY2vhOE'},
+        {label:'د. نبيل – المحاضرة 3', url:'https://youtu.be/neJ-z9Gh8yU'},
+        {label:'د. نبيل – المحاضرة 4', url:'https://youtu.be/4nOBWSQXsck'},
+        {label:'د. نبيل – المحاضرة 5', url:'https://youtu.be/ARIAc8yfZZM'},
+        {label:'د. نبيل – المحاضرة 6', url:'https://youtu.be/37wmv8L2C9A'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/BgI8aeLvCEY'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/r9XrrFGuvAk'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/S7atwy2M7fc'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/lQi0KgKP2Ck'}
+      ],
+      books:[
+        {label:'كتاب مبادئ المحاسبة 1 - ', url:'https://drive.google.com/open?id=1hNg6XQ8GcyzdVAxjCfFf6KE8Nq9N0kfK&usp=drivesdk'},
+        {label:'كتاب مبادئ المحاسبة 1 محاضرات - ', url:'https://drive.google.com/file/d/1P8OTvY0NznAgg6PFBEp6dUuQSErfeV9H/view?usp=drivesdk'}
+
+      ],
+      models:[
+        {label:'نماذج الامتحانات (بشير الاهدل)', url:'https://drive.google.com/open?id=106Mks4aiMVCEARC9fcEOwclIWR7JGFCe&usp=drivesdk'},
+        {label:'تجميع مقالي (جار الله)', url:'https://drive.google.com/open?id=1ECPhRjiUp3VSQdNXGLGG74n0LpRPjCrE&usp=drivesdk'},
+        {label:'تجميع مقالي مسائل محاسبة 1 ', url:'https://drive.google.com/open?id=1YLTK0EQOuN-oTAtc62c17zKbP468PPdd&usp=drivesdk'}
+    ],
+      summaries:[],
+      Telegram:[
+        {label:'قناة روعة', url:'https://t.me/roz_155'},
+        {label:'قناة ريم فهد', url:'https://t.me/reem53494'},
+        {label:'قناة نشوى', url:'https://t.me/nashwa2211'},
+        {label:'قناة حسن', url:'https://t.me/+eRk1uNqUcIRlMTlk'},
+        {label:'كل ما يخص المادة', url:'https://t.me/+JqC5AzbvnvU0MDY8'}
+      ],
+      news:[
+        {label:'التواصل مع المشرفين لاي معلومات اخرى'},
+        {label:'نوع المادة: مقالية وتحتاج وقت في المذاكرة.'},
+{label:'🟠نمط الاختبار النهائي:'},
+{label:'5 أسئلة صح وخطأ'},
+{label:'4 أسئلة اختيار وحيد'},
+{label:'2 أسئلة اختيار متعدد'},
+{label:'5 أسئلة مقالية (تحذف منها سؤال واحد)'},
+{label:'(المقالي عليه 80 )'},
+{label:'🟠طريقة المذاكرة:'},
+{label:'البدء بفهم الأساسيات والقيود بدقة قبل الانتقال إلى التفاصيل.'},
+{label:'اختيار مصدر شرح يناسب أسلوبك في الفهم، مثل شرح الدكتور نبيل أو الزميل صادق.'},
+{label:'الإكثار من حل الأسئلة والنماذج التدريبية، والتركيز على حل كل سؤال أكثر من مرة حتى تتقنه.'},
+{label:'الاستفادة من كون الاختبار مقاليًا، فهو يمنح فرصة لجمع درجات من خطوات الحل.'},
+{label:'🟠المحذوف من الكتاب هي الوحدة السادسه فقط'},
+{label:'✅ تنويه:'},
+{label:'الاختبار يحتاج انه تدرب على مسائل اكثر من مره لكي تثبت المعلومه'}]},
+
+{id:'acc2', title:'مبادئ المحاسبة 2(4 ساعات)', 
+videos:[       
+        {label:'د. نبيل – محاضره 1 تسوية المصروفات', url:'https://drive.google.com/file/d/1YoHdVdbnZbPUuxCBhH7s8RDUqrQN6cjF/view?usp=drivesdk'},
+        {label:'د. نبيل – محاضره 2 الايرادات', url:'https://drive.google.com/file/d/1Ch1GMWf__49f0fAWzxPbhVtlIreitFuc/view?usp=drivesdk'},
+        {label:'د. نبيل – المحاضرة 3', url:'https://drive.google.com/file/d/1Y3meGafXNep8N9eJHzwI63yOCspTfC0i/view?usp=drivesdk'},
+        {label:'د. نبيل – المحاضرة 4', url:'https://drive.google.com/file/d/1Tf5zr4_28nbhp4IQ10cvzcr5CyyhjzWt/view?usp=drivesdk'},
+        {label:'د. نبيل – المحاضرة 5', url:'https://drive.google.com/file/d/1OBHMxCZ9hBBMq7W5_otRpzdbxvEiqlZV/view?usp=drivesdk'},
+        {label:'د. نبيل – المحاضرة 6', url:'https://drive.google.com/file/d/1vMgKVe1-h1BFGDBzDBU9C3JDN7nDqhPO/view?usp=drivesdk'},
+        {label:'شرح محاسبة 2 صادق جزيلان', url:'https://youtube.com/playlist?list=PL8436LuIZoAprnLNl81NBLtHx5sNd_T_n'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/xV5hRx96UKQ'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/uz0ftmx-Feg'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/npcI0GGmoaE'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/HxgbGgAsuqg'}
+], 
+
+books:[
+       {label:'كتاب مبادئ المحاسبة 2', url:'https://drive.google.com/open?id=1NXdzgeIGtcIWTEr71GCeUJIkXfSmfUxX&usp=drivesdk'}], 
+models:[
+        {label:'محاسبة 2 النظري 🫶🏼دعواتكم - ', url:'https://drive.google.com/open?id=1SUuSZ7eO4LeOfzjiHTe3muJJX2rC5FkX&usp=drivesdk'},
+        {label: 'اختبر نفسك نماذج النظري - ',url: 'https://docs.google.com/forms/d/e/1FAIpQLSfY1ABSc1qAQQ6Tg1Y2vAA4mgrzQNgUITwL792Hb95dbddgOA/viewform?usp=drivesdk'},
+           {label:'تجميع_المسائل_الحسابيه_حُسن_علي_٢معدل', url:'https://drive.google.com/open?id=1__fOGim2gysRw9ZzUGQ_6l0MnEaVpNvB&usp=drivesdk'}], 
+summaries:[
+           {label:'بيان_الأثر_في_الأرباح_والخسائر_والميزانية_العمومية^سمية_الوجيه^', url:'https://drive.google.com/open?id=1gQL9_mVFmBqG7t_1V-cWSP-YPxG4JZJQ&usp==drivesdk'},
+           {label:'شرح مُبسط للمخصصات (مريـــــم )', url:'https://drive.google.com/open?id=1yKNVKFdrY3BlB990EfT3d7MJvIsOpRCj&usp=drivesdk'},
+           {label:'ملخص للمصروفات والإيرادات ولد أنعم ', url:'https://drive.google.com/open?id=1F5rERyG6S0j4A6w-4_C6CxL7KSTeWCZx&usp=drivesdk'}], 
+Telegram:[
+        {label:'قناة حسن', url:'https://t.me/+eRk1uNqUcIRlMTlk'},], 
+news:[
+      {label:'🟠 نوع المادة:'},
+{label:'مقالية وتحتاج وقت كافٍ في المذاكرة والتركيز.'},
+{label:'🟠 نمط الاختبار النهائي:'},
+{label:'يأتي الاختبار بـ 3 أسئلة مقالية تُحل منها سؤالان فقط، ويمثل السؤالان 60 درجة.'},
+{label:'🟠 طريقة المذاكرة:'},
+{label:'الجزء الحسابي يُذاكر من النماذج.'},
+{label:'الجزء النظري من الكتاب.'},
+{label:'تابعوا شرح الأخت حُسن أو الدكتور نبيل حسب ما تفضلونه.'},
+{label:'🟠 المحذوف من الكتاب:'},
+{label:'الكتاب كاملاً عدا ما يلي:'},
+{label:'الوحدة الرابعة: من صـ (262) إلى صـ (288).'},
+{label:'الوحدة الخامسة: من صـ (315) إلى صـ (338).'},
+{label:'الوحدة السابعة: الطرق المحاسبية من صـ (375) إلى صـ (462).'}]},
+
+    {id:'busi', title:'مبادئ إدارة الأعمال(3 ساعات)', videos:[
+        {label:'المحاضرة 1 (2023)', url:'https://youtu.be/1IKoXXxcjdc'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/1UDINZZtG5o'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/vrPLjycceQY'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/Od9r_32sfR8'},
+        {label:'قائمة محاضرات ينصح بالعتماد عليها اكثر', url:'https://www.youtube.com/playlist?list=PLzLmjaQB3jxbdHbRUY5tEKgG13niCAgeS'},], 
+books:[
+       {label:'كتاب ادارة الاعمال ', url:'https://drive.google.com/open?id=1VzeqAKuSnZPExsBq-y-ZGD1eSyPCS0Fn&usp=drivesdk'}],
+ models:[
+        {label:'��تعديل_نموذج_بشير_اداره_اعمال_3_وعد_�_1', url:'https://drive.google.com/open?id=1z2Kmtln0tfzOFr0zq0LTUMf1PQPxEFks&usp=drivesdk'},
+        {label:'تجميع مقالي مبادئ اداره الاعمال', url:'https://drive.google.com/open?id=1wgpKAMrmOZqUxPSWFjrjxDQHOtDROHgq&usp=drivesdk'},
+        {label:'مقالي_ادارة_الأعمال[1]', url:'https://drive.google.com/open?id=1tbb77cHqgz9fY3eVVahFfcS5_iJTMqdt&usp=drivesdk'}],
+ summaries:[
+           {label:'مقالي_ادارة_الأعمال[1]', url:'https://drive.google.com/open?id=1_4gR-jmB27syW-2DnmVYCfIIhEjunYpb&usp=drivesdk'}],
+ Telegram:[
+          {label:'قناة مبادئ ادارة الاعمال 2023', url:'https://t.me/+yR1JvqJy_9AxZmRk'},],
+ news:[
+       {label:'📘 مادة: مبادئ إدارة الأعمال'},
+{label:'📎 نوع المادة: نظرية بالكامل'},
+{label:'🧠 نمط الاختبار النهائي:'},
+{label:'3 أسئلة مقالية → تحل 2 فقط (عليها 30 درجة)'},
+{label:'الـ70 درجة المتبقية موزعة بين:'},
+{label:'اختيار من متعدد'},
+{label:'صح وخطأ'},
+{label:'اختيار وحيد'},
+{label:'📚 مصادر المذاكرة:'},
+{label:'الملخص أو الكتاب: لفهم الأساسيات.'},
+{label:'النماذج: مهمة جدًا لأن كثير من الأسئلة تتكرر منها.'},
+{label:'محاضرات الدكتورة: لتثبيت المعلومات وفهم طريقة الطرح.'},
+{label:'🟠 المحذوف من الكتاب: الكتاب كاملاً عدا علاقة الإدارة بالعلوم الأخرى من ص 43-46، الموازنات من ص 145-148، تجميع الأعمال (الأنشطة) المتشابهة في وحدات إدارية من ص 171-180 المطلوب فقط نبذة عن أنواع التقسيمات دون التطرق إلى مزايا وعيوب تلك التقسيمات.'},
+{label:'✅ تنويه: الاختبار يحتاج فهم وحفظ جيد + لذلك يُفضل الجمع بين الملخص أو الكتاب والنماذج.'}]},
+   
+
+ {id:'eco_micro', title:'مبادئ الاقتصاد الجزئي(3 ساعات)', 
+videos:[
+        {label:'قناة صادق', url:'https://www.youtube.com/playlist?list=PL8436LuIZoAqWmdpm94zjmiZvj1n0X4e3'},
+        {label:'شرح الملخص', url:'https://www.youtube.com/playlist?list=PLzLmjaQB3jxYMwmTHTwGmBeXf0o_H-9kr'},
+ {label:'المحاضرة 1 (2023)', url:'https://youtu.be/ObGlMMxgKpE'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/9PnJEiZMZRQ'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/Ip2rDvpI5C4'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/wVEDX6yMyAY'}]
+, books:[
+        {label:'كتاب مبادئ الاقتصاد الجزئي ', url:'https://drive.google.com/open?id=1oaV2BmNBMRTX0aaf9nOfMvOIRU78M7NH&usp=drivesdk'}]
+, models:[
+        {label:'رسم إقتصاد جزئي (سمية مرزوق) 🕊', url:'https://drive.google.com/open?id=1BXqLT6B96kaxy3IUTgP3yaxCAT5paLCh&usp=drivesdk'},
+        {label:'معدل مسائل اقتصاد جزئي ليلى', url:'https://drive.google.com/open?id=1FtRsf1TtZGCxM7qgXsvkEDqCM1WpGjru&usp=drivesdk'},
+        {label:'نماذج محلولة إقتصاد جزئي', url:'https://drive.google.com/open?id=1eLttWBFS2v-rNURTa1hNb_lGSMMkYZdU&usp=drivesdk'},
+        {label:'معدل_الاقتصاد_الجزئي_نُهى_دحان', url:'https://drive.google.com/open?id=1dpUTZB4DyYcQUt3VJKbuKrLMHnqzrR9q&usp=drivesdk'}]
+, summaries:[
+            {label:'ملف_مدمج_لملخص_الاقتصاد_الجزئي_pdf_1', url:'https://drive.google.com/open?id=19AEmBAy_QvTxP5gaHCSfLrPdMELCvz9j&usp=drivesdk'}]
+, Telegram:[
+            {label:'قناة ريم', url:'https://t.me/reem_53494'},
+            {label:'قناة ولد انعم', url:'https://t.me/binanam2003'},
+            {label:'هذي القناة فيها تجميعات الجديدة', url:'https://t.me/aiqtisad2025'},
+            {label:'قناة ندى خاصة بالبنات – الرابط يُرسل بعد التواصل مع المشرفات', url:null},]
+, news:[
+       {label:'🟠 نوع المادة:'},
+{label:'مقالية.'},
+{label:'🟠 نمط الاختبار النهائي:'},
+{label:'الاختبار يتكوّن من قسمين، ومجموع الدرجات 100 درجة:'},
+{label:'أولًا: الأسئلة المقالية (70 درجة)'},
+{label:'تتكون من 4 أسئلة (نظري وحسابي).'},
+{label:'الأسئلة الحسابية: سؤالان، كل سؤال عليه 23 درجة (المجموع 46 درجة).'},
+{label:'الأسئلة النظرية: سؤالان، كل سؤال عليه 12 درجة (المجموع 24 درجة).'},
+{label:'ثانيًا: الأسئلة الموضوعية (30 درجة)'},
+{label:'10 درجات صح وخطأ.'},
+{label:'10 درجات اختيار وحيد.'},
+{label:'10 درجات اختيار متعدد.'},
+{label:'🟠 طريقة المذاكرة:'},
+{label:'بالعكس، أول ما تبدأ فيها تزين لك، بس لازم ترتيب:'},
+{label:'1️⃣ ابدأ بملخص المادة وافهمه جيدًا.'},
+{label:'2️⃣ بعدها نموذج نهى مع شرح ندى خاص بالبنات .'},
+{label:'3️⃣ ثم شرح صادق مع ملف الرسم.'},
+{label:'4️⃣ بعد ذلك الجزء الحسابي مع أي شرح يناسبك.'},
+{label:'5️⃣ وأخيرًا الـ3 أوراق.'},
+{label:'بهذه الطريقة، ما راح تأخذ معك المادة أكثر من أسبوع — عن تجربة.'},
+{label:'🟠 المحذوف من الكتاب:'},
+{label:'الكتاب كامل مقرر علينا بدون أي حذف.'}]},
+
+    {id:'eco_macro', title:'مبادئ الاقتصاد الكلي(3 ساعات)', 
+videos:[
+        {label:'المحاضرة 1⃣', url:'https://youtu.be/mTpKbTrb8Q0'},
+        {label:'المحاضرة 2⃣', url:'https://youtu.be/MBEdm3-l5zg'},
+        {label:'المحاضرة 3⃣', url:'https://youtu.be/Z87RjhCBRp0'},
+        {label:'المحاضرة 4⃣', url:'https://youtu.be/NAJ4i8svQC8'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/TZCgs7ol_Ek'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/1QZRFWghaho'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/vklFlid5F2s'}]
+, books:[
+        {label:'كتاب مبادئ الاقتصاد الكلي ', url:'https://drive.google.com/open?id=1Z7zWxlXGrIxwd3jVh66ZUPZjY8WgFRsn&usp=drivesdk'} ]
+, models:[
+         {label:'��قوانين_مع_مسائل_اقتصاد_كلي_شامل_230524_140901� ', url:'https://drive.google.com/open?id=1mF9hCAFwug6TmoW1D0wjZuiwnIAfN98Y&usp=drivesdk'},
+         {label:'نموذج النظري الاقتصاد الكليpdf0 ', url:'https://drive.google.com/open?id=1qGtcrCLvVlWJv2wkc9qo6JrSkeSS322p&usp=drivesdk'},
+         {label:'نموذج النظري الاقتصاد الكلي ^Nاختبر نفسك', url:'https://drive.google.com/open?id=1Hwu-NBroWyyUu5ikNH0aUcoRywhxu0QC&usp=drivesdk'},
+            {label:'اختبار تفاعلي لمادة الاقتصاد الكلي', url:'https://macro-quiz.netlify.app/'}]
+, summaries:[
+         {label:'حسابي الاقتصاد الكلي1.', url:'https://drive.google.com/open?id=1A8IKVxdtbjst9fHsiZRu_mx-aNk3tmAL&usp=drivesdk'},
+         {label:'مقالي كلي ', url:'https://drive.google.com/open?id=1oLIOJBAlOVPJC83y4Y5-3Y6m5zzUXYK8&usp=drivesdk'},
+         {label:'📊 ملخص مبادئ الاقتصاد الكلي', url:'https://summary-of-macroeconomic-principles1.netlify.app/'}]
+, Telegram:[
+            {label:'شرح الاقتصاد الكلي 🤍.', url:'https://t.me/rymy2023'},
+            {label:'اقتصاد كلي', url:'https://t.me/+ueUPiEBnDA5iZDM0'}]
+, news:[
+        {label:'🟠 نوع المادة:'},
+{label:'مقالية.'},
+{label:'🟠 نمط الاختبار النهائي:'},
+{label:'الاختبار يتكوّن من قسمين، ومجموع الدرجات 100 درجة:'},
+{label:'أولًا: الأسئلة المقالية (70 درجة)'},
+{label:'تتكون من 4 أسئلة (نظري وحسابي).'},
+{label:'الأسئلة الحسابية: سؤالان، كل سؤال عليه 23 درجة (المجموع 46 درجة).'},
+{label:'الأسئلة النظرية: سؤالان، كل سؤال عليه 12 درجة (المجموع 24 درجة).'},
+{label:'ثانيًا: الأسئلة الموضوعية (30 درجة)'},
+{label:'10 درجات صح وخطأ.'},
+{label:'10 درجات اختيار وحيد.'},
+{label:'10 درجات اختيار متعدد.'},
+{label:'🟠 طريقة المذاكرة:'},
+{label:'1. ابدأ بمشاهدة محاضرات الدكتور الأربعة فقط، فهي تشرح القوانين وطريقة الحل وتختصر الكثير من محتوى الكتاب.'},
+{label:'2. بعد ذلك، انتقل إلى النماذج للممارسة والتطبيق العملي.'},
+{label:'3. إذا رغبت في تثبيت فهمك أكثر، يمكنك الاطلاع على قنوات التليجرام بعد الانتهاء من المحاضرات، فهي تعتبر مراجعة ممتازة.'},
+{label:'⚠️ ملاحظة: لا تبدأ بقنوات التليجرام قبل مشاهدة المحاضرات، حتى لا يحدث خلط أو تشويش في المعلومات.'},
+{label:'🟠 المحذوف من الكتاب:'},
+{label:'الكتاب كامل مقرر علينا بدون أي حذف.'}]},
+
+    {id:'law', title:'القانون التجاري(3 ساعات)',
+ videos:[
+         {label:'قائمة المحاضرات 1⃣', url:'https://youtube.com/playlist?list=PLzLmjaQB3jxZYXtIB4AEjlVINQiot9J14&si=YJqxEGEF6ali4MIO'},
+         {label:'قائمة المحاضرات 2⃣', url:'https://www.youtube.com/watch?v=ofZaOxXqong&list=PLoURjA1UEuTwoLFDEjjc08NHbv7Q5DghC'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/StXq75eYk_0'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/Zl71UYkDHM8'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/dXpXoXBkSLs'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/h9IF0m71R4Y'},
+{label:'المحاضرة 5 (2023)', url:'https://youtu.be/ySNHyD_GIMo'}
+        ]
+, books:[
+         {label:'كتاب القانون التجاري ', url:'https://drive.google.com/open?id=1540gJvM1WrcIx7Nt_bJ5aVZf7bueYbp&usp=drivesdk'}]
+, models:[
+         {label:'اختبرنفسك_قانون تجاري_محمد الحاشدي 2025 ', url:'https://drive.google.com/open?id=1Ie3R341Ysk5KUQmRJTQNnmDI98ZJsdjB&usp=drivesdk'},
+         {label:'شامل_قانون تجاري_محمدالحاشدي 2025', url:'https://drive.google.com/open?id=1uqmAwdYqJdXyBQ13xCsrwAAHf0jrlBek&usp=drivesdk'}]
+, summaries:[
+             {label:'ملخص القانون التجاري ', url:'https://drive.google.com/open?id=1QH8QcH9elvlTLDnNKFhhA3SpZSfKkiBN&usp=drivesdk'},
+             {label:'AI - مقالي قانون تجاري_محمدالحاشدي ', url:'https://drive.google.com/open?id=1lrHxes_qvYnZzeCTnHSBYdRh3lLfXkIs&usp=drivesdk'}]
+, Telegram:[
+           {label:'تجميعات قانون تجاري.', url:'https://t.me/+LuHJkIJV5CJiNTRk'}]
+, news:[
+        {label:'مادة: القانون التجاري'},
+{label:'🔸 نوع المادة:'},
+{label:'نظرية بالكامل.'},
+{label:'📝 نظام الاختبار:'},
+{label:'• 	الأسئلة المقالية:'},
+{label:'3 أسئلة → تحل 2 فقط (تحذف واحد)'},
+{label:'→ الدرجة: 30 درجة'},
+{label:'• 	الأسئلة الموضوعية (اختيارات):'},
+{label:'تشمل:'},
+{label:'✔️ صح وخطأ'},
+{label:'✔️ اختيار من متعدد'},
+{label:'✔️ أسئلة وحيدة الإجابة'},
+{label:'→ الدرجة: 70 درجة'},
+{label:'نصيحة في مذاكرة المادة :'},
+{label:'المادة تحتاج وقت لان معلوماتها كثيره وتحتاج تركيز 👍'},
+{label:'📝 طريقة المذاكرة المقترحة:'},
+{label:'1. 	ابدأ بالكتاب كامل:  من أكذب مايقال 😂 الكتاب متشعب ودسم 👇🏻'},
+{label:'2. 	انتقل للنماذج (المقالي ):'},
+{label:'اولاً : اقرأه قراءه كاملا بفهم  ( في حال لم تقرأ الكتاب ) بحيث يكون عندك فكرة شامله على الماده وهذي الخطوه تفيد كثير في سرعه الحفظ بعدين ثانيا : ابدأ بمذاكرة المقالي حفظاً وفهماً ، كل من بطريقتة'},
+{label:'معلومة دكتور الماده ما يهمه كتابة الاجابه نصا من الكتاب ، ممكن تكون بالفهم ولكن تكون صحيحه وبطريقه نموذجيه'},
+{label:'3. 	انتقل للنظري:'},
+{label:'بتلاحظوا أنها جدا سهله بسبب ان المعلومات مكرره بسبب دراسة المقالي  ، وممكن تبدأو بالمتعدد ثم الصح والخطأ ثم الوحيد ( من الاصعب إلى الأسهل )'},
+{label:'⏳ كم تحتاج؟'},
+{label:'المادة تحتاج أسبوعين مذاكرة عشان تعطيها حقها وتكون مريحة لك.'},
+{label:'✅ معلومة مهمة:'},
+{label:'إذا ذاكرت بفهم وتنظيم، بتستمتع بالمادة'}]},
+
+    {id:'marketing', title:'مبادئ التسويق(3 ساعات)',
+ videos:[
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/MpMXsW1z5MM'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/Z3HV6s8ajCI'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/itoSMTcD5S8'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/WPRMuUkA0To'}],
+ books:[
+        {label:'مبادئ التسويق ', url:'https://drive.google.com/open?id=1_X3tp78xpHcLuf5jY7VfSqbYic2t876C&usp=drivesdk'}],
+ models:[
+        {label:'مبادئ التسويق _ تسلسلي _ نسخة 3 (2) ', url:'https://drive.google.com/open?id=19n8lQSRralhdKwtNMwlazItPEkjQEokw&usp=drivesdk'},
+        {label:'�الخطا في ملف مبادئ التسويق 1', url:'https://drive.google.com/open?id=1lzLFcVBALcUrPQ6P_8FEjoYDJstv83Vm&usp=drivesdk'},
+        {label:'تجميع_مقالي_مبادئ_تسويق_2024_جيهان_وسماح', url:'https://drive.google.com/open?id=1MFZ8WfLfToXrx1vIRWKUnWGtalxINZG_&usp=drivesdk'}],
+ summaries:[
+         {label:'ملخص 1مبادئ التسويق ', url:'https://drive.google.com/open?id=10cW3jqTwCrXUditH69v0ZScETiI72c1O&usp=drivesdk'}],
+ Telegram:[
+          {label:'كل مايخص مادة مبادئ التسويق', url:'https://t.me/+aZalQFpnDl03ZDI0'}],
+ news:[
+       {label:'🟠 نوع المادة:'},
+{label:'مقالية + نظرية.'},
+{label:'🟠 نظام الاختبار مع تفصيل الدرجات:'},
+{label:'70 درجة نظري (خيار وحيد، صح وخطأ، متعدد)'},
+{label:'30 درجة مقالي (سؤالين كل سؤال 15 درجة).'},
+{label:'🟠 طريقة المذاكرة المقترحة:'},
+{label:'ذاكر من الكتاب أولاً، ثم راجع النماذج لأن الاختبار يأتي مثلها تقريباً، وقد يتغير سؤال أو سؤالين فقط.'},
+{label:'الأسئلة المقالية تأتي من الكتاب.'},
+{label:'الأسئلة الموضوعية تأتي من النماذج.'},
+{label:'لذلك ذاكر الكتاب كاملاً للمقالي، وراجع النماذج جيداً للموضوعي.'},
+{label:'🟠 كم تحتاج المادة للمذاكرة:'},
+{label:'أسبوع كامل.'},
+{label:'🟠 المحذوف في المادة:'},
+{label:'لا يوجد.'}]},
+
+    {id:'stat', title:'إحصاء تطبيقي(3 ساعات)', 
+videos:[
+       {label:'قائمة المحاضرات 1⃣  صادق جزيلان', url:'https://www.youtube.com/playlist?list=PL8436LuIZoAro9rStaSYX6EdrqLPVJ4D8'},
+         {label:'قائمة المحاضرات 2⃣ محاضرات الجامعة', url:'https://youtube.com/playlist?list=PLzLmjaQB3jxaG154iJ0rg7qvhGSQW55da'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/AqSnvlLhcIY'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/RBzkjeYahpU'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/A8wLdCbM6Pc'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/PSxywQiBQVo'},
+{label:'المحاضرة 5 (2023)', url:'https://youtu.be/Ue5Qu_MzV3o'},
+{label:'المحاضرة 6 (2023)', url:'https://youtu.be/guWxENE3Fc0'}],
+ books:[
+       {label:'الإحصاء التطبيقي (معدل) ', url:'https://drive.google.com/open?id=14QzfkfzXFVAyPg4cNWdkcvBOER8KOlI5&usp=drivesdk'}],
+ models:[
+         {label:'نموذج حلول نُهى دحان _معدل_2024 ', url:'https://drive.google.com/open?id=1O7dNQJP_zdKKxpK_dQhUzYsZZl67u8NW&usp=drivesdk'},
+           {label:'اختبار الإحصاء التفاعلي نماذج.', url:'https://interactive-statistics-quiz.netlify.app/'}],
+ summaries:[
+            {label:'قولنين الإحصاء ', url:'https://drive.google.com/open?id=1mUH6B93Mmw_7DseQzyot6GSegiF_Bi3B&usp=drivesdk'},
+            {label:'ملخص الاحصاء ( كامل )_240114_144937 ', url:'https://drive.google.com/open?id=1V6UjKNemsiB9BhMhyD96RIX9yB7qKuPe&usp=drivesdk'}],
+ Telegram:[
+           {label:'شرح تأسيسي لمادة الإحصاء / القسم الحسابي قناة أميرة.', url:'https://t.me/+taasg_HN8q5hZGE0'},
+           {label:'▪️قناة التليجرام الأساسي للمادة :', url:'https://t.me/llkp09'},
+           {label:'▪️قناه ريم ومايسة/ فهد.', url:'https://t.me/reem_53494'},
+           {label:'▪️قناة ولد أنعم.', url:'https://t.me/binanam2003'}],
+ news:[
+       {label:'📘 كيفية صياغة طريقة المذاكرة'},
+{label:'🟠 نوع المادة:'},
+{label:'مادة حسابية ونظرية، تعتمد على النماذج والملخصات أكثر من الكتاب.'},
+{label:'🟠 نظام الاختبار مع تفصيل الدرجات:'},
+{label:'الاختبار مكوّن من قسمين:'},
+{label:'● الأسئلة المقالية (الحسابي):'},
+{label:'عدد الأسئلة: 5، يُحذف سؤال واحد وتحل 4 أسئلة.'},
+{label:'درجة كل سؤال: 17 درجة.'},
+{label:'المجموع الكلي: 68 درجة.'},
+{label:'● الأسئلة النظرية (الموضوعية):'},
+{label:'صح وخطأ: 16 درجة'},
+{label:'اختيار وحيد: 10 درجات'},
+{label:'اختيار متعدد: 6 درجات'},
+{label:'المجموع الكلي: 32 درجة'},
+{label:'الإجمالي العام: 100 درجة'},
+{label:'🟠 طريقة المذاكرة المقترحة:'},
+{label:'1. ترك الكتاب جانبًا، لأنه يحتوي على تفاصيل كثيرة قد تسبب تشويش.'},
+{label:'الاعتماد يكون على النماذج والملخص فقط.'},
+{label:'2. البدء بالنموذج الشامل، ويُقسم إلى قسمين: الحسابي أولًا، ثم النظري.'},
+{label:'3. المذاكرة العملية: حل القسم الحسابي باستخدام أحد قنوات الشرح، مع التركيز على الفهم وتكرار الحل لتثبيت المعلومات.'},
+{label:'4. الجانب النظري: يُنصح باستخدام قناة ندى على التليجرام للبنات، وقناة صادق على اليوتيوب للعيال.'},
+{label:'📚 مصادر المذاكرة:'},
+{label:'قنوات التليجرام: أميرة، ولد أنعم، ريم، ندى (خاصة للبنات).'},
+{label:'قناة يوتيوب: صادق.'},
+{label:'ينصح باستخدام قناة الأخت أميرة لأسلوبها الممتاز في الشرح.'},
+{label:'🟠 مدة المذاكرة المقترحة:'},
+{label:'يومين إلى ثلاثة أيام، في حال الالتزام بالنموذج والشروحات.'},
+{label:'🟠 المحذوف في المادة:'},
+{label:'الكتاب كامل غير مطلوب، والتركيز فقط على النماذج والملخص.'},
+{label:'🟠 اسم دكتور المادة إن وجد:'},
+{label:'(يُترك لتعبئته لاحقًا إن وُجد).'},
+{label:'🟠 هل المادة تفتح لمادة أخرى:'},
+{label:'لا، المادة مستقلة ولا تفتح لمادة أخرى.'},
+{label:'📌 الخلاصة النهائية:'},
+{label:'الاعتماد الأساسي على النماذج.'},
+{label:'الملخص للمراجعة السريعة.'},
+{label:'التكرار والمراجعة أهم من الحفظ.'},
+{label:'المادة سهلة جدًا مع النماذج والشروحات، والاختبار بنفس طريقتها.'},
+{label:'لا يُنصح بإضاعة الوقت على الكتاب، فهو ضخم وغير ضروري.'}]},
+
+    {id:'fin_man', title:'الإدارة المالية(3 ساعات)'
+, videos:[
+          {label:'قائمة المحاضرات 1⃣', url:'https://drive.google.com/drive/folders/1TlksTBaPWPq-9MrAcn7_46u0kT_7-psM?usp=drivesdk'},
+         {label:'قائمة المحاضرات 2⃣', url:'https://youtube.com/playlist?list=PLoURjA1UEuTy4p0a979bqKpo3s2QG05uY'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/Dy5oyq5Dntc'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/1gFz0TUM6MY'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/PAqExQu1R-E'}]
+, books:[
+         {label:'كتاب الإدارة المالية ', url:'https://drive.google.com/open?id=1bZDTAVt1O-WZJe8tNQYAJUCIY-ZXGkag&usp=drivesdk'}]
+, models:[
+        {label:'اختبر نفسك_اداره ماليه_نظري', url:'https://drive.google.com/open?id=1FhsE2xVROQU8bLnP8WYGUgdg0H5MQP5g&usp=drivesdk'},
+        {label:'حسابي (إدارة ماليه)', url:'https://drive.google.com/open?id=1o5jTExPhiR405bu5zErGImftKe8_ahhO&usp=drivesdk'},
+        {label:'تجميع_أسئلة_مادة_الإدارة_المالية_النظري_آخر_تعديل ', url:'https://drive.google.com/open?id=1nqGauxY0TqvX8xD9BvDHa5N1fr3OMnd8&usp=drivesdk'},
+        {label:'قوانين_الإدارة_المالية_للنموذج_الشامل_سمية_الوجيه ', url:'https://drive.google.com/open?id=1PY5gHDU_I6Gs3iqJa6KMlW80KeGQTqqe&usp=drivesdk'}]
+, summaries:[]
+, Telegram:[
+           {label:'شرح مسائل الادارة المالية.', url:'https://t.me/+QLI85Gvkfa41MTk8'},
+           {label:'النماذج تليجرام👈', url:'https://t.me/+NpV8lzrtaWYzMWE0'},
+           {label:'نماذج تليجرام كمان.', url:'https://t.me/+NfwzZHdrrHI5ZDM8'},
+           {label:'قناة الشرح حق ريم.', url:'https://t.me/re2001em'}]
+, news:[
+       {label:'🟠 ملاحظات عامة عن المادة:'},
+{label:'المادة تُعد من أسهل المواد الحسابية.'},
+{label:'تحتوي على عدد كبير من القوانين، لكنها سهلة ومفهومة ومتكررة.'},
+{label:'الاختبار حتى الآن كان موضوعيًا فقط، بدون أسئلة مقالية، لكن من المحتمل أن يتحول إلى مقالي في الفترات القادمة.'},
+{label:'🟠 محتويات المادة:'},
+{label:'كتاب دراسي'},
+{label:'ملف نماذج نظري'},
+{label:'ملف نماذج حسابي'},
+{label:'ملف قوانين'},
+{label:'شروحات متوفرة على التليجرام، وروابطها موجودة في وصف القروب'},
+{label:'ريم: شرحت المادة حسب ترتيب الوحدات وقدمت شرحًا لأفكار المسائل الحسابية'},
+{label:'ولد أنعم: شرح النماذج الحسابية بالكامل وبالتفصيل'},
+{label:'🟠 آلية الدراسة:'},
+{label:'قراءة الكتاب لفهم محتوى المادة وتسهيل التعامل مع النماذج.'},
+{label:'دراسة نماذج حليمة للحسابي (101 صفحة)، مع كتابة القوانين وتلخيصها يدويًا لتثبيت المعلومة.'},
+{label:'الجزء الحسابي أخذ النصيب الأكبر من الوقت والجهد، نظرًا لأن درجته في الاختبار تبلغ 60 درجة.'},
+{label:'دراسة النماذج النظرية بشكل فهم وليس حفظ، مع مراجعة الكتاب لتصحيح المعلومات في أسئلة الصح والخطأ.'},
+{label:'🟠 مدة الدراسة المقترحة:'},
+{label:'من 10 أيام إلى أسبوعين'},
+{label:'بمعدل 3 ساعات يوميًا'},
+{label:'المدة قابلة للزيادة أو النقصان حسب قدرة الطالب واستيعابه'},
+{label:'🟠 ملاحظات حول الاختبار:'},
+{label:'بعض الأسئلة جاءت من خارج النماذج، لكن الفهم العميق للمادة يُمكّن الطالب من الإجابة عليها بشكل صحيح.'},
+{label:'سيتم إضافة الأسئلة الجديدة إلى الملف من قبل حلوم، مما يسهل المراجعة لاحقًا.'},
+{label:'🟠 ختامًا:'},
+{label:'تمنيات بالتوفيق للجميع.'}]},
+
+    {id:'purch', title:'إدارة المشتريات والمخازن(3 ساعات)',
+ videos:[
+         {label:'شرح الاستاذ صادق نموذج النظري والحسابي قائمة المحاضرات 1⃣', url:'https://youtube.com/playlist?list=PL8436LuIZoArx3JFWLL0LX84NEgvPucTo'},
+         {label:'محاضرات مقرر إدارة مشتريات ومخازن قائمة المحاضرات 2⃣', url:'https://youtube.com/playlist?list=PLoURjA1UEuTw-Mgy3XEJuh7cQYrL3o3QJ'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/hcUjFi_YmbE'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/i7xtbSm0R9E'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/7eDgPZR_HT0'}],
+ books:[
+        {label:'كتاب إدارة المشتريات والمخازن ', url:'https://drive.google.com/open?id=1618ieY84AqfxzXLPfwwYL4xUpcdzb4Jg&usp=drivesdk'}],
+ models:[
+        {label:'تعديل_نموذج_إدارة_المشتريات_والمخازن_2024_20253 (1)', url:'https://drive.google.com/open?id=1pLjiBwh-D1Do8MCViEtZAxsmoUx3MvDg&usp=drive_fs'},
+            {label:'��مقالي مشتريات ومخازن (khawlah) � ', url:'https://drive.google.com/open?id=1X9bQSpQFzknUoOPF6RRVA_fqViucybJw&usp=drive_fs'}],
+ summaries:[
+            {label:'مشتريات ومخازن حسابي وحيد سميرة ', url:'https://drive.google.com/open?id=1NIXh4g1_ArDYLHY_zYI4WE1fHS6_i2L2&usp=drivesdk'},
+            {label:'حسابي_متعدد_سميرة_مشتريات_ومخازن_1 ', url:'https://drive.google.com/open?id=1pgJnypMNGNjFbl2Q27d_9qAUbtmOkGdn&usp=drivesdk'},
+            {label:'قوانين_مشتريات_ومخازن(معدل) ', url:'https://drive.google.com/open?id=18UzGYbYnNYdXmB5bLFbkXWOdkP4OgONb&usp=drivesdk'}],
+
+ Telegram:[
+           {label:'إدارة المشتريات والمخازن(شرح حسابي +نماذج معدله شامله).', url:'https://t.me/+CfYrK3ppmAIwMzBk'},
+           {label:'تجميع نماذج المشتريات', url:'https://t.me/+kzSUv203XxllZGM0'},
+           {label:'شرح حسابي مشتريات ومخازن.', url:'https://t.me/+qmDYWUjdDE81ODlk'}],
+ news:[
+      {label:'🟠 وصف عام للمادة:'},
+{label:'المادة سهلة بشكل عام، لكنها تحتاج إلى فهم وتركيز.'},
+{label:'تتكوّن من ثلاثة أقسام:'},
+{label:'- نظري موضوعي'},
+{label:'- حسابي'},
+{label:'- مقالي'},
+{label:'🟠 تفاصيل كل قسم:'},
+{label:'● النظري الموضوعي: سهل، ومذاكرته تعتمد على النماذج.'},
+{label:'● الحسابي: سهل جدًا، ويأتي بصيغة خيار وحيد ومتعدد، ويوجد له ملفان منفصلان (للخيار الوحيد والمتعدد)، بالإضافة إلى عدة قنوات تشرح هذا القسم.'},
+{label:'● المقالي: يحتاج إلى تركيز وفهم، ويجب مذاكرة الكتاب لأنه المصدر الأساسي للأسئلة.'},
+{label:'🟠 ترتيب المذاكرة المقترح:'},
+{label:'- يمكن البدء بالمقالي لأنه يأخذ وقتًا أطول، ثم الانتقال إلى الموضوعي والحسابي.'},
+{label:'- أو البدء بالحسابي والموضوعي ثم العودة للمقالي، لكن يُفضل البدء بالمقالي لفهمه جيدًا قبل الانتقال لباقي الأقسام.'},
+{label:'🟠 ملاحظات إضافية:'},
+{label:'المادة ليست صعبة ولا ثقيلة، لكنها تتطلب فهم وتنظيم وقت.'},
+{label:'مذاكرة الكتاب ضرورية لأن المصحح يعتمد على إجابات كاملة ونموذجية في الأسئلة المقالية.'},
+{label:'🟠 طريقة توزيع درجات الاختبار:'},
+{label:'■ النظري الموضوعي: عليه 70 درجة، موزعة على:'},
+{label:'- صح وخطأ'},
+{label:'- خيار وحيد'},
+{label:'- خيار متعدد'},
+{label:'- حسابي بصيغة خيار وحيد ومتعدد'},
+{label:'■ المقالي: عليه 30 درجة، يتكوّن من 3 أسئلة، يُحذف سؤال وتُحل سؤالان فقط.'}]},
+
+    {id:'math_admin', title:'الرياضيات في العلوم الإدارية(3 ساعات)', 
+videos:[
+       {label:'قائمة المحاضرات ', url:'https://youtube.com/playlist?list=PLoURjA1UEuTxDAPsywE0a3Et4qpfDgQ5V'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/VNb9Jy2BxM4'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/ciohO1JbBAM'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/9ERFT7ngHww'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/oOXdMwYZwAc'},
+{label:'المحاضرة 5 (2023)', url:'https://youtu.be/2cf1cvAbhYM'}],
+ books:[
+       {label:'كتاب الرياضيات في العلوم الإدارية ', url:'https://drive.google.com/open?id=164U55vSxQfVGDuM3vVARS9Rz5xf2o7I0&usp=drivesdk'}],
+ models:[
+         {label:'رياضيات(صح& خطأ)Halom', url:'https://drive.google.com/open?id=1qKbPJd2JQl83VOWj43CW0MDBWQiGNVhO&usp=drivesdk'},
+         {label:'نماذج', url:'https://drive.google.com/drive/folders/1v49-xbNpuH6tFbGkN1pgxbqwaSckz4ZM?usp=drivesdk'},
+         {label:'رياضيات (الملف الشامل) •وحيد• ', url:'https://drive.google.com/open?id=1KDyAdP_ykWyZn79UloA32TknPGYg-Nan&usp=drivesdk'},
+         {label:'اختبار تجريبي تفاعلي', url:'https://mathiq2025.netlify.app/'},
+         {label:'📚 تطبيق الرياضيات التفاعلي ', url:'https://math-quiz2025.netlify.app/'}],
+ summaries:[
+           {label:'ملخصات', url:'https://drive.google.com/drive/folders/1up3a54rxIMEGm7d4QpFW1T70--DcbmKV?usp=drivesdk'}],
+ Telegram:[
+           {label:'1⃣قناة روعة (نماذج مع الشرح).', url:'https://t.me/+XGm7hs6CblIzNWJk'},
+           {label:'2⃣ قناة ريم (فقط شرح خاص بالبنات)', url:'https://t.me/+iC_oH79fVxY0YWVk'},
+           {label:'3️⃣شرح منال (شرحت النماذج كاملة في دورة في التلجرام تواصلوا معها لكي تضيفكم في الدورة) (دورة مدفوعة) اضغط للتواصل.', url:'https://wa.me/967779297849'}
+],
+ news:[
+      {label:'معلومات عن مادة الرياضيات 🧮'},
+{label:'السلام عليكم ورحمة الله وبركاته'},
+{label:'مادة الرياضيات اختبارها وحيد يعني مو مقالي إلى الأن هذا أولا 😁'},
+{label:'ثانيا: الماده سهولتها نسبيه بين شخص وشخص يعني الي باقي متذكر رياضيات الثانويه رح تكون سهله عليه'},
+{label:'الماده كثييييفه وتحتاج جهد و وقت ، مو صعبه لكن تحتاج ممارسه ومراجعه اكثر من مره واغلب الوحدات تنحل بالاله الحاسبه'},
+{label:'الحلو فيها ان نماذجها كللللها صارت مجمعه في ملفين فقط ملف حسابي( ملف الشامل تبع حلوم - وحيد ) وملف نظري ( برضو تبع حلوم ) ….. اسأل الله ان يعطيها خيري الدنيا والاخره 🤍'},
+{label:'**الملف الحسابي معتمد في إجاباته على طريقه المقالي مو بالاله الحاسبه للطلاب الي حابين يذاكرو الماده كمقالي 🙃'},
+{label:'الاختبار عباره عن صح و خطأ و وحيد فقط بدون متعدد والدرجات تختلف في الوحيد في مسائل عليها ٧ درجات وعددها ١٠ مسائل ( الي عليها خطوات كثيره ) وفي مسائل عليها ٣ درجات فقط وعددها ٥ مسائل. ( خطواتها بسيطه وسهله ) اما علامة الصح والخطأ ٥ اسئله السؤال عليه ٣ درجات'},
+{label:'قنوات الشروحات :'},
+{label:'- قناة اليوتيوب لشرح الدكتور جددددا رائعه ويفهم كل تفصيله في الكتاب  رابط القناة موجود في وصف القروب'},
+{label:'- ⁠ قناة روعه ( عامه ) فيها شرح للحل بالآله الحاسبه'},
+{label:'- ⁠قناة ريم ( خاصه بالبنات ) ايضاً فيها شرح لجميع الوحدات بالآله الحاسبه'},
+{label:'- ⁠قناة خربشات رياضيات ( خاصه بالبنات) فيها شروحات بالاله وشروحات لبعض اسئله نماذج ملف حلوم كمقالي'},
+{label:'- قناة منال طالب ، فيها شروحات كامله عن النماذج على قناة التليجرام ( دوره مدفوعه) تقدرون تتواصلون معاها'},
+{label:'- ⁠قناة ولد أنعم وعباد ( عامه ) فيها شروحات ايضاً للجميع الوحدات بالآله الحاسبه'},
+{label:'في رابط كمان للنماذج مجمعه ملفات قديمه و حديثه'},
+{label:'كل روابط القنوات موجوده في وصف قروب الواتس أب'},
+{label:'التوفيق للجميع ✨'}]},
+
+    {id:'ethics', title:'أخلاقيات منظمات الأعمال(3 ساعات)',
+ videos:[
+        {label:'قائمة المحاضرات ', url:'https://youtu.be/_qVWQdMxjfo'},
+{label:'المحاضرة 1 (2025)', url:'https://youtu.be/jP8BueX7U9A'},
+{label:'المحاضرة 2 (2025)', url:'https://youtu.be/3uL5fpyKEBA'},
+{label:'المحاضرة 3 (2025)', url:'https://youtu.be/G7hGJgyZciE'},
+{label:'المحاضرة 4 (2025)', url:'https://youtu.be/Pa-jMZdfcJM'},
+{label:'المحاضرة 5 (2025)', url:'https://youtu.be/LUVbgXVvINQ'}],
+ books:[
+        {label:'كتاب أخلاقيات منظمات الأعمال ', url:'https://drive.google.com/open?id=1nBZvVCd9u4NIHgQsVieiRQNbML8zh_eG&usp=drivesdk'}],
+ models:[
+        {label:'بعض أسئلة المقالي جات للطلاب في الاختبار ', url:'https://drive.google.com/open?id=1R8jhNjPdnn90z7koDn_2H_z8yGJy9I58&usp=drivesdk'},
+        {label:'نموذج النظري اخلاقيات منظمات الاعمال  ', url:'https://drive.google.com/open?id=1GI5Qny8JkYh0ZOe-aLt3SQ7vuRvveWnK&usp=drivesdk'}],
+ summaries:[
+           {label:'اخلاقيات_منظمات_الاعمال_ملف_المقالي معدل', url:'https://drive.google.com/open?id=1LIGSG-kdpqLMZPhcPHOxsBtWpXcDzBWa&usp=drivesdk'},
+           {label:'مقالي1 ', url:'https://drive.google.com/open?id=1rgffUkp379LTHiyT9B208k7UBnWpWxk7&usp=drivesdk'}],
+ Telegram:[
+          {label:'اخلاقيات منظمات الاعمال.', url:'https://t.me/+YDzZ-giRL_g1MmU0'}],
+ news:[
+       {label:'📘 مادة: أخلاقيات منظمات الأعمال'},
+{label:'🔸 نوع المادة: نظرية بالكامل'},
+{label:'📝 نظام الاختبار:'},
+{label:'- الأسئلة المقالية:'},
+{label:'3 أسئلة → يُحل 2 فقط، وتحذف واحد'},
+{label:'الدرجة: 30 درجة'},
+{label:'- الأسئلة الموضوعية:'},
+{label:'تشمل:'},
+{label:'✔️ اختيار من متعدد'},
+{label:'✔️ اختيار وحيد'},
+{label:'✔️ صح وخطأ'},
+{label:'الدرجة: 70 درجة'},
+{label:'📚 ملاحظات مهمة للمذاكرة:'},
+{label:'- تم تجميع ملف شامل للنظري والمقالي في آخر الفترات، مما ساعد الطلاب كثيرًا.'},
+{label:'- يُفضل مراجعة الكتاب أو الملخص لفهم المادة وتثبيت المعلومات، وللاحتياط إذا جاء سؤال من خارج الملف.'},
+{label:'✅ نصيحة:'},
+{label:'المادة ممتعة ومفهومة، لكنها تحتاج اجتهاد ووقت كافٍ لضمان درجات عالية.'}]},
+
+    {id:'moneybank', title:'اقتصاديات النقود والبنوك(3 ساعات)',
+ videos:[
+         {label:'قائمة المحاضرات ', url:'https://youtube.com/playlist?list=PLzLmjaQB3jxb-MX2ErlgwxJtTIiOGxIfg'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/io4paIoVzng'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/kGWmnyj7yEo'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/og6CBbbOwk0'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/a7J2qQGTqRI'}],
+ books:[
+       {label:'كتاب �اقتصاديات_النقود_والبنوك_023741 ', url:'https://drive.google.com/open?id=1C7QUdX0d9PhUpPGVyc9OcR71vif3W9Oy&usp=drivesdk'}],
+ models:[
+        {label:'النقود والبنوك_شامل ابجدي', url:'https://drive.google.com/open?id=1_SX369Jc8vbY2Zrzz2Puws43EleA20iy&usp=drivesdk'}],
+ summaries:[
+           {label:'تجميع_النقود_والبنوك_الوحده_الثالثه_تجميعات_ا_دلال', url:'https://drive.google.com/open?id=1x-HCpk8HJXWqq1gXz3LGY4KyIXR3m0YL&usp=drivesdk'},
+          {label:'تجميع_النقود_والبنوك_الوحده_الخامسة_تجميعات_ا_دلال', url:'https://drive.google.com/open?id=1HpPj2dB792u5TZDcbGbOHpskYrlC5Cey&usp=drivesdk'},
+          {label:'تجميع_النقود_والبنوك_الوحده_الرابعه_تجميعات_ا_دلال ', url:'https://drive.google.com/open?id=1gDtse1FLLYvhPL3yf_wXc3IYr-YGeMxA&usp=drivesdk'},
+          {label:'قوانين نقود وبنوك_محمد الحاشدي ', url:'https://drive.google.com/open?id=1x9infDgeDSMu55Aqev8CVbK2BdRJpl1s&usp=drivesdk'},
+          {label:'��نقود_وبنوكك_الوحده_1_تجميع_دلال� ', url:'https://drive.google.com/open?id=1f2NUx9LwuabJZzn3NOavGZocBbsgtwWW&usp=drivesdk'}],
+ Telegram:[
+          {label:'شرح نقود وبنوك ♥️هنا كل ما يخص المادة.', url:'https://t.me/manybankm'},
+          {label:'تجميعات نماذج أقتصاديات نقود وبنوك.', url:'https://t.me/+NPqC8m5qm4E0YWJk'}],
+ news:[
+      {label:'📘 مادة: اقتصاديات النقود والبنوك'},
+{label:'🔹 نوع المادة:'},
+{label:'حسابية نظرية.'},
+{label:'📝 نظام الاختبار:'},
+{label:'- الأسئلة المقالية:'},
+{label:'عددها 3 أسئلة، يُحذف واحد وتُحل اثنين فقط.'},
+{label:'كل سؤال عليه 30 درجة → المجموع 60 درجة.'},
+{label:'كل سؤال مقسم إلى جزئين:'},
+{label:'1. جزء حسابي (15 درجة)'},
+{label:'2. جزء مقالي (ناقش) (15 درجة)'},
+{label:'- الأسئلة الموضوعية (اختيارات):'},
+{label:'تشمل اختيار من متعدد، صح وخطأ، وغيره.'},
+{label:'مخصصة لـ 40 درجة.'},
+{label:'📚 طريقة المذاكرة:'},
+{label:'لا تحتاج إلى الكتاب، فقط:'},
+{label:'- مراجعة النماذج، تكفي وتوفي.'},
+{label:'- قناة التليجرام تحتوي على شرح كامل + مسائل إضافية.'},
+{label:'- المادة مفهومة وسهلة بالممارسة.'},
+{label:'⏳ مدة المذاكرة المقترحة:'},
+{label:'- أسبوع واحد في حال التركيز الكامل.'},
+{label:'- أسبوعين إذا كان الوقت موزع بين مواد أخرى.'},
+{label:'🚨 تنبيه مهم:'},
+{label:'لا تؤجل مذاكرة قسم "ناقش" إلى وقت الاختبارات، على الأقل ذاكره بدون تعمق.'},
+{label:'📝 نصيحة أثناء الاختبار:'},
+{label:'🚨 قبل حذف أي سؤال من الأسئلة المقالية:'},
+{label:'- اكتب كل الأسئلة أولًا في المسودة.'},
+{label:'- جرّب حلها وتأكد أنك تعرف تحل اثنين منهم بنسبة 100٪.'},
+{label:'- بعد التأكد، احذف الثالث.'},
+{label:'لأن أحيانًا يتم التسرع في الحذف، ثم يتضح أن السؤال المختار أصعب أو غير واضح.'},
+{label:'🎯 نصيحة في جزء "ناقش":'},
+{label:'- اربط الإجابة بالمطلوب.'},
+{label:'- افهم السؤال جيدًا.'},
+{label:'- اكتب كل المعلومات التي تعرفها، لأن المصحح يقيم بناءً على الفهم وليس الحفظ فقط.'}]},
+
+    {id:'self_skill', title:'مهارات التعلم الذاتي(2 ساعة)',
+ videos:[
+        {label:'قائمة المحاضرات ', url:'https://youtube.com/playlist?list=PLEaqWF60mCKYGF8DcXB_vf9isjgu7HnAf'}],
+ books:[
+        {label:'كتاب مهارات التعلم الذاتي', url:'https://drive.google.com/open?id=1Ko7WRDSYEVFbzGDoJ3O19rmMp9MEQ55b&usp=drivesdk'}],
+ models:[
+         {label:'اختبر نفسك التعلم الذاتي 2025 BMuraisi ', url:'https://drive.google.com/open?id=1WQuEyTXyI9iJWsJ64WDgsH-X85ohhpUj&usp=drivesdk'},
+         {label:'نسخة 3 التعلم الذاتي تسلسلي 2025 BMuraisi ', url:'https://drive.google.com/open?id=1nrT_xg4wjnSPCljNzohfrlWZ8Qtj7wEo&usp=drivesdk'}],
+ summaries:[
+            {label:'مقالي التعلم الذاتي 2025 BMuraisi  ', url:'https://drive.google.com/open?id=10uqHlJG0MwCw2swYrnQ_vBidpdopXbzS&usp=drivesdk'}],
+ Telegram:[
+          {label:'التعلم الذاتي 😊.', url:'https://t.me/+zObB0mAwfSc0NjE1'}],
+ news:[
+      {label:'📘 مادة: التعلم الذاتي'},
+{label:'🟠 نوع المادة:'},
+{label:'نظرية بالكامل.'},
+{label:'📝 نظام الاختبار:'},
+{label:'- الأسئلة المقالية:'},
+{label:'3 أسئلة → تحذف 1 وتُحل 2 فقط'},
+{label:'✔️ الدرجة: 30 درجة'},
+{label:'- الأسئلة الموضوعية (اختيارات):'},
+{label:'✔️ اختيار وحيد'},
+{label:'✔️ اختيار من متعدد'},
+{label:'✔️ صح وخطأ'},
+{label:'→ الدرجة: 70 درجة'},
+{label:'🎯 نصيحة في المذاكرة:'},
+{label:'المادة سهلة ومفهومة وممتعة جدًا، لكنها تحتاج إلى ترتيب:'},
+{label:'1. قراءة مركّزة للكتاب لفهم الأساسيات.'},
+{label:'2. مراجعة ملفات النماذج (النظرية والمقالية) للتدريب والتثبيت.'},
+{label:'3. فهم طريقة الأسئلة وصيغتها.'},
+{label:'✅ المادة سلسة وممتعة، المهم مذاكرتها بتركيز وإعطاؤها وقتها.'}]},
+
+    {id:'eng_terms', title:'مصطلحات ومراسلات باللغة الإنجليزية (3 ساعات)',
+ videos:[
+         {label:'قائمة المحاضرات ', url:'https://youtube.com/playlist?list=PLzLmjaQB3jxYcVQ0YqAmiVfGq-JBkwfin'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/sFjOpFlq82A'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/KgoIiSx2lsY'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/p7MVrpW_yvg'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/H88tjpn9clg'}],
+ books:[
+        {label:'كتاب مصطلحات ومراسلات باللغة الإنجليزية', url:'https://drive.google.com/open?id=1Y4HMcRVgNYX2OPoEJ1vYZpooTuYIg_Of&usp=drive_fs=drivesdk'}],
+ models:[
+         {label:'202586 تجريبي مصطلحات ', url:'https://drive.google.com/open?id=1oAnJBoOXceh5-py-HjrVix9tf-nrOYpI&usp=drive_fs=drivesdk'},
+         {label:'اختبر نفسك مصطلحات ومراسلات انجليزي# وجدان حنش', url:'https://drive.google.com/open?id=1evN9Sz2HhA93pJRNAzUTZIZ5mszBP5pz&usp=drive_fs=drivesdk'},
+         {label:'الاساله المتكرره ماده مصطلحات', url:'https://drive.google.com/open?id=1GPPh6eihGHPIy5CDz5VLrgn-D0eIgiCZ&usp=drive_fs=drivesdk'},
+         {label:'�مصطلحات_ومراسلات_باللغة_الانجليزية_ابجدي_نسخة_3', url:'https://drive.google.com/open?id=1xbBOfx8SVigzX_Y2bmYIcXuEOlm_RlyD&usp=drive_fs=drivesdk'}],
+ summaries:[
+            {label:'اهم الكلمات والدروس مصطلحات ومراسلات', url:'https://drive.google.com/open?id=1shA2a1KvWy5BiapD0lAWwKxiBCeLJG9h&usp=drive_fs=drivesdk'},
+            {label:'���مقالي مصطلحات ومراسلات انجليزي- وجدان حنش_125152', url:'https://drive.google.com/open?id=1zoqCd_-b-QnxMNqGb_oHYzdzoCsGiQ3l&usp=drive_fs=drivesdk'},
+            {label:'مقالي مصطلحات ومراسلات', url:'https://drive.google.com/open?id=1DP29Y6bRUphRRMkSf3GNvya0odyoBjEN&usp=drive_fs=drivesdk'}], 
+Telegram:[
+         {label:'مصطلحات ومراسلات باللغه الانجليزيه.', url:'https://t.me/+Yi0eqye1gPM0MWE8'}],
+ news:[
+      {label:'📘 مادة: مصطلحات ومراسلات باللغة الإنجليزية'},
+{label:'🔹 نوع المادة:'},
+{label:'نظرية بالكامل.'},
+{label:'📝 نظام الاختبار:'},
+{label:'- الأسئلة المقالية:'},
+{label:'عددها 3 أسئلة، يُحذف واحد وتُحل اثنين فقط.'},
+{label:'الدرجة: 20 درجة (10 درجات لكل سؤال).'},
+{label:'- الأسئلة الموضوعية:'},
+{label:'موزعة على:'},
+{label:'✔️ اختيار وحيد'},
+{label:'✔️ اختيار من متعدد'},
+{label:'✔️ صح وخطأ'},
+{label:'الدرجة: 80 درجة'},
+{label:'📚 ملاحظات مهمة:'},
+{label:'- الأسئلة الموضوعية مأخوذة من الملف النظري حتى الآن، ولم يخرج عنها حسب إفادة الطلاب.'},
+{label:'- الأسئلة المقالية تعتمد بنسبة 95٪ على الملف المقالي، وقد يظهر سؤال بسيط من خارج الملف أحيانًا.'},
+{label:'🎯 طريقة المذاكرة المقترحة:'},
+{label:'- يوجد كتاب PDF محدد عليه أسئلة النماذج بالألوان:'},
+{label:'الأصفر: صح وخطأ'},
+{label:'الأخضر: خيار وحيد'},
+{label:'الأزرق: اختيار متعدد'},
+{label:'يساعد في التركيز على النقاط المهمة ويسهّل مراجعة النماذج النظرية.'},
+{label:'- مراجعة النماذج النظرية بعد المرور عليها في الكتاب.'},
+{label:'- مراجعة الأسئلة المقالية، فهي قليلة وإجاباتها مختصرة ويمكن صياغتها بلغة بسيطة ومصطلحات مفهومة.'},
+{label:'- يُفضل قراءة الكتاب لفهم محتوى المادة، وفي حال كانت اللغة عائقًا، يمكن الرجوع للنسخة المترجمة للعربية.'},
+{label:'💡 تنويه:'},
+{label:'- المادة ذات محتوى بسيط وواقعي، وتتناول طريقة كتابة الرسائل.'},
+{label:'- بعض الطلاب يفضلون التركيز على النظري فقط، لكن يُنصح بمذاكرة المقالي لضمان درجات إضافية، خاصة أن إجاباته قصيرة وبسيطة.'}]},
+
+   {id:'org_behavior', title:'السلوك التنظيمي(3 ساعات)',
+videos:[
+  {label:'المحاضرة 1 (2024)', url:'https://youtu.be/Ul320hFqG4k'},
+{label:'المحاضرة 2 (2024)', url:'https://youtu.be/sP0nFVqlUQU'},
+{label:'المحاضرة 3 (2024)', url:'https://youtu.be/L5haHlxNtZM'},
+{label:'المحاضرة 4 (2024)', url:'https://youtu.be/qQQNqkZ38Rg'}
+],
+books:[
+  {label:'كتاب السلوك التنظيمي', url:'https://drive.google.com/open?id=1ctVoUvw6miOQbQNEHISNR8OL52KTYiOL&usp=drivesdk'}
+],
+models:[
+  {label:'تجريبي السلوك التنظيمي - بنت عدن', url:'https://drive.google.com/open?id=1GW_bAr3z-EiQyviCKlJNikcAyiLXqwZo&usp=drivesdk'},
+  {label:'السلوك التنظيمي تكاليف', url:'https://drive.google.com/open?id=1n0biiQTYj-WZuL-InjRlovt73NTooAQU&usp=drivesdk'},
+  {label:'تعديل ص ١ - مقالي سلوك تنظيمي شامل - صادق جزيلان', url:'https://drive.google.com/open?id=1kNdELqbUDUmxiT7gSTIhZ7RmR9n4U2k1&usp=drivesdk'}
+],
+summaries:[],
+Telegram:[
+  {label:'السلوك التنظيمي.', url:'https://t.me/sudbdohdi'}
+],
+ news:[
+       {label:'📘 مادة: السلوك التنظيمي'},
+{label:'🔹 نوع المادة:'},
+{label:'نظرية.'},
+{label:'📝 نظام الاختبار:'},
+{label:'- الأسئلة المقالية:'},
+{label:'3 أسئلة → يُحذف سؤال وتُحل اثنين فقط.'},
+{label:'الدرجة: 30 درجة (كل سؤال 15 درجة تقريبًا).'},
+{label:'- الأسئلة الموضوعية (الاختيارات):'},
+{label:'تشمل:'},
+{label:'✔️ اختيار من متعدد'},
+{label:'✔️ صح وخطأ'},
+{label:'✔️ اختيار وحيد'},
+{label:'الدرجة: 70 درجة'},
+{label:'📚 محتوى المادة باختصار:'},
+{label:'- الوحدة الأولى: تتحدث عن السلوك التنظيمي والإنساني، المفاهيم، والمستويات الثلاثة:'},
+{label:'● مستوى الفرد'},
+{label:'● مستوى الجماعة'},
+{label:'● مستوى المنظمة'},
+{label:'- الوحدة الثانية: تتناول سلوك الفرد (المفاهيم، الأنواع، التعاريف...).'},
+{label:'- الوحدة الثالثة: تتناول سلوك الجماعة.'},
+{label:'- الوحدة الرابعة: تتحدث عن المنظمة كمستوى تنظيمي.'},
+{label:'💡 ملاحظة:'},
+{label:'الوحدات 2 و3 و4 عبارة عن شرح تفصيلي للمستويات الثلاثة المذكورة في نهاية الوحدة الأولى.'},
+{label:'🎯 نصائح مهمة للمذاكرة:'},
+{label:'- المادة سهلة وفهْمية، لكنها تحتاج تركيز وربط بين المواضيع.'},
+{label:'- في الأسئلة المقالية:'},
+{label:'✔️ خذ رقم السؤال'},
+{label:'✔️ ارجع للكتاب وافهم الإجابة'},
+{label:'✔️ لا تعتمد على الملخصات القصيرة فقط'},
+{label:'- برنامج ChatGPT كان مفيد جدًا في:'},
+{label:'تلخيص إجابات الكتاب.'},
+{label:'توضيح أو توسيع إجابات ملف المقالي القصيرة.'},
+{label:'اختصار صفحات من الكتاب عند تصويرها.'}]},
+
+   {id:'grad_research', title:'بحث التخرج(3 ساعات)',
+videos:[
+  {label:'شروحات بحث التخرج.', url:'https://youtube.com/playlist?list=PLzLmjaQB3jxYAtNxXRUgdvIHAboCSVxt_'}
+],
+books:[
+  {label:'* الرجوع إلى قنوات التلجرام.'}
+],
+models:[
+  {label:'* الرجوع إلى قنوات التلجرام.'}
+],
+summaries:[
+  {label:'* الرجوع إلى قنوات التلجرام.'}
+],
+Telegram:[
+  {label:'خطط وبحوث طلاب د. أمين الصديقي.', url:'https://t.me/+TdlKKJ9ME-A2M2Y0'},
+  {label:'بحوث التخرج.', url:'https://t.me/+DxFdrULsRFc1NmQ0'},
+  {label:'خطوات بحث التخرج.', url:'https://t.me/+GSulobtXSvozMzI0'},
+  {label:'النظرية المحاسبية.', url:'https://t.me/+D-lHBRWLsSY5YTVk'}
+],
+ news:[
+      {label:'إرشادات وتفاصيل حول مادة بحث التخرج 🎓'},
+{label:'مادة بحث التخرج هي مادة تخصصية مدتها ثلاث ساعات معتمدة (3 ساعات)، وتُفتح للتسجيل بعد اجتياز مادة طرق البحث العلمي.'},
+{label:'ملاحظات أساسية حول المادة:'},
+{label:' * لا يوجد لهذه المادة اختبارات تكليفية أو اختبار نهائي تقليدي.'},
+{label:' * تعتمد المادة على إعداد مشروع بحثي متكامل. 📝'},
+{label:'خطوات التسجيل واختيار العنوان'},
+{label:' * اختيار العنوان: يتم اختيار عنوان البحث من قائمة عناوين كبيرة ومتاحة عبر البوابة الإلكترونية، وذلك بعد تسجيل المادة ودفع الرسوم. يُنصح باختيار العنوان الأنسب لقدراتك واهتماماتك.'},
+{label:' * الدراسات العلمية: يجب أن يكون العنوان قابلاً لإجراء دراسات علمية كثيرة.'},
+{label:'   * يتم استخراج هذه الدراسات من محركات البحث الأكاديمي مثل "الباحث العلمي" (Google Scholar) أو أي موقع مخصص للدارسات العلمية يتاح لكم.'},
+{label:'   * نصيحة: ابحث عن دراسات حديثة تدعم موضوع البحث. 📚'},
+{label:' * التواصل مع المشرف: بعد تسجيل العنوان، سيظهر اسم المشرف على البحث في البوابة الإلكترونية. يجب التواصل معه فوراً. 📞'},
+{label:' * قبول العنوان والبدء بالخطة: عند التواصل مع المشرف، يجب التأكد من أنه قد تم قبول العنوان بشكل رسمي في البوابة، لكي تبدأ في إجراءات عمل خطة البحث.'},
+{label:' * نصيحة هامة: يُنصح بشدة باختيار عنوان تكون لديك فيه القدرة على التطبيق الميداني وجمع البيانات (مثل توزيع استبيانات) في مؤسسة أو شركة أو مدرسة، لضمان الحصول على بيانات حقيقية. 🏢'},
+{label:'مصادر وإجراءات البحث'},
+{label:' * قناة المساعدة: للاطلاع على كل ما يخص البحث والخطوات المتبعة وأساليب التحليل الإحصائي، يمكن زيارة الرابط التالي: https://t.me/+GSulobtXSvozMzI0'},
+{label:'المناقشة النهائية'},
+{label:'بعد الانتهاء من إعداد خطة البحث وإنجاز البحث كاملاً، تتم مناقشته مع المشرف. تتضمن أبرز الأسئلة المتوقعة في المناقشة ما يلي:'},
+{label:'أسئلة المناقشة 🗣️'},
+{label:' * التعريف الأساسي: الاسم، الرقم الأكاديمي، والمواد التي تم اختيارها في الفصل الأخير.'},
+{label:' * البحث والعنوان:'},
+{label:'   * ما هو عنوان بحثك؟ ولماذا اخترت هذا العنوان؟'},
+{label:'   * تحدث عن بحثك واشرحه، أو لخصه في خمس دقائق. ⏱️'},
+{label:' * المنهجية والأهداف:'},
+{label:'   * ما هي مشكلة البحث؟'},
+{label:'   * ما هي أهداف البحث؟'},
+{label:'   * ما هو منهج الدراسة الذي اعتمدت عليه؟ ولماذا اخترت هذه المنهجية (مثال: المنهج الوصفي التحليلي)؟'},
+{label:' * الإجراءات والمراحل:'},
+{label:'   * صف المراحل التي قطعتها في إنجاز البحث.'},
+{label:'   * اذكر الجهد المبذول في البحث.'},
+{label:'   * ما هي الصعوبات التي واجهتك أثناء البحث؟'},
+{label:' * النتائج والتوصيات:'},
+{label:'   * ما هي أهم النتائج وأهم التوصيات التي توصلت إليها؟'},
+{label:'   * ماذا تقصد بـ "ملخص النتائج والتوصيات"؟ وما هي أهم نتيجة في البحث؟'},
+{label:' * المراجع والدراسات السابقة:'},
+{label:'   * كم عدد الدراسات السابقة التي اعتمدت عليها؟'},
+{label:'   * ما هو الاختلاف بين بحثك والدراسات السابقة؟'},
+{label:'   * اذكر أهمية البحث.'},
+{label:'   * ما هي أهم المصادر والمراجع التي اعتمدت عليها؟ وأكثر مرجع أخذت منه.'},
+{label:'   * كيف قمت بكتابة وتوثيق المراجع والمصادر؟'}]}
+
+  ], major: [
+ {id:'man_acc', title:'محاسبة إدارية(3 ساعات)',
+videos:[
+  {label:'المحاضرة 1 (2023)', url:'https://youtu.be/yKEL7EkqPq8'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/WHsyAzjLAzE'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/WUGRWEcgnWc'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/7rumoDx0Ec0'},
+{label:'المحاضرة 5 (2023)', url:'https://youtu.be/n1GOPlf83XM'},
+{label:'المحاضرة 6 (2023)', url:'https://youtu.be/2vz2epSUSdk'}
+],
+books:[
+  {label:'كتاب المحاسبة الإدارية', url:'https://drive.google.com/open?id=1m6bAsSQHrlYpgiud-GXUpDxBpcTW1HnR&usp=drivesdk'}
+],
+models:[
+  {label:'مقالي معدل محاسبة إدارية (دلال + مايسة)', url:'https://drive.google.com/open?id=1kBmU54ItXDx2LXOjdjDD8gfHK2DPq2C_&usp=drivesdk'},
+  {label:'نموذج محاسبة إدارية رشيد العواضي', url:'https://drive.google.com/open?id=13Z5w7C4cBNyLRKoHoYwoAczeTSW__tHi&usp=drivesdk'}
+],
+summaries:[
+  {label:'ملخص قوانين محاسبة إدارية - صفاء الفقيه', url:'https://drive.google.com/open?id=1c5E53J0ZdwxvbxYPcl78Vak5OVlrvefT&usp=drivesdk'}
+],
+Telegram:[
+  {label:'محاسبة إدارية.', url:'https://t.me/+AfrxL6sQoFBkOGQ0'}
+],
+ news:[
+      {label:'📘 مادة: المحاسبة الإدارية'},
+{label:'🔹 نوع المادة:'},
+{label:'مادة حسابية بشكل أساسي، مع جزء بسيط نظري (خاصة في أول وحدتين).'},
+{label:'📝 نظام الاختبار:'},
+{label:'- الأسئلة الموضوعية:'},
+{label:'3 صح وخطأ'},
+{label:'3 اختيار وحيد'},
+{label:'2 اختيار متعدد'},
+{label:'→ المجموع: 20 درجة'},
+{label:'- الأسئلة المقالية:'},
+{label:'5 أسئلة → يُحذف واحد وتُحل 4 فقط'},
+{label:'الدرجة: 80 درجة'},
+{label:'ملاحظة: المادة تحولت مؤخرًا إلى مقالي بدلًا من اختيارات فقط.'},
+{label:'📚 محتوى المادة:'},
+{label:'- الوحدة 1 و 2: نظرية'},
+{label:'- الوحدات من 3 إلى 7: حسابية'},
+{label:'✳️ أسئلة الاختبار تأتي من جميع الوحدات.'},
+{label:'✳️ النماذج تحتوي على أسئلة أوضح من الكتاب وغالبًا مشابهة جدًا للاختبار.'},
+{label:'🎯 نصائح للمذاكرة:'},
+{label:'- فتح الملف الموجود في قنوات التليجرام، لأنه يحتوي على:'},
+{label:'حلول مفصلة جدًا'},
+{label:'شروحات للقوانين'},
+{label:'تفسير كل خطوة في المسائل'},
+{label:'يساعد على الفهم بدون الحاجة لشرح خارجي'},
+{label:'- استخدام النماذج فقط، فهي كافية جدًا.'},
+{label:'- عند حل المسائل: شرح كل خطوة حتى لو بسيطة، مما يعزز فرص الحصول على الدرجة الكاملة.'},
+{label:'💡 معلومة مهمة:'},
+{label:'- المادة كانت صعبة عندما كانت اختيارات، لكنها أصبحت أسهل وأكثر وضوحًا بعد تحويلها إلى مقالي.'},
+{label:'- مجرد النظر للمسألة يوضح المطلوب إذا تمت مذاكرتها جيدًا.'},
+{label:'- المادة جميلة وسهلة وتحتاج فقط وقت بسيط + تركيز.'}]},
+
+    {
+  id:'audit1',
+  title:'مراجعة وتدقيق الحسابات 1(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2025)', url:'https://youtu.be/HuAlhpR5t80'},
+{label:'المحاضرة الأولى', url:'https://youtu.be/YFZMcQnlv_g'},
+    {label:'المحاضرة الثانية', url:'https://youtu.be/IeTNMJkUmgQ'},
+    {label:'المحاضرة الثالثة', url:'https://youtu.be/7ui10CSI_k0'},
+    {label:'المحاضرة الرابعة', url:'https://youtu.be/pHvuVHxVUkA'}
+  ],
+  books:[
+    {label:'المراجعة وتدقيق الحسابات (1)', url:'https://drive.google.com/open?id=1YXOGXOuzKlqYg5LC9BcpPXVQvd2znes8&usp=drivesdk'}
+  ],
+  models:[
+    {label:'المراجعة وتدقيق الحسابات 1 - تسلسلي نسخة 2 (آخر تعديل)', url:'https://drive.google.com/open?id=1F1QD6zHkO-sN752UyKzsCK5l3ISYo2oo&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'مقالي مراجعة وتدقيق الحسابات ١ - 2025', url:'https://drive.google.com/open?id=1LAQSm6C43EJ3hw1knHfZzAAKY5FcwZgg&usp=drivesdk'}
+  ],
+  Telegram:[],
+ news:[ 
+       {label:'📘 مادة: مصطلحات ومراسلات باللغة الإنجليزية'},
+{label:'🔹 نوع المادة:'},
+{label:'نظرية بالكامل.'},
+{label:'📝 نظام الاختبار:'},
+{label:'- الأسئلة المقالية:'},
+{label:'عددها 3 أسئلة، يُحذف واحد وتُحل اثنين فقط.'},
+{label:'الدرجة: 20 درجة (10 درجات لكل سؤال).'},
+{label:'- الأسئلة الموضوعية:'},
+{label:'موزعة على:'},
+{label:'✔️ اختيار وحيد'},
+{label:'✔️ اختيار من متعدد'},
+{label:'✔️ صح وخطأ'},
+{label:'الدرجة: 80 درجة'},
+{label:'📚 ملاحظات مهمة:'},
+{label:'- الأسئلة الموضوعية مأخوذة من الملف النظري حتى الآن، ولم يخرج عنها حسب إفادة الطلاب.'},
+{label:'- الأسئلة المقالية تعتمد بنسبة 95٪ على الملف المقالي، وقد يظهر سؤال بسيط من خارج الملف أحيانًا.'},
+{label:'🎯 طريقة المذاكرة المقترحة:'},
+{label:'- يوجد كتاب PDF محدد عليه أسئلة النماذج بالألوان:'},
+{label:'الأصفر: صح وخطأ'},
+{label:'الأخضر: خيار وحيد'},
+{label:'الأزرق: اختيار متعدد'},
+{label:'يساعد في التركيز على النقاط المهمة ويسهّل مراجعة النماذج النظرية.'},
+{label:'- مراجعة النماذج النظرية بعد المرور عليها في الكتاب.'},
+{label:'- مراجعة الأسئلة المقالية، فهي قليلة وإجاباتها مختصرة ويمكن صياغتها بلغة بسيطة ومصطلحات مفهومة.'},
+{label:'- يُفضل قراءة الكتاب لفهم محتوى المادة، وفي حال كانت اللغة عائقًا، يمكن الرجوع للنسخة المترجمة للعربية.'},
+{label:'💡 تنويه:'},
+{label:'- المادة ذات محتوى بسيط وواقعي، وتتناول طريقة كتابة الرسائل.'},
+{label:'- بعض الطلاب يفضلون التركيز على النظري فقط، لكن يُنصح بمذاكرة المقالي لضمان درجات إضافية، خاصة أن إجاباته قصيرة وبسيطة.'}]},
+
+    {
+  id:'audit2',
+  title:'مراجعة وتدقيق الحسابات 2(3 ساعات)',
+  videos:[
+{label:'المحاضرة 1 (2025)', url:'https://youtu.be/WFCQgby5k5U'},
+    {label:'المحاضرة الأولى', url:'https://youtu.be/pHOOTHOtUsY'},
+    {label:'المحاضرة الثانية', url:'https://youtu.be/7rqkbOUKtkY'},
+    {label:'المحاضرة الثالثة', url:'https://youtu.be/YsHAUp-AaTg'}
+  ],
+  books:[
+    {label:'كتاب المراجعة وتدقيق الحسابات (2)', url:'https://drive.google.com/open?id=1StB-62_ZNU8vwAXWp4ORXWQT6hpyCmwd&usp=drivesdk'}
+  ],
+  models:[
+    {label:'مراجعة وتدقيق الحسابات ٢ شامل ومعدل للمرة الثانية', url:'https://drive.google.com/open?id=1bjD9smksgeSIzCoscPYDfqDH_VNJcjyc&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'مراجعة وتدقيق ٢', url:'https://drive.google.com/open?id=1Az5HfL6tGB7UtVXDTFXmMGcQZIdGOzSu&usp=drivesdk'},
+    {label:'ملخص مراجعة وتدقيق الحسابات (2)', url:'https://drive.google.com/open?id=1yXR6yfWvzyBxGNrojWZaNoe-UfQqiGwm&usp=drivesdk'}
+  ],
+  Telegram:[],
+ news:[
+       {label:'📘 *مادة: التدقيق ومراجعة الحسابات*. (1)'},
+{label:'🔹 *نوع المادة:*'},
+{label:'- *نظرية بالكامل*'},
+{label:'---'},
+{label:'📝 *نظام الاختبار:*'},
+{label:'- *الأسئلة المقالية:*'},
+{label:'   - عددها 3 أسئلة، *تحذف واحد وتُحل اثنين فقط*'},
+{label:'   - الدرجة: *30 درجة*'},
+{label:'- *الأسئلة الموضوعية:*'},
+{label:'   - موزعة على:'},
+{label:'     ✔️ اختيار وحيد'},
+{label:'     ✔️ اختيار من متعدد'},
+{label:'     ✔️ صح وخطأ'},
+{label:'   - الدرجة: *70 درجة*'},
+{label:'---'},
+{label:'📚 *ملاحظات مهمة:*'},
+{label:'- المادة *كانت اختيار وحيد*، وتحولت من سنة إلى *مقالية*.'},
+{label:'- *الملفات ليست شاملة بالكامل*، والطلاب ذكروا أن الاختبار *ما طلع منها مباشرة*.'},
+{label:'- لذلك مهم جدًا *مراجعة النماذج* و*أخذ لفة على الكتاب*.'},
+{label:'---'},
+{label:'🎯 *نصائح للمذاكرة:*'},
+{label:'- ذاكروا النماذج الموجودة أولًا.'},
+{label:'- إذا واجهتم أسئلة بدون إجابات واضحة:'},
+{label:'  ✔️ استخدموا *ChatGPT* لتبسيط وشرح أو تلخيص الإجابات من الكتاب.'},
+{label:'---'},
+{label:'💡'},
+{label:'- المادة *ممتعة ومفهومة* إذا ذاكرتوا بتركيز.'}]},
+
+
+   {
+  id:'corp_acc',
+  title:'محاسبة شركات الأموال(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/pahdUvujpac'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/cHNSUDfEmsc'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/4_Ln5K2FBoU'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/tnLW6MAXTDM'},
+{label:'المحاضرة 5 (2023)', url:'https://youtu.be/WqrQqylsHUo'},
+{label:'المحاضرة 6 (2023)', url:'https://youtu.be/daS1qSTEUoo'}
+  ],
+  books:[
+    {label:'كتاب شركات الأموال', url:'https://drive.google.com/open?id=1PvP9xQ6r8ikwjw0UGcCi1Cng5-ZZUyKs&usp=drivesdk'}
+  ],
+  models:[
+    {label:'أموال - اختبر نفسك', url:'https://drive.google.com/open?id=1qn52mp65EWYpzfQy7-cS8nsQJBDwjjrE&usp=drivesdk'},
+    {label:'نماذج محاسبة أموال - حُسن علي - معدل 2024', url:'https://drive.google.com/open?id=1Pd6PJEP-2P3eb5Sfu2VqpgD_tTNkpRdH&usp=drivesdk'},
+    {label:'شركات أموال - النسخة الثالثة - آخر تعديل - فياض الحميدي', url:'https://drive.google.com/open?id=1OPXkFmhUwWHnXfYHcjb8wjhkiWjrZzU7&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'محاضرات محاسبة أموال 2024', url:'https://drive.google.com/open?id=1vymHMiFzuOoHxqMdbqLwD9L5HcWaYWRn&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'محاسبة شركات أموال 💵', url:'https://t.me/amwaaalllll'}
+  ], 
+news:[
+      {label:'📘 المادة: محاسبة شركات الأموال'},
+{label:'🧮 طبيعة المادة:'},
+{label:'المادة حسابية ومقالية نظرية.'},
+{label:'---'},
+{label:'🧾 نظام الأسئلة في الاختبار:'},
+{label:'1. الأسئلة الحسابية:'},
+{label:'○ العدد: 3 أسئلة.'},
+{label:'○ المطلوب: تحذف سؤال وتحل سؤالين فقط.'},
+{label:'○ درجة كل سؤال: 30 درجة.'},
+{label:'○ المجموع الكلي: 60 درجة.'},
+{label:'2. الأسئلة الموضوعية:'},
+{label:'✔️ صح أو خطأ.'},
+{label:'✔️ اختيار وحيد.'},
+{label:'✔️ اختيار متعدد.'},
+{label:'📊 المجموع: 40 درجة.'},
+{label:'---'},
+{label:'📚 طريقة المذاكرة المقترحة:'},
+{label:'1. الاعتماد على نموذج حُسن ومراجعة شروحاتها بدقة.'},
+{label:'2. متابعة محاضرات الدكتور عبد الجبار لفهم أسلوب الشرح والحل (شرح 4 وحدات مهمة جدًا).'},
+{label:'3. الوحدتان الخامسة والسادسة لم يشرحها عبد الجبار لكنها مشروحة عند حُسن وتعتبر من أبسط الوحدات.'},
+{label:'4. التدريب العملي على حل الأسئلة الحسابية أكثر من مرة لتثبيت الفهم.'},
+{label:'5. مراجعة الأسئلة الموضوعية بعناية لأنها تمثل نسبة جيدة من الدرجات.'},
+{label:'---'},
+{label:'📊 ملاحظات عن المادة:'},
+{label:'- في آخر ترمين والصيفي كانت الأسئلة من النماذج بنسبة كبيرة.'},
+{label:'- بعض الأسئلة كانت نسخ ولصق مع اختلاف الأرقام فقط.'},
+{label:'- الوحدة الأولى: ذاكروا من الكتاب لأنها نظرية.'},
+{label:'- الوحدة الثانية والثالثة والرابعة: لا تمس الكتاب لأنها مشتتة، اكتفِ بالمحاضرات وشروحات الدكتور + النماذج + شرح حُسن في قناة التليجرام (بأسلوب مبسط وواضح).'},
+{label:'- الوحدة الخامسة: ذاكرها من الكتاب لأنها فكرة واحدة لطيفة.'},
+{label:'- الوحدة السادسة: أيضًا من الكتاب، سهلة ومترابطة في 4 أفكار فقط.'},
+{label:'- المادة تحتاج جهد، لكن الثانية والثالثة متشابهتين في الأفكار مما يسهل الفهم، والرابعة فيها جداول تحتاج تركيز، أما الخامسة والسادسة فهي ممتعة وسهلة، وغالبًا تجي منها أسئلة في الاختبار.'},
+{label:'- الاختبار غالبًا من النماذج سواء حسابي أو نظري.'},
+{label:'- قناة التليجرام تحتوي على ملفات النماذج وحلولها وهي كثيرة جدًا، لذلك ابدأ المراجعة من الآن.'},
+{label:'- الكتاب كامل يُذاكر باستثناء الوحدة السابعة (شركات التوصية بالأسهم) والوحدة الثامنة (الشركات ذات المسؤولية المحدودة).'}]},
+
+    {
+  id:'part_acc',
+  title:'محاسبة شركات الأشخاص(3 ساعات)',
+  videos:[
+    {label:'المحاضرة الأولى', url:'https://youtu.be/mx4J4qF13ws'},
+    {label:'المحاضرة الثانية', url:'https://youtu.be/CoxuaS8ijoU'},
+    {label:'المحاضرة الثالثة', url:'https://youtu.be/nVyUhWpGsoo'},
+    {label:'المحاضرة الرابعة', url:'https://youtu.be/EbWb6ClQDRQ'}
+  ],
+  books:[
+    {label:'كتاب محاسبة شركات الأشخاص', url:'https://drive.google.com/open?id=1CVMpYRNbpt380ip8M_xbwExg_2zaa7Cz&usp=drivesdk'}
+  ],
+  models:[
+    {label:'نموذج محاسبة أشخاص - حوسن علي', url:'https://drive.google.com/open?id=1Cqz-Km14ptXyyZKtd1ALAFYsVAeX6RBr&usp=drivesdk'},
+    {label:'نماذج محاسبة أشخاص - وعد & إيلاف', url:'https://drive.google.com/open?id=1WI7XbCBUXz8WFznmQ1b5R1jCZtBNWrfX&usp=drivesdk'}
+  ],
+  summaries:[],
+  Telegram:[
+    {label:'محاسبة شركات أشخاص', url:'https://t.me/+S4pI6Em91JZkZjVk'}
+  ],
+ news:[
+      {label:'📘 مادة: (محاسبة شركات الأشخاص)'},
+{label:'🧮 طبيعة المادة:'},
+{label:'المادة حسابية بالكامل.'},
+{label:'---'},
+{label:'🧾 نظام الأسئلة في الاختبار:'},
+{label:'1. الأسئلة الحسابية:'},
+{label:'○ العدد: 3 أسئلة.'},
+{label:'○ المطلوب: تحذف سؤال وتحل سؤالين فقط.'},
+{label:'○ درجة كل سؤال: 30 درجة.'},
+{label:'○ المجموع الكلي: 60 درجة.'},
+{label:'2. الأسئلة الموضوعية:'},
+{label:'✔️ صح أو خطأ.'},
+{label:'✔️ إختيار وحيد.'},
+{label:'✔️ إختيار متعدد.'},
+{label:'المجموع: 40درجة.'},
+{label:'---'},
+{label:'📊 ملاحظات عن المادة:'},
+{label:'- 95٪ من الأسئلة تأتي من النماذج بشكل مباشر.'},
+{label:'- 5٪ فقط احتمال أن يأتي سؤال حسابي من خارج النماذج، وغالبًا يكون مشابه أو بسيط.'},
+{label:'- هذا التنوع يظهر لبعض الطلاب فقط وليس للجميع.'},
+{label:'---'},
+{label:'📚 طريقة المذاكرة المقترحة:'},
+{label:'1. التركيز الكامل على نموذج حُسن ومراجعة شروحات حُسن بدقة.'},
+{label:'2. متابعة محاضرات الأستاذ صلاح لفهم أسلوب الحل والنقاط التي يركز عليها.'},
+{label:'3. التدريب العملي على حل الأسئلة الحسابية أكثر من مرة لتثبيت الفهم.'},
+{label:'4. مراجعة الخيارات الموضوعية بعناية لأنها تمثل نسبة كبيرة من الدرجات.'}]},
+
+    {
+  id:'cost_acc',
+  title:'محاسبة التكاليف(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/j1YIXpbW-RU'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/eoGRbYBBvGI'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/5aRemZQNmZ0'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/fZeF91lu6js'}
+  ],
+  books:[
+    {label:'محاسبة التكاليف الصناعية', url:'https://drive.google.com/open?id=1VNvQ7Ssi-sPigdn0myGXgcA7F1zvzxKf&usp=drivesdk'}
+  ],
+  models:[
+    {label:'آخر تعديل محاسبة التكاليف_250805_224651', url:'https://drive.google.com/open?id=17CSx3untSSg6ja1Qh30JERRAi-wCnG6k&usp=drivesdk'},
+    {label:'حسابي محاسبة التكاليف سميرة معدل + إضافة أسئلة عز سلمان 2024', url:'https://drive.google.com/open?id=1_Y7WLxiyL8KG-E0_L-qdypNHdJuzrZgL&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'تجميع محاسبة تكاليف - غفران محمد', url:'https://drive.google.com/open?id=1iINtVXI9AulBH4foBXrY2zywuGS3VtiG&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'شرح محاسبة التكاليف', url:'https://t.me/+B3VuoNGuOrs0OTA0'}],
+ news:[
+      {label:'📘 مادة:  محاسبة التكاليف'},
+{label:'🔸 نوع المادة:  حسابية خيار وحيد'},
+{label:'📝 *نظام الاختبار:*'},
+{label:'- *الأسئلة الحسابية:*'},
+{label:'   ٦ أسئلة'},
+{label:'   *الدرجة:* ٦٠ درجة'},
+{label:'- *الأسئلة الموضوعية:*'},
+{label:'   تشمل:'},
+{label:'   ✔️ اختيار من متعدد'},
+{label:'   ✔️ اختيار وحيد'},
+{label:'   ✔️ صح وخطأ'},
+{label:'   *الدرجة:* ٤٠ درجة'},
+{label:'---'},
+{label:'📚 *ملاحظات مهمة للمذاكرة:*'},
+{label:'- المادة نماذج ما يطلع عنها إلا نادرًا.'},
+{label:'- النموذج الشامل + قناة الشرح كافية.'},
+{label:'-  يُفضل مراجعة الكتاب إحتياط في حال رجعت مقالي.'},
+{label:'---'},
+{label:'✅ *نصيحة:*'},
+{label:'المادة ممتعة ومفهومة، وما تحتاج إجتهاد ووقت كثير.'}]},
+
+    {
+  id:'cost_sys',
+  title:'نظم محاسبة التكاليف(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/kCIR18lpcuM'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/C3UFKEvdE5c'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/uxNnj21DGE4'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/nqf7XsLdYUc'}
+  ],
+  books:[
+    {label:'كتاب نظم محاسبة التكاليف', url:'https://drive.google.com/open?id=1qXRsjS7y1BhBrZXtjYiHAIJTSdWQcDts&usp=drivesdk'}
+  ],
+  models:[
+    {label:'نظم محاسبة التكاليف - اختبر نفسك 241124_210600', url:'https://drive.google.com/open?id=1xIewLMm2BZaEOT1wJ6OY83U5oe9tAH_M&usp=drivesdk'},
+    {label:'نظم محاسبة التكاليف - النسخة الأولى شامل', url:'https://drive.google.com/open?id=1dDNgN0aF2GpprQxT9oCNOgM9XaBcdUbK&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'نظم محاسبة التكاليف معدل 2024', url:'https://drive.google.com/open?id=12iRoM6E3__hiQooHirBmIUw5bHM2RH4A&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'شرح مسائل نظم التكاليف', url:'https://t.me/Costing2025'}],
+
+ news:[{label:'📘 مادة: المحاسبة الضريبية1'},
+{label:'🔸 نوع المادة:'},
+{label:'حسابية بالكامل'},
+{label:'📝 نظام الاختبار:'},
+{label:'- الأسئلة المقالية:'},
+{label:'٣ أسئلة → يُحل ٢ فقط، وتحذف واحد'},
+{label:'الدرجة: ٦٠ درجة'},
+{label:'- الأسئلة الموضوعية:'},
+{label:'تشمل:'},
+{label:'✔️ اختيار من متعدد'},
+{label:'✔️ اختيار وحيد'},
+{label:'✔️ صح وخطأ'},
+{label:'الدرجة: ٤٠ درجة'},
+{label:'---'},
+{label:'📚 ملاحظات مهمة للمذاكرة:'},
+{label:'- المادة نماذج وتقدر تكتفي فيها مع قناة الشرح.'},
+{label:'- لكن يُفضل مراجعة الكتاب لفهم المادة وتثبيت المعلومات، وللاحتياط إذا جاء سؤال من خارج الملف.'},
+{label:'---'},
+{label:'✅ نصيحة:'},
+{label:'المادة ممتعة ومفهومة، لكن تحتاج اجتهاد ووقت كافٍ عشان تفهمها كويس وتضمن درجات عالية.'}
+       ]},
+
+    {
+  id:'acc_english',
+  title:'دراسات محاسبية باللغة الانجليزية(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/xOX4GonxkBo'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/KBD2g5RLGJQ'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/4A6MW0ytzKQ'}
+  ],
+  books:[
+    {label:'دراسات محاسبية باللغة الانجليزية', url:'https://drive.google.com/open?id=1-EaWKxuaNyB2ULpj26IJIW0HxGRa-k7R&usp=drivesdk'}
+  ],
+  models:[
+    {label:'دراسات محاسبية باللغة الانجليزية', url:'https://drive.google.com/open?id=1mr6sK6R0AQWtQ1YAaTTv2Yqol7gbLvLQ&usp=drivesdk'}
+  ],
+  summaries:[],
+  Telegram:[
+    {label:'دراسات محاسبية باللغة الانجليزية', url:'https://t.me/fqU36FuIL8IyZTVk22'}],
+ news:[
+      {label:'📘 مادة: دراسات محاسبية باللغة الإنجليزية'},
+{label:'🔸 نوع المادة:'},
+{label:'حسابية بالكامل'},
+{label:'📝 نظام الاختبار:'},
+{label:'- الأسئلة المقالية:'},
+{label:'٣ أسئلة → يُحل ٢ فقط، وتحذف واحد'},
+{label:'*الدرجة:* ٦٠ درجة'},
+{label:'- الأسئلة الموضوعية:'},
+{label:'تشمل:'},
+{label:'✔️ اختيار من متعدد'},
+{label:'✔️ اختيار وحيد'},
+{label:'✔️ صح وخطأ'},
+{label:'*الدرجة:* ٤٠ درجة'},
+{label:'---'},
+{label:'📚 *ملاحظات مهمة للمذاكرة:*'},
+{label:'-الماده نماذج بحت ما تحتاج الكتاب لانه متشعب جداا'},
+{label:'نماذج كفايه وفيها تكرار كثير .'},
+{label:'- المادة حسابية وتشبه محاسبة 1 و 2.'},
+{label:'- سهلة جدًا ومكررة المصطلحات، ومع التكرار تثبت في الذهن.'},
+{label:'- تعتمد بشكل كبير على التصوير والحسابات مثل:'},
+{label:' حسابات - ميزان المراجعة - الميزانية العمومية - حساب المتاجرة وغيرها.'},
+{label:'- أسبوع واحد كافٍ للمذاكرة الجادة.'},
+{label:'- ممكن تمتد إلى أسبوعين حسب الوضع والظروف.'},
+{label:'---'},
+{label:'✅ *نصيحة:*'},
+{label:'المادة ممتعة ومفهومة، لكن تحتاج اجتهاد ووقت كافٍ عشان تفهمها كويس وتضمن درجات عالية.'}]},
+
+
+ {
+  id:'tax1',
+  title:'المحاسبة الضريبية 1(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/N44NNGFgSqs'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/F2-IOkciQE4'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/s15Lax4wTxI'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/r-toaxn5QkY'}
+  ],
+  books:[
+    {label:'المحاسبة الضريبية (1)', url:'https://drive.google.com/open?id=1m2eI494379pO3bZveUQbZuG3Umo5Xe6&usp=drivesdk'}
+  ],
+  models:[
+    {label:'اختبر نفسك ضريبية ١', url:'https://drive.google.com/open?id=1jLtZEZAOjgmM_Zcmqm_QqwMn7748jCH2&usp=drivesdk'},
+    {label:'محاسبة ضريبية 1 نظري معدل منال (1)', url:'https://drive.google.com/open?id=1izwOiLq8-o2mDFxIxxg4eR5dmwmClx2D&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'حسابي ضريبية 1 - 23 مسألة - تسلسلي', url:'https://drive.google.com/open?id=11xBa7lFrdHD7Cm1-mKRXD2pF5p9QNuQK&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'شرح محاسبة ضريبية 1', url:'https://t.me/HzbGiNlPVdphYjk0'}],
+ news:[
+        {label:'📘 مادة: المحاسبة الضريبية1'},
+{label:'🔸 نوع المادة:'},
+{label:'حسابية بالكامل'},
+{label:'📝 نظام الاختبار:'},
+{label:'- الأسئلة المقالية:'},
+{label:'٣ أسئلة → يُحل ٢ فقط، وتحذف واحد'},
+{label:'*الدرجة:* ٦٠ درجة'},
+{label:'- الأسئلة الموضوعية:'},
+{label:'تشمل:'},
+{label:'✔️ اختيار من متعدد'},
+{label:'✔️ اختيار وحيد'},
+{label:'✔️ صح وخطأ'},
+{label:'*الدرجة:* ٤٠ درجة'},
+{label:'---'},
+{label:'📚 *ملاحظات مهمة للمذاكرة:*'},
+{label:'- المادة نماذج وتقدر تكتفي فيها مع قناة الشرح.'},
+{label:'- لكن يُفضل مراجعة الكتاب لفهم المادة وتثبيت المعلومات، وللاحتياط إذا جاء سؤال من خارج الملف.'},
+{label:'---'},
+{label:'✅ *نصيحة:*'},
+{label:'المادة ممتعة ومفهومة، لكن تحتاج اجتهاد ووقت كافٍ عشان تفهمها كويس وتضمن درجات عالية.'}]},
+
+   {
+  id:'tax2',
+  title:'المحاسبة الضريبية 2(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/K6ibrzH5Ybc'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/fn7PlGBSvJ8'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/4mQx0YLc2NE'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/IXCoovBKGlg'},
+    {label:'قائمة المحاضرات 2020', url:'https://youtu.be/y_slNNWMW0E'}
+  ],
+  books:[
+    {label:'كتاب المحاسبة الضريبية (2)', url:'https://drive.google.com/open?id=1pmKLAMHZcb0sPPQGcjgapOYVOaJL4KPi&usp=drivesdk'}
+  ],
+  models:[
+    {label:'المحاسبة الضريبية 2 - نظري اختبر نفسك', url:'https://drive.google.com/open?id=1oQylRfUOX_Ak6jdLhysIcJgxOSTxwWUD&usp=drivesdk'},
+    {label:'ضريبية ٢ مقالي (روعة)', url:'https://drive.google.com/open?id=17KNO5bg0UCvyu91B6C253IKekLWR99&usp=drivesdk'},
+    {label:'أسئلة المحاسبة الضريبية 2 - نظري آخر تعديل 2024', url:'https://drive.google.com/open?id=1WRkC2VtvStPALq02vCvikwwQW_dXWEzq&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'تجميع ملخص الضريبية ٢', url:'https://drive.google.com/open?id=1rZYGj9eHkbZo1WQU6m_3s2K-18vemN-r&usp=drivesdk'},
+    {label:'حسابي ضريبية ٢ - حياة الضيفي', url:'https://drive.google.com/open?id=1Ga5h8HpbFrAYcuoYtwT7O9ncWZrfIRWe&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'محاسبة ضريبية 2', url:'https://t.me/+qBsN7TZLw2k4MTc0'}],
+ news:[
+       {label:'📘 المادة: المحاسبة الضريبية (2)'},
+{label:'🔸 نوع المادة: حسابية – خيار وحيد'},
+{label:'---'},
+{label:'📝 نظام الاختبار:'},
+{label:'🔹 الأسئلة الحسابية:'},
+{label:'عدد الأسئلة: 6 أسئلة'},
+{label:'الدرجة: 60 درجة'},
+{label:'🔹 الأسئلة الموضوعية:'},
+{label:'تشمل:'},
+{label:'✔️ اختيار من متعدد'},
+{label:'✔️ اختيار وحيد'},
+{label:'✔️ صح أو خطأ'},
+{label:'الدرجة: 40 درجة'},
+{label:'---'},
+{label:'📚 ملاحظات مهمة للمذاكرة:'},
+{label:'كانت الأسئلة تعتمد على النماذج، لكن مؤخرًا صار يطلع أسئلة كثيرة من خارجها.'},
+{label:'يُفضّل مذاكرة الكتاب كاملًا لضمان التغطية الشاملة.'},
+{label:'---'},
+{label:'🧠 طريقة المذاكرة:'},
+{label:'1. مشاهدة محاضرات الأستاذة سحر لشرح أساسيات المادة.'},
+{label:'2. مذاكرة الكتاب وخصوصًا الوحدة الرابعة.'},
+{label:'3. حل النماذج مع التركيز على نموذج حياة الصيفي ونموذج روعة.'},
+{label:'4. مراجعة محاضرات الدكتور صدام لتثبيت الفهم والمذاكرة.'},
+{label:'---'},
+{label:'✅ نصيحة:'},
+{label:'المادة مفهومة وممتعة، ولكن تحتاج وقت وجهد لاستيعابها.'}]},
+
+    {
+  id:'gov_acc',
+  title:'المحاسبة الحكومية والقومية(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/PMZvjfSXBq4'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/b0R890lF5s8'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/v38-zE597Ts'}
+  ],
+  books:[
+    {label:'كتاب المحاسبة الحكومية والقومية', url:'https://drive.google.com/open?id=1G5-EKKfjv2uYHbuaIGM_86OdiXHkN_-T&usp=drivesdk'}
+  ],
+  models:[
+    {label:'اختبر نفسك - حكومية', url:'https://drive.google.com/open?id=1e-WfiaZIo68UQ5k9E0nCSr_4H2M1lfIT&usp=drivesdk'},
+    {label:'تعديل نظري - حكومية', url:'https://drive.google.com/open?id=1ba6RGP3c2vv85wH0AUL7Y6pKTqGWp4RV&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'محاسبة حكومية - عائشة الحسني', url:'https://drive.google.com/open?id=1P5gwk85MjyyIMVeuO3EV8YSPxhqhP3Eb&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'محاسبة قومية وحكومية', url:'https://t.me/+E02CF9hs5BVhYjBk'}],
+ news:[
+       {label:'*مادة: المحاسبة الحكومية والقومية*'},
+{label:'🔹 *نوع المادة:*'},
+{label:'مادة *حسابية*'},
+{label:'🔸 *نظام التقييم:*'},
+{label:'- *الأسئلة المقالية (المسائل):*'},
+{label:'▪️ 3 أسئلة → تحل 2 فقط، وتحذف 1'},
+{label:'▪️ *الدرجة: 60 درجة* (كل سؤال عليه 30 درجة)'},
+{label:'- *الأسئلة الموضوعية (النظرية):*'},
+{label:'▪️ تشمل: صح وخطأ، اختيار من متعدد، أسئلة وحيدة الإجابة'},
+{label:'▪️ *الدرجة: 40 درجة*'},
+{label:'🔹 *طريقة المذاكرة:*'},
+{label:'1. *الكتاب مهم جدًا* لفهم النظري والحسابي.'},
+{label:'2. *النماذج* ضرورية للمراجعة والتدريب على المسائل'},
+{label:'3. ركز على *تجميعات آخر الكتاب* وعلى *حل المسائل* الموجوده في التجميعات باستمرار.'},
+{label:'4. مارس الحل اليدوي والتطبيق على الأمثلة لفهم الخطوات.'},
+{label:'⚠️ *ملاحظة:*'},
+{label:'المادة تُعد من أصعب مواد التخصص نسبيًا، لكنها *مقدور عليها*، بشرط الالتزام بالمذاكرة *من بدري*، وتخصيص وقت وجهد وممارسة كافية.'},
+{label:'🛑ممنوع الاعتماد على النماذج بلا الكتاب'},
+{label:'مو كفاية النماذج ابدا.'}]},
+
+   {
+  id:'int_acc',
+  title:'المحاسبة الدولية(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/j3ZZlKQlkxM'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/oGJKxviEi4Y'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/rf6i39gnP9k'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/2PRC1NrjNh4'}
+  ],
+  books:[
+    {label:'كتاب المحاسبة الدولية', url:'https://drive.google.com/open?id=16EOcVxZb7lneXDpf0MoASHqZgLSEE7_&usp=drivesdk'}
+  ],
+  models:[
+    {label:'نماذج', url:'https://drive.google.com/open?id=1aGkkqzQ5XUTdyU2uyctTWH5WfR0wETYR&usp=drivesdk'},
+    {label:'نظري مادة محاسبة دولية', url:'https://drive.google.com/open?id=1MiYTyTU5-gvRxUDwZl9Rt1edDXcijC6H&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'حل مسائل النموذج النظري_250419_140929', url:'https://drive.google.com/open?id=1_F4aEFHyRpV1PAWvMmpfXD1Ia6C7OoIY&usp=drivesdk'},
+    {label:'محاسبة دولية (حسابي) 2025 2', url:'https://drive.google.com/open?id=1SyQQADjOixSN8HsnHFqIaRXUDr_lSKRo&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'المحاسبة الدولية', url:'https://t.me/+xEIdEY6CM1FkZjdk'}],
+ news:[
+      {label:'📘 *مادة: المحاسبة الدولية*'},
+{label:'🔸 *نوع المادة:* حسابية بالكامل'},
+{label:'📝 *نظام الاختبار:*'},
+{label:'- *الأسئلة المقالية:*'},
+{label:'٣ أسئلة → يُحل ٢ فقط، وتحذف واحد'},
+{label:'*الدرجة:* ٦٠ درجة'},
+{label:'- *الأسئلة الموضوعية:*'},
+{label:'تشمل:'},
+{label:'✔️ اختيار من متعدد'},
+{label:'✔️ اختيار وحيد'},
+{label:'✔️ صح وخطأ'},
+{label:'*الدرجة:* ٤٠ درجة'},
+{label:'---'},
+{label:'📚 *ملاحظات مهمة للمذاكرة:*'},
+{label:'- المادة مو صعبة إنما سهله ويحتاج لها شوي وقت وجهد.'},
+{label:'- إختبارها نماذج بالنسبة للحسابي النظري يخرج سؤال سؤالين.'},
+{label:'- أغلب المسائل تتشابه قد تختلف بأشياء بسيطة ويحتاج لها تركيز.'},
+{label:'- أسبوع واحد كافٍ للمذاكرة الجادة.'},
+{label:'- ممكن تمتد إلى أسبوعين حسب الوضع والظروف.'},
+{label:'---'},
+{label:'✅ *نصيحة:*'},
+{label:'المادة ممتعة ومفهومة، لكن تحتاج اجتهاد ووقت كافٍ عشان تفهمها كويس وتضمن درجات عالية.'}]},
+    {
+  id:'spec_acc',
+  title:'محاسبة المنشآت المتخصصة(3 ساعات)',
+  videos:[
+    {label:'قائمة المحاضرات 1 - الدكتور نبيل', url:'https://drive.google.com/drive/folders/1Ln0MWqrGGDHQrztt3bzg0RGSEVmEAfAp'},
+    {label:'قائمة المحاضرات 2 - الدكتور نبيل', url:'https://drive.google.com/drive/folders/15dZsCdhxO8Nyo2Uk5Mj8zCUqyI7LCX8F'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/KdCT3jj_hBk'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/V_HoG1G027s'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/xZ8XXI5ehj4'},
+{label:'المحاضرة 5 (2023)', url:'https://youtu.be/FiYX0HW1BjI'}
+  ],
+  books:[
+    {label:'كتاب محاسبة منشآت متخصصة', url:'https://drive.google.com/open?id=1HzY0APWlw1eRUyluqYpBfSGENFVMC26y&usp=drivesdk'}
+  ],
+  models:[
+    {label:'محاسبة المنشآت المتخصصة - نظري وحسابي - رشاد شعلان NT1', url:'https://drive.google.com/open?id=17_ac91bedWH8OCL3cAGBtxM6xsBo7trW&usp=drivesdk'}
+  ],
+  summaries:[],
+  Telegram:[],
+ news:[
+{label:'*مادة: محاسبة المنشآت المتخصصة*'},
+{label:'🔹 *نوع المادة:*'},
+{label:'مادة *حسابية*.'},
+{label:'🔸 *نظام التقييم:*'},
+{label:'- *الأسئلة المقالية (المسائل):*'},
+{label:'◼️ 3 أسئلة، يتم حل 2 فقط (تحذف 1).'},
+{label:'◼️ *الدرجة: 60 درجة* (كل سؤال عليه 30 درجة).'},
+{label:'- *الأسئلة الموضوعية (النظرية):*'},
+{label:'◼️ تشمل: صح وخطأ، اختيار من متعدد، أسئلة وحيدة الإجابة.'},
+{label:'◼️ *الدرجة: 40 درجة*.'},
+{label:'🔹 *طريقة المذاكرة:*'},
+{label:'1. *الكتاب أساسي جداً* لفهم الجانب النظري والتطبيقي.'},
+{label:'2. *النماذج* مهمة للمراجعة والتدريب على أسلوب الحل.'},
+{label:'3. مارس الحل يدويًا، وفهم الخطوات من خلال *الأمثلة المحلولة*.'},
+{label:'⚠️ *ملاحظة مهمة:*'},
+{label:'المادة تُعتبر من *أصعب مواد التخصص نسبيًا*، لكنها *ممكنة وسلسة* مع التنظيم.'},
+{label:'❌ *ممنوع الاعتماد على النماذج فقط وترك الكتاب!*'},
+{label:'✅ لا بد من الجمع بين *الكتاب* و *النماذج* لضمان فهم شامل ودرجات عالية.'}]},
+
+    {
+  id:'mis1',
+  title:'نظم المعلومات المحاسبية 1(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/ozKoVE0kgio'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/V8109xBsCU4'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/2dg_w-1sxuM'}
+  ],
+  books:[
+    {label:'كتاب نظم المعلومات المحاسبية 1', url:'https://drive.google.com/open?id=1PkJtuM3za1WSGJ3eLZ0hXnkxjLB9gFCy&usp=drivesdk'}
+  ],
+  models:[
+    {label:'تعديل وإضافة جديد - أماني القرشي', url:'https://drive.google.com/open?id=1Dyf-YvhdPmKBvZWlo-Njv3GR2ZjJ4F16&usp=drivesdk'},
+    {label:'نظم المعلومات المحاسبية ١ - اختبر نفسك', url:'https://drive.google.com/open?id=1AL43yWcMrdoWfj7zstIY9cU2a9hX1nEf&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'نظم معلومات ١ - سميرة تعديل وإضافات لملف رشاد', url:'https://drive.google.com/open?id=1QM9q-SCmAFBORyeLhQM8obzjoWUyLyHe&usp=drivesdk'}
+  ],
+  Telegram:[],
+ news:[
+      {label:'*مادة: نظم المعلومات المحاسبية ١*'},
+{label:'🔹 *نوع المادة:*'},
+{label:'نظرية بالكامل.'},
+{label:'🔸 *نظام التقييم:*'},
+{label:'- *الأسئلة المقالية:*'},
+{label:'▪️ 3 أسئلة → تُحل 2 فقط (تحذف 1)'},
+{label:'▪️ الدرجة: 30 درجة (كل سؤال 15 درجة)'},
+{label:'- *الأسئلة الموضوعية:*'},
+{label:'▪️ 70 درجة موزعة على:'},
+{label:'✔️ اختيار من متعدد'},
+{label:'✔️ اختيار وحيد'},
+{label:'✔️ صح وخطأ'},
+{label:'📝 *طريقة المذاكرة المقترحة:*'},
+{label:'1. *ابدأ بالكتاب:*'},
+{label:'اقرأه قراءة لفهم الفكرة العامة، ليس فقط للحفظ، لأن الفهم يساعدك في المقالي والأسئلة النظريةقناة منشات متخخصص.'},
+{label:'2. *ثم انتقل للنماذج والتجميعات:*'},
+{label:'لفهم نوعية الأسئلة وطريقة الإجابة عليها.'},
+{label:'التجميعات مفيدة جدًا، خاصة إذا كنت فاهم من الكتاب بتكون سهله النماذج والتجميعات ما راح تاخذ منك وقت ابدا'},
+{label:'✅ *نصيحة:*'},
+{label:'المادة حلوة وممتعة إذا أعطيتها وقتها.'}]},
+    {
+  id:'mis2',
+  title:'نظم المعلومات المحاسبية 2(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/ExsGuPIk4r8'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/ker8qgjuCFA'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/DarQjzZzlh0'}
+  ],
+  books:[
+    {label:'كتاب نظم المعلومات المحاسبية 2', url:'https://drive.google.com/open?id=1VLhTAn_R8vYQC9r14E5qyLbCAEhlGctq&usp=drivesdk'}
+  ],
+  models:[
+    {label:'حل الأسئلة المقالية لمادة نظم المعلومات المحاسبية 2 - عبدالمجيد الضيفي', url:'https://drive.google.com/open?id=1i1uIIxE1ePAalcULm2bU19YgsqiqgV2W&usp=drivesdk'},
+    {label:'نظم معلومات - اختبر نفسك', url:'https://drive.google.com/open?id=1yphLqlNR_AyVGkqntTy0XFJtK7TZFALd&usp=drivesdk'},
+    {label:'نظم معلومات', url:'https://drive.google.com/open?id=1gif0I82s5KCD61awueuTmzZ8rj_355wP&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'مقالي نظم المعلومات المحاسبية 2', url:'https://drive.google.com/open?id=1vw4i64Z7LYPyHHqLm4RH2sowsadfo4VU&usp=drivesdk'},
+    {label:'مقالي نظم معلومات 2 شامل لجميع الإجابات', url:'https://drive.google.com/open?id=1wRlqgrG2U9oDuGgPgnAYt8t7n_Ya1lRV&usp=drivesdk'},
+    {label:'مقالي نظم معلومات محاسبية 2 - نرجس', url:'https://drive.google.com/open?id=1lDKGBAT9sELIsL6BLgZOuhCsPGabDV2d&usp=drivesdk'}
+  ],
+  Telegram:[],
+ news:[
+      {label:'*مادة: نظم المعلومات المحاسبية 2*'},
+{label:'🔹 *نوع المادة:*'},
+{label:'نظرية بالكامل.'},
+{label:'🔸 *نظام التقييم:*'},
+{label:'- *الأسئلة المقالية:*'},
+{label:'▪️ 3 أسئلة → تُحل 2 فقط (تحذف 1)'},
+{label:'▪️ الدرجة: 30 درجة (كل سؤال 15 درجة)'},
+{label:'- *الأسئلة الموضوعية:*'},
+{label:'▪️ 70 درجة موزعة على:'},
+{label:'✔️ اختيار من متعدد'},
+{label:'✔️ اختيار وحيد'},
+{label:'✔️ صح وخطأ'},
+{label:'📝 *طريقة المذاكرة المقترحة:*'},
+{label:'1. *ابدأ بالكتاب:*'},
+{label:'اقرأه قراءة لفهم الفكرة العامة، ليس فقط للحفظ، لأن الفهم يساعدك في المقالي والأسئلة النظرية.'},
+{label:'2. *ثم انتقل للنماذج والتجميعات:*'},
+{label:'لفهم نوعية الأسئلة وطريقة الإجابة عليها.'},
+{label:'التجميعات مفيدة جدًا، خاصة إذا كنت فاهم من الكتاب بتكون سهله النماذج والتجميعات ما راح تاخذ منك وقت ابدا'},
+{label:'✅ *نصيحة:*'},
+{label:'المادة حلوة وممتعة إذا أعطيتها وقتها'},
+{label:'ملفات المقالي لا تعتمدوا إجابات مختصره فلذلك الافضل الرجوع للكتاب'}]},
+
+    {
+  id:'fin_ent',
+  title:'محاسبة المنشآت المالية(3 ساعات)',
+  videos:[
+    {label:'قائمة المحاضرات', url:'https://youtu.be/V-zp_vA6eZY?list=PLzLmjaQB3jxZ03Um0a3L25mzspU2VUPbp'}
+  ],
+  books:[
+    {label:'كتاب محاسبة المنشآت المالية', url:'https://drive.google.com/open?id=1BkXWodp4PIf6fdgFxADL7JM7LwlQ0Vj6&usp=drivesdk'}
+  ],
+  models:[
+    {label:'منشآت مالية مع إضافة الأسئلة الجديدة', url:'https://drive.google.com/open?id=1xkLUj_lm7W9r-RiES5ori9brGstQma43&usp=drivesdk'},
+    {label:'محاسبة المنشآت المالية - اختبر نفسك', url:'https://drive.google.com/open?id=1lANF2v-293GDr-JHlHskLCQUrh2N4ziQ&usp=drivesdk'}
+  ],
+  summaries:[],
+  Telegram:[
+    {label:'محاسبة المنشآت المالية', url:'https://t.me/+Sa7WNTtqnEVkNjk0'}
+  ],
+ news:[
+      {label:'📘 مادة: محاسبة المنشآت المالية'},
+{label:'🔹 نوع المادة:'},
+{label:'مادة حسابية'},
+{label:'🔸 نظام الاختبار:'},
+{label:'1. الأسئلة المقالية (المسائل):'},
+{label:'عددها 3 أسئلة، يُحل منها سؤالان فقط ويُحذف واحد.'},
+{label:'الدرجة: 60 درجة (كل سؤال عليه 30 درجة).'},
+{label:'2. الأسئلة الموضوعية (النظرية):'},
+{label:'تشمل: صح وخطأ، اختيار من متعدد، وأسئلة وحيدة الإجابة.'},
+{label:'الدرجة: 40 درجة.'},
+{label:'🔹 طريقة المذاكرة:'},
+{label:'1. التركيز على النماذج السابقة، فالمادة لا تخرج عنها غالبًا، خصوصًا في الجزء الحسابي.'},
+{label:'2. المسائل الحسابية تأتي بنفس النماذج تقريبًا، وأحيانًا بنفس الأرقام أو مع تغييرات بسيطة.'},
+{label:'3. الجانب النظري قد يخرج منه سؤال أو سؤالان فقط خارج النماذج.'},
+{label:'4. التدريب المستمر على حل المسائل مهم جدًا، لأنه هو الأساس في المادة.'},
+{label:'5. المذاكرة تحتاح من 10 أيام إلى أسبوعين، مع التركيز على الفهم والتطبيق العملي.'},
+{label:'💡 ملاحظة:'},
+{label:'- المادة ليست صعبة، لكنها تحتاج إلى فهم، تركيز، وتدريب مستمر على المسائل.'},
+{label:'- أغلب الطلاب حصلوا على درجات مرتفعة لأن الاختبار جاء من نفس النماذج تقريبًا.'}]},
+
+    {
+  id:'acc_theory',
+  title:'النظرية المحاسبية(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2024)', url:'https://youtu.be/O_jCDTOmv9s'},
+{label:'المحاضرة 2 (2024)', url:'https://youtu.be/4gPHQwvcjh0'}
+  ],
+  books:[
+    {label:'كتاب النظرية المحاسبية', url:'https://drive.google.com/open?id=1Bbx10Z9A0wSCfL8KoY7Ej28nzha9k6jj&usp=drivesdk'}
+  ],
+  models:[
+    {label:'نماذج النظرية المحاسبية 2025', url:'https://drive.google.com/open?id=1zht7ydQ6nR2k4-neFB_zoBn6FA5_oKZT&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'ملخص الوحدة الأولى - النظرية المحاسبية (حوسن)', url:'https://drive.google.com/open?id=1i6jh8CQEmnwTeYn8nTQcHwq-ujdTJrcR&usp=drivesdk'},
+    {label:'ملخص الوحدة الثانية - النظرية المحاسبية (حوسن)', url:'https://drive.google.com/open?id=1_emDoVvfsMpyXigIb_ye5rqnB0ZHt_z7&usp=drivesdk'},
+    {label:'ملخص الوحدة الثالثة - النظرية المحاسبية (حوسن)', url:'https://drive.google.com/open?id=1zkMN-OTWtrXtJ-xLk7kgc_cqGD9PkfHk&usp=drivesdk'},
+    {label:'ملخص الوحدة الرابعة - النظرية المحاسبية (حوسن)', url:'https://drive.google.com/open?id=17a-I9OSQCVVdmFphueQaKDfRKCfrq88f&usp=drivesdk'},
+    {label:'ملخص الوحدة الخامسة - النظرية المحاسبية (حوسن)', url:'https://drive.google.com/open?id=1nSQd2t8gMjM7vbYVRVvAxC2TlGnUGPVa&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'النظرية المحاسبية الجديدة', url:'https://t.me/+7xI1F5T6PZM2ZTc0'},
+    {label:'النظرية المحاسبية', url:'https://t.me/+D-lHBRWLsSY5YTVk'}
+  ],
+ news:[
+      {label:'📘 مادة: النظرية المحاسبية'},
+{label:'🔹 نوع المادة:'},
+{label:'مادة حسابية'},
+{label:'🔸 نظام الاختبار:'},
+{label:'1. الأسئلة المقالية (المسائل):'},
+{label:'▪️ عددها 3 أسئلة، يُحل منها سؤالان فقط ويُحذف واحد.'},
+{label:'▪️ الدرجة: 60 درجة (كل سؤال عليه 30 درجة).'},
+{label:'2. الأسئلة الموضوعية (النظرية):'},
+{label:'▪️ تشمل: صح وخطأ، اختيار من متعدد، وأسئلة وحيدة الإجابة.'},
+{label:'▪️ الدرجة: 40 درجة موزعة كالتالي:'},
+{label:'5 أسئلة صح وخطأ → 10 درجات (كل سؤال درجتان).'},
+{label:'5 أسئلة اختيار من متعدد → 15 درجة (كل سؤال 3 درجات).'},
+{label:'5 أسئلة وحيد إجابة → 15 درجة (كل سؤال 3 درجات).'},
+{label:'🔹 طريقة المذاكرة:'},
+{label:'1. الجانب النظري:'},
+{label:'▪️ الكتاب جديد، لذلك يُكتفى بتصفحه وفهم الأفكار العامة.'},
+{label:'▪️ التركيز على تقاويم نهاية كل وحدة + أسئلة التجريبي الخاصة بالترم.'},
+{label:'▪️ لا تحتاج لتلخيص، لأن النظري سهل ومباشر.'},
+{label:'2. الجانب الحسابي:'},
+{label:'▪️ المسائل قليلة وسهلة ومأخوذة من محاسبة 1.'},
+{label:'▪️ لا تحتاج إلى نماذج، فقط مراجعة أمثلة الكتاب وحل تقاويم الوحدات.'},
+{label:'▪️ التدريب العملي على المسائل مهم جدًا لأنها الأساس في المادة.'},
+{label:'💡 ملاحظات:'},
+{label:'- كتاب المادة جديد ولا توجد له تجميعات أو نماذج معتمدة حتى الآن.'},
+{label:'- المسائل كلها موجودة في الكتاب وعددها محدود.'},
+{label:'- المادة سهلة لكنها تحتاج إلى فهم، تركيز، وتدريب بسيط.'},
+{label:'- بمراجعة الكتاب والتقاويم، بإذن الله تضمن درجة عالية.'}]},
+
+    {
+  id:'acc_apps',
+  title:'تطبيقات محاسبية بالحاسوب(1 ساعة)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/S30fLr3YXTo'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/uBZJePbBIIE'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/i46_TSIWjrg'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/qe1bDnQc5-o'}
+  ],
+  books:[
+    {label:'كتاب تطبيقات محاسبية بالحاسوب', url:'https://drive.google.com/open?id=1EtCAfYM39Ecc_PiqlbvVYEcCcyU6xCb8&usp=drivesdk'}
+  ],
+  models:[
+    {label:'تكليف تطبيقات محاسبية بالحاسوب 20193 - محلول', url:'https://drive.google.com/open?id=1Rp4Qky9AicnSE9Z7jrVRMk-BPU_kG2LL&usp=drivesdk'},
+    {label:'تطبيقات محاسبية - نماذج محلولة', url:'https://drive.google.com/open?id=1SnD2eHlv4Q_5V0uYPsohjIKqwt6zQyfY&usp=drivesdk'},
+    {label:'تطبيقات محاسبية - اختبر نفسك', url:'https://drive.google.com/open?id=1Q2kDbGCJ1ALsh1niyfuOQudwhVYkTw69&usp=drivesdk'},
+    {label:'تطبيقات محاسبية - النسخة الأولى - فياض الحميدي', url:'https://drive.google.com/open?id=1OicjgVMZJqCPdLzDFz3AjyZkJ1N5yk79&usp=drivesdk'},
+    {label:'تجريبي تطبيقات محاسبية بالحاسوب - الترم الثاني 20222', url:'https://drive.google.com/open?id=1r2M_beR_zMPRaVKac7r4aa0DQGLCTY9J&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'شرح جميع دوال الإكسل', url:'https://drive.google.com/open?id=1Ijw0Ws2XEyOqNfj2zaeBnUnTyBXD4gk4&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'تطبيقات محاسبية بالإكسل', url:'https://t.me/+1Tcy78cRhpg3ZTY0'},
+    {label:'شرح تطبيقات محاسبية بالإكسل', url:'https://t.me/+MKdVZ3_F6l9lZDZk'}
+  ],
+ news:[
+       {label:'📘 مادة: *تطبيقات محاسبية بالحاسوب*'},
+{label:'🔹 نوع المادة:'},
+{label:'مادة حسابية + ممتعه'},
+{label:'تعتمد على excel'},
+{label:'🔸 نظام الاختبار:'},
+{label:'الأسئلة المقالية (المسائل):'},
+{label:'▪️ عددها 3 مسائل → تُحل 2 فقط وتحذف واحدة'},
+{label:'▪️ المسائل يتم تطبيقها على برنامج الاكسل في اجهزة المقر بالجامعه'},
+{label:'▪️ كل سؤال 15 درجة'},
+{label:'▪️ الدرجة عموما :  30 درجة'},
+{label:'الأسئلة الموضوعيه'},
+{label:'▪️ مجموعها 70 درجة'},
+{label:'▪️ تتضمن:'},
+{label:'- صح وخطأ'},
+{label:'- الخيار الوحيد'},
+{label:'- الخيار المتعدد'},
+{label:'---'},
+{label:'🧠 طريقة المذاكرة:'},
+{label:'◇ يوجد شرح للحسابي على التليجرام'},
+{label:'◇ يوجد كذلك قناة تليقرام مجمع فيها نماذج وملفات الماده .'},
+{label:'بالنسبة للنظري والحسابي 🛑'},
+{label:': يُفضل مراجعة الكتاب مباشرة لأن المعلومات سهلة ومفهومة، وأسئلة الاختبار ليست شامله جميع اسئلة الحسابي والنظري'},
+{label:'---'},
+{label:'📍 ملاحظات:'},
+{label:'- كتاب المادة ممتع وعدد صفحاته لا تتجاوز ال60'},
+{label:'- تم تجميع النماذج وشرحها في قناة التليجرام'},
+{label:'- يُفضل الاطلاع على الكتاب إلى جانب الشرح لضمان الفهم الكامل'},
+{label:'- الماده مادة تخصص → ساعة فقط'}]}
+  ],
+
+  univ: [
+    {
+  id:'arabic',
+  title:'اللغة العربية(4 ساعات)',
+  videos:[
+    {label:'قائمة محاضرات الجامعة', url:'https://www.youtube.com/playlist?list=PLEaqWF60mCKY4icU9z0tWxqNWsGF8MJTP'},
+    {label:'المحاضرات الخاصة بالجامعة - دورة تأسيس النحو من الصفر (الجزء الثاني) - محمد صلاح', url:'https://youtu.be/kK1B07LyHyE?list=PLiHRnPC3do8UUI_UbbUPFEm84Z4O16t-x'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/bOlf_nMoCMM'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/pOaJHzTVnAc'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/nq2HeW138_M'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/yX7iTmcyb8c'}
+  ],
+  books:[
+    {label:'كتاب مهارات الاتصال في اللغة العربية', url:'https://drive.google.com/open?id=1jtGD2nnrOoQG7OKrwxipPmvZd5ryCRvN&usp=drivesdk'}
+  ],
+  models:[
+    {label:'الأسئلة الجديدة في العربي', url:'https://drive.google.com/open?id=1MVZ4KEggNPZ1eQi0hYbyx1zd_CmmJaXx&usp=drivesdk'},
+    {label:'الإضافات الجديدة', url:'https://drive.google.com/open?id=1Qcux-URyeYyrVZrt6BWBqb48oi7Wg3GC&usp=drivesdk'},
+    {label:'رهف 241031_175444', url:'https://drive.google.com/open?id=1FW3JeJ-WUKdg0QBqVOnXbuKY9xDGWTYh&usp=drivesdk'},
+    {label:'اختبر نفسك (عربي) - شهد محمد', url:'https://drive.google.com/open?id=1D2LrXOGBGD7mY3W95ix99hJ5_tKdZvhn&usp=drivesdk'},
+    {label:'بعد التعديل', url:'https://drive.google.com/open?id=1sDUFJkZjEKOPrcUUH7j-iGwLxMaTkPzh&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'تجمعات مقالي مادة مهارات الاتصال في اللغة العربية', url:'https://drive.google.com/open?id=1YtFGjlhp_C3wCnvnSCf2ioHg2Ffcz0Pu&usp=drivesdk'},
+    {label:'قواعد النحو', url:'https://drive.google.com/open?id=1nFflvOw_I7fbpyEBPDzmxL3gFQWlxFCp&usp=drivesdk'},
+    {label:'أسئلة اللغة العربية خارج ملف 24', url:'https://drive.google.com/open?id=1vU7-wd3ykQBfRRxeh4TaHJ1baPF9n_tk&usp=drivesdk'},
+    {label:'ملخص اللغة العربية', url:'https://drive.google.com/open?id=12b5i9m8742MWdzJaqGEV63SR8mg646Cl&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'مهارات الاتصال في اللغة العربية', url:'https://t.me/joinchat/HueVFHjXQIH8X-id'}
+  ],
+ news:[
+{label:'🛑 ابدؤوا بملف ٢٤ (مع التأكد من الحلول حقه من الكتاب!!)'},
+{label:'ثم الملفات اللي تحل الأسئلة الغير محلولة بملف ٢٤'},
+{label:'ثم الملف اللي فيه أسئلة خارج ملف ٢٤'},
+{label:'ثم شيكوا على التليجرام شوفوا وش جاء من أسئلة جديدة بالصيفي اللي راح، أو اطلعوا على ما جمعته من الأسئلة الجديدة في الرسالة هذه:'},
+{label:'(١) الأسئلة المكررة لكن بصيغة أخرى / مكررة لكن مضاف إليها سؤال أو أسئلة أخرى:'},
+{label:'١. عدد ٨ من مهارات الكتابة و اشرحها من وجهة نظرك (مكرر لكن يضيفه ثانية بملف ٢٤ - ص١٩- س٧٩)'},
+{label:'٢. ماهي الموضوعات التي تحدث عنها قصيدة الشاعر بدر شاكر السياب (مكرر، نص قصيدة غريب على الخليج لكنه لم يذكر اسم النص بل ذكر اسم كاتبه بدلاً من ذلك 😀 بملف ٢٤ - ص٢٤ - س١٠٤)'},
+{label:'٣. اكتب موضوع عن الكتابة و أهميتها و فروعها و اكتب أجزاء الرسالة الإدارية (مكررين لكن بالأصل هم كانوا سؤالين و دمجوهم، النص الأول من السؤال موجود بملف ٢٤، و النص الثاني من السؤال حق أجواء الرسالة الإدارية موجود بالملف اللي فيه أسئلة خارج ملف ٢٤ س٢٩ ص٤)'},
+{label:'٤. ما أتذكر النص كامل، أعرف بس عن إيش كان يتكلم، الأول أتوقع أخطاء اسم إن و المثنى و جمع المذكر السالم و النص مش كامل عاد باقي قبله شي (يشبه سؤال موجود بالملف اللي فيه أسئلة خارج ملف ٢٤: اتكلمي عن جميع التعثرات في المثنى و الجمع و أشياء مره كثيرة سؤال طويل جداً ماني فاكراه فحذفته): ممكن تستعينوا بشات جي بي تي للجواب'},
+{label:'٥. سؤال اكتب مقال عن التلخيص + سؤال كان عن أجيب نقاط نصائح تلخيص النصوص زي كذا نسيت (تكررت الأسئلة اللي عن التلخيص عدة مرات: في الملف اللي فيه أسئلة خارج ملف ٢٤ ص١٠ + ص١٣، في ملف ٢٤ ص٢١ س٢٧ + ص٢٢ س٢٨ و س٢٩): يمكن جمع كتابة مقال من جميع الأجوبة التي ذكرت بالملفات أو من الكتاب فحسب'},
+{label:'٦. التاء المربوطة تتحول إلى هاء عن الوقف عليها في نهاية الجملة، حلل العبارة السابقة مع ذكر أمثلة مناسبة + إيش سبب نطق الهاء تاء مربوطة لا تنطق تاء و هاتي أمثلة عليها؟؟؟ (في سؤال عن الهاء و الهاء المربوطة في ملف ٢٤ ص١٤ س٩): يمكن الرجوع للسؤال الخاص بملف ٢٤ لاستلهام جواب منه'},
+{label:'٧. الاسم المفرد و جمع التكسير من حيث الإعراب رفعاً و نصباً و جراً مع الإعراب المفصل (فيه سؤال مشابه له في ملف أسئلة خارج ملف ٢٤ في ص١٣: هات جمل تحتوي على اسم مفرد و جمع التكسير مرة مرفوع و منصوب و مجرور مع الإعراب): يمكن الرجوع للسؤال اللي في ص١٣ من الملف المذكور للاستفادة'},
+{label:'٨. جاني انتقد نص أنا و الطفل في حدود ١٠ أسطر و دعم كلامك بعلامات الترقيم الترقيم القوس و علاماتي التنصيص (موجود السؤال بملف ٢٤ في قسم النصوص آخر شي لكن فيه إضافة على السؤال و هي طلب تدعيم الكلام بعلامات الترقيم)'},
+{label:'٩. اذكر أحكام الإعراب علاماته الأصلية و أحكام إعراب الأسماء و أحكام إعراب الأفعال (فيه كثير أسئلة تطلب نلخص أحكام الإعراب خاصة في ملف الأسئلة اللي خارج ملف ٢٤ منها اللي في ص١٣): ارجعوا الصفحات و سووا ملخص عام'},
+{label:'١٠. أنواع الأقواس باللغة العربية (فيه سؤال أعم بملف الأسئلة اللي خارج ملف ٢٤ ص٤ س٢٣: يطلب شرح لعلامات الترقيم و التنصيص بشكل عام): ممكن ترجعوا للكتاب أو للملف و تاخذوا الجزئية اللي تعنيكم'},
+{label:'١١. وش فائدته مدري وش تأثيرها على الكاتب و القارئ؟؟؟ (أعتقد له علاقة بالس١٦ ص٣ من الملف اللي فيه أسئلة خارج ملف ٢٤)'},
+{label:'١٢. اكتب موضوع عن مهارات التحدث و أهميتها، و وضح مشكلات لغة الجسد و طرق علاجها (موجود بالنماذج لكنهم دمجوا سؤال اكتب موضوع عن مهارات التحدث و أهميتها و سؤال وضح مشكلات لغة الجسد و طرق علاجها): الزميلة ما تتذكر السؤال كامل بالضبط لكن قالت إنها تظن أن السؤال مكس بين هالسؤالين اللي موجودين في ملف ٢٤'},
+{label:'١٣. "الزوج لا يمكن أن يؤدي دور المرأة في التربية" وضحي رأيك فيما قاله المنفلوطي (السؤال ليس جديد لكنه أتى بصيغة مختلفة)'},
+{label:'١٤. مثل لكل من فعل مضارع مجهول، نائب فاعل مرفوع و علامة رفعه الواو، اسم مجرور و علامة جره الياء، خبر منصوب بالألف (السؤال موجود بملف ٢٤، ص٦، س١٧ لكن زيادة عليه طلب خبر منصوب بالألف)'},
+{label:'١٥. تكتب الألف اللينة ممدودة و مقصورة و لكل مواضع خاصة، اشرح مع إيراد أمثلة مناسبة (نفس السؤال اللي بملف ٢٤، ص١٤، س١١ لكنه بصيغة ثانية)'},
+{label:'١٦. تلخيص النصوص المكتوبة خطوات اشرحها في حدود ١٠ أسطر (في ملف ٢٤، ص٢٢، س٢٨+٢٩ فيه سؤالين عامين عن التلخيص و هذا السؤال زيهم لكنه مخصص أكثر حيث طلب خطوات تلخيص النصوص المكتوبة فقط)'},
+{label:'١٧. جاني سؤال تحدثي عن الموضوع الرئيسي للمتنبي والمواضيع الفرعية والأجزاء و…؟ (فيه أكثر من سؤال يطلب التحدث عن قصيدة المتنبي في الملفين لكن هنا طلب أشياء معينة)'},
+{label:'١٨. تحدثي عن المواضيع الفرعية في قصيدة المتنبي بما لا يزيد عن عشرة أسطر؟ (فيه أكثر من سؤال يطلب التحدث عن قصيدة المتنبي في الملفين لكن هنا طلب أشياء معينة)'},
+{label:'١٩. (أفمن يمشي مكباً على وجهه أهدى أمن يمشي سوياً على صراط مستقيم) اكتب ما لا يقل عن ٨ أسطر عن هذه الآية (في الملف اللي فيه أسئلة خارج ملف ٢٤ ص٧ س٤٩ فيه سؤال عن أواخر سورة الملك و هذا السؤال مثله لكنه طلب عن هذه الآية فقط)'},
+{label:'٢٠. للمفعول به أنواع مختلفة اطرح موضوع موجز له و هات إيرادات أمثلة عليها (فيه بملف ٢٤ ص٤ س١١ سؤال مشابه له لكنه أعم)'},
+{label:'٢١. قال المنفلوطي لا يستطيع الأب أن يحمل بين جناحيه لطفله عواطف الأم فهي التي تحوفه بعنايتها ورعايتها وتبسط عليه جناح رحمتها ورأفتها غير شاكية ولا متبرمة بل تزداد شغفاً به وحباً له، حلل الفقرة مبيناً: الفكرة الرئيسية + الأفكار الجزئية + المدعمات + تلخيص الفكرة في أربع كلمات (موجود بالملف اللي فيه أسئلة خارج ملف ٢٤ لكن السؤال غير واضح و غير كامل هناك)'},
+{label:'٢٢. أعرب السلام عليكم (أعتقد قد فيه زميلة ذكرت أن ذا السؤال جاها، أي أنه قد مر علي لكنني لم أجده لذلك سأكتبه مع الأسئلة المكررة فحسب)'},      
+{label:'(٢) الأسئلة الجديدة:'},
+{label:'١. تحليل الجمل مع الإعراب و مثل اسم فاعل مؤول و مصدر مؤول و مفعول به ضمير متصل مع الشرح و الإعراب'},
+{label:'٢. اكتب ١٠ أسطر عن الملكية في الإسلام نوعين مع الشرح'},
+{label:'٣. فصل و حلل الأمثلة (جاء هؤلاء، علمت هؤلاء، تعلمت من هؤلاء) تحليلاً نحوياً ثم بين إعراب هؤلاء في كل موضع من مواضع الأمثلة: الحل في صورة بالتيليجرام'},
+{label:'٤. مثل على مصدر مؤول و على اسم صريح يمثل على نائب الفاعل و مفعول به ضمير متصل'},
+{label:'٥. جاني سؤال نسيت إيش هو بالضبط كان عن التحدث التعليل و الربط مع أمثلة'},
+{label:'٦. تحدثي عن الاستدلال في اللغة العربية، هذا اللي فاكرته فيه (فيه جزئيات تتكلم عن الاستدلال بالكتاب من ص٦٠ - ص٦٢)'},
+{label:'٧. سؤال تبع القراءة الجسمية و العقلية؟'},
+{label:'٨. في بعض الكلمات الآتية أخطاء إملائية صوبها وعلل:'},
+{label:'- مهما ✔️ من الأسماء المبنية'},
+{label:'- عدا ✔️ (عدى و عدا) كلاهما صح'},
+{label:'- مها ✔️ (مهى ومها) كلاهما صح'},
+{label:'- اقتدا ❌ اقتدى (رابعة فصاعداً)'},
+{label:'- دعى ❌ دعا > دعيت "أسندنا الفعل إلى التاء المتحركة"'},
+{label:'- أرسـا ❌ أرسى (رابعة فصاعداً)'},
+{label:'- لها ✔️'},
+{label:'- لذا ✔️'},
+{label:'- بشرى ✔️'},
+{label:'- استحيى ❌ استحيا > قبلها ياء'},
+{label:'- بلى ✔️ من الحروف المستثناة'},
+{label:'- استغنى ✔️'},
+{label:'٩. صوب الجمل الآتية: لن يتأخر محمد، المجتهدين متميزون'},
+{label:'١٠. هات جملة فيها:'},
+{label:'- فعل ماضٍ مبني على الفتح'},
+{label:'- فعل مضارع مرفوع بالضمة'},
+{label:'- فعل مضارع علامته السكون'},
+{label:'مع التعليل'},
+{label:'١١. صحح مع التعليل:'},
+{label:'- جاء أخويك'},
+{label:'- شكرت المهندسون'},
+{label:'- الطلاب لم يذهبون إلى المدرسة'},
+{label:'١٢. للاستماع المرئي مهارات مهمة ينبغي للدارس تعلمها، وضحها في موضوع مناسب لا يزيد عن عشرة أسطر'},
+{label:'١٣. أعرب الفعل المضارع في الجملة (جئناك لتحكم بيننا)'},
+{label:'١٤. اكتب سيرة ذاتية حسب ما تعلمت'},
+{label:'١٥. أعرب:'},
+{label:'- يصيح الإنسان مستبداً'},
+{label:'- عليكم السلام'},
+{label:'- النجاح أن تجاهد نفسك'},
+{label:'١٦. اشرحي الإعراب التقديري مع التمثيل'},
+{label:'١٧. صوب الأخطاء النحوية الآتية مع التعليل:'},
+{label:'- الطلاب لم يكتبون الدرس'},
+{label:'- أنتم لن تتمكنون المنافسة'},
+{label:'- المدرس يدعوا إلى الاجتهاد'},
+{label:'- الطلاب كتبوا الدرس'},
+{label:'❇️ نصوص العربي'},
+{label:'الرقم الأول هو رقم الصفحة بالملف / الرقم الثاني هو رقم الصفحة اللي مكتوب بالكتاب'},
+{label:'- أنا والطفل: صفحة (١١٦) بالملف، الكتاب الأول ص(١١٥)'},
+{label:'- احترام المرأة: (٢٥٩) الكتاب الأول ص(٢٤)'},
+{label:'- الاستبداد والمجد: (٢٧١) الكتاب الثاني ص(٣٦)'},
+{label:'- سنوات الطفولة: (٢٨٨) الكتاب الثاني ص(٥٣)'},
+{label:'- الأشعة: (٢٩٧) الكتاب الثاني ص(٦٢)'},
+{label:'- شعر المتنبي: (٣٣٧) الكتاب الثاني ص(١٠٢)'},
+{label:'- قصيدة غريب على الخليج: (٣٤٥) ص(١١٠)'},
+{label:'- قصيدة البردوني: (٣٦٢) ص(١٢٧)'},
+{label:'- الآيات: (٤٢٤) ص(١٨٩)'},
+{label:'- نص سيد قطب: (٤٢٧) ص(١٩٢)'},
+{label:'- نص (٤٣٤): ص(١٩٩)'},
+{label:'⭕ تعديل موضوعي العربي ⭕'},
+{label:'🔹 الي عندها علامة ليست نظام'},
+{label:'🛑 صح وخطأ:'},
+{label:'٢٤ ❌ "نظام"'},
+{label:'٣٢ ❌ جت تجريبي 🔹'},
+{label:'١٢٣ ✔️ "نظام"'},
+{label:'١٦٣ ❌ 🔹'},
+{label:'١٦٨ ✔️ "نظام"'},
+{label:'🛑 وحيد:'},
+{label:'٣ السرعة ✔️ "نظام"'},
+{label:'٢٨ الرابعة ✔️ "نظام"؟ لم أجدها ولكن كل الخيارات صحيحة عدا الثالثة'},
+{label:'٤٦ حض ونقض ✔️ صحيحات لكن النظام معتمد "حض"'},
+{label:'٧٨ مقارنة'},
+{label:'١٤٥ الشرطة ✔️ "نظام" مفروض الشرطتان'},
+{label:'الخيرات:'},
+{label:'- الشرطة ✔️'},
+{label:'- الفاصلة المنقوطة'},
+{label:'- الفاصلة'},
+{label:'- النقطة'},
+{label:'🛑 متعدد:'},
+{label:'٢٤ الجواب ١ و٣ و٤ 🔹'},
+{label:'٢٧ الجواب ٢ و٤ ✔️ "نظام" (مفروض ٢ و٣ بس ٣ غير معتمدة)'},
+{label:'٣٠ الجواب ١ و٢ و٤ 🔹'},
+{label:'٣٨ الجواب ١ و٢ و٤ ✔️ "نظام" (الكتاب ١ و٢ و٣)'},
+{label:'٤٦ ❌ خطأ في الصياغة (جت قبل السؤال كان "من الأضداد" ونفس الإجابات)'},
+{label:'٥٥ الجواب ١ و٣ ✔️ "نظام" (الكتاب ١ و٢ و٣)'},
+{label:'٥٦ الجواب ١ و٢ و٣ ✔️ "نظام" (الكتاب ١ و٢ و٤)'},
+{label:'٥٨ الجواب ٢ و٣ 🔹 ~ بين أقسام الشيء للفاصلة فلا تعتبر صحيحة'},
+{label:'٦٨ لم أجده'},
+{label:'٨٥ الجواب ١ و٢ من الكتاب واعتماد النظام 🔹'},
+{label:'٨٩ الجواب ١ و٣ و٤ ✔️ "نظام" (الكتاب فقط ٣ و٤٠)'},
+{label:'٩٤ لم أجده'},
+{label:'٩٩ الجواب ١ و٢'},
+{label:'١٠١ الجواب ٢ و٣ و٤ ✔️ "نظام" (الكتاب ١ و٢ و٣)'},
+{label:'١٠٥ قد تجي بدل الفردية "التجارية" برضو نختارها'},
+{label:'١١١ الجواب ١ و٢ و٤ ✔️ "نظام"'},
+{label:'١١٣ الجواب ١ و٢ و٣ ✔️ "نظام" (الكتاب ١ و٢)'},
+{label:'١٢٤ الجواب ٢ و٣ و٤ ✔️ "نظام"'},
+{label:'١٤٤ الجواب خطأ و رضا (من ضمن الخيارات علا وبخارى لا نختارهم شفتها)'}]},
+
+    {
+  id:'islamic',
+  title:'ثقافة إسلامية(4 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/slbDIhNkrRc'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/3JzbPsAz8EQ'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/XLq3305b6j0'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/cf9ojrTPGbU'},
+{label:'المحاضرة 5 (2023)', url:'https://youtu.be/Y0U1gIcaF4c'},
+    {label:'قائمة المحاضرات', url:'https://www.youtube.com/playlist?list=PLoURjA1UEuTz9fUkvDBWQKUrAIhrv_Xz1'}
+  ],
+  books:[
+    {label:'كتاب ثقافتنا', url:'https://drive.google.com/open?id=1PkJtuM3za1WSGJ3eLZ0hXnkxjLB9gFCy&usp=drivesdk'}
+  ],
+  models:[
+    {label:'مقالي محلول - صيفي 2025', url:'https://drive.google.com/open?id=1A9DOGyv-0ezaVhhNniuy2FGf3TfCJVoi&usp=drivesdk'},
+    {label:'نماذج أسئلة صح وخطأ واختيارات - الثقافة الإسلامية 2026', url:'https://drive.google.com/open?id=1qrPrL3nttQgTzIiUzQ_b_oAm1EyeASuH&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'تلخيص ثقافة إسلامية', url:'https://drive.google.com/open?id=1yLgiCRcjvb68pMpz_57Da4tJX4pgMxC1&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'قناة تجميعات ونماذج مادة الثقافة الإسلامية للكتاب الجديد', url:'https://t.me/dee2n1'}
+  ],
+ news:[
+       {label:'الثقافة الاسلامية'},
+{label:'---'},
+{label:'📘 نوع المادة:'},
+{label:'مادة نظرية ومقالية'},
+{label:'🧾 نظام الاختبار:'},
+{label:'صح وخطأ ✅'},
+{label:'اختيار من متعدد 🔘'},
+{label:'اختيار وحيد ☑️'},
+{label:'ومقالي ٣ أسئلة يُحذف منها ١ ✍🏻'},
+{label:'📚 طريقة المذاكرة المقترحة:'},
+{label:'إلى الآن تعتمد على الكتاب كمصدر أول، وتُستخدم النماذج للمراجعة.'},
+{label:'والذي يريد إنجازها بسرعة يمكنه الاعتماد على الملخص مع المحاضرات المسجلة الأخيرة، لأنها تحتوي على شرح واضح ومفيد.'},
+{label:'⏰ كم تحتاج المادة للمذاكرة:'},
+{label:'تحتاج إلى حوالي أسبوعين للمذاكرة الجيدة.'},
+{label:'❌ المحذوف في المادة:'},
+{label:'لا يوجد.'}]},
+    {
+  id:'quran',
+  title:'القرآن الكريم(1 ساعة)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/Oy5dVlWKro8'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/I9Q9DHLch_g'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/hjhJfu9VlQU'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/PHU8zGNEoCM'},
+    {label:'قائمة المحاضرات', url:'https://www.youtube.com/playlist?list=PLoURjA1UEuTwLLnidDGk3xomsnX-p9LvR'}
+  ],
+  books:[
+    {label:'كتاب مهارات تلاوة القرآن', url:'https://drive.google.com/open?id=1XNrA1FXkMfldxs7qMBdJDz51sEs5ogr4&usp=drivesdk'}
+  ],
+  models:[
+    {label:'حل تكليف مهارات تلاوة القرآن الكريم 2025', url:'https://drive.google.com/open?id=1hH02I6O6o9nwqIo7CedpDIABYMMEgdfu&usp=drivesdk'},
+    {label:'مهارات تلاوة القرآن الكريم وتجويده - رهام فؤاد', url:'https://drive.google.com/open?id=1t3sktkvop4_il0hrScGIyU4pAwRu52IZ&usp=drivesdk'},
+    {label:'نموذج تكليف مهارات تلاوة القرآن الكريم وتجويده - الفصل الدراسي الحالي 20242 - سلمان الصبيحي', url:'https://drive.google.com/open?id=1kE5hkp7wRm-43lYSyA0o-34UxmhzzKEa&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'مقالي القرآن الكريم - تعديل عبير أبو علي', url:'https://drive.google.com/open?id=1ipGmiZpf4tSsf_QeLg2b39UC-2AuDgc_&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'مهارات القرآن الكريم وتجويده', url:'https://t.me/+VeeduyuaQL1kOGM9'}
+  ],
+ news:[
+      {label:'*مادة القرآن الكريم*'},
+{label:'🔹 *نوع المادة:*'},
+{label:'مادة *نظرية*.'},
+{label:'🔸 *محتوى المادة:*'},
+{label:'- المادة *سهلة ومفهومة*.'},
+{label:'- تعتمد بشكل كبير على *فهم التجويد*.'},
+{label:'- *الحفظ:* من *سورة الناس إلى سورة الطارق فقط*.'},
+{label:'- *التجويد:* يحتاج الرجوع إلى *الكتاب* لفهم الأحكام بشكل دقيق.'},
+{label:'- يمكن الاستفادة من *المحاضرات* أو *فيديوهات خارجية* لتبسيط الفهم.'},
+{label:'📝 *نظام الاختبار:*'},
+{label:'- *الأسئلة المقالية:*'},
+{label:'  - *6 أسئلة إجمالًا*'},
+{label:'    - 3 أسئلة عن *الحفظ* → تحذف 1 وتحل 2'},
+{label:'    - 3 أسئلة عن *التجويد* → تحذف 1 وتحل 2'},
+{label:'- *الأسئلة الموضوعية:*'},
+{label:'- متعدد'},
+{label:'- وحيد'},
+{label:'- صح وخطأ'},
+{label:'  - تعتمد على *النماذج*، لكن لا يمكن الاستغناء عن الكتاب لفهم التجويد.'},
+{label:'✅ *نصائح للمذاكرة:*'},
+{label:'- ذاكر *الكتاب* لفهم أحكام التجويد.'},
+{label:'- راجع *النماذج* جيدًا.'},
+{label:'- تابع *المحاضرات* أو مقاطع خارجية لفهم أعمق.'},
+{label:'- اللي تجويده جيد، *ما راح يتعب فيها*.'},
+{label:'🎯 *الخلاصة:*'},
+{label:'مادة سهلة وممتعة، فقط تحتاج *اهتمام وفهم للتجويد*، والحفظ فيها قليل.'}]},
+
+    {
+  id:'it_skills',
+  title:'مهارات الحاسوب(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/-qNTK_kNNxo'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/C-HblJq3ZB8'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/KAM8ON0ftQU'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/c8-rZsnAJco'},
+    {label:'شرح مختصر للوحدة الأخيرة (تحويل العشري والثنائي..) 1', url:'https://youtu.be/SGLaNY6w3Ic'},
+    {label:'شرح مختصر للوحدة الأخيرة (تحويل العشري والثنائي..) 2', url:'https://youtu.be/fyoObJ7djAA'},
+    {label:'شرح مختصر للوحدة الأخيرة (تحويل العشري والثنائي..) 3', url:'https://youtu.be/fDwTH4hXttU'},
+    {label:'شرح الأخ صادق', url:'https://www.youtube.com/playlist?list=PL8436LuIZoArBVKSJWGlIIqWxF641B7gp'}
+  ],
+  books:[
+    {label:'كتاب مهارات الحاسوب', url:'https://drive.google.com/open?id=1VfmSXtM64uyR6LqTE301Uz5ScW2T3Cnp&usp=drivesdk'}
+  ],
+  models:[
+    {label:'حاسوب - نُهى دحان', url:'https://drive.google.com/open?id=1p_G4CJvY5yRWRfsiSp1LbrTOiYCpOMvz&usp=drivesdk'},
+    {label:'حاسوب - نُهى دحان - اختبر نفسك', url:'https://drive.google.com/open?id=1mZpTk306L0KzjaszdhaX0_bxtd34gteo&usp=drivesdk'},
+    {label:'معدل 2025 - اختبر نفسك توصيل (محلول)', url:'https://drive.google.com/open?id=1ZQxhIBqQvuFdIrMOtkuOZotu5s6WXj6N&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'تواريخ الحاسب - محمد منير', url:'https://drive.google.com/open?id=1Jg2M3v4dJfMpHKZuU8zLb4ET0aWTDx7Q&usp=drivesdk'},
+    {label:'حل تمارين الأسئلة الحسابية OLA', url:'https://drive.google.com/open?id=1wMsl6a9BKM26NFvXOFg4CMZSljy9lv5X&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'مهارات الحاسوب', url:'https://t.me/qnaak2346'}
+  ],
+ news:[
+      {label:'ملخص مادة مهارات الحاسوب'},
+{label:'١- نوع المادة:'},
+{label:'سهلة ونظرية'},
+{label:'٢- نظام الاختبار مع تفصيل الدرجات:'},
+{label:'الاختبار يحتوي على:'},
+{label:'صح وخطأ'},
+{label:'اختيارات'},
+{label:'توصيل'},
+{label:'٣- طريقة المذاكرة المقترحة:'},
+{label:'١. قراءة سريعة للكتاب.'},
+{label:'٢. النماذج:'},
+{label:'نماذج نهى.'},
+{label:'نماذج عُلا: فهم طريقة التحويل بين العشري والثنائي.'},
+{label:'نماذج التوصيل: مراجعة أسئلة نهاية نماذج نهى والنموذج الأسود الذي يحتوي على جداول.'},
+{label:'٣. مشاهدة المحاضرات: التركيز على محاضرة الرابعة أو الثلاث مقاطع التي تشرح تحويل العشري والثنائي.'},
+{label:'٤- كم تحتاج المادة للمذاكرة:'},
+{label:'تحتاج مراجعة ٥ أيام بالكثير.'}]},
+
+
+    {
+  id:'eng2',
+  title:'اللغة الإنجليزية 1(4 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2024)', url:'https://youtu.be/SCKJa92VTUQ'},
+{label:'المحاضرة 2 (2024)', url:'https://youtu.be/rB3G_r5hAZU'},
+{label:'المحاضرة 3 (2024)', url:'https://youtu.be/yPhBblUjTlc'},
+{label:'المحاضرة 4 (2024)', url:'https://youtu.be/y1nE1aRQqnU'},
+    {label:'قائمة المحاضرات', url:'https://youtu.be/JBR1Jz-_WtE'}
+  ],
+  books:[
+    {label:'كتاب اللغة الإنجليزية 1', url:'https://drive.google.com/open?id=19xedTl15Hze_tyIbqgMeT01gYJYKkM8w&usp=drivesdk'}
+  ],
+  models:[
+    {label:'أسئلة أخطاء إنجليزي 1 - ولد أنعم', url:'https://drive.google.com/open?id=1EF9NRMBo_Fd5qfyGaVFAo2bNLduLOwvR&usp=drivesdk'},
+    {label:'نماذج إنجليزي - أريج الجراش + إضافات أسئلة جديدة', url:'https://drive.google.com/open?id=1kL5PYJTrvSR-MDFKMqe13tZkZ7NOraJN&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'تجميعات المقالي لمقرر اللغة الإنجليزية 1 - روان سيف وعُلا سند', url:'https://drive.google.com/open?id=1wPGsb9jyrnu9-1k5mUNM-yRsVUgj8jMd&usp=drivesdk'},
+    {label:'تلخيص قواعد إنجليزي 1 - أسماء علي', url:'https://drive.google.com/open?id=1dhk9ztUs06EmJENKabSE4S75MVINbPpC&usp=drivesdk'},
+    {label:'قطع اللغة الإنجليزية 1 مترجمة', url:'https://drive.google.com/open?id=1ZAFBQItKJ-PtKrdX-AbsEYQeMWY-07YR&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'English 1', url:'https://t.me/joinchat/RvksmkSnqgcxfZke'}
+  ],
+ news:[
+       {label:'*مادة: اللغة الإنجليزية 1*'},
+{label:'🔹 *نوع المادة:*'},
+{label:'مادة *نظرية* بالكامل.'},
+{label:'🔸 *نظام التقييم:*'},
+{label:'- *الأسئلة المقالية:*'},
+{label:'  - 3 أسئلة → *تحل 2 وتحذف 1*'},
+{label:'  - الدرجة: 30 درجة'},
+{label:'  - غالبًا تشمل: *ترتيب جُمل، ترجمة، ترقيم*'},
+{label:'  - 50٪ تقريبًا من *النماذج*، وقد يأتي سؤال *جديد* → يُنصح بالاطلاع على قناة التليجرام للأسئلة الحديثة.'},
+{label:'- *الأسئلة الموضوعية:*'},
+{label:'  - *اختيار من متعدد*'},
+{label:'  - *وحيد الإجابة*'},
+{label:'  - *صح وخطأ*'},
+{label:'  - الدرجة: 70 درجة'},
+{label:'  - أغلبها من *النماذج*، سهلة وواضحة اهم شي نفهم معاني الجمل وترجمتها عشان تعرف تحل'},
+{label:'📝 *نصائح للمذاكرة:*'},
+{label:'1. ذاكر من *ملف النظري الشامل* بعد التعديل.'},
+{label:'2. راجع *ملف المقالي* وافهم الأنماط المتكررة.'},
+{label:'3. تابع *قناة التليجرام* للحصول على الأسئلة المحدثة.'},
+{label:'4. المادة يبي لها *تركيز ووقت* خصوصًا للي لغته ضعيفة، لكنها *بسيطة ومفهومة* سهلة.'},
+{label:'✅ *معلومة مهمة:*'},
+{label:'إذا فهمت طريقة الأسئلة وتعودت عليها، *ما عليها خوف بإذن الله*.'}]},
+
+{
+  id:'eng1',
+  title:'اللغة الإنجليزية 2(4 ساعات)',
+  videos:[
+    {label:'قائمة المحاضرات صادق جزيلان ', url:'https://www.youtube.com/playlist?list=PL8436LuIZoAr3oz4INTWn1tk-5-VBHr1V'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/l8b_h6F8iyI'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/gsEq_ETM9X4'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/xyHtmU125AU'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/BYguK67OlGE'}
+  ],
+  books:[
+    {label:'كتاب اللغة الإنجليزية 2', url:'https://drive.google.com/open?id=1SwAiBjbEz3IULZEFQFA6v5jR6zkJxJQZ&usp=drivesdk'}
+  ],
+  models:[
+    {label:'شامل إنجليزي 2 (أريج الجراش)', url:'https://drive.google.com/open?id=1QJiVZhgsDdHkqr3ULWXHMCVIIMd3TaWU&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'إنجليزي 2 - تعديل أخير - صادق جزيلان', url:'https://drive.google.com/open?id=1mSmNppOFVmHhiUV5kfNt3e9DG3gO6xcN&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'English 2', url:'https://t.me/joinchat/UrThZGHDRKPcYeQ-'}
+  ],
+ news:[
+       {label:'🚨 تنبيه مهم للطلاب والطالبات اللي باقي ما أخذوا مادة English 2 وناوين يأخذوها إن شاء الله:'},
+{label:'السلام عليكم ورحمة الله وبركاته 🌿'},
+{label:'أكيد وصلتوا لهذي المادة بعد اختبار English 1، وأبشركم إن English 2 أسهل بكثييير من English 1، فلا تشيلون هم أبد ✨'},
+{label:'📚 طبيعة المادة:'},
+{label:'- المادة تعتمد بشكل كامل على النماذج، والإجابات الموجودة فيها صحيحة 100٪ لأنها مبنية على نص الكتاب سواء في القسم النظري أو المقالي.'},
+{label:'- التكاليف والتجريبي لكل الأترام السابقة متوفرة، بما فيها تكليف وتجريبي الترم الصيفي 2025، وإجاباتها كلها موجودة في النماذج.'},
+{label:'- يعني لو حليتوا تكليفكم من النماذج، بإذن الله تضمنون الدرجة الكاملة 💯'},
+{label:'📁 ملفات النماذج:'},
+{label:'- ملف الشامل (أريج الجراش)'},
+{label:'- ملف (صادق الجزيلان)'},
+{label:'- كلا الملفين موجودين في القروب وقناة التليجرام، ومعلوماتهم متطابقة تماماً، الفرق فقط في التنسيق والترتيب، فاختاروا اللي يناسبكم وريحوا نفسكم من التشتت.'},
+{label:'🎥 الشروحات:'},
+{label:'- شرح نماذج أريج الجراش موجود في التليجرام.'},
+{label:'- شرح نماذج صادق الجزيلان موجود على قناته في اليوتيوب.'},
+{label:'🧠 آلية دراسة المادة (خاصة للي خلفيتهم بسيطة أو شبه معدومة في اللغة):'},
+{label:'- ابدأ بالنماذج النظري (صح وخطأ) المترجمة الجاهزة، فقط احفظها.'},
+{label:'- بعدها انتقل للاختيار الوحيد، بيكون أسهل لأن الكلمات مكررة من قسم الصح والخطأ.'},
+{label:'- ارجع مرة ثانية واحفظ الصح والخطأ ثم الوحيد، هذي الطريقة اسمها "Reputation" بشرط يكون الوقت بين المرة الأولى والثانية قصير.'},
+{label:'- بعدين امسك المتعدد، وإذا خلصته ارجع من جديد بنفس الترتيب: صح وخطأ → وحيد → متعدد.'},
+{label:'- بعدها ابدأ في المقالي، وغالباً ما يحتاج وقت طويل لأن المفردات بتكون مخزنة في الذاكرة من القسم النظري.'},
+{label:'- بعض الطلاب يفضلون دراسة الكتاب، ونصيحة: اطلع على النماذج أولاً ثم الكتاب، عشان تعرف طريقة طرح الأسئلة وتحدد المعلومات المهمة وما تتشتت لأن الكتاب متشعب جداً.'},
+{label:'📌 ملاحظات:'},
+{label:'- أي سؤال أو استفسار عن المادة، حطوا منشن أو أرسلوا خاص، لأني ما أدخل القروب كثير.'},
+{label:'- التوفيق الجميل للجميع يا رب 🤍'}]},
+
+    {
+  id:'comm_skills',
+  title:'مهارات الاتصال(1 ساعة)',
+  videos:[
+    {label:'قائمة المحاضرات', url:'https://www.youtube.com/playlist?list=PLoURjA1UEuTwEDL_RiQxgSM-BUCTTxpD1'},
+{label:'المحاضرة 1 (2023)', url:'https://youtu.be/oxvox_LpVAQ'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/4opyi9KUTq4'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/ncwaLjWQCCg'}
+  ],
+  books:[
+    {label:'كتاب مهارات الاتصال - المتدرب', url:'https://drive.google.com/open?id=1RmGiPDCfFkDDgstJJnqujOIWpHDQThOv&usp=drivesdk'}
+  ],
+  models:[
+    {label:'اختبر نفسك - مهارات الاتصال', url:'https://drive.google.com/open?id=1I1sYry8Yxq5zma5MQF4Mjf2ZppmVzkm3&usp=drivesdk'},
+    {label:'مهارات الاتصال - علا البخيتي - نسخة 2', url:'https://drive.google.com/open?id=1iqgeSb7cdcNDALSjBdXxfKTBoUD6w0Us&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'ملف مهارات الاتصال - حل بقية الأسئلة المقالية (تعديل نسيبة)', url:'https://drive.google.com/open?id=1A6K_CTFVq6g0yySCpyHRvgf6BMNfzP7g&usp=drivesdk'},
+    {label:'مهارات الاتصال - أسئلة جديدة', url:'https://drive.google.com/open?id=1Wz-zz3G0BcqbWm_ITn6emHB4T8j-8aBS&usp=drivesdk'},
+    {label:'الأسئلة المقالية - محلول لمادة مهارات الاتصال (050042)', url:'https://drive.google.com/open?id=1hlYGPs0yjfh1siox6Rjg8Je-Hf8QfFUe&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'مهارات الاتصال', url:'https://t.me/+AnbYDXUANAUxNmE1'}
+  ],
+ news:[
+       {label:'📘 مادة: مهارات الاتصال'},
+{label:'🔹 نوع المادة:'},
+{label:'نظرية بالكامل.'},
+{label:'🔸 نظام التقييم:'},
+{label:'- الأسئلة المقالية (30 درجة):'},
+{label:'3 أسئلة، تحذف اثنين وتجيب على واحد فقط ( كل سؤال عليه 15 درجة).'},
+{label:'- الأسئلة الموضوعية (70 درجة):'},
+{label:'موزعة بين: اختيار من متعدد، اختيار وحيد، صح وخطأ.'},
+{label:'تعتمد غالبًا على النماذج.'},
+{label:'🔹 طريقة المذاكرة المقترحة:'},
+{label:'1. ابدأ بمراجعة الكتاب:'},
+{label:'مفيد جدًا لتوسيع الفهم وربط المعلومات، حتى لو كان اعتمادك الأكبر على النماذج.'},
+{label:'2. تابع المحاضرات:'},
+{label:'شرح الدكتور ممتاز، ويُراجع بداية كل محاضرة ما تم شرحه سابقًا، مما يساعدك على المذاكرة أولًا بأول.'},
+{label:'3. النماذج والتجميعات:'},
+{label:'مهمة جدًا خصوصًا في الجانب الموضوعي.'},
+{label:'المقالي ممكن يطلع من التجميعات احيانا أيضًا، لكن الأفضل تكون مستعد بأي حال.'},
+{label:'✅ انطباع عام عن المادة:'},
+{label:'مادة خفيفة وممتعة ومفهومة، لكن عطوها وقتها.'}]},
+
+    {
+  id:'leadership',
+  title:'تنمية المهارات القيادية(1 ساعة)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/39_bAWlJ6go'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/Nr7AGdJ449U'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/-30DkuqVt0o'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/udSZ4gmDScI'}
+  ],
+  books:[
+    {label:'كتاب تنمية المهارات القيادية - المتدرب', url:'https://drive.google.com/open?id=12a4Of1yBRrlX_rt0v7EwCcLouhrjQ1nt&usp=drivesdk'}
+  ],
+  models:[
+    {label:'شامل المهارات القيادية - نظري ومقالي 2025', url:'https://drive.google.com/open?id=12VsULkz15PDL9ssNHVbS_miRSYtyGcFB&usp=drivesdk'},
+    {label:'اختبر نفسك - ناد', url:'https://drive.google.com/open?id=11Q_VwsYk8cMMVmWbexHLoHXDUrUcyzDF&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'ملخص مادة تنمية المهارات القيادية', url:'https://drive.google.com/open?id=1sBaLH2Xb4loBFxdgj1Hgrm1c0oEVsETf&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'تنمية المهارات القيادية', url:'https://t.me/+d4rk0eY2yKhiNjY9'}
+  ],
+ news:[
+       {label:'مادة:المهارات القيادية'},
+{label:'نوع المادة:نظرية بالكامل'},
+{label:'الجزء المقالي:ثلاثه اسئله يحل اثنان ويحذف واحد عليهم 30 درجه'},
+{label:'الجزء النظري 70درجة مقسمة على :'},
+{label:'-وحيد'},
+{label:'-متعدد'},
+{label:'-صح وخطأ'},
+{label:'🎯 الهدف الرئيسي للمادة:'},
+{label:'هو تنمية قدرات الطالب على القيادة الفعّالة من خلال فهم الذات وتطوريها، والتواصل، وإتخاذ القرار، والتأثير الإيجابي في الآخرين، والعمل الجماعي وبناء الفريق.'},
+{label:'📚 محاور المادة:'},
+{label:'1. مفهوم الإدارة والقيادة وأنماطها المختلفة.'},
+{label:'2. مهارات إدارة الذات.'},
+{label:'3. مهارة التخطيط الشخصي.'},
+{label:'4. مهارة إدارة الوقت.'},
+{label:'5. مهارة حل المشكلات وإتخاذ القرار.'},
+{label:'6. مهارة بناء وقيادة فريق العمل.'},
+{label:'💡 كيفية المذاكرة:'},
+{label:'📖 الكتاب:'},
+{label:'ممتع جدًا وسهل الفهم وأنصح بقراءة الكتاب مو بس عشان الإختبار وإجتياز المادة يفيدك بحياتك اليومية والعملية قبل الحياة العلمية.'},
+{label:'📝 النماذج :'},
+{label:'كافية جدًا لفهم المادة وإجتياز الإختبار بعلامة كبيرة وأيضًا الإختبار بنسبة 95% نماذج.'},
+{label:'⏰ المدة أو الوقت المحدد لمذاكرة المادة:'},
+{label:'7 أيام كافية وأيضًا كل طالب حسب إستيعابه.'},
+{label:'✅ المادة ممتعة جدًا وسهلة، وما تحتاج حفظ كثير، أهم شيء الفهم.'}]},
+      
+    {
+  id:'critical',
+  title:'التفكير الناقد(1 ساعة)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/eHFXTBvfGRk'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/mjV1_lpwFXk'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/PuL6LuITjWE'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/14Uf5Re30iY'},
+    {label:'قائمة المحاضرات', url:'https://www.youtube.com/playlist?list=PLoURjA1UEuTxHimFhRsMIBe7gtozGjXCT'}
+  ],
+  books:[
+    {label:'كتاب مهارات التفكير - دليل المتدرب', url:'https://drive.google.com/open?id=178uhgB9Id70XUWfn1p2ybqMb54vHpmQH&usp=drivesdk'}
+  ],
+  models:[
+    {label:'نموذج 2 التفكير الناقد مع المقالي - BMuraisi', url:'https://drive.google.com/open?id=1zKEayo0vtWWQg_MKOBhtF4EgXOOo5Fs5&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'ملخص التفكير الناقد', url:'https://drive.google.com/open?id=1wHoJPsQL_MC7SME00hZB4cVRio7TEDjI&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'كل ما يخص مادة التفكير الناقد للكتاب الجديد', url:'https://t.me/tfkerui'}
+  ],
+ news:[{label:'التفكير الناقد'},
+{label:'📘 نوع المادة:'},
+{label:'مادة نظرية ومقالية'},
+{label:'🧾 نظام الاختبار:'},
+{label:'صح وخطأ ✅'},
+{label:'اختيار من متعدد 🔘'},
+{label:'اختيار وحيد ☑️'},
+{label:'أسئلة مقالية (3 أسئلة يُحذف منها 1) ✍🏻'},
+{label:'📚 طريقة المذاكرة المقترحة:'},
+{label:'1. شوف المحاضرات مع الملخص.'},
+{label:'2. مر على ملف الأسئلة المقالية.'},
+{label:'3. راجع النماذج النظرية.'},
+{label:'⏰ كم تحتاج المادة للمذاكرة:'},
+{label:'حوالي أسبوع.'},
+{label:'❌ المحذوف في المادة:'},
+{label:'لا يوجد.'}]},
+
+    {
+  id:'research',
+  title:'طرق البحث العلمي(2 ساعة)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/oofrwd7kJlA'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/vte1n1rK1MI'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/Dy4SFDkMFkc'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/BOLk78s10-Q'},
+    {label:'المحاضرة الأولى 2022', url:'https://youtu.be/F4VEODBJD3E'},
+    {label:'المحاضرة الثانية 2022', url:'https://youtu.be/Ot50miGcrKM'},
+    {label:'المحاضرة الثالثة 2022', url:'https://youtu.be/egBOxWOXT0U'}
+  ],
+  books:[
+    {label:'كتاب طرق البحث - ملخص مع الأسئلة (أريج الجراش)', url:'https://drive.google.com/open?id=1Cy1uhZ4W0bh5oTekOWMl2Ols5B6_GQ5i&usp=drivesdk'}
+  ],
+  models:[
+    {label:'طرق البحث العلمي - اختبر نفسك', url:'https://drive.google.com/open?id=1-Fmv7al1VX1Qik2Nq2WEwuPUBj_xoR00&usp=drivesdk'},
+    {label:'مقالي معدل 3 - مشتريات ومخازن (محمد الحاشدي)', url:'https://drive.google.com/open?id=1PkUpT6LmpaMUVL606t9mvbfmQXK5aOCk&usp=drivesdk'},
+    {label:'طرق البحث العلمي شامل - تعديل خلود دماج', url:'https://drive.google.com/open?id=1E5tPO6_HmUPSbuM0nxkZsHYJozhrLcmL&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'مقالي طرق بحث - ديانا + إضافات', url:'https://drive.google.com/open?id=1ObEf5Lu85DOZlTClhvwwObTRwwbFYYNj&usp=drivesdk'},
+    {label:'مقالي شامل - مشتريات ومخازن (أريج الجراش)', url:'https://drive.google.com/open?id=1SkwLPQ3udzUwlJGj89nsmeDwCvbSbLSB&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'نماذج طرق البحث العلمي', url:'https://t.me/joinchat/0K5HpsCHPak4MWJk'}
+  ],
+ news:[
+       {label:'الي باقي ما أخذو الماده 🚨🚨'},
+{label:'السلام عليكم ورحمة الله وبركاته'},
+{label:'معلومات عن مادة طرق البحث العلمي'},
+{label:'- المادة نظريه100 ٪؜'},
+{label:'- الاختبار النظري عليه 70 درجه والمقالي 30 درجه'},
+{label:'- التكليف يتضمن اسئله نظريه وايضاً سؤال واحد مقالي'},
+{label:'📝آلية مذاكرة الماده :'},
+{label:'هذي الماده معلوماتها عباره عن مدخل لعمل بحث التخرج ، معلوماتها كثيره ومتشابهه ولكن تحتاج منك تستوعبها في البدايه وبعدين بتصير سهله للنهايه فا نحتاج في دراستها التالي :'},
+{label:'- سماع محاضرات الدكتوره الهام في اليوتيوب ، الدكتوره شرحت الماده بشكل مفهوم ومبسط ولخصت الكتاب في ثلاث محاضرات شملت كلللل مواضيع الكتاب حرفيا ، رح يساعد كثييير في استيعاب النماذج والتفريق بين المعلومات المتشابهه و أثناء سماع المحاضرات قدر الإمكان افتحو الكتاب وامشو معاها بالشرح'},
+{label:'- ابدأو ذاكرو الملف المقالي'},
+{label:'- انتقلو للنظري بعد المقالي رح تكون مذاكرته وكأنها مراجعه لان المعلومات سبق وسمعتوها في المحاضرات وثبتوها بمذاكرة المقالي ( هي كثيييره فالأحسن تتسلسل في المذاكره مثل ما ذكرت )'},
+{label:'** اذا طبقتو هذا التسلسل في المذاكره مارح توصل لنقطه انك ذاكرت وبالآخير انخبصت المعلومات وتحتاج تذاكر وتراجع من اول وجديد 😁'},
+{label:'التوفيق للجميع …'}]}
+  ],
+
+  Optional: [
+
+    {
+  id:'opt1',
+  title:'إدارة الخطر والتأمين(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/YFBI3ltYLVE'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/BsD6z8_AlTs'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/Jx4vbqmb9MQ'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/AQ6Rp19Ygbk'}
+  ],
+  books:[
+    {label:'كتاب إدارة الخطر والتأمين', url:'https://drive.google.com/open?id=1CxChYVZKwyu9Sq2BaHbPLfyvrpED_x44&usp=drivesdk'}
+  ],
+  models:[
+    {label:'النظري - تأمين وخطر - اختبر نفسك', url:'https://drive.google.com/open?id=1I1M7HyaejC765J3zSwJ3zjCvFtqtGVs0&usp=drivesdk'},
+    {label:'إدارة الخطر والتأمين - نظري وحسابي - معدل', url:'https://drive.google.com/open?id=1ewNh53QvsPd1f7G6jrujBHf-pPQQJohY&usp=drivesdk'},
+    {label:'رشيد - إدارة الخطر والتأمين - الأخطاء فقط', url:'https://drive.google.com/open?id=18hpaebmJnOAxwrpXdPLBUHf8zbAcM4bf&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'إدارة الخطر والتأمين - حسابي', url:'https://drive.google.com/open?id=1oKQZ68YBG2frWTsnsYNHT0wqVH3Gi3wB&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'إدارة الخطر والتأمين', url:'https://t.me/+0gXrgBH-23IwY2E0'}
+  ],
+ news:[
+      {label:'*مادة: إدارة الخطر والتأمين*'},
+{label:'🔹 *نوع المادة:*'},
+{label:'مزيج من *حسابي + نظري*.'},
+{label:'🔸 *نظام التقييم:*'},
+{label:'- *الأسئلة المقالية (حسابية):*'},
+{label:'  - 3 أسئلة → *تحل 2 وتحذف 1*'},
+{label:'  - الدرجة: *60 درجة*'},
+{label:'  - تعتمد على *النماذج* بشكل كبير. يُنصح بمتابعة قناة التليجرام لشرح الحسابي.'},
+{label:'- *الأسئلة الموضوعية (نظري):*'},
+{label:'  - *اختيار من متعدد*'},
+{label:'  - *وحيد الإجابة*'},
+{label:'  - *صح وخطأ*'},
+{label:'  - الدرجة: *40 درجة*'},
+{label:'  - يوجد نموذج للنظري لكن فيه بعض الأخطاء، لذا *من الأفضل مراجعة الكتاب بسرعة* للتأكد.'},
+{label:'📝 *نصائح للمذاكرة:*'},
+{label:'- الجزء الحسابي بسيط وممتع، لكنه *مهم جدًا* لأنه عليه 60 درجة.'},
+{label:'- لا تستهينوا بالأسئلة الموضوعية، خصوصًا *المتعدد* لأنه فيه تشابه كبير بالخيارات.'},
+{label:'- ذاكروا من *النماذج + قناة التليجرام + مرور سريع على الكتاب للنظري*.'},
+{label:'✅ *ملاحظة:*'},
+{label:'المادة *سهلة جدًا* لكن تحتاج تركيز في الحل، خصوصًا لأن *درجاتها مركزة في عدد قليل من الأسئلة*.'}]},
+
+    {
+  id:'opt2',
+  title:'إدارة الجودة (3 ساعات)',
+  videos:[],
+  books:[
+    {label:'كتاب إدارة الجودة', url:'https://drive.google.com/open?id=1LsbBUBRmM0GYZ2DgFmIvxYNt_VRgaxrK&usp=drivesdk'}
+  ],
+  models:[
+    {label:'تسلسلي إدارة الجودة - تعديل شهد (7)', url:'https://drive.google.com/open?id=10vzWxS-lHCLV0n4LKT-R4RtnmjqvGw5O&usp=drivesdk'},
+    {label:'مقالي إدارة الجودة - تحديث 2025', url:'https://drive.google.com/open?id=1EuBEad62VfpFCZBa8djviVakPDlXHoqC&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'تعريفات', url:'https://drive.google.com/open?id=1spjEQz5Xlbg7VM8TevEMryE2-SfAmlyE&usp=drivesdk'},
+    {label:'تبويب إدارة الجودة 1440-2', url:'https://drive.google.com/open?id=1T8np4RhCE1kYuhWcQUEEORChYRgzkRl3&usp=drivesdk'},
+    {label:'ملخص إدارة الجودة - وليد', url:'https://drive.google.com/open?id=1wwxVIm2WiNqRjuml7rEhIHpOkr6oHEpz&usp=drivesdk'}
+  ],
+  Telegram:[],
+ news:[
+      {label:'📘 مادة: إدارة الجودة'},
+{label:'🔹 نوع المادة:'},
+{label:'مادة ثقافية تجارية سهلة الاستيعاب'},
+{label:'---'},
+{label:'🔸 نظام الاختبار:'},
+{label:'1️⃣ الأسئلة المقالية:'},
+{label:'▪️ عددها: 3 أسئلة'},
+{label:'▪️ يُحل منها سؤالان فقط ويُحذف واحد'},
+{label:'▪️ الدرجة: 30 درجة (كل سؤال 15 درجة)'},
+{label:'🔹 المصدر: أغلب الأسئلة من النماذج، والتغيير إن وجد يكون بسيط أو بصيغة مختلفة.'},
+{label:'🔹 ملاحظة: الأسئلة تتكرر من أترام سابقة، وكل ترم تقل نسبة الأسئلة الجديدة.'},
+{label:'2️⃣ الأسئلة الموضوعية (النظرية):'},
+{label:'▪️ صح وخطأ'},
+{label:'▪️ خيار وحيد'},
+{label:'▪️ خيار متعدد'},
+{label:'🔹 الدرجة: 70 درجة'},
+{label:'🔹 المصدر: النظري من النماذج بنسبة 100%'},
+{label:'---'},
+{label:'🔸 طريقة المذاكرة:'},
+{label:'1️⃣ مشاهدة المحاضرات → تقلل الجهد وتوضح المفاهيم الأساسية.'},
+{label:'2️⃣ مذاكرة النظري لكل وحدة (صح وخطأ، خيار وحيد، خيار متعدد) → لتثبيت الفكرة بسهولة.'},
+{label:'3️⃣ إعداد ملخص خاص يشمل:'},
+{label:'▪️ العلماء وإسهاماتهم'},
+{label:'▪️ الأساليب الإحصائية والنوعية'},
+{label:'▪️ النقاط النظرية المرتبطة بنفس المواضيع'},
+{label:'4️⃣ مصحح المادة متعاون جدًا طالما الإجابة تدور حول فكرة السؤال.'},
+{label:'---'},
+{label:'📍 ملاحظة مهمة:'},
+{label:'مادة إدارة الجودة تعتمد على الفهم أكثر من الحفظ، ومعلوماتها سهلة الاستيعاب ومترابطة.'}]},
+
+    {
+  id:'opt3',
+  title:'دراسة الجدوى وتقييم المشروعات(3 ساعات)',
+  videos:[
+    {label:'المحاضرة 1 (2023)', url:'https://youtu.be/GPlTsv1USyw'},
+{label:'المحاضرة 2 (2023)', url:'https://youtu.be/ncXPaY7qXB0'},
+{label:'المحاضرة 3 (2023)', url:'https://youtu.be/niF36ZLg9NE'},
+{label:'المحاضرة 4 (2023)', url:'https://youtu.be/K4nbrGI3cUQ'}
+  ],
+  books:[
+    {label:'كتاب دراسة الجدوى', url:'https://drive.google.com/open?id=13d7wnQXw9PsIu9P0WcvfJR5WQzz0jfZ3&usp=drivesdk'}
+  ],
+  models:[
+    {label:'نماذج دراسة الجدوى - تم تعديل 2 (بدرية)', url:'https://drive.google.com/open?id=1qmFA3wfBAtF7juo4TNy0n0hdQzRVwvP-&usp=drivesdk'},
+    {label:'نظري معدل دراسة جدوى الكتاب الجديد - محمد الحاشدي 2025', url:'https://drive.google.com/open?id=1AN3lDYpWvtypWeTZTJxxavuN03Fy2Wtb&usp=drivesdk'}
+  ],
+  summaries:[
+    {label:'تجميع حسابي مادة الجدوى 2025 - دلال علي', url:'https://drive.google.com/open?id=1WGX1DHSAY1QPEdG-g1r_Ilb1d9_EENjP&usp=drivesdk'}
+  ],
+  Telegram:[
+    {label:'شرح مادة دراسة الجدوى وتقييم المشروعات', url:'https://t.me/jadwa2025'}
+  ],
+ news:[
+      {label:'📘 مادة: دراسة الجدوى وتقييم المشروعات'},
+{label:'🔹 نوع المادة:'},
+{label:'مادة حسابية'},
+{label:'🔸 نظام الاختبار:'},
+{label:'الأسئلة المقالية (المسائل):'},
+{label:'▪️ عددها 3 مسائل → تُحل 2 فقط وتحذف واحدة'},
+{label:'▪️ بعض المسائل تحتوي على جزء حسابي ونظري'},
+{label:'▪️ يوجد مسائل قصيرة (حلها سطرين فقط) ويجب الانتباه للقوانين، لأن الخطأ فيها قد يضيع 30 درجة'},
+{label:'▪️ الدرجة: 60 درجة'},
+{label:'الأسئلة النظرية:'},
+{label:'▪️ مجموعها 40 درجة'},
+{label:'▪️ تتضمن:'},
+{label:'- صح وخطأ'},
+{label:'- الخيار الوحيد'},
+{label:'- الخيار المتعدد'},
+{label:'---'},
+{label:'🧠 طريقة المذاكرة:'},
+{label:'◇ يوجد شرح للحسابي على التليجرام'},
+{label:'◇ تم جمع وترتيب المسائل من قِبل مايسة ودلال.'},
+{label:'◇ بالنسبة للنظري: يُفضل مراجعة الكتاب مباشرة لأن المعلومات سهلة ومفهومة، وأسئلة الاختبار تكون خليط بين النقود والاقتصاد الكلي'},
+{label:'◇ قريبًا سيُنزل شرح صوتي عبر الذكاء الاصطناعي للوحدات في التليجرام'},
+{label:'---'},
+{label:'📍 ملاحظات:'},
+{label:'- كتاب المادة جديد.'},
+{label:'- تم تجميع النماذج وشرحها في قناة التليجرام'},
+{label:'- يُفضل الاطلاع على الكتاب إلى جانب الشرح لضمان الفهم الكامل'}]},
+    {id:'opt3', title:'يوجد مواد اخرى ولاكن عادة مايختارها الطلاب فقط هذه المواد الموجود لها نماذج وملخصات. ', videos:[], books:[], models:[], summaries:[], Telegram:[], news:[]}
+],
+
+/* إعلانات تظهر مباشرة عند اختيار تبويب "اعلانات الجامعة" */
+AdvertisementAnnouncements: [
+  {label:'جدول أعمال السنة 2025 - PDF', url:'https://drive.google.com/file/d/1fm3caf275w1Xr9IJ2BptKzmC99v2jQtR/view?usp=drivesdk'},
+  {label:'إعلان تحديث الخطة الدراسية لبعض المواد 2025 - PDF', url:'https://drive.google.com/file/d/1TOVYmkyyWV9GDlJLUidv0_kHM12pHITT/view?usp=drivesdk'},
+  {label:'الخطة الدراسية للمحاسبة - PDF', url:'https://drive.google.com/open?id=1Q-7YlmNwgvEevAB11KrUsi-g9lcrtlnz&usp=drivesdk'},
+  {label:'مفردات مقررات الخطة الدراسية - PDF', url:'https://drive.google.com/open?id=1l5_FAPHGeSZdyy58WHwSLXdDT3JesAea&usp=drivesdk'},
+  {label:'المادة والمواد المتعلقة بها', url:'https://drive.google.com/open?id=1z1jAbgXyrGAhy3iKGIqtHu0tEd-Fy_JL&usp=drivesdk'},
+  {label:'عدد ساعات المواد', url:'https://drive.google.com/open?id=1FBU7ybxDb8GESbJ4rcguvmISprmbcgCf&usp=drivesdk'},
+  {label:'جدول اللقاءات التعليمية للفصل الدراسي الأول', url:'https://isss.com.my/edltable/'}
+  ]
+};
+/* === نهاية البيانات === */
+
+/* === نهاية البيانات === *//* === UI logic === */
+const subjectsListEl = document.getElementById('subjects');
+const subjectCard = document.getElementById('subjectCard');
+const emptyCard = document.getElementById('emptyCard');
+const subjectTitleEl = document.getElementById('subjectTitle');
+const subTabsEl = document.getElementById('subTabs');
+const tabAreaEl = document.getElementById('tabArea');
+
+let currentMain = 'college';
+let currentSubject = null;
+let currentSubTab = null;
+
+function updateMainButtons(mainKey){
+  const mapping = {
+    college:'tab-college',
+    major:'tab-major',
+    univ:'tab-univ',
+    Optional:'tab-optional',
+    Advertisement:'tab-ads',
+    graduate:'tab-graduate'
+  };
+  for(const k in mapping){
+    const btn = document.getElementById(mapping[k]);
+    if(!btn) continue;
+    btn.classList.toggle('inactive', k !== mainKey);
+  }
+}
+
+function selectMain(key){
+  currentMain = key;
+  updateMainButtons(key);
+
+  if(key === 'Advertisement'){
+    showAdvertisement();
+    return;
+  }
+
+  if(key === 'graduate'){
+    subjectsListEl.innerHTML = '';
+    subjectCard.style.display = 'none';
+    emptyCard.style.display = 'block';
+
+    const graduates = ['الخريجة حُسن علي العولقي 👩‍🎓', 'الخريج 2', 'الخريج 3', 'الخريج 4'];
+    graduates.forEach(name => {
+      const li = document.createElement('li');
+      li.textContent = name;
+      li.onclick = () => showGraduate(name);
+      subjectsListEl.appendChild(li);
+    });
+
+    subjectTitleEl.textContent = '🎓 الخريجون';
+    subTabsEl.innerHTML = '';
+    tabAreaEl.innerHTML = '<p class="hint">اختر اسم خريج لعرض رسالة التخرج وبحث التخرج.</p>';
+    return;
+  }
+
+  renderSubjects(key);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderSubjects(mainKey){
+  subjectsListEl.innerHTML = '';
+  const arr = data[mainKey] || [];
+  arr.forEach(item=>{
+    const li = document.createElement('li');
+    li.textContent = item.title;
+    li.dataset.id = item.id;
+    li.onclick = ()=>selectSubject(item.id);
+    li.id = 'subject-'+item.id;
+    subjectsListEl.appendChild(li);
+  });
+  subjectCard.style.display='none';
+  emptyCard.style.display='block';
+}
+
+function showAdvertisement(){
+  subjectsListEl.innerHTML = '';
+  subjectCard.style.display='block';
+  emptyCard.style.display='none';
+  subjectTitleEl.textContent = '📢 الإعلانات';
+  subTabsEl.innerHTML = '';
+  tabAreaEl.innerHTML = '';
+  const h = document.createElement('h3'); h.textContent = 'إعلانات مهمة';
+  tabAreaEl.appendChild(h);
+
+  if(!data.AdvertisementAnnouncements || data.AdvertisementAnnouncements.length===0){
+    const p = document.createElement('p'); p.className='hint'; p.textContent = 'لا توجد إعلانات حاليا.';
+    tabAreaEl.appendChild(p);
+    return;
+  }
+
+  const ul = document.createElement('ul');
+  data.AdvertisementAnnouncements.forEach(it=>{
+    const li = document.createElement('li');
+    if(it.url){
+      const a = document.createElement('a'); a.href = it.url; a.target='_blank'; a.rel='noopener'; a.className='link'; a.textContent = it.label;
+      li.appendChild(a);
+    } else {
+      const span = document.createElement('div'); span.textContent = it.label; span.style.color='var(--muted)'; li.appendChild(span);
+    }
+    ul.appendChild(li);
+  });
+  tabAreaEl.appendChild(ul);
+}
+
+function findSubjectById(id){
+  const arr = data[currentMain] || [];
+  return arr.find(s=>s.id===id);
+}
+
+function selectSubject(id){
+  currentSubject = findSubjectById(id);
+  if(!currentSubject) return;
+  document.querySelectorAll('.subject-list li').forEach(li=>li.classList.remove('active'));
+  const liEl = document.getElementById('subject-'+id); if(liEl) liEl.classList.add('active');
+
+  subjectCard.style.display='block';
+  emptyCard.style.display='none';
+  subjectTitleEl.textContent = currentSubject.title;
+
+  renderSubTabs();
+  openSubTab('videos');
+  subjectCard.scrollIntoView({behavior:'smooth'});
+}
+
+function showSubjects(){
+  currentSubject = null;
+  document.querySelectorAll('.subject-list li').forEach(li=>li.classList.remove('active'));
+  subjectCard.style.display='none';
+  emptyCard.style.display='block';
+}
+
+function renderSubTabs(){
+  subTabsEl.innerHTML = '';
+  const tabs = [
+    {key:'videos', label:'🎥 فيديوهات'},
+    {key:'books', label:'📑 كتب'},
+    {key:'models', label:'📂 نماذج'},
+    {key:'summaries', label:'📝 ملخصات'},
+    {key:'Telegram', label:'📌 تليجرام'},
+    {key:'news', label:'🔖 دليل المذاكرة'}
+  ];
+  tabs.forEach(t=>{
+    const btn = document.createElement('button');
+    btn.textContent = t.label;
+    btn.onclick = ()=>openSubTab(t.key);
+    btn.id = 'subbtn-'+t.key;
+    subTabsEl.appendChild(btn);
+  });
+}
+
+function openSubTab(tabKey){
+  currentSubTab = tabKey;
+  document.querySelectorAll('.sub-tabs button').forEach(b=>b.classList.remove('active'));
+  const btn = document.getElementById('subbtn-'+tabKey); if(btn) btn.classList.add('active');
+
+  tabAreaEl.innerHTML = '';
+  if(!currentSubject){
+    tabAreaEl.innerHTML = '<p class="hint">اختر مادة لعرض المحتوى.</p>';
+    return;
+  }
+
+  const items = currentSubject[tabKey] || [];const titleMap = { 
+  videos:'قائمة الفيديوهات', 
+  books:'الكتب (PDF/ملفات)', 
+  models:'نماذج / ملفات', 
+  summaries:'الملخصات', 
+  Telegram:'قنوات تليجرام', 
+  news:'دليل المذاكرة' 
+};
+  const h = document.createElement('h3'); h.textContent = titleMap[tabKey] || 'المحتوى'; tabAreaEl.appendChild(h);
+
+  if(items.length===0){
+    const p = document.createElement('p'); p.className='hint'; p.textContent = 'لا يوجد محتوى هنا بعد.';
+    tabAreaEl.appendChild(p); return;
+  }
+
+  const ul = document.createElement('ul');
+  items.forEach(it=>{
+    const li = document.createElement('li');
+    if(it.url){
+      const a = document.createElement('a'); a.href = it.url; a.target='_blank'; a.rel='noopener'; a.className='link'; a.textContent = it.label || it.url;
+      li.appendChild(a);
+    } else {
+      const span = document.createElement('div'); span.textContent = it.label || ''; span.style.color='var(--muted)';
+      li.appendChild(span);
+    }
+    if(it.desc){
+      const d = document.createElement('div'); d.style.marginTop='6px'; d.style.color='var(--muted)'; d.textContent = it.desc; li.appendChild(d);
+    }
+    ul.appendChild(li);
+  });
+  tabAreaEl.appendChild(ul);
+}
+
+/* === Graduate logic === */
+function showGraduate(name){
+  subjectCard.style.display = 'block';
+  emptyCard.style.display = 'none';
+  subjectTitleEl.textContent = name;
+
+  subTabsEl.innerHTML = `
+    <button id="subbtn-message" onclick="showGraduateTab('message')">📜 رسالة التخرج</button>
+    <button id="subbtn-research" onclick="showGraduateTab('research')">📁 بحث التخرج</button>
+  `;
+  tabAreaEl.innerHTML = '<p class="hint">اختر تبويبًا لعرض رسالة أو بحث التخرج.</p>';
+}function showGraduateTab(tab){
+  document.querySelectorAll('.sub-tabs button').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('subbtn-'+tab); if(btn) btn.classList.add('active');
+
+  tabAreaEl.innerHTML = '';
+  const name = subjectTitleEl.textContent.trim();
+
+  // رسائل التخرج حسب اسم الخريج
+  const messages = {
+    'الاسم': `
+      
+    `,
+    'الاسم': `
+      <h2>رسالة خريج – محمد 🎓</h2>
+      <p>كيف الحال؟ أنا محمد، خريج هندسة برمجيات.</p>
+      <p>أشكر كل من وقف بجانبي في هذه الرحلة، وأتمنى لكل طالب مستقبلًا مشرقًا.</p>
+      <p>تعلمت أن المثابرة تصنع الفرق، وأن كل لحظة تعب كانت تستحق.</p>
+    `,
+    'الاسم': `
+      <h2>رسالة خريج – قاسم 🎓</h2>
+      <p>أنا قاسم، أحبكم جميعًا، وأشكر كل من دعمني في رحلتي الجامعية.</p>
+      <p>كانت سنوات مليئة بالتجارب، واليوم أبدأ فصلًا جديدًا من حياتي المهنية.</p>
+    `,
+        'الخريجة حُسن علي العولقي 👩‍🎓': `
+      <h2>رسالة خريجة – دفعة 2025 🎓</h2>
+      <p>أنا حُسن علي العولقي، خريجة بكالوريوس محاسبة من جامعة العلوم والتكنولوجيا،</p>
+      <p>أكتب هذه الكلمات والامتنان يملأ قلبي، والفخر يرسم ملامح هذه اللحظة التي انتظرتها طويلًا.</p>
+      <p>سنوات مضت بين دفاتر الأرقام، ومعادلات التحليل، وساعات الدراسة والسهر،</p>
+      <p>كانت رحلةً مليئة بالتحديات والاختبارات، لكنها كانت أيضًا مليئة بالنضج، والاكتشاف، والتعلّم العميق.</p>
+      <p>تعلمت أن النجاح لا يُهدى، بل يُصنع خطوة بخطوة، في كل فجرٍ استيقظت فيه على تعبٍ لم يذهب سدى،</p>
+      <p>وفي كل لحظة شكٍّ واجهتها بالإيمان بأن الله لا يضيع تعب من اجتهد وسعى.</p>
+      <strong>إلى كل من يسير في الطريق الذي كنتُ فيه يومًا:</strong>
+      <ul>
+        <li>💫 لا تستعجلوا الوصول، فكل تأخير يحمل في طيّاته درسًا، وكل صعوبة تترك فيكم أثرًا سيصنع منكم يومًا شخصًا أقوى.</li>
+        <li>💫 ثقوا بأن العثرة ليست نهاية، بل دليل على أنكم تتحركون نحو هدفٍ حقيقي.</li>
+        <li>💫 استعينوا بالله في كل خطوة، فهو وحده من يبدل الخوف طمأنينة، والتعب فرحًا.</li>
+      </ul>
+      <strong>ولزملائي الذين سيحملون الراية من بعدنا:</strong>
+      <p>تعلموا أن العلم ليس درجاتٍ وشهادات، بل بصمة نتركها في الحياة،</p>
+      <p>وأن التفوق لا يقاس بالعلامات، بل بما تضيفونه من أثر في قلوب الناس وفي مجالات عملكم.</p>
+      <p>ابنوا لأنفسكم حلمًا يستحق أن يُروى، ولا تجعلوا المقارنة تسرق منكم متعة السعي.</p>
+      <p>اليوم، وأنا أنتهى من مناقشة بحثي لا أراها مجرد أوراق، بل أراها خلاصة سنوات من الإصرار، وبداية رحلةٍ جديدة من العطاء والمهنية.</p>
+      <p>فالنجاح ليس نهاية الطريق، بل بدايته الحقيقية.</p>
+      <blockquote>“ومن يتوكل على الله فهو حسبه…”</blockquote>
+      <p>بهذه الثقة بدأت رحلتي، وبهذا الإيمان أواصل طريقي.</p>
+      <p><strong>دفعة 2025 ✨</strong><br>دفعة الأحلام الكبيرة… والعزيمة التي لا تنكسر.<br>فخر اليوم… وأمل الغد.</p>`
+  };
+
+  // ملفات البحث حسب اسم الخريج
+const researchFiles = {
+  'الخريجة حُسن علي العولقي 👩‍🎓': [
+    {text: '📘 دور المحاسبة الإدارية في تحسين الأداء المالي', url: 'https://drive.google.com/file/d/1kPotyMQOQQKU8qLlOm9xrwd4c0cbfGom/view?usp=drivesdk'},
+    {text: '📗 عرض تقديمي للبحث', url: 'https://docs.google.com/presentation/d/1Y2pZUDzAEmyzDcYXvX1Fdaw2SbrHF0kv/edit?usp=drivesdk'},
+    {text: '📙 الخطة المقترحة دور المحاسبة الإدارية في تحسين الأداء المالي', url: 'https://drive.google.com/file/d/1Rp3DzTGXf75XLTgJDpTw-1-v7YH1ooZq/view?usp=drivesdk'}
+  ],
+
+
+    'الاسم': [
+      {text: '📘 مشروع حسن - الفصل الأول', url: '#'},
+      {text: '📗 مشروع حسن - الفصل الثاني', url: '#'},
+      {text: '📙 مشروع حسن - الفصل الثالث', url: '#'}
+    ],
+    'الاسم': [
+      {text: '📘 بحث محمد - المقدمة', url: '#'},
+      {text: '📗 بحث محمد - التحليل', url: '#'},
+      {text: '📙 بحث محمد - النتائج', url: '#'}
+    ],
+    'الاسم': [
+      {text: '📘 دراسة قاسم - الجزء الأول', url: '#'},
+      {text: '📗 دراسة قاسم - الجزء الثاني', url: '#'},
+      {text: '📙 دراسة قاسم - الجزء الثالث', url: '#'}
+    ]
+  };
+
+  if(tab === 'message'){
+    const h = document.createElement('h3'); h.textContent = 'رسالة التخرج'; tabAreaEl.appendChild(h);
+    const div = document.createElement('div');
+    div.innerHTML = messages[name] || '<p>لا توجد رسالة متاحة لهذا الخريج.</p>';
+    tabAreaEl.appendChild(div);
+  }
+
+  else if(tab === 'research'){
+    const h = document.createElement('h3'); h.textContent = 'بحث التخرج'; tabAreaEl.appendChild(h);
+    const ul = document.createElement('ul');
+    ul.style.listStyle = 'none'; ul.style.padding = '0'; ul.style.fontSize = '18px'; ul.style.textAlign = 'right';
+
+    const files = researchFiles[name] || [];
+    if(files.length === 0){
+      const p = document.createElement('p'); p.className = 'hint'; p.textContent = 'لا توجد ملفات متاحة لهذا الخريج.';
+      tabAreaEl.appendChild(p);
+      return;
+    }
+
+    files.forEach(file => {
+      const li = document.createElement('li'); li.style.marginBottom = '10px';
+      const a = document.createElement('a'); a.href = file.url; a.textContent = file.text; a.target = '_blank';
+      li.appendChild(a); ul.appendChild(li);
+    });
+
+    tabAreaEl.appendChild(ul);
+  }
+}/* انطلق */
+selectMain('college');
+
+// Global search (ابحث عبر كل الفئات)
+(function(){
+  const input = document.getElementById('globalSearchInput');
+  const resultsBox = document.getElementById('globalSearchResults');
+
+  function searchAll(query){
+    query = (query||'').trim().toLowerCase();
+    if(!query) { resultsBox.style.display='none'; resultsBox.innerHTML=''; return; }
+
+    const keys = ['college','major','univ','Optional'];
+    const matches = [];
+    keys.forEach(k=>{
+      (data[k]||[]).forEach(item=>{
+        if(item.title && item.title.toLowerCase().includes(query)){
+          matches.push({id:item.id, title:item.title, cat:k});
+        }
+      });
+    });
+    renderResults(matches);
+  }
+
+  function renderResults(list){
+    if(list.length===0){
+      resultsBox.innerHTML = `<div class="nores">لا توجد نتائج مطابقة.</div>`;
+      resultsBox.style.display='block';
+      return;
+    }
+    resultsBox.innerHTML = list.map(x=>{
+      const catLabel = (x.cat==='college'?'متطلبات كلية': x.cat==='major'?'متطلبات تخصص': x.cat==='univ'?'متطلبات جامعية':'اختيارية');
+      return `<div class="res-item" data-id="${x.id}" data-cat="${x.cat}">
+                <div>
+                  <div class="res-title">${x.title}</div>
+                  <div class="res-meta">${catLabel}</div>
+                </div>
+                <div style="font-size:13px;color:var(--muted)">فتح</div>
+              </div>`;
+    }).join('');
+    resultsBox.style.display='block';
+
+    // attach clicks
+    resultsBox.querySelectorAll('.res-item').forEach(el=>{
+      el.addEventListener('click', function(e){
+        const id = this.dataset.id;
+        const cat = this.dataset.cat;
+        resultsBox.style.display='none';
+        input.blur(); // إغلاق لوحة المفاتيح
+        openFromSearch(id, cat);
+      });
+    });
+  }
+
+  // فتح نتيجة البحث: إغلاق الفلاتر ثم فتح المادة بعد تأخير بسيط
+ function openFromSearch(id, cat){
+  try {
+    if(typeof selectSubject === 'function'){
+      currentMain = cat;
+      renderSubjects(cat);
+
+      // إغلاق أي فلتر أحرف أو مستطيل إن وجد
+      document.querySelectorAll('.letter-box, #letterFilterBox, .letter-filter, .letter-panel').forEach(el => {
+        el.style.display = 'none';
+        el.classList.remove('active', 'show');
+      });
+
+      // ✨ تأخير بسيط لضمان تحميل القائمة قبل اختيار المادة
+      setTimeout(() => {
+        selectSubject(id);
+
+        if(typeof openSubjectFiles === 'function'){
+          openSubjectFiles(id);
+        } else {
+          const filesSection = document.getElementById('subjectFiles');
+          if(filesSection) filesSection.scrollIntoView({behavior: 'smooth'});
+        }
+      }, 100);
+
+      return;
+    }
+  } catch(e){
+    console.error('openFromSearch error:', e);
+  }
+
+  const found = findSubjectAcross(id);
+  if(found){
+    alert('تم العثور على: ' + found.title + '\nسيتم الآن فتح ملفات المادة.');
+    if(typeof openSubjectFiles === 'function'){
+      openSubjectFiles(found.id);
+    } else {
+      const filesSection = document.getElementById('subjectFiles');
+      if(filesSection) filesSection.scrollIntoView({behavior: 'smooth'});
+    }
+  } else {
+    alert('المادة غير موجودة حالياً.');
+  }
+}
+
+// أحداث الإدخال
+input.addEventListener('input', (e)=> searchAll(e.target.value));
+input.addEventListener('keydown', (e)=> {
+  if(e.key === 'Escape'){ resultsBox.style.display='none'; }
+  if(e.key === 'Enter'){
+    const first = resultsBox.querySelector('.res-item');
+    if(first) first.click();
+  }
+});
+
+})();
+
+</script>
+</body>
+</html>
+ 
+    <p> 
+<!-- رسالة على الواجهة -->
+  <section>
+    <div class="card">
+<br>🌟على درب المحاسبة: إشراقةُ علمٍ، وأمانةُ رسالةٍ، وعزيمةُ نجاح🌟<br>
+      <br>
+أعزّاءنا طلبة قسم المحاسبة،
+نُحييكم بتحية العلم والسعي والاجتهاد، فأنتم تسيرون في طريقٍ عظيمٍ يقوم عليه بناء الاقتصاد وإدارة الثروات، وهو علمٌ رفيعٌ تتجلّى فيه الدقّة والأمانة، ويُسهم في نهضة المؤسسات والمجتمعات.
+<br>
+لقد أنشأنا هذه البوابة لتكون منارةً تجمع المعرفة وتقرّب المعلومة، وما قمنا به هنا ما هو إلا تنظيمٌ وتجميعٌ لجهودكم المباركة التي بذلتموها في إيصال المعلومة إلى زملائكم، فالشكر الجزيل لكل من ساهم وشارك وبذل من وقته وجهده خدمةً لإخوانه الطلاب.
+فالفضل الأول بعد الله تعالى يعود إليكم أنتم، أصحاب الهمم العالية والنفوس المعطاءة.
+<br>
+ونعلم أن أغلبكم  مشغولون بأعمالٍ أو بتربيةِ أسرٍ ومسؤولياتٍ أخرى، خصوصًا وأنكم تدرسون عن بُعد، وهذا بحد ذاته جهادٌ عظيم يدل على صبرٍ وعزيمةٍ وإصرارٍ على تحقيق النجاح.
+واعلموا أن العلم نورٌ، وهو أساس الحياة، ولو أنه يشقّ علينا أحيانًا بسبب انشغالنا وضيق أوقاتنا، لكن ثقوا أن ثمرته ستزهر يومًا ما، وستُسعدكم نتائج تعبكم وسهركم بإذن الله.
+<br>
+ونذكّركم أن ما تقدمونه من نفعٍ للغير هو علمٌ نافع وصدقةٌ جارية، تؤجرون عليها بإذن الله، فلا تبخلوا بعلمكم، وواصلوا عطاءكم، فبالعلم تُرفع الدرجات وتُبنى الأوطان.
+<br>
+وفي ختام هذه الكلمة، نودّ أن نُشير إلى أن من ساهموا في مشروع هذه البوابة لهم رسائل قصيرة خاصة بكم، تحمل في طياتها نصائح وإشراقات وتجارب، لعلها تُنير طريقكم وتُلهِم خطواتكم القادمة نحو النجاح.
+<br>
+وفقكم الله وسدّد خطاكم 🌿
+قسم المحاسبة<br>
+     <p>
+    
+<div class="tabs-container">
+  <div class="tab-buttons">
+    <button onclick="toggleTab(event,'msg6')">رسالة عبدالمجيد</button>
+    <button onclick="toggleTab(event,'msg1')">رسالة محمد منير</button>
+    <button onclick="toggleTab(event,'msg2')">رسالة سالم</button>
+    <button onclick="toggleTab(event,'msg5')">رسالة صادق جزيلان</button>
+    <button onclick="toggleTab(event,'msg3')">رسالة إيلاف</button>
+    <button onclick="toggleTab(event,'msg4')">رسالة إيمان</button>
+       
+  </div>
+  
+  <div id="msg6" class="tab-content">
+<p>من ضيق الحياة إلى رحاب العلم</p>
+
+<p>أنا عبدالمجيد، طالبٌ لم يكن طريقه مفروشًا بالورود، بل كان مليئًا بالحجارة، بعضها وضعها القدر، وبعضها حملتها الأوطان المثقلة بالأزمات.</p>
+
+<p>درست في اليمن، ثم انتقلت إلى السعودية، وهناك أكملت الثانوية وسط ظروفٍ لم تكن سهلة، فأنا أجنبي لا أملك سوى تأشيرة زيارة، ومع ذلك لم أتنازل عن حلمي.</p>
+
+<p>قررت أن أهاجر إلى بلدٍ أقل كلفة، فكانت السودان خياري الوحيد، وهناك بدأت رحلتي نحو الهندسة، ذلك الحلم الذي سكنني منذ الصغر.</p>
+
+<p>دفعتني الظروف إلى أن أطلب من أهلي تقليص مصاريف المنزل، لأجل أن أواصل تعليمي، ولبّوا النداء رغم ضيق الحال، فكانوا سندي في زمنٍ عزّ فيه السند.</p>
+
+<p>درست، وواجهت رسومًا مرتفعة، ثم جاءت المظاهرات، وتعثرت السودان كما تعثرت اليمن، فعدت إلى بلدي، أبحث عن بصيص أملٍ لإكمال الدراسة، لكن الأبواب أُغلقت.</p>
+
+<p>تسلل اليأس إلى قلبي، فقررت أن أعمل، أن أهاجر، أن أؤجل حلمي، لكن الحلم لم يؤجلني.</p>
+
+<p>مرت السنوات، سنة وسنتان وثلاث، حتى بلغت خمسًا، قررت أن أعيش بلا شهادة، لكن شيئًا في داخلي ظلّ يصرخ: "أكمل، لا تتوقف، لا تدفن نفسك حيًّا."</p>
+
+<p>قررت أن أعمل وأبني مستقبل أولادي، ألا أتركهم فريسةً للجهل كما كنت، لكنني ما زلت أبحث عن عملٍ يليق بقدراتي، وما زالت الشهادة حاجزًا بيني وبين القبول.</p>
+
+<p>ثم جاءني دافعٌ من الله، دافعٌ لا يُقاوَم، دافعٌ للتعلّم، للتحدي، للعودة من جديد.</p>
+
+<p>بحثت، وسألت، وتشعبت، حتى وصلت إلى هذه الجامعة، هذا الصرح، وسجلت فيه، وها أنا ذا في بداية مشواري الأكاديمي، عازمٌ على أن أكمل، مهما كانت الصعوبات.</p>
+
+<p>يا ترى، كم من عبدالمجيدٍ في هذا العالم؟</p>
+<p>كم من شغوفٍ وطموحٍ كُسرت أحلامه بحرمانٍ لا ذنب له فيه؟</p>
+<p>كم من ذكيٍ فضّل أن يعول أسرته على أن يُكمل دراسته؟</p>
+<p>كم من طالبٍ دفن أحلامه لأن أمه قالت له: "نحن راكنين عليك، وأملنا بك كبير"، فاختار أن يحتضن عائلته بدلًا من أن يحتضن كتبه؟</p>
+
+<p>إلى متى ستستمر هذه المعاناة؟</p>
+<p>إلى متى سنركض خلف أحلامٍ لا نستطيع تحقيقها؟</p>
+
+<p>صار أبسط أحلامنا أن نوفّر حياةً كريمةً لنا ولأسرنا،</p>
+<p>صار الحلم الذي نعيشه نحن هو حقٌ أساسيٌ في كثيرٍ من الدول،</p>
+<p>صرنا ننتقل من بلدٍ إلى بلدٍ بحثًا عن فرصة،</p>
+<p>نفكر في لقمة الغد، وصرفة الشهر القادم، والتزامات الأيام المقبلة،</p>
+<p>صرنا نعيش على هامش الحياة، نُداري الجراح، ونُخفي الدموع خلف ابتساماتٍ متعبة.</p>
+
+<p>لكننا، رغم كل شيء، نؤمن بالله عزّ وجل،</p>
+<p>هو أملنا الأكبر، وهو من يحدد مصيرنا،</p>
+<p>نرضى بقضائه، ونُسلّم لقدره،</p>
+<p>ونسأله التوفيق والسداد في الدنيا والآخرة،</p>
+<p>ونسأله أن يجعل لنا من ضيقنا فرجًا، ومن عسرنا يُسرًا، ومن حلمنا واقعًا يُبهج قلوبنا.</p><br>
+
+</div>
+  <div id="msg1" class="tab-content"><p>السلام عليكم</p>
+
+<p>إلى كل من اختار طريق العلم، وسار فيه بخطى ثابتة رغم الصعوبات،</p>
+<p>إلى من يسهر الليالي بين الكتب والمذكرات، يؤمن أن المستقبل لا يُعطى، بل يُصنع…</p>
+
+<p>العلم ليس مجرد كلمات تُحفظ أو كتب تُقرأ، بل هو نورٌ في القلب، وعزٌّ في الدنيا، ورفعةٌ في الآخرة.</p>
+<p>به تُبنى الأمم، وتُعمر الأرض، وتُصان الكرامة، فالأمم التي تزرع في أبنائها حبّ التعلم، تحصد التقدم والريادة.</p>
+
+<blockquote>
+قال الله تعالى:<br>
+{ ‏‏يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ }
+</blockquote>
+
+<blockquote>
+وفي الحديث الشريف:<br>
+"منْ سَلَكَ طَريقًا يَبْتَغِي فِيهِ علْمًا سهَّل اللَّه لَه طَريقًا إِلَى الجنةِ."
+</blockquote>
+
+<p>فالعلم طريق الأنبياء والعظماء، وبه ترتقي العقول وتزدهر الأوطان.</p>
+<p>وما أجمل أن يكون لك هدف نبيل تسعى إليه، أن تتعلم لتفيد، وتعمل لتُحدث فرقاً.</p>
+<p>قد يكون الطريق طويلاً ومتعباً، لكن كل تعب اليوم هو راحة الغد، وكل جهد تبذله اليوم هو استثمار في نفسك ومستقبلك.</p>
+
+<p><strong>تذكّر دائماً:</strong></p>
+<p>كل ساعة تقضيها في طلب العلم هي لبنة تبني بها مجدك،</p>
+<p>وكل صبر تبذله اليوم سيُثمر نجاحاً يليق بعزيمتك غداً.</p>
+
+<p>فاجعل من العلم رسالتك، ومن المثابرة طريقك،</p>
+<p>واعمل بصمت، ودع إنجازك يتحدث عنك. 🌟</p></div>
+
+
+  <div id="msg2" class="tab-content">
+<p>في عالمٍ يُقاس فيه النجاح بسهولة الطريق لا بعمق التجربة، وُلدت لأتعلم أن الصبر ليس ضعفًا، بل فنّ البقاء واقفًا وسط العواصف.</p>
+<p>لم تكن بدايتي ممهّدة بالفرص، ولم تُفرش دروبي بالورود، بل كانت مليئةً بالحجارة التي صنعت منها سُلّمًا نحو نفسي.</p>
+<p>عرفت منذ وقتٍ مبكر أن الحياة لا تمنحك ما تريد، بل تختبرك لتعرف كم أنت مستعد لأن تنهض بعد كل سقوط.</p>
+
+<p>لطالما كان الحلم يرافقني، يهمس لي في الليالي الطويلة أن لا أتوقف.</p>
+<p>حلمت أن أكمل دراستي الجامعية خارج البلاد، أن أغادر حدود المألوف لأصل إلى عالمٍ أوسع من المعرفة والتجربة، لكن القدر كان له مسار آخر.</p>
+<p>شعرت بخيبةٍ حين لم أستطع تحقيق ذلك، غير أن الحلم لم يمت في قلبي، بل تحوّل إلى طاقة، إلى نارٍ هادئة تدفعني لأكمل بثلاثة تخصصات في وقتٍ واحد، أبحث من خلالها عن نفسي قبل أن أبحث عن لقبٍ أكاديمي.</p>
+<p>كنت أتعلم لأفهم، لا لأتفاخر. كنت أبحث عن المعنى، لا عن المظهر.</p>
+
+<p>ثم جاءت مرحلة أصعب، حين اضطررت لمغادرة وطني إلى بلادٍ جديدة، لا تشبه وجهي ولا لهجتي، لكنني احتضنتها بحبّ، وواصلت فيها ما تبقّى من دراستي.</p>
+<p>هناك، بين الغربة والحنين، تعلمت أن القوة ليست فيما نملك، بل فيما نستطيع تجاوزه.</p>
+<p>كل يوم كان اختبارًا جديدًا للإرادة، وكل لحظة تعب كانت درسًا في الصبر، وكل تحدٍّ كان يقول لي: "ما زلتَ قادرًا على النهوض."</p>
+
+<p>وكان الله هو السند والنور في كل خطوةٍ مظلمة.</p>
+<p>حين تخلّى عني البعض، لم يتركني الله.</p>
+<p>إيماني به كان الحبل الذي أنقذني من الغرق، وثقتي بمشيئته كانت البوصلة التي أعادتني إلى الطريق حين ضعت.</p>
+<p>لم أفقد الأمل يومًا، لأنني أدركت أن كل تأخير يحمل في طيّاته خيرًا، وأن كل خسارة تُنبت بداخلك شيئًا جديدًا، لو أنك فقط صبرت.</p>
+
+<p>خسرت كثيرًا: فرصًا، أشخاصًا، لحظاتٍ ظننتها ستصنع فرقًا في حياتي. لكنني لم أخسر نفسي.</p>
+<p>بقيت تلك الشعلة الصغيرة بداخلي، تُذكّرني أن الطريق الطويل لا يُخيف من عرف سبب سيره.</p>
+<p>لم أسمح لليأس أن يحكم عليّ، ولا للفشل أن يُعرّفني.</p>
+<p>تعلمت أن الإنسان لا يُقاس بما يملك، بل بما يستطيع تجاوزه، وأن العظمة ليست في الوصول، بل في الإصرار على المحاولة.</p>
+
+<p>كانت الدراسة بالنسبة لي أكثر من مجرد كتبٍ وأوراق. كانت معركة مع ذاتي، مع الخوف، مع التعب.</p>
+<p>كم مرة شعرت أن كل شيء انهار؟ كثيرة، لكني كنت أعود في كل مرة، أجمع نفسي، أتنفس، وأبدأ من جديد.</p>
+<p>كنت أتعلم لأنني أؤمن أن العلم طريقٌ للكرامة، وأن من يملك المعرفة يملك حريته.</p>
+<p>كل ليلةٍ سهرت فيها كانت بذرة نجاح، وكل صباحٍ استيقظت فيه رغم التعب كان انتصارًا صغيرًا على المستحيل.</p>
+
+<p>واليوم، حين أنظر إلى الطريق خلفي، لا أرى الخيبات، بل أرى الدروس.</p>
+<p>لا أرى السقوط، بل أرى النهوض.</p>
+<p>لقد علّمتني الحياة أن الإرادة لا تُقهر، وأن المثابرة تصنع المعجزات، وأن من يمضي رغم الألم هو المنتصر الحقيقي.</p>
+
+<p><strong>رسالتي لكل من يقرأ هذه الكلمات:</strong></p>
+<p>لا تدع الظروف تُقنعك بأنك ضعيف.</p>
+<p>لا تسمح لليأس أن يسرق منك حلمك.</p>
+<p>كل تعبٍ ستعيشه اليوم سيُثمر غدًا، وكل فشلٍ سيقودك إلى طريقٍ أنضج.</p>
+<p>واصل، وتعلّم، واعمل، حتى وإن لم يصفّق لك أحد.</p>
+<p>فالحياة تُنصِف في النهاية من صدق مع نفسه، ومن جعل من ألمه معنى.</p>
+
+<p>اصنع من رحلتك رسالة، ومن تعبك شهادة على أنك قاومت ولم تنكسر.</p>
+<p>فالحلم لا يموت إلا حين تتخلى عنه أنت.</p>
+<p>واصل الطريق، فكل خطوةٍ مهما بدت صغيرة، هي فصل جديد في قصة عظيمة اسمها <strong>أنت</strong>.</p></div>
+
+
+
+  <div id="msg5" class="tab-content">
+<p>الحمد للهِ الذي رفعَ بالعلمِ شأنَ أهله، وفضَّلَهم على غيرهم درجات، والصلاةُ والسلامُ على سيّدنا محمدٍ، خيرِ من علّم وأرشد، وعلى آله وصحبه ومن اقتفى أثرهم إلى يوم الدين.</p>
+
+<p>وبعدُ، فليكن سعيُكم في طلبِ العلم سعيًا مباركًا، تُخلّد به أسماؤكم، وتُروى به قصصُ عزائمكم في صفحاتِ المجد والعطاء.</p>
+<p>اجعلوا من أعماركم جسورًا للخير، ومن علمكم مصابيحَ تضيءُ دروبَ الآخرين.</p>
+<p>فالكلمةُ الصادقةُ والعملُ المخلصُ لا يضيعان عند الله، بل يبقيان نورًا بعد الرحيل، وذكرًا طيبًا في القلوب.</p>
+
+<p>ولعلّ هذه الأبيات التي نظمتها تعبّر عمّا في نفسي من محبةٍ لكم، ودعاءٍ بأن يجعل الله علمكم نافعًا، وجهودكم مباركة:</p>
+
+<blockquote>
+سأبذلُ ما بوسعي يا رفاقي<br>
+بإخلاصٍ إلى الرحمنِ راقي<br>
+ولا يبقى من الدنيا بقاءٌ<br>
+سوى علمٍ وراءَ الموتِ باقي<br>
+فيا كلَّ الذين رأوا جهودي<br>
+أريدُ دعاءَكم للقبرِ ساقي<br>
+ألا باللهِ لا تنسَوا أخاكم<br>
+إذا حانَتْ بنا ساعُ الفِراقِ<br>
+وكم من دعوةٍ نجّتْ أخاها<br>
+وكان بها النجاةُ من احتراقِ
+</blockquote>
+</div>
+  <div id="msg3" class="tab-content">
+<p>إلى من اختاروا طريق العلم، وإن بعدت المسافات،</p>
+<p>إلى من يدرسون في صمت، خلف الشاشات، ويصنعون الفرق بصبرهم وعزيمتهم…</p>
+
+<p>الدراسة عن بُعد ليست طريقًا سهلًا، لكنها طريق <em>يعلّمك المعنى الحقيقي للصبر، والانضباط، والاجتهاد في الخفاء.</em></p>
+<p>أن تدرس دون معلم أمامك، دون أصدقاء يحيطون بك، وتتحدى الانشغال والملل والوحدة… <em>هذا بحد ذاته إنجازٌ عظيم.</em></p>
+
+<p><em>ولا تنسَ… أن العودة بعد الانقطاع قوة.</em></p>
+<p>أن تنهض من جديد بعد أن ظننت أن الدراسة لم تعد لك، أن تجد في نفسك القدرة على إكمال طريق ظننته قد انتهى…</p>
+<p>هذا نصر عظيم يستحق أن تفخر به.</p>
+<p><em>فطول الانتظار لا يعني الفشل، بل يعني أن الوقت الذي كتبه الله لك قد اقترب.</em></p>
+
+<p>كم من مرة شعرت فيها أن حلمك بعيد؟</p>
+<p>وها أنت اليوم تقترب منه، خطوة بخطوة، <em>برحمة الله أولاً، ثم بصبرك وجهدك وتوكل قلبك.</em></p>
+
+<p><em>لا تظن أن الله لا يرى تعبك.</em></p>
+<p>كل لحظة تقضيها في مذاكرة، كل اختبار تحضّر له في منتصف الليل، كل مرة قاومت فيها التسويف…</p>
+<p>هي خطوات تُكتب لك، وتُقربك من تحقيق حلمك، ومن رضا الله عز وجل.</p>
+
+<p>الدراسة عن بعد تُعلّمك كيف <em>تحب العلم لذاته، لا لزخرف شكله.</em></p>
+<p>تجعلك تشتاق للمعرفة، وتغرس فيك شغفًا هادئًا، صامتًا… لكنه راسخ.</p>
+
+<blockquote>
+قال تعالى:<br>
+<em>"واصبر وما صبرك إلا بالله…"</em>
+</blockquote>
+
+<p>أنتم من يصنع المعجزات بصبر لا ينكسر، وإرادة لا تعرف المستحيل. رغم البُعد والمسافات، يظل شغفكم نبراسًا يضيء طريقكم نحو مستقبل مشرق.</p>
+
+<p>ليس سهلاً أن تواصلوا رحلة العلم بلا مقاعد تقليدية، لكنكم اخترتم طريق الإصرار والتحدي، تثبتون أن الحلم لا يموت مهما طال الانتظار.</p>
+
+<p>تذكروا دومًا أن كل دقيقة تقضونها في الدراسة هي استثمار في ذاتكم، وكل تحدي تواجهونه هو خطوة تقربكم من النجاح الذي تستحقونه.</p>
+
+<p>أنتم ليسوا فقط طلابًا، بل رواد تصنعون قصة فريدة من الصبر، العزيمة، والتفاني. استمروا، فالنجاح قادم، وأنتم تستحقونه بجدارة.</p></div>
+  <div id="msg4" class="tab-content"><p>قبل دخولي الجامعة، كنتُ أحمل في داخلي حلماً كبيراً بأن أصبح دكتورة، أرى في ذلك شفاءً لما عشته من معاناةٍ وصعوباتٍ في بداياتي، وكأن في الحلم خلاصًا من كل ما مررت به من وجع.</p>
+<p>لكن الأقدار أخذت بيدي إلى تخصص المحاسبة، ذلك التخصص الذي لم يكن في الحسبان، لكنه مع مرور الأيام أصبح مرآةً لرحلتي، ودفترًا كتبتُ فيه فصول صبري وإصراري.</p>
+
+<p>لم تكن الرحلة سهلة… كانت مليئةً بالمواقف التي كسرتني لتبني بداخلي صلابةً لا تهتز، وبالأيام التي شعرتُ فيها بالوحدة وأنا أقاوم لأثبت لنفسي أنني قادرة، مهما كان الطريق طويلاً.</p>
+<p>كنتُ أبتسم رغم التعب، أُخفي الدموع وأمضي، لأنني كنت أؤمن أن ما بعد العسر إلا الفرج، وأن كل وجعٍ اليوم هو تمهيدٌ لمجدٍ غدًا.</p>
+
+<p>ولأجل أن أُكمل طريقي، كنتُ أرحل إلى الرياض في فترات الاختبارات، أتحمّل مشقة السفر والبعد عن أهلي، أحمل معي كتبي وأوراقي وكأنني أحمل العالم بين يديّ.</p>
+<p>في كل رحلة ذهابٍ وعودة، كنت أراجع، أقيّم، وأستدرك ما فاتني، أحمل تلك الأوراق بين يديّ كما لو كنت أحمل مستقبلي، لا تهمّني درجةٌ سيئة أو جميلة، فالعبرة لم تكن في الأرقام بل في الحصيلة التي خرجت بها من كل تجربة.</p>
+
+<p>كم من ليلةٍ جلستُ فيها أذاكر ودموعي تسبق الكلمات، أراجع وأشرح لنفسي كأنني أواسيها، أتابع الشروحات وقلبي يهمس لي: “ستمضين، فقط تابعي.”</p>
+<p>وكنتُ كل مرة أدخل قاعة الاختبار بقلبٍ مملوءٍ بالأمل، أؤمن أن الله لن يضيع جهدي، وأن التعب لا يذهب سُدى.</p>
+
+<p>وكم هو شعورٌ غامر حين أنهي مادةً بعد رحلةٍ طويلة من السهر، فأسلّم ورقتي وكأنني أودّع فصلًا من حياتي، لحظاتٌ قصيرة تختزل سنواتٍ من الكفاح، لكنها تملؤني بسعادةٍ لا توصف، لأنني أرى ثمار جهدي تزهر أمامي.</p>
+
+<p>رحلتي مع المحاسبة لم تكن مجرد دراسة، بل كانت مدرسةً للحياة، تعلّمتُ فيها أن الحساب لا يكون بالأرقام فقط، بل بالمواقف والدروس والعِبر.</p>
+<p>فالمحاسبة هي فنّ الحسابات بالقيود والجداول المسطّرة، فإن أتقنتها، أتقنتَ حسابات الحياة.</p>
+
+<p>واليوم، وأنا على أعتاب التخرّج، أسترجع كل ما مررت به بين بدايتي ونهايتي، وأشعر بالفخر والذهول معًا.</p>
+<p>لا أكاد أصدق أنني وصلت، وأن كل تلك الليالي الطويلة والدموع والدعوات كانت طريقًا ممهّدًا لهذه اللحظة العظيمة.</p>
+<p>وفي النهاية، أعود إلى أمي وكلي فخر وسعادة لأقول:<br><strong>"أماه، فعلتُها.. فلتفخري بابنتك، فقد أوفت بالعهد ووصلت."</strong></p>
+
+<p><strong>رسالتي لطلاب المحاسبة القادمين:</strong></p>
+<p>اعلموا أن طريقكم قد يبدو معقدًا كما الجداول التي تملؤونها، لكنه مليء بالمعاني لمن يفهمه.</p>
+<p>لا تخافوا من الصعاب، فكل رقمٍ خاطئ يمكن تصحيحه، وكل محاولةٍ تقرّبكم من الإتقان.</p>
+<p>لا تظنوا أن الحياة تتوقف عند درجةٍ أو مادة، فالوقت لا يقف، والدنيا لا تنتهي عند مرحلة.</p>
+<p>واصلوا السعي بإيمانٍ ومثابرة، فـ النهاية دائمًا أجمل لمن لم يتوقف في المنتصف.</p></div>
+  
+  
+</div>
+
+<script>
+function toggleTab(evt, tabId) {
+  const allTabs = document.querySelectorAll('.tab-content');
+  const allBtns = document.querySelectorAll('.tab-buttons button');
+  const targetTab = document.getElementById(tabId);
+  const isActive = targetTab.classList.contains('active');
+
+  // إغلاق الكل أولاً
+  allTabs.forEach(t => t.classList.remove('active'));
+  allBtns.forEach(b => b.classList.remove('active'));
+
+  // إذا لم تكن الرسالة مفتوحة، افتحها
+  if (!isActive) {
+    targetTab.classList.add('active');
+    evt.currentTarget.classList.add('active');
+  }
+}
+</script>
+
+</body>
+</html>
+ <br>
+        لأي ملاحظات، إضافات، أو طلب تعديل على أي مادة أو ملف، يمكنكم التواصل مع مسؤول البوابة عبدالمجيد المنيعي على الرقم <br>
+        <a href="https://wa.me/966535378082" target="_blank" style="text-decoration:none;">
+  <span style="display:inline-block; background-color:#e6f3ff; padding:6px 10px; border-radius:6px; color:#007bff; font-weight:bold;">
+    <strong>📱 اضغط هنا</strong>
+  </span>
+</a>
+
+<br>
+لأي ملاحظات، إضافات، أو طلب تعديل على أي مادة أو ملف، يمكنكم التواصل مع مسؤول البوابة عبدالمجيد المنيعي على الرقم
+<br>
+<a href="https://wa.me/966535378082" target="_blank" style="text-decoration:none;">
+  <span style="display:inline-block; background-color:#e6f3ff; padding:6px 10px; border-radius:6px; color:#007bff; font-weight:bold;">
+    <strong>📱 اضغط هنا</strong>
+  </span>
+</a>
+
+<br>
+أو التواصل مع أحد مشرفي قروبات الواتس الظاهرة أرقامهم داخل تبويب
+<a href="javascript:void(0)" onclick="openContactButton()" style="text-decoration:none; color:#007bff; font-weight:bold;">
+  زر التواصل
+</a>
+أسفل يسار الشاشة👈 ≡︙↙
+<br>
+
+<strong onclick="scrollToTop()" style="cursor: pointer; color: #007bff; text-decoration: underline;">
+  انتقل إلى أعلى الشاشة لعرض المواد👆
+</strong>
+
+<!-- مكان المحتوى -->
+<section>
+  <h2 id="ads">📢 الإعلانات</h2>
+  <p>✅ تم تعديل جدول أعمال السنة، الرجاء مراجعة هذه الصفحة باستمرار للاطلاع على أي جديد.</p>
+  <p>للاطلاع على جدول الأعمال السنوي وغيره من الإعلانات اضغط تبويب إعلان في الأعلى.</p>
+  <p>نُذكّركم ببدء اللقاءات التعليمية للفصل الأول 2025/1 من يوم السبت 18 أكتوبر 2025م.</p>
+  <p>📘 يمكنكم الاطلاع على الجدول واختيار المواد عبر الرابط الموجود أعلى داخل تبويب إعلانات الجامعة:</p>
+</section>
+
+
+<script>
+function openContactButton() {
+  const contactButton = document.querySelector('button[title="التواصل"]');
+  if (contactButton) {
+    contactButton.click();
+  } else {
+    alert("زر التواصل غير موجود في الصفحة حاليًا.");
+  }
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // حركة ناعمة للأعلى
+  });
+}
+</script>
+
+<!-- زر رئيسي لفتح الرموز -->
+<div style="position: fixed; bottom: 20px; left: 20px; z-index:9999;">
+  <button onclick="toggleButtons()" title="التواصل"
+     style="background-color: white;
+            border-radius: 50%; width: 50px; height: 50px;
+            display: flex; align-items: center; justify-content: center;
+            border:none; cursor:pointer; padding:5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);">
+    <img src="https://cdn-icons-png.flaticon.com/512/561/561184.png" alt="تواصل" style="width:28px; height:28px;">
+  </button>
+
+  <!-- الأزرار الفرعية -->
+  <div id="subButtons" style="display:none; flex-direction: column; gap: 10px; margin-top:10px;">
+    <!-- واتساب -->
+    <button onclick="showList('whatsapp')" title="أرقام واتساب"
+       style="background-color: white; border-radius: 50%; width: 45px; height: 45px;
+              display: flex; align-items: center; justify-content: center; border:none; cursor:pointer; padding:5px;
+              box-shadow: 0 2px 5px rgba(0,0,0,0.3);">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="واتساب" style="width:25px; height:25px;">
+    </button>
+
+    <!-- قروبات -->
+    <button onclick="showList('groups')" title="قروبات واتساب"
+       style="background-color: white; border-radius: 50%; width: 45px; height: 45px;
+              display: flex; align-items: center; justify-content: center; border:none; cursor:pointer; padding:5px;
+              box-shadow: 0 2px 5px rgba(0,0,0,0.3);">
+      <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="قروبات" style="width:25px; height:25px;">
+    </button>
+
+    <!-- إيميل -->
+    <button onclick="showList('email')" title="إيميلات"
+       style="background-color: white; border-radius: 50%; width: 45px; height: 45px;
+              display: flex; align-items: center; justify-content: center; border:none; cursor:pointer; padding:5px;
+              box-shadow: 0 2px 5px rgba(0,0,0,0.3);">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="إيميل" style="width:25px; height:25px;">
+    </button>
+  </div>
+</div>
+
+<!-- القائمة المنبثقة -->
+<div id="listPopup"
+     style="display:none; position:fixed; bottom:80px; left:20px; background:#fff; border-radius:10px; padding:10px; box-shadow:0 2px 8px rgba(0,0,0,0.3); z-index:10000; font-family:Tahoma; font-size:14px;">
+  <strong id="listTitle"></strong>
+  <ul id="listItems" style="list-style:none; padding:0; margin:10px 0 0 0;"></ul>
+  <button onclick="closeList()" style="background:#ccc; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">إغلاق</button>
+</div>
+
+<script>
+  function toggleButtons(){
+    const sub = document.getElementById("subButtons");
+    sub.style.display = (sub.style.display === "none" || sub.style.display === "") ? "flex" : "none";
+  }
+
+  const whatsappNumbers = [
+    {name: "م.عبدالمجيد المنيعي - مسؤول البوابة", number: "966535378082"},
+    {name: "م.محمد منير - مشرف قروبات المحاسبة", number: "966545237384"},
+    {name: "م.إيمان القاسمي - مشرفة قروبات المحاسبة", number: "966557211628"},
+    {name: "م.يوسف علاء- مشرف قروبات المحاسبة", number: "966531552683"},
+    {name: "م.فاطمة فهد- مشرفة قروبات المحاسبة", number: "966546348345"},
+    {name: "أ.محمد حسن- مسؤول التواصل في الجامعة", number: "966541098822"}
+  ];
+
+  const whatsappGroups = [
+    {name: "قروب طلاب المحاسبة الخاص بالجامعة", link: "https://chat.whatsapp.com/BPS2NSkOvoc99Su8dtk5Tr"},
+    {name: "قروب بوابة دليل الطالب تلجرام", link: "https://t.me/Abdalmgef7129"}
+  ];
+
+  const emails = [
+    {name: "إيميل بوابة دليل الطالب", email: "abdalmged7129@gmail.com"},
+    {name: "إيميل الدعم", email: "ol.riyad@ust.edu"}
+  ];
+
+  function showList(type){
+    const popup = document.getElementById("listPopup");
+    const title = document.getElementById("listTitle");
+    const list = document.getElementById("listItems");
+    list.innerHTML = "";
+
+    let items = [];
+    if(type === "whatsapp"){
+      title.innerText = "اختر رقم واتساب:";
+      items = whatsappNumbers.map(x => `<li><a href="https://wa.me/${x.number}" target="_blank" style="text-decoration:none; color:#000;">${x.name}</a></li>`);
+    } else if(type === "groups"){
+      title.innerText = "اختر قروب:";
+      items = whatsappGroups.map(x => `<li><a href="${x.link}" target="_blank" style="text-decoration:none; color:#000;">${x.name}</a></li>`);
+    } else if(type === "email"){
+      title.innerText = "اختر بريد إلكتروني:";
+      items = emails.map(x => `<li><a href="mailto:${x.email}" target="_blank" style="text-decoration:none; color:#000;">${x.name}</a></li>`);
+    }
+
+    list.innerHTML = items.join("");
+    popup.style.display = "block";
+  }
+
+  function closeList(){
+    document.getElementById("listPopup").style.display = "none";
+  }
+</script>
+
+<div id="hg-widget">
+  <!-- زر الأيقونة -->
+  <button id="hg-btn" aria-haspopup="dialog" aria-expanded="false" title="العد التنازلي">
+    <!-- SVG ساعة رملية -->
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 2h12v2a3 3 0 0 1-1 2l-2 2a1 1 0 0 0 0 1l2 2a3 3 0 0 1 1 2v2H6v-2a3 3 0 0 1 1-2l2-2a1 1 0 0 0 0-1L7 6a3 3 0 0 1-1-2V2z" />
+      <path d="M8.5 8.5a1 1 0 0 1 .5.87v.26a4 4 0 0 0 1 2.63 4 4 0 0 1 0 5.28 4 4 0 0 0-1 2.63V21h6v-1.9a4 4 0 0 0-1-2.63 4 4 0 0 1 0-5.28 4 4 0 0 0 1-2.63v-.26a1 1 0 0 1 .5-.87"/>
+    </svg>
+  </button>
+
+  <!-- النافذة -->
+  <div id="hg-popup" role="dialog" aria-labelledby="hg-desc">
+    <div style="display:flex;justify-content:space-between;align-items:start;gap:8px;">
+      <div style="flex:1;">
+        <p style="margin:0;font-weight:700;color:#000;font-size:14px;">العد التنازلي</p>
+        <p class="hg-desc" id="hg-desc">للاطلاع على الوقت المتبقي للاختبارات والمحاضرات والمهام والتكاليف وتطبيقات مفيدة للدراسة.</p>
+      </div>
+      <button class="hg-close" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="hg-actions">
+      <a id="hg-open-link" class="hg-open" href="https://sites.google.com/view/university-time2026?usp=sharing" target="_blank">افتح العد التنازلي</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const widget = document.getElementById('hg-widget');
+  const btn = document.getElementById('hg-btn');
+  const popup = document.getElementById('hg-popup');
+  const closeBtn = popup.querySelector('.hg-close');
+
+  function openPopup(){
+    widget.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+  }
+  function closePopup(){
+    widget.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }
+
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    if (widget.classList.contains('open')) closePopup();
+    else openPopup();
+  });
+
+  closeBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    closePopup();
+  });
+
+  document.addEventListener('click', function(ev){
+    if(!widget.contains(ev.target)) closePopup();
+  });
+
+  document.addEventListener('keydown', function(ev){
+    if(ev.key === 'Escape') closePopup();
+  });
+})();
+</script>
+
+<!-- عداد تنازلي ثابت أسفل الصفحة -->
+<div id="fixed-countdown" style="
+  position: fixed;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  z-index: 9999;
+  background: none;">
+</div>
+
+<script>// التاريخ المحدد للاختبار
+const examDate = new Date("Apr 11, 2026 08:00:00");
+const fixedCountdown = document.getElementById("fixed-countdown");
+
+function formatMonths(m) {
+  if (m === 0) return "0 شهر";
+  if (m === 1) return "شهر واحد";
+  if (m === 2) return "شهران";
+  if (m >= 3 && m <= 10) return `${m} أشهر`;
+  return `${m} شهر`;
+}
+
+function formatDays(d) {
+  if (d === 0) return "0 يوم";
+  if (d === 1) return "يوم واحد";
+  if (d === 2) return "يومان";
+  if (d >= 3 && d <= 10) return `${d} أيام`;
+  return `${d} يوم`;
+}
+
+setInterval(() => {
+  const now = new Date();
+
+  if (now > examDate) {
+    fixedCountdown.innerHTML = "✅ انتهت فترة الاختبارات";
+    return;
+  }
+
+  // نسخ التاريخين حتى نعدل عليهم بدون التأثير على الأصل
+  let start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  let end = new Date(examDate.getFullYear(), examDate.getMonth(), examDate.getDate());
+
+  let months = 0;
+
+  // حساب الأشهر بدقة حسب التقويم
+  while (
+    start.getFullYear() < end.getFullYear() ||
+    start.getMonth() < end.getMonth()
+  ) {
+    start.setMonth(start.getMonth() + 1);
+    if (start > end) {
+      start.setMonth(start.getMonth() - 1);
+      break;
+    }
+    months++;
+  }
+
+  // حساب الأيام المتبقية
+  const days = Math.floor((end - start) / (1000 * 60 * 60 * 24));
+
+  fixedCountdown.innerHTML =
+    `🕒 الوقت المتبقي للاختبارات: ${formatMonths(months)} و ${formatDays(days)}`;
+}, 1000);
+</script>
+
+</body>
+</html>

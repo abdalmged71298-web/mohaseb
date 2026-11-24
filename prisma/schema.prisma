@@ -1,0 +1,265 @@
+// Prisma schema for the educational platform + student community.
+// SQLite is used so the project stays self-contained and portable.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ===== Identity =====
+// Lightweight student identity. No password — a member is created when a
+// student first joins the community (sets a display name + level). The
+// member id is stored in an httpOnly cookie + localStorage so the same
+// browser keeps the same identity. When deployed with a shared DB, different
+// students become different members.
+model CommunityMember {
+  id          String   @id @default(cuid())
+  displayName String
+  level       String   @default("غير محدد")
+  avatarColor String   @default("#7b2cbf")
+  bio         String   @default("")
+  role        String   @default("student") // student | moderator | admin
+  createdAt   DateTime @default(now())
+  lastSeen    DateTime @default(now())
+
+  posts        Post[]
+  comments     Comment[]
+  questions    Question[]
+  answers      Answer[]
+  likes        PostLike[]
+  answerLikes  AnswerLike[]
+  conversationsA Conversation[] @relation("convA")
+  conversationsB Conversation[] @relation("convB")
+  messages     DirectMessage[]
+  groups       GroupMember[]
+  groupMsgs    GroupMessage[]
+  polls        Poll[]
+  pollVotes    PollVote[]
+  notifications Notification[] @relation("notifOwner")
+  triggerNotifs Notification[] @relation("notifTrigger")
+  reports      Report[]
+
+  @@unique([displayName])
+}
+
+// ===== Discussions =====
+model Post {
+  id          String   @id @default(cuid())
+  title       String
+  content     String
+  category    String   @default("عام") // subject title or "عام"
+  pinned      Boolean  @default(false)
+  hidden      Boolean  @default(false)
+  views       Int      @default(0)
+  authorId    String
+  author      CommunityMember @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  comments    Comment[]
+  likes       PostLike[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([category])
+  @@index([createdAt])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    CommunityMember @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  content   String
+  parentId  String?  // for replies to a comment
+  createdAt DateTime @default(now())
+
+  @@index([postId])
+}
+
+model PostLike {
+  id     String @id @default(cuid())
+  postId String
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  memberId String
+  member CommunityMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([postId, memberId])
+}
+
+// ===== Q&A =====
+model Question {
+  id         String   @id @default(cuid())
+  title      String
+  content    String
+  subject    String   @default("عام")
+  status     String   @default("open") // open | answered | solved
+  authorId   String
+  author     CommunityMember @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  answers    Answer[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([status])
+  @@index([subject])
+}
+
+model Answer {
+  id          String   @id @default(cuid())
+  questionId  String
+  question    Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  authorId    String
+  author      CommunityMember @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  content     String
+  accepted    Boolean  @default(false)
+  likes       AnswerLike[]
+  createdAt   DateTime @default(now())
+
+  @@index([questionId])
+}
+
+model AnswerLike {
+  id       String @id @default(cuid())
+  answerId String
+  answer   Answer @relation(fields: [answerId], references: [id], onDelete: Cascade)
+  memberId String
+  member   CommunityMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([answerId, memberId])
+}
+
+// ===== Private messaging =====
+model Conversation {
+  id        String   @id @default(cuid())
+  memberAId String
+  memberA   CommunityMember @relation("convA", fields: [memberAId], references: [id], onDelete: Cascade)
+  memberBId String
+  memberB   CommunityMember @relation("convB", fields: [memberBId], references: [id], onDelete: Cascade)
+  messages  DirectMessage[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([memberAId, memberBId])
+}
+
+model DirectMessage {
+  id             String   @id @default(cuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderId       String
+  sender         CommunityMember @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  content        String
+  read           Boolean  @default(false)
+  createdAt      DateTime @default(now())
+
+  @@index([conversationId])
+}
+
+// ===== Study groups =====
+model Group {
+  id          String   @id @default(cuid())
+  name        String
+  description String   @default("")
+  category    String   @default("عام")
+  creatorId   String
+  createdAt   DateTime @default(now())
+  members     GroupMember[]
+  messages    GroupMessage[]
+
+  @@index([category])
+}
+
+model GroupMember {
+  id        String   @id @default(cuid())
+  groupId   String
+  group     Group    @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  memberId  String
+  member    CommunityMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  role      String   @default("member") // member | admin
+  joinedAt  DateTime @default(now())
+
+  @@unique([groupId, memberId])
+}
+
+model GroupMessage {
+  id        String   @id @default(cuid())
+  groupId   String
+  group     Group    @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  senderId  String
+  sender    CommunityMember @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  content   String
+  createdAt DateTime @default(now())
+
+  @@index([groupId])
+}
+
+// ===== Polls =====
+model Poll {
+  id        String   @id @default(cuid())
+  question  String
+  category  String   @default("عام")
+  creatorId String
+  creator   CommunityMember @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  options   PollOption[]
+  votes     PollVote[]
+  createdAt DateTime @default(now())
+  closesAt  DateTime?
+
+  @@index([category])
+}
+
+model PollOption {
+  id      String   @id @default(cuid())
+  pollId  String
+  poll    Poll     @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  text    String
+  votes   PollVote[]
+
+  @@index([pollId])
+}
+
+model PollVote {
+  id       String   @id @default(cuid())
+  pollId   String
+  poll     Poll     @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  optionId String
+  option   PollOption @relation(fields: [optionId], references: [id], onDelete: Cascade)
+  memberId String
+  member   CommunityMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([pollId, memberId])
+}
+
+// ===== Notifications =====
+model Notification {
+  id          String   @id @default(cuid())
+  ownerId     String
+  owner       CommunityMember @relation("notifOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  type        String   // answer | comment | message | group | mention | system
+  title       String
+  body        String
+  link        String   @default("")
+  triggerId   String?
+  trigger     CommunityMember? @relation("notifTrigger", fields: [triggerId], references: [id], onDelete: SetNull)
+  read        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@index([ownerId, read])
+}
+
+// ===== Moderation: reports =====
+model Report {
+  id        String   @id @default(cuid())
+  reporterId String
+  reporter  CommunityMember @relation(fields: [reporterId], references: [id], onDelete: Cascade)
+  targetType String  // post | comment | answer | message | member
+  targetId  String
+  reason    String
+  status    String   @default("open") // open | resolved | dismissed
+  createdAt DateTime @default(now())
+}
