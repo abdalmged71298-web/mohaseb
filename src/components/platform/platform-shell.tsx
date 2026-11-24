@@ -171,7 +171,13 @@ export function PlatformShell() {
 
       {/* Mobile nav drawer */}
       <Dialog open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
-        <DialogContent className="max-w-xs">
+        <DialogContent
+          className={
+            activeTab === 'library'
+              ? 'max-w-xs !left-auto !right-0 !translate-x-0'
+              : 'max-w-xs'
+          }
+        >
           <DialogHeader>
             <DialogTitle>أقسام المنصة</DialogTitle>
           </DialogHeader>
