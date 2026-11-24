@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Search, Moon, Sun, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,13 +10,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 import { usePlatformStore, type TabId } from '@/lib/store';
 import { useTheme } from 'next-themes';
 import { allSubjects, searchFiles, platformMeta } from '@/lib/platform-data';
@@ -68,6 +61,27 @@ export function PlatformShell() {
   const { theme, setTheme } = useTheme();
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const libraryNavRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!mobileNavOpen || activeTab !== 'library') return;
+
+    const closeOnOutsidePointer = (event: PointerEvent) => {
+      if (!libraryNavRef.current?.contains(event.target as Node)) {
+        setMobileNavOpen(false);
+      }
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileNavOpen(false);
+    };
+
+    document.addEventListener('pointerdown', closeOnOutsidePointer);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.removeEventListener('pointerdown', closeOnOutsidePointer);
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [activeTab, mobileNavOpen]);
 
   const renderTab = () => {
     switch (activeTab) {
@@ -145,45 +159,17 @@ export function PlatformShell() {
                 )}
               </Button>
               {activeTab === 'library' ? (
-                <DropdownMenu open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="text-primary-foreground hover:bg-white/15 md:hidden"
-                      aria-label="أقسام المكتبة"
-                    >
-                      <Menu className="size-5" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent
-                    side="bottom"
-                    sideOffset={4}
-                    collisionPadding={8}
-                    className="w-80 max-w-[calc(100vw-2rem)] max-h-[calc(100dvh-5rem)] !fixed !left-auto !right-2 !top-16 !translate-x-0 !translate-y-0 !transform-none"
-                  >
-                    <DropdownMenuLabel className="px-3 py-2 text-lg font-semibold">
-                      أقسام المنصة
-                    </DropdownMenuLabel>
-                    {TABS.map((t) => (
-                      <DropdownMenuItem
-                        key={t.id}
-                        onSelect={() => {
-                          setActiveTab(t.id);
-                          setMobileNavOpen(false);
-                        }}
-                        className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-right text-sm font-medium ${
-                          activeTab === t.id
-                            ? 'bg-primary text-primary-foreground focus:bg-primary focus:text-primary-foreground'
-                            : ''
-                        }`}
-                      >
-                        <TabIcon name={t.icon} />
-                        <span>{t.label}</span>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setMobileNavOpen((open) => !open)}
+                  className="text-primary-foreground hover:bg-white/15 md:hidden"
+                  aria-label="أقسام المكتبة"
+                  aria-expanded={mobileNavOpen}
+                  aria-controls="library-mobile-nav"
+                >
+                  <Menu className="size-5" />
+                </Button>
               ) : (
                 <Button
                   variant="ghost"
@@ -217,6 +203,35 @@ export function PlatformShell() {
           </nav>
         </div>
       </header>
+
+      {activeTab === 'library' && mobileNavOpen && (
+        <nav
+          id="library-mobile-nav"
+          ref={libraryNavRef}
+          aria-label="أقسام المنصة"
+          className="fixed right-2 top-16 z-[60] w-80 max-w-[calc(100vw-1rem)] max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain rounded-lg border bg-popover p-1 text-popover-foreground shadow-lg"
+        >
+          <div className="px-3 py-2 text-lg font-semibold">أقسام المنصة</div>
+          {TABS.map((t) => (
+            <button
+              key={t.id}
+              type="button"
+              onClick={() => {
+                setActiveTab(t.id);
+                setMobileNavOpen(false);
+              }}
+              className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-right text-sm font-medium ${
+                activeTab === t.id
+                  ? 'bg-primary text-primary-foreground'
+                  : 'hover:bg-muted'
+              }`}
+            >
+              <TabIcon name={t.icon} />
+              <span>{t.label}</span>
+            </button>
+          ))}
+        </nav>
+      )}
 
       {/* Mobile nav drawer */}
       <Dialog
