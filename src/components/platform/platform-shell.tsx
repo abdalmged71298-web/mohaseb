@@ -157,11 +157,10 @@ export function PlatformShell() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
-                    align="end"
                     side="bottom"
                     sideOffset={4}
                     collisionPadding={8}
-                    className="w-80 max-w-[calc(100vw-2rem)]"
+                    className="w-80 max-w-[calc(100vw-2rem)] max-h-[calc(100dvh-5rem)] !fixed !left-auto !right-2 !top-16 !translate-x-0 !translate-y-0 !transform-none"
                   >
                     <DropdownMenuLabel className="px-3 py-2 text-lg font-semibold">
                       أقسام المنصة
