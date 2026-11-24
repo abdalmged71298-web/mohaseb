@@ -20,6 +20,7 @@ import { FavoritesTab } from './tabs/favorites-tab';
 import { AnnouncementsTab } from './tabs/announcements-tab';
 import { ToolsTab } from './tabs/tools-tab';
 import { NotesTab } from './tabs/notes-tab';
+import { CommunityTab } from '@/components/community/community-tab';
 import { AssistantTab } from './tabs/assistant-tab';
 import { FeedbackTab } from './tabs/feedback-tab';
 import { AboutTab } from './tabs/about-tab';
@@ -34,6 +35,7 @@ const TABS: { id: TabId; label: string; icon: string }[] = [
   { id: 'announcements', label: 'الإعلانات', icon: 'megaphone' },
   { id: 'tools', label: 'التطبيقات والأدوات', icon: 'wrench' },
   { id: 'notes', label: 'ملاحظاتي', icon: 'note' },
+  { id: 'community', label: 'منتدى الطالب', icon: 'users' },
   { id: 'assistant', label: 'المساعد الذكي', icon: 'bot' },
   { id: 'feedback', label: 'شاركنا رأيك', icon: 'message' },
   { id: 'about', label: 'حول المنصة', icon: 'info' },
@@ -48,6 +50,7 @@ function TabIcon({ name }: { name: string }) {
     megaphone: '📢',
     wrench: '🛠️',
     note: '📝',
+    users: '👥',
     bot: '🤖',
     message: '💬',
     info: 'ℹ️',
@@ -99,6 +102,8 @@ export function PlatformShell() {
         return <ToolsTab />;
       case 'notes':
         return <NotesTab />;
+      case 'community':
+        return <CommunityTab />;
       case 'assistant':
         return <AssistantTab />;
       case 'feedback':
@@ -209,7 +214,7 @@ export function PlatformShell() {
           id="library-mobile-nav"
           ref={libraryNavRef}
           aria-label="أقسام المنصة"
-          className="fixed left-2 top-16 z-[60] w-80 max-w-[calc(100vw-1rem)] max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain rounded-lg border bg-popover p-1 text-popover-foreground shadow-lg"
+          className="fixed left-0 right-auto top-16 z-[60] w-80 max-w-[calc(100vw-1rem)] max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain rounded-lg border bg-popover p-1 text-popover-foreground shadow-lg"
         >
           <div className="px-3 py-2 text-lg font-semibold">أقسام المنصة</div>
           {TABS.map((t) => (
