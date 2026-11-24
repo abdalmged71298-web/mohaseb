@@ -171,14 +171,11 @@ export function PlatformShell() {
 
       {/* Mobile nav drawer */}
       <Dialog open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
-        <DialogContent className="w-[calc(100vw-1rem)] max-w-sm max-h-[85dvh] overflow-hidden p-4 sm:p-6">
+        <DialogContent className="max-w-xs">
           <DialogHeader>
             <DialogTitle>أقسام المنصة</DialogTitle>
           </DialogHeader>
-          <nav
-            aria-label="أقسام المنصة"
-            className="grid max-h-[calc(85dvh-6rem)] gap-1 overflow-y-auto overscroll-contain pr-1"
-          >
+          <div className="grid gap-1">
             {TABS.map((t) => (
               <button
                 key={t.id}
@@ -186,7 +183,7 @@ export function PlatformShell() {
                   setActiveTab(t.id);
                   setMobileNavOpen(false);
                 }}
-                className={`flex min-h-11 w-full items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-medium text-right transition-colors ${
+                className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-medium text-right transition-colors ${
                   activeTab === t.id
                     ? 'bg-primary text-primary-foreground'
                     : 'hover:bg-muted'
@@ -196,7 +193,7 @@ export function PlatformShell() {
                 <span>{t.label}</span>
               </button>
             ))}
-          </nav>
+          </div>
         </DialogContent>
       </Dialog>
 
