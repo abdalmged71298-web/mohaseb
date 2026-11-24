@@ -10,6 +10,13 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { usePlatformStore, type TabId } from '@/lib/store';
 import { useTheme } from 'next-themes';
 import { allSubjects, searchFiles, platformMeta } from '@/lib/platform-data';
@@ -137,15 +144,58 @@ export function PlatformShell() {
                   <Moon className="size-5" />
                 )}
               </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setMobileNavOpen(true)}
-                className="text-primary-foreground hover:bg-white/15 md:hidden"
-                aria-label="القائمة"
-              >
-                <Menu className="size-5" />
-              </Button>
+              {activeTab === 'library' ? (
+                <DropdownMenu open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="text-primary-foreground hover:bg-white/15 md:hidden"
+                      aria-label="أقسام المكتبة"
+                    >
+                      <Menu className="size-5" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent
+                    align="start"
+                    side="bottom"
+                    sideOffset={4}
+                    collisionPadding={8}
+                    className="w-80 max-w-[calc(100vw-2rem)]"
+                  >
+                    <DropdownMenuLabel className="px-3 py-2 text-lg font-semibold">
+                      أقسام المنصة
+                    </DropdownMenuLabel>
+                    {TABS.map((t) => (
+                      <DropdownMenuItem
+                        key={t.id}
+                        onSelect={() => {
+                          setActiveTab(t.id);
+                          setMobileNavOpen(false);
+                        }}
+                        className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-right text-sm font-medium ${
+                          activeTab === t.id
+                            ? 'bg-primary text-primary-foreground focus:bg-primary focus:text-primary-foreground'
+                            : ''
+                        }`}
+                      >
+                        <TabIcon name={t.icon} />
+                        <span>{t.label}</span>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setMobileNavOpen(true)}
+                  className="text-primary-foreground hover:bg-white/15 md:hidden"
+                  aria-label="القائمة"
+                >
+                  <Menu className="size-5" />
+                </Button>
+              )}
             </div>
           </div>
 
@@ -170,14 +220,11 @@ export function PlatformShell() {
       </header>
 
       {/* Mobile nav drawer */}
-      <Dialog open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
-        <DialogContent
-          className={
-            activeTab === 'library'
-              ? 'max-w-xs !left-auto !right-0 !translate-x-0'
-              : 'max-w-xs'
-          }
-        >
+      <Dialog
+        open={mobileNavOpen && activeTab !== 'library'}
+        onOpenChange={setMobileNavOpen}
+      >
+        <DialogContent className="max-w-xs">
           <DialogHeader>
             <DialogTitle>أقسام المنصة</DialogTitle>
           </DialogHeader>
