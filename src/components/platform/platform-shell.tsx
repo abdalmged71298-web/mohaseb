@@ -157,7 +157,7 @@ export function PlatformShell() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
-                    align="start"
+                    align="end"
                     side="bottom"
                     sideOffset={4}
                     collisionPadding={8}
