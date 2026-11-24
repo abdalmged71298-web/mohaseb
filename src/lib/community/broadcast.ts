@@ -13,11 +13,14 @@
 import { io as ioc, Socket } from 'socket.io-client';
 
 const WS_URL = process.env.WS_INTERNAL_URL || 'http://localhost:3003';
+// On Vercel serverless there is no internal WebSocket service — skip attempts.
+const DISABLED = process.env.VERCEL === '1' || process.env.DISABLE_REALTIME === '1';
 
 let serverSocket: Socket | null = null;
 let connecting = false;
 
 function getServerSocket(): Socket | null {
+  if (DISABLED) return null;
   if (serverSocket && serverSocket.connected) return serverSocket;
   if (connecting) return null;
   connecting = true;
@@ -26,9 +29,9 @@ function getServerSocket(): Socket | null {
       path: '/',
       transports: ['websocket'],
       reconnection: true,
-      reconnectionAttempts: Infinity,
+      reconnectionAttempts: 3,
       reconnectionDelay: 1000,
-      timeout: 3000,
+      timeout: 2000,
     });
     serverSocket.on('connect', () => { connecting = false; });
     serverSocket.on('connect_error', () => { connecting = false; });
@@ -38,10 +41,11 @@ function getServerSocket(): Socket | null {
   return serverSocket;
 }
 
-// Initialize the connection eagerly on first import (best-effort).
-getServerSocket();
+// Initialize the connection eagerly on first import (best-effort, local only).
+if (!DISABLED) getServerSocket();
 
 export async function broadcast(event: string, payload: any): Promise<void> {
+  if (DISABLED) return;
   const s = getServerSocket();
   if (!s) return;
   try {
@@ -55,11 +59,12 @@ export async function broadcast(event: string, payload: any): Promise<void> {
       });
     }
   } catch {
-    // ignore — clients will see updates on next refresh
+    // ignore — clients will see updates on next polling refresh
   }
 }
 
 export async function broadcastToMember(memberId: string, event: string, payload: any): Promise<void> {
+  if (DISABLED) return;
   const s = getServerSocket();
   if (!s) return;
   try {
