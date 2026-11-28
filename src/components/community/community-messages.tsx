@@ -5,7 +5,7 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Send, ArrowRight, Search, MessageSquare, UserPlus, Check, Ban, Clock, Mail } from 'lucide-react';
+import { Send, ArrowRight, Search, MessageSquare } from 'lucide-react';
 import { getSocket } from './use-member';
 import { toast } from 'sonner';
 
@@ -19,9 +19,6 @@ export function CommunityMessages({ memberId, memberName }: { memberId: string; 
   const [searching, setSearching] = useState(false);
   const [searchQ, setSearchQ] = useState('');
   const [searchResults, setSearchResults] = useState<any[]>([]);
-  const [profileMember, setProfileMember] = useState<any | null>(null);
-  const [friendStatus, setFriendStatus] = useState<any>(null);
-  const [pendingIn, setPendingIn] = useState<any[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
   const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -32,32 +29,7 @@ export function CommunityMessages({ memberId, memberName }: { memberId: string; 
     setLoading(false);
   }, []);
 
-  const loadPending = useCallback(async () => {
-    const r = await fetch('/api/community/friends', { credentials: 'include', cache: 'no-store' });
-    const d = await r.json();
-    setPendingIn(d.pendingIn || []);
-  }, []);
-
-  const loadFriendStatus = useCallback(async (toId: string) => {
-    const r = await fetch(`/api/community/friends/status?toId=${toId}`, { credentials: 'include', cache: 'no-store' });
-    const d = await r.json();
-    setFriendStatus(d);
-  }, []);
-
   useEffect(() => { loadConvs(); }, [loadConvs]);
-
-  // Load pending friend requests on mount + refresh periodically
-  useEffect(() => {
-    loadPending();
-    const t = setInterval(loadPending, 5000);
-    return () => clearInterval(t);
-  }, [loadPending]);
-
-  // When a member profile card is opened, fetch friendship status
-  useEffect(() => {
-    if (profileMember) loadFriendStatus(profileMember.id);
-    else setFriendStatus(null);
-  }, [profileMember, loadFriendStatus]);
 
   // WebSocket for real-time incoming messages
   useEffect(() => {
@@ -125,37 +97,25 @@ export function CommunityMessages({ memberId, memberName }: { memberId: string; 
   };
 
   const startConversation = async (toId: string) => {
-    // Open a member card showing friendship status + actions (instead of
-    // messaging directly — friendship is now a prerequisite for messaging).
+    // Find existing conversation or create by sending first message placeholder via GET then POST
+    // We'll just open: send a greeting message to create the conversation.
     setSearching(false);
     setSearchQ('');
-    const target = searchResults.find((m) => m.id === toId);
-    if (target) setProfileMember(target);
-    else {
-      // fallback: fetch minimal info
-      const r = await fetch(`/api/community/profile?id=${toId}`, { credentials: 'include' });
-      const d = await r.json();
-      if (d.profile) setProfileMember({ id: d.profile.id, displayName: d.profile.displayName, level: d.profile.level, avatarColor: d.profile.avatarColor });
-    }
-  };
-
-  // Friendship actions
-  const friendAction = async (action: string, toId: string) => {
-    const r = await fetch('/api/community/friends', {
+    // Check existing
+    const existing = convs.find((c) => c.other.id === toId);
+    if (existing) { setActive(existing.id); return; }
+    // Create by sending an intro message
+    const r = await fetch(`/api/community/messages?to=${toId}`, {
       method: 'POST', credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action, toId }),
+      body: JSON.stringify({ content: 'مرحباً، أردت التواصل معك عبر منتدى الطالب.' }),
     });
     const d = await r.json();
     if (r.ok) {
-      toast.success(action === 'request' ? 'أُرسل طلب الصداقة' : action === 'accept' ? 'تمت قبول الصداقة' : action === 'decline' ? 'تم الرفض' : action === 'block' ? 'تم الحظر' : action === 'unblock' ? 'تم إلغاء الحظر/الصداقة' : 'تم');
-      // Refresh status
-      if (profileMember) loadFriendStatus(profileMember.id);
-      loadPending();
       loadConvs();
-    } else {
-      toast.error(d.error || 'تعذر الإجراء');
-    }
+      setActive(d.conversationId);
+      toast.success('بدأت المحادثة');
+    } else { toast.error(d.error); }
   };
 
   const send = async () => {
@@ -183,64 +143,6 @@ export function CommunityMessages({ memberId, memberName }: { memberId: string; 
       toast.error('تعذر الإرسال');
     }
   };
-
-  if (profileMember && !active) {
-    const st = friendStatus?.status || 'none';
-    const dir = friendStatus?.direction;
-    return (
-      <div className="space-y-2">
-        <Button variant="ghost" size="sm" onClick={() => setProfileMember(null)}><ArrowRight className="size-4 rotate-180 ml-1" /> رجوع</Button>
-        <Card className="p-5 text-center">
-          <div className="w-16 h-16 rounded-full mx-auto flex items-center justify-center text-white text-xl font-bold mb-2" style={{ backgroundColor: profileMember.avatarColor }}>
-            {profileMember.displayName.charAt(0)}
-          </div>
-          <h3 className="font-bold">{profileMember.displayName}</h3>
-          <p className="text-xs text-muted-foreground">{profileMember.level}</p>
-
-          <div className="mt-4 flex flex-wrap gap-2 justify-center">
-            {st === 'none' && (
-              <>
-                <Button size="sm" onClick={() => friendAction('request', profileMember.id)}><UserPlus className="size-4 ml-1" /> طلب صداقة</Button>
-                <Button size="sm" variant="outline" onClick={() => friendAction('block', profileMember.id)} className="text-destructive"><Ban className="size-4 ml-1" /> حظر</Button>
-              </>
-            )}
-            {st === 'pending' && dir === 'out' && (
-              <>
-                <Badge variant="secondary"><Clock className="size-3 ml-1" /> طلب مرسَل — بانتظار القبول</Badge>
-                <Button size="sm" variant="outline" onClick={() => friendAction('cancel', profileMember.id)}>إلغاء الطلب</Button>
-              </>
-            )}
-            {st === 'pending' && dir === 'in' && (
-              <>
-                <Button size="sm" onClick={() => friendAction('accept', profileMember.id)}><Check className="size-4 ml-1" /> قبول الصداقة</Button>
-                <Button size="sm" variant="outline" onClick={() => friendAction('decline', profileMember.id)}>رفض</Button>
-              </>
-            )}
-            {st === 'accepted' && (
-              <>
-                <Badge className="bg-emerald-500 text-white"><Check className="size-3 ml-1" /> أصدقاء</Badge>
-                <Button size="sm" onClick={() => { const c = convs.find((x) => x.other.id === profileMember.id); if (c) setActive(c.id); else { /* create conv via first open */ } }}><Mail className="size-4 ml-1" /> فتح المحادثة</Button>
-                <Button size="sm" variant="outline" onClick={() => friendAction('unblock', profileMember.id)}>إلغاء الصداقة</Button>
-                <Button size="sm" variant="outline" onClick={() => friendAction('block', profileMember.id)} className="text-destructive"><Ban className="size-4 ml-1" /> حظر</Button>
-              </>
-            )}
-            {st === 'blocked_by_me' && (
-              <Button size="sm" variant="outline" onClick={() => friendAction('unblock', profileMember.id)}><Ban className="size-4 ml-1" /> إلغاء الحظر</Button>
-            )}
-            {st === 'blocked_me' && (
-              <Badge variant="destructive"><Ban className="size-3 ml-1" /> هذا المستخدم حظرك</Badge>
-            )}
-            {st === 'declined' && (
-              <Button size="sm" onClick={() => friendAction('request', profileMember.id)}><UserPlus className="size-4 ml-1" /> طلب صداقة مجدداً</Button>
-            )}
-          </div>
-          {st !== 'accepted' && (
-            <p className="text-[11px] text-muted-foreground mt-3">يمكنك مراسلة هذا الطالب بعد قبول الصداقة بينكما.</p>
-          )}
-        </Card>
-      </div>
-    );
-  }
 
   if (active) {
     return (
@@ -303,32 +205,12 @@ export function CommunityMessages({ memberId, memberName }: { memberId: string; 
         </Card>
       )}
 
-      {/* Pending friend requests (incoming) */}
-      {pendingIn.length > 0 && (
-        <Card className="p-3">
-          <p className="text-xs font-semibold text-muted-foreground mb-2 flex items-center gap-1"><UserPlus className="size-3.5" /> طلبات صداقة بانتظار الرد</p>
-          <div className="space-y-1">
-            {pendingIn.map((m: any) => (
-              <div key={m.id} className="flex items-center gap-2 p-2 rounded-lg bg-muted/40">
-                <div className="w-7 h-7 rounded-full" style={{ backgroundColor: m.avatarColor }} />
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium truncate">{m.displayName}</p>
-                  <p className="text-[11px] text-muted-foreground">{m.level}</p>
-                </div>
-                <Button size="sm" variant="ghost" className="h-7 text-xs" onClick={() => friendAction('decline', m.id)}>رفض</Button>
-                <Button size="sm" className="h-7 text-xs" onClick={() => friendAction('accept', m.id)}><Check className="size-3 ml-0.5" /> قبول</Button>
-              </div>
-            ))}
-          </div>
-        </Card>
-      )}
-
       {loading ? (
         <Card className="p-6 text-center text-sm text-muted-foreground">جارٍ التحميل...</Card>
       ) : convs.length === 0 ? (
         <Card className="p-6 text-center text-sm text-muted-foreground">
           <MessageSquare className="size-8 mx-auto mb-2 opacity-40" />
-          لا توجد محادثات بعد. ابحث عن طالب وأرسل طلب صداقة لبدء المراسلة.
+          لا توجد محادثات بعد. ابحث عن طالب وابدأ محادثة.
         </Card>
       ) : (
         <div className="space-y-2">

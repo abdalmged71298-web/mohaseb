@@ -7,7 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Award, Edit3, Save, MessageSquare, HelpCircle, CheckCircle2, Star, Trash2 } from 'lucide-react';
+import { Award, Edit3, Save, MessageSquare, HelpCircle, CheckCircle2, Star } from 'lucide-react';
 import { useMember } from './use-member';
 import { toast } from 'sonner';
 
@@ -44,17 +44,6 @@ export function CommunityProfile({ memberId }: { memberId: string }) {
       setEditing(false);
       load();
     } catch (e: any) { toast.error(e.message); } finally { setBusy(false); }
-  };
-
-  const deleteAccount = async () => {
-    if (!confirm('سيتم حذف حسابك وكل بياناتك نهائياً (المنشورات، التعليقات، الرسائل، الصداقات). لا يمكن التراجع. متابعة؟')) return;
-    try {
-      const r = await fetch('/api/community/member', { method: 'DELETE', credentials: 'include' });
-      if (r.ok) {
-        toast.success('حُذف الحساب');
-        setTimeout(() => window.location.reload(), 800);
-      } else { toast.error('تعذر الحذف'); }
-    } catch { toast.error('تعذر الحذف'); }
   };
 
   if (!profile) return <Card className="p-6 text-center text-sm text-muted-foreground">جارٍ التحميل...</Card>;
@@ -115,15 +104,6 @@ export function CommunityProfile({ memberId }: { memberId: string }) {
           <span className="text-xs text-muted-foreground">نقاط المساهمة</span>
           <Badge className="bg-primary text-primary-foreground">{profile.stats.score} نقطة</Badge>
         </div>
-      </Card>
-
-      {/* Delete account */}
-      <Card className="p-4 border-rose-500/30 bg-rose-500/5">
-        <p className="text-xs font-semibold text-rose-600 mb-1">إلغاء الحساب</p>
-        <p className="text-xs text-muted-foreground mb-3">حذف حسابك وكل بياناتك (المنشورات، التعليقات، الرسائل، الصداقات) نهائياً. لا يمكن التراجع.</p>
-        <Button variant="outline" size="sm" className="text-rose-600 border-rose-500/40 hover:bg-rose-500/10" onClick={deleteAccount}>
-          <Trash2 className="size-3.5 ml-1" /> إلغاء حسابي نهائياً
-        </Button>
       </Card>
     </div>
   );
