@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Search, Moon, Sun, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -64,6 +64,27 @@ export function PlatformShell() {
   const { theme, setTheme } = useTheme();
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const libraryNavRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!mobileNavOpen || activeTab !== 'library') return;
+
+    const closeOnOutsidePointer = (event: PointerEvent) => {
+      if (!libraryNavRef.current?.contains(event.target as Node)) {
+        setMobileNavOpen(false);
+      }
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileNavOpen(false);
+    };
+
+    document.addEventListener('pointerdown', closeOnOutsidePointer);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.removeEventListener('pointerdown', closeOnOutsidePointer);
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [activeTab, mobileNavOpen]);
 
   const renderTab = () => {
     switch (activeTab) {
@@ -142,15 +163,29 @@ export function PlatformShell() {
                   <Moon className="size-5" />
                 )}
               </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setMobileNavOpen(true)}
-                className="text-primary-foreground hover:bg-white/15 md:hidden"
-                aria-label="القائمة"
-              >
-                <Menu className="size-5" />
-              </Button>
+              {activeTab === 'library' ? (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setMobileNavOpen((open) => !open)}
+                  className="text-primary-foreground hover:bg-white/15 md:hidden"
+                  aria-label="أقسام المكتبة"
+                  aria-expanded={mobileNavOpen}
+                  aria-controls="library-mobile-nav"
+                >
+                  <Menu className="size-5" />
+                </Button>
+              ) : (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setMobileNavOpen(true)}
+                  className="text-primary-foreground hover:bg-white/15 md:hidden"
+                  aria-label="القائمة"
+                >
+                  <Menu className="size-5" />
+                </Button>
+              )}
             </div>
           </div>
 
@@ -174,8 +209,40 @@ export function PlatformShell() {
         </div>
       </header>
 
+      {activeTab === 'library' && mobileNavOpen && (
+        <nav
+          id="library-mobile-nav"
+          ref={libraryNavRef}
+          aria-label="أقسام المنصة"
+          className="fixed right-0 left-auto top-16 z-[60] w-80 max-w-[calc(100vw-1rem)] max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain rounded-lg border bg-popover p-1 text-popover-foreground shadow-lg"
+        >
+          <div className="px-3 py-2 text-lg font-semibold">أقسام المنصة</div>
+          {TABS.map((t) => (
+            <button
+              key={t.id}
+              type="button"
+              onClick={() => {
+                setActiveTab(t.id);
+                setMobileNavOpen(false);
+              }}
+              className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-right text-sm font-medium ${
+                activeTab === t.id
+                  ? 'bg-primary text-primary-foreground'
+                  : 'hover:bg-muted'
+              }`}
+            >
+              <TabIcon name={t.icon} />
+              <span>{t.label}</span>
+            </button>
+          ))}
+        </nav>
+      )}
+
       {/* Mobile nav drawer */}
-      <Dialog open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
+      <Dialog
+        open={mobileNavOpen && activeTab !== 'library'}
+        onOpenChange={setMobileNavOpen}
+      >
         <DialogContent className="max-w-xs">
           <DialogHeader>
             <DialogTitle>أقسام المنصة</DialogTitle>
