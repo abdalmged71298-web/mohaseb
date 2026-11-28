@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
-import { getCurrentMember, createMember, getMemberId, COOKIE_NAME } from '@/lib/community/identity';
+import { getCurrentMember, createMember, getMemberId } from '@/lib/community/identity';
 
 // GET /api/community/member — returns the current member, or { joined: false }
 export async function GET(req: NextRequest) {
@@ -60,19 +60,4 @@ export async function PATCH(req: NextRequest) {
 
   const member = await db.communityMember.update({ where: { id }, data });
   return NextResponse.json({ member });
-}
-
-// DELETE /api/community/member — cancel the account (deletes the member and all
-// their data: posts, comments, questions, answers, messages, friendships, etc.)
-// Clears the identity cookie.
-export async function DELETE() {
-  const id = await getMemberId();
-  if (!id) {
-    return NextResponse.json({ error: 'غير مشترك' }, { status: 401 });
-  }
-  // Cascading deletes (configured in the Prisma schema) remove all related rows.
-  await db.communityMember.delete({ where: { id } }).catch(() => {});
-  const store = await cookies();
-  store.delete(COOKIE_NAME);
-  return NextResponse.json({ ok: true });
 }

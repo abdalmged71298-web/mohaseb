@@ -49,22 +49,6 @@ export async function POST(req: NextRequest) {
   const target = await db.communityMember.findUnique({ where: { id: toId } });
   if (!target) return NextResponse.json({ error: 'العضو غير موجود' }, { status: 404 });
 
-  // Friendship enforcement: messaging requires an accepted friendship.
-  const [aId0, bId0] = [member.id, toId].sort();
-  const rel = await db.friendship.findUnique({
-    where: { requesterId_addresseeId: { requesterId: aId0, addresseeId: bId0 } },
-  });
-  // Also check if either side blocked the other.
-  const theyBlocked = await db.friendship.findUnique({
-    where: { requesterId_addresseeId: { requesterId: toId, addresseeId: member.id } },
-  });
-  if (theyBlocked?.status === 'blocked') {
-    return NextResponse.json({ error: 'لا يمكنك مراسلة هذا المستخدم' }, { status: 403 });
-  }
-  if (rel?.status !== 'accepted') {
-    return NextResponse.json({ error: 'يجب أن تكونا أصدقاء أولاً لتبادل الرسائل. أرسل طلب صداقة.' }, { status: 403 });
-  }
-
   const body = await req.json().catch(() => ({}));
   const content = (body?.content || '').toString().trim().slice(0, 3000);
   if (!content) return NextResponse.json({ error: 'الرسالة فارغة' }, { status: 400 });

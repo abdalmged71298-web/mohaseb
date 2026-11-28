@@ -12,7 +12,6 @@ import { cookies } from 'next/headers';
  */
 
 const COOKIE_NAME = 'community_member_id';
-export { COOKIE_NAME };
 
 /** Returns the current member id from the cookie, or null. */
 export async function getMemberId(): Promise<string | null> {
